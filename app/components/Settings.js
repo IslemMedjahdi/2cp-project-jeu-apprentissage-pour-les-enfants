@@ -1,9 +1,13 @@
 import { Center, Modal, Pressable } from "native-base";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../colors";
-import { toggleMusic, toggleSound } from "../redux/profilesSlice";
+import {
+  changeLanguage,
+  toggleMusic,
+  toggleSound,
+} from "../redux/profilesSlice";
 
 export default function Settings() {
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +23,7 @@ export default function Settings() {
               height: 40,
               width: 40,
             }}
-            source={require("../../assets/settings.png")}
+            source={require("../../assets/icons/settings.png")}
           />
         </View>
       </Pressable>
@@ -59,7 +63,7 @@ export default function Settings() {
               </Text>
               <Image
                 style={{ width: 40, height: 40 }}
-                source={require("../../assets/settings.png")}
+                source={require("../../assets/icons/settings.png")}
               />
             </View>
           </View>
@@ -71,7 +75,7 @@ export default function Settings() {
                 alignSelf: "flex-end",
                 marginRight: 10,
               }}
-              source={require("../../assets/Close.png")}
+              source={require("../../assets/icons/Close.png")}
             />
           </Pressable>
           <View
@@ -84,7 +88,7 @@ export default function Settings() {
           >
             <Image
               style={{ marginLeft: 12, minWidth: 40 }}
-              source={require("../../assets/loudspeaker.png")}
+              source={require("../../assets/icons/notes.png")}
             />
             <Text
               style={{
@@ -135,7 +139,7 @@ export default function Settings() {
           >
             <Image
               style={{ marginLeft: 12, minWidth: 40 }}
-              source={require("../../assets/loudspeaker.png")}
+              source={require("../../assets/icons/loudspeaker.png")}
             />
             <Text
               style={{
@@ -186,7 +190,7 @@ export default function Settings() {
           >
             <Image
               style={{ marginLeft: 12, minWidth: 40 }}
-              source={require("../../assets/Language.png")}
+              source={require("../../assets/icons/Language.png")}
             />
             <Text
               style={{
@@ -198,10 +202,22 @@ export default function Settings() {
                 textAlign: "center",
               }}
             >
-              Languages
+              {profiles[selectedProfile].language === 0
+                ? "langues"
+                : profiles[selectedProfile].language === 1
+                ? "languages"
+                : "لغات"}
             </Text>
-            <Pressable>
-              <Image source={require("../../assets/flag0.png")} />
+            <Pressable
+              onPress={() => dispatch(changeLanguage({ selectedProfile }))}
+            >
+              {profiles[selectedProfile].language === 0 ? (
+                <Image source={require("../../assets/flags/flag0.png")} />
+              ) : profiles[selectedProfile].language === 1 ? (
+                <Image source={require("../../assets/flags/flag1.png")} />
+              ) : (
+                <Image source={require("../../assets/flags/flag2.png")} />
+              )}
             </Pressable>
           </View>
           <View
@@ -222,7 +238,7 @@ export default function Settings() {
           >
             <Image
               style={{ marginLeft: 12, minWidth: 40 }}
-              source={require("../../assets/aide.png")}
+              source={require("../../assets/icons/aide.png")}
             />
             <Pressable>
               <Text

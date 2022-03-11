@@ -17,10 +17,11 @@ export default function Home({ navigation }) {
     try {
       await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
       const { sound } = await Audio.Sound.createAsync(
-        require("../../assets/music.mp3"),
+        require("../../assets/sounds/music.mp3"),
         { isLooping: true }
       );
       setSound(sound);
+      await sound.playAsync();
     } catch (e) {
       throw e;
     }
@@ -67,7 +68,7 @@ export default function Home({ navigation }) {
           }}
         >
           <View style={{ marginLeft: 30, position: "relative" }}>
-            <Image source={require("../../assets/speech.png")} />
+            <Image source={require("../../assets/images/bubble.png")} />
             <Text
               style={{
                 position: "absolute",
@@ -84,7 +85,7 @@ export default function Home({ navigation }) {
             </Text>
           </View>
           <View>
-            <Image source={require("../../assets/surprised.png")} />
+            <Image source={require("../../assets/images/kid.png")} />
           </View>
         </View>
       </View>

@@ -1,21 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-/*
-  @Todo Define all attributes of profile
-  sugg: 
-    name : string, birthday: Date ,  score : int , avatar : string , music : boolean , son : noolean ,
-    language : int [0,1,2] , badges : arr [ints] , levels   
-
-*/
-
 const initialState = {
   value: [
     {
-      name: "Islem",
-      birthday: { day: 5, month: 6, year: 2002 },
-      score: 120,
+      name: "Asmaa",
+      birthday: { day: 21, month: 1, year: 2015 },
+      score: 120000,
       avatar: 0,
-      music: false,
+      music: true,
       sound: true,
       language: 0,
       badges: [],
@@ -28,9 +20,6 @@ export const profilesSlice = createSlice({
   name: "profiles",
   initialState,
   reducers: {
-    addProfile: (state, action) => {
-      state.value = [...state.value, action.payload];
-    },
     toggleMusic: (state, action) => {
       state.value[action.payload.selectedProfile].music =
         !state.value[action.payload.selectedProfile].music;
@@ -39,8 +28,14 @@ export const profilesSlice = createSlice({
       state.value[action.payload.selectedProfile].sound =
         !state.value[action.payload.selectedProfile].sound;
     },
+    changeLanguage: (state, action) => {
+      if (state.value[action.payload.selectedProfile].language < 2)
+        state.value[action.payload.selectedProfile].language++;
+      else state.value[action.payload.selectedProfile].language = 0;
+    },
   },
 });
 
-export const { addProfile, toggleMusic, toggleSound } = profilesSlice.actions;
+export const { toggleMusic, toggleSound, changeLanguage } =
+  profilesSlice.actions;
 export default profilesSlice.reducer;

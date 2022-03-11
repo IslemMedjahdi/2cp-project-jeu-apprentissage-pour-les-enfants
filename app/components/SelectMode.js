@@ -5,13 +5,12 @@ export default function SelectMode() {
   return (
     <View
       style={{
-        flexDirection: "row",
         justifyContent: "space-evenly",
         alignItems: "center",
-        marginTop: 150,
+        marginTop: 50,
       }}
     >
-      <View>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
         <TouchableHighlight
           style={{
             backgroundColor: colors.YELLOW,
@@ -27,7 +26,7 @@ export default function SelectMode() {
               height: 150,
               transform: [{ scale: 1.3 }],
             }}
-            source={require("../../assets/acced_carte.png")}
+            source={require("../../assets/images/home1.png")}
           />
         </TouchableHighlight>
         <Text
@@ -37,12 +36,26 @@ export default function SelectMode() {
             fontWeight: "bold",
             color: colors.CYAN,
             maxWidth: 150,
+            paddingVertical: 10,
+            paddingHorizontal: 15,
+            borderColor: colors.YELLOW,
+            borderWidth: 3,
+            borderBottomRightRadius: 20,
+            borderTopRightRadius: 20,
+            transform: [{ translateX: -5 }],
+            zIndex: -1,
           }}
         >
           Acceder à la carte
         </Text>
       </View>
-      <View>
+      <View
+        style={{
+          flexDirection: "row-reverse",
+          alignItems: "center",
+          marginTop: 30,
+        }}
+      >
         <TouchableHighlight
           style={{
             backgroundColor: colors.YELLOW,
@@ -54,7 +67,7 @@ export default function SelectMode() {
         >
           <Image
             style={{ width: 150, height: 150, transform: [{ scale: 1.3 }] }}
-            source={require("../../assets/challenges.png")}
+            source={require("../../assets/images/home0.png")}
           />
         </TouchableHighlight>
         <Text
@@ -64,6 +77,14 @@ export default function SelectMode() {
             fontWeight: "bold",
             color: colors.CYAN,
             maxWidth: 150,
+            paddingVertical: 10,
+            paddingHorizontal: 15,
+            borderColor: colors.YELLOW,
+            borderWidth: 3,
+            borderBottomLeftRadius: 20,
+            borderTopLeftRadius: 20,
+            transform: [{ translateX: 5 }],
+            zIndex: -1,
           }}
         >
           Acceder aux challenges

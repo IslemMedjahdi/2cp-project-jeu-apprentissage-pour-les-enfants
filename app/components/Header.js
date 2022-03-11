@@ -2,12 +2,15 @@ import { Image, Text, View } from "react-native";
 import Profil from "./Profil";
 import Settings from "./Settings";
 import colors from "../colors";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const profiles = useSelector((state) => state.profiles.value);
+  const selectedProfile = useSelector((state) => state.selectedProfile.value);
   return (
     <View
       style={{
-        height: 150,
+        height: 180,
         width: "100%",
         backgroundColor: colors.YELLOW,
         borderBottomLeftRadius: 50,
@@ -39,9 +42,9 @@ export default function Header() {
               fontWeight: "bold",
             }}
           >
-            1053099
+            {profiles[selectedProfile].score}
           </Text>
-          <Image source={require("../../assets/gold.png")} />
+          <Image source={require("../../assets/icons/gold.png")} />
         </View>
         <Settings />
       </View>

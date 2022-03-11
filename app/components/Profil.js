@@ -26,7 +26,7 @@ export default function Profil() {
               height: 40,
               width: 40,
             }}
-            source={require("../../assets/avatars/girl.png")}
+            source={require(`../../assets/avatars/avatar0.png`)}
           />
         </View>
       </Pressable>
@@ -66,7 +66,7 @@ export default function Profil() {
               </Text>
               <Image
                 style={{ width: 40, height: 40 }}
-                source={require("../../assets/avatars/girl.png")}
+                source={require(`../../assets/avatars/avatar0.png`)}
               />
             </View>
           </View>
@@ -78,7 +78,7 @@ export default function Profil() {
                 alignSelf: "flex-end",
                 marginRight: 10,
               }}
-              source={require("../../assets/Close.png")}
+              source={require("../../assets/icons/Close.png")}
             />
           </Pressable>
           <View style={{ alignItems: "center" }}>
@@ -95,9 +95,8 @@ export default function Profil() {
               </Text>
               <Image
                 style={{ width: 18, height: 18 }}
-                source={require("../../assets/Close.png")}
+                source={require("../../assets/icons/Pencil.png")}
               />
-              {/*change it after*/}
             </View>
             <View
               style={{
@@ -122,9 +121,8 @@ export default function Profil() {
               </Text>
               <Image
                 style={{ width: 18, height: 18 }}
-                source={require("../../assets/Close.png")}
+                source={require("../../assets/icons/Calendar.png")}
               />
-              {/*change it after*/}
             </View>
             <View
               style={{

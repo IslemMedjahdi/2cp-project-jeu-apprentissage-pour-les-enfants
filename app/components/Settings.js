@@ -31,8 +31,8 @@ export default function Settings() {
         <View
           style={{
             backgroundColor: colors.YELLOW,
-            width: "80%",
-            height: "80%",
+            width: "85%",
+            height: "85%",
             borderRadius: 20,
           }}
         >
@@ -48,18 +48,31 @@ export default function Settings() {
                 padding: 8,
                 backgroundColor: colors.YELLOW,
                 transform: [{ translateY: -10 }],
+                backgroundColor: colors.BEIGE,
+                shadowColor: "#000",
+                shadowOffset: {
+                  width: 3,
+                  height: 10,
+                },
+                shadowOpacity: 0.9,
+                shadowRadius: 3,
+                elevation: 5,
               }}
             >
               <Text
                 style={{
-                  fontWeight: "bold",
+                  fontFamily: "RowdiesBold",
                   color: "white",
                   fontSize: 20,
                   textAlign: "center",
                   marginRight: 10,
                 }}
               >
-                Règlages
+                {profiles[selectedProfile].language === 0
+                  ? "Règlages"
+                  : profiles[selectedProfile].language === 1
+                  ? "Settings"
+                  : "إعدادات"}
               </Text>
               <Image
                 style={{ width: 40, height: 40 }}
@@ -67,13 +80,21 @@ export default function Settings() {
               />
             </View>
           </View>
-          <Pressable onPress={() => setShowModal(false)}>
+          <Pressable
+            style={{
+              marginTop: -50,
+              marginRight: 10,
+              borderRadius: 999,
+            }}
+            onPress={() => setShowModal(false)}
+          >
             <Image
               style={{
-                backgroundColor: "white",
-                borderRadius: 999999,
                 alignSelf: "flex-end",
-                marginRight: 10,
+                backgroundColor: "white",
+                width: 30,
+                borderRadius: 999,
+                height: 30,
               }}
               source={require("../../assets/icons/Close.png")}
             />
@@ -82,24 +103,29 @@ export default function Settings() {
             style={{
               flexDirection: "row",
               alignItems: "center",
-              justifyContent: "space-evenly",
-              marginTop: 20,
+              justifyContent: "space-between",
+              marginTop: 50,
             }}
           >
             <Image
-              style={{ marginLeft: 12, minWidth: 40 }}
+              style={{ marginLeft: 12, width: 40, height: 40 }}
+              resizeMode="contain"
               source={require("../../assets/icons/notes.png")}
             />
             <Text
               style={{
-                fontWeight: "bold",
+                fontFamily: "RowdiesBold",
                 color: "black",
                 fontSize: 17,
-                minWidth: 160,
+                width: 160,
                 textAlign: "center",
               }}
             >
-              Musique
+              {profiles[selectedProfile].language === 0
+                ? "Musique"
+                : profiles[selectedProfile].language === 1
+                ? "Music"
+                : "موسيقى"}
             </Text>
             <Pressable
               onPress={() => dispatch(toggleMusic({ selectedProfile }))}
@@ -109,14 +135,25 @@ export default function Settings() {
                   backgroundColor: profiles[selectedProfile].music
                     ? colors.GREEN
                     : colors.RED,
-                  padding: 7,
+                  paddingHorizontal: 5,
+                  paddingVertical: 3,
                   color: "white",
-                  fontWeight: "bold",
+                  fontFamily: "RowdiesBold",
                   borderRadius: 10,
                   marginRight: 12,
                 }}
               >
-                {profiles[selectedProfile].music ? "ON" : "OFF"}
+                {profiles[selectedProfile].music
+                  ? profiles[selectedProfile].language === 0
+                    ? "ON"
+                    : profiles[selectedProfile].language === 1
+                    ? "ON"
+                    : "مفعل"
+                  : profiles[selectedProfile].language === 0
+                  ? "OFF"
+                  : profiles[selectedProfile].language === 1
+                  ? "OFF"
+                  : "غير مفعل"}
               </Text>
             </Pressable>
           </View>
@@ -134,23 +171,28 @@ export default function Settings() {
             style={{
               flexDirection: "row",
               alignItems: "center",
-              justifyContent: "space-evenly",
+              justifyContent: "space-between",
             }}
           >
             <Image
-              style={{ marginLeft: 12, minWidth: 40 }}
+              resizeMode="contain"
+              style={{ marginLeft: 12, width: 40, height: 40 }}
               source={require("../../assets/icons/loudspeaker.png")}
             />
             <Text
               style={{
-                fontWeight: "bold",
+                fontFamily: "RowdiesBold",
                 color: "black",
                 fontSize: 17,
-                minWidth: 160,
+                width: 160,
                 textAlign: "center",
               }}
             >
-              Son
+              {profiles[selectedProfile].language === 0
+                ? "Son"
+                : profiles[selectedProfile].language === 1
+                ? "Sound"
+                : "صوت"}
             </Text>
             <Pressable
               onPress={() => dispatch(toggleSound({ selectedProfile }))}
@@ -160,14 +202,25 @@ export default function Settings() {
                   backgroundColor: profiles[selectedProfile].sound
                     ? colors.GREEN
                     : colors.RED,
-                  padding: 7,
+                  paddingHorizontal: 5,
+                  paddingVertical: 3,
                   color: "white",
-                  fontWeight: "bold",
+                  fontFamily: "RowdiesBold",
                   borderRadius: 10,
                   marginRight: 12,
                 }}
               >
-                {profiles[selectedProfile].sound ? "ON" : "OFF"}
+                {profiles[selectedProfile].sound
+                  ? profiles[selectedProfile].language === 0
+                    ? "ON"
+                    : profiles[selectedProfile].language === 1
+                    ? "ON"
+                    : "مفعل"
+                  : profiles[selectedProfile].language === 0
+                  ? "OFF"
+                  : profiles[selectedProfile].language === 1
+                  ? "OFF"
+                  : "غير مفعل"}
               </Text>
             </Pressable>
           </View>
@@ -185,20 +238,21 @@ export default function Settings() {
             style={{
               flexDirection: "row",
               alignItems: "center",
-              justifyContent: "space-evenly",
+              justifyContent: "space-between",
             }}
           >
             <Image
-              style={{ marginLeft: 12, minWidth: 40 }}
+              style={{ width: 40, height: 40, marginLeft: 16 }}
+              resizeMode="contain"
               source={require("../../assets/icons/Language.png")}
             />
             <Text
               style={{
-                fontWeight: "bold",
+                fontFamily: "RowdiesBold",
                 color: "black",
                 fontSize: 17,
 
-                minWidth: 160,
+                width: 160,
                 textAlign: "center",
               }}
             >
@@ -209,14 +263,30 @@ export default function Settings() {
                 : "لغات"}
             </Text>
             <Pressable
+              style={{ marginRight: 20 }}
               onPress={() => dispatch(changeLanguage({ selectedProfile }))}
             >
               {profiles[selectedProfile].language === 0 ? (
-                <Image source={require("../../assets/flags/flag0.png")} />
+                <Image
+                  resizeMode="contain"
+                  style={{
+                    width: 40,
+                    height: 40,
+                  }}
+                  source={require("../../assets/flags/flag0.png")}
+                />
               ) : profiles[selectedProfile].language === 1 ? (
-                <Image source={require("../../assets/flags/flag1.png")} />
+                <Image
+                  resizeMode="contain"
+                  style={{ width: 40, height: 40 }}
+                  source={require("../../assets/flags/flag1.png")}
+                />
               ) : (
-                <Image source={require("../../assets/flags/flag2.png")} />
+                <Image
+                  resizeMode="contain"
+                  style={{ width: 40, height: 40 }}
+                  source={require("../../assets/flags/flag2.png")}
+                />
               )}
             </Pressable>
           </View>
@@ -237,20 +307,25 @@ export default function Settings() {
             }}
           >
             <Image
-              style={{ marginLeft: 12, minWidth: 40 }}
+              style={{ marginLeft: 28, width: 40, height: 40 }}
+              resizeMode="contain"
               source={require("../../assets/icons/aide.png")}
             />
             <Pressable>
               <Text
                 style={{
-                  fontWeight: "bold",
+                  fontFamily: "RowdiesBold",
                   color: "black",
                   fontSize: 17,
-                  minWidth: 160,
+                  width: 160,
                   textAlign: "center",
                 }}
               >
-                Aide
+                {profiles[selectedProfile].language === 0
+                  ? "Aide"
+                  : profiles[selectedProfile].language === 1
+                  ? "Help"
+                  : "مساعدة"}
               </Text>
             </Pressable>
           </View>

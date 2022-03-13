@@ -4,13 +4,114 @@ const initialState = {
   value: [
     {
       name: "Asmaa",
-      birthday: { day: 21, month: 1, year: 2015 },
+      birthday: { month: 1, year: 2015 },
       score: 120000,
-      avatar: 0,
-      music: true,
+      avatar: 1,
+      music: false,
       sound: true,
-      language: 0,
-      badges: [],
+      language: 1,
+      badges: [
+        {
+          image: require("../../assets/badges/badge0.png"),
+          text: "Master",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge2.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+      ],
+      levels: [],
+    },
+    {
+      name: "Badro",
+      birthday: { day: 21, month: 1, year: 2005 },
+      score: 500,
+      avatar: 2,
+      music: false,
+      sound: true,
+      language: 1,
+      badges: [
+        {
+          image: require("../../assets/badges/badge0.png"),
+          text: "Master",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge2.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+      ],
+      levels: [],
+    },
+    {
+      name: "Marwa",
+      birthday: { day: 17, month: 7, year: 2008 },
+      score: 500,
+      avatar: 2,
+      music: false,
+      sound: true,
+      language: 1,
+      badges: [
+        {
+          image: require("../../assets/badges/badge0.png"),
+          text: "Master",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "3CEM",
+        },
+        {
+          image: require("../../assets/badges/badge2.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+      ],
+      levels: [],
+    },
+    {
+      name: "Rabah",
+      birthday: { day: 3, month: 9, year: 1969 },
+      score: 500,
+      avatar: 2,
+      music: false,
+      sound: true,
+      language: 1,
+      badges: [
+        {
+          image: require("../../assets/badges/badge0.png"),
+          text: "Master",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge2.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+      ],
       levels: [],
     },
   ],

@@ -7,8 +7,12 @@ const initialState = {
 export const selectedProfile = createSlice({
   name: "selectedProfile",
   initialState,
-  reducers: {},
+  reducers: {
+    setSelectedProfile: (state, action) => {
+      state.value = action.payload.index;
+    },
+  },
 });
 
-export const {} = selectedProfile.actions;
+export const { setSelectedProfile } = selectedProfile.actions;
 export default selectedProfile.reducer;

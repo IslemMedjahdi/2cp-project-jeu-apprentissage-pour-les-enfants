@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import colors from "../colors";
 
 export default function Home({ navigation }) {
+  const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const music = useSelector(
     (state) => state.profiles.value[selectedProfile].music
@@ -21,7 +22,7 @@ export default function Home({ navigation }) {
         { isLooping: true }
       );
       setSound(sound);
-      await sound.playAsync();
+      if (music) await sound.playAsync();
     } catch (e) {
       throw e;
     }
@@ -57,7 +58,7 @@ export default function Home({ navigation }) {
   return (
     <NativeBaseProvider>
       <StatusBar translucent={true} backgroundColor={colors.YELLOW} />
-      <View>
+      <View style={{ backgroundColor: "white", minHeight: "100%" }}>
         <Header />
         <SelectMode />
         <View
@@ -68,24 +69,41 @@ export default function Home({ navigation }) {
           }}
         >
           <View style={{ marginLeft: 30, position: "relative" }}>
-            <Image source={require("../../assets/images/bubble.png")} />
+            <Image
+              style={{
+                width: 170,
+                height: 170,
+                marginLeft: 20,
+                transform: [{ rotate: "180deg" }],
+              }}
+              resizeMode="contain"
+              source={require("../../assets/images/bubble.png")}
+            />
             <Text
               style={{
                 position: "absolute",
                 fontSize: 20,
-                fontWeight: "bold",
+                fontFamily: "RowdiesBold",
                 color: "white",
                 textAlign: "center",
-                top: 50,
+                top: 60,
                 width: 100,
-                left: 30,
+                left: 40,
               }}
             >
-              choisis un mode
+              {profiles[selectedProfile].language === 0
+                ? "choisis un mode"
+                : profiles[selectedProfile].language === 1
+                ? "choose a mode"
+                : "اختر وضع اللعب"}
             </Text>
           </View>
           <View>
-            <Image source={require("../../assets/images/kid.png")} />
+            <Image
+              style={{ width: 200, height: 200 }}
+              resizeMode="contain"
+              source={require("../../assets/images/kid.png")}
+            />
           </View>
         </View>
       </View>

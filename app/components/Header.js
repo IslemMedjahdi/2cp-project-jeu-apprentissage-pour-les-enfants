@@ -17,6 +17,14 @@ export default function Header() {
         borderBottomRightRadius: 50,
         justifyContent: "flex-end",
         paddingVertical: 30,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 8,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 4,
+        elevation: 8,
       }}
     >
       <View
@@ -34,17 +42,29 @@ export default function Header() {
             paddingHorizontal: 20,
             paddingVertical: 9,
             borderRadius: 12,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.9,
+            shadowRadius: 3.84,
+            alignItems: "center",
           }}
         >
           <Text
             style={{
               marginRight: 10,
-              fontWeight: "bold",
+              fontFamily: "RowdiesBold",
             }}
           >
             {profiles[selectedProfile].score}
           </Text>
-          <Image source={require("../../assets/icons/gold.png")} />
+          <Image
+            style={{ width: 20, height: 20 }}
+            resizeMode="stretch"
+            source={require("../../assets/icons/gold.png")}
+          />
         </View>
         <Settings />
       </View>

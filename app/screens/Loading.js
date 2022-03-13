@@ -1,7 +1,21 @@
 import { useEffect, useState } from "react";
 import { Text, View, Pressable } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+
+//font
+import * as Font from "expo-font";
+import AppLoading from "expo-app-loading";
+
+const fetchFont = () => {
+  return Font.loadAsync({
+    RowdiesBold: require("../../assets/fonts/Rowdies-Bold.ttf"),
+    Rowdies: require("../../assets/fonts/Rowdies-Regular.ttf"),
+    RowdiesLight: require("../../assets/fonts/Rowdies-Light.ttf"),
+  });
+};
+
 export default function Loading({ navigation }) {
+  const [fontLoaded, setfontLoaded] = useState(false);
   const profiles = useSelector((state) => state.profiles.value);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -13,10 +27,18 @@ export default function Loading({ navigation }) {
       */
     }, 3000);
   }, []);
-  const [bg, setBg] = useState("red");
   const pressHandler = () => {
-    navigation.navigate("Home");
+    navigation.replace("SelectProfile");
   };
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFont}
+        onError={() => console.log("ERROR")}
+        onFinish={() => setfontLoaded(true)}
+      />
+    );
+  }
   return (
     <View
       style={{
@@ -28,9 +50,9 @@ export default function Loading({ navigation }) {
     >
       <Text
         style={{
-          fontWeight: "bold",
           fontSize: 20,
           textDecorationLine: "underline",
+          fontFamily: "Rowdies",
         }}
       >
         Loading page
@@ -43,10 +65,10 @@ export default function Loading({ navigation }) {
             padding: 10,
             borderRadius: 10,
             color: "white",
-            fontWeight: "bold",
+            fontFamily: "RowdiesBold",
           }}
         >
-          go to home
+          go to selectProfile
         </Text>
       </Pressable>
     </View>

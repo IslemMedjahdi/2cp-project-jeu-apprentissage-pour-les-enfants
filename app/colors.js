@@ -3,4 +3,6 @@ export default colors = {
   CYAN: "#00D6E4",
   GREEN: "#12E500",
   RED: "#EB2B2B",
+  PINK: "#F06E80",
+  BEIGE: "#FEDD9C",
 };

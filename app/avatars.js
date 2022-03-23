@@ -1,4 +1,4 @@
-export default avatars = [
+const avatars = [
   require("../assets/avatars/avatar0.png"),
   require("../assets/avatars/avatar1.png"),
   require("../assets/avatars/avatar2.png"),
@@ -9,3 +9,4 @@ export default avatars = [
   require("../assets/avatars/avatar7.png"),
   require("../assets/avatars/avatar8.png"),
 ];
+export default avatars;

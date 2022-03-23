@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { Text, View, Pressable } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { Text, View, Pressable, Image, TextInput } from "react-native";
 
 //font
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
-
 const fetchFont = () => {
   return Font.loadAsync({
     RowdiesBold: require("../../assets/fonts/Rowdies-Bold.ttf"),
@@ -16,8 +14,6 @@ const fetchFont = () => {
 
 export default function Loading({ navigation }) {
   const [fontLoaded, setfontLoaded] = useState(false);
-  const profiles = useSelector((state) => state.profiles.value);
-  const dispatch = useDispatch();
   useEffect(() => {
     setTimeout(() => {
       /* 
@@ -30,6 +26,8 @@ export default function Loading({ navigation }) {
   const pressHandler = () => {
     navigation.replace("SelectProfile");
   };
+  const [text, setText] = useState("nothing");
+  const [value, setValue] = useState("");
   if (!fontLoaded) {
     return (
       <AppLoading
@@ -44,33 +42,112 @@ export default function Loading({ navigation }) {
       style={{
         backgroundColor: "yellow",
         height: "100%",
-        justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <Text
+      <View style={{ marginTop: 40, alignItems: "center" }}>
+        <Pressable onPress={() => setText("nothing")}>
+          {({ pressed }) => (
+            <Image
+              source={require("../../assets/avatars/avatar0.png")}
+              style={{
+                width: 100,
+                height: 100,
+                transform: [
+                  {
+                    scale: pressed ? 0.9 : 1,
+                  },
+                ],
+              }}
+              resizeMode="contain"
+            />
+          )}
+        </Pressable>
+        <Text style={{ fontFamily: "RowdiesBold", fontSize: 30 }}>Logo.</Text>
+      </View>
+      <View style={{ marginTop: 20 }}>
+        <Text style={{ fontFamily: "RowdiesBold", fontSize: 20 }}>
+          You clicked {text}
+        </Text>
+      </View>
+      <View
         style={{
-          fontSize: 20,
-          textDecorationLine: "underline",
-          fontFamily: "Rowdies",
+          marginTop: 30,
+          flexWrap: "wrap",
+          flexDirection: "row",
+          justifyContent: "center",
+          padding: 10,
         }}
       >
-        Loading page
-      </Text>
-      <Pressable onPress={pressHandler}>
-        <Text
+        <Pressable
           style={{
-            marginTop: 20,
-            backgroundColor: "red",
+            padding: 10,
+            backgroundColor: "pink",
+            borderRadius: 10,
+            margin: 5,
+          }}
+          android_ripple={{ color: "pink" }}
+          onPress={() => navigation.replace("SelectProfile")}
+        >
+          <Text style={{ color: "white" }}>Islem Medjahdi</Text>
+        </Pressable>
+        <Pressable
+          style={{
+            padding: 10,
+            backgroundColor: "pink",
+            borderRadius: 10,
+            margin: 5,
+          }}
+          android_ripple={{ color: "pink" }}
+          onPress={() => setText("Ines Boumaazouza")}
+        >
+          <Text style={{ color: "white" }}>Ines Boumaazouza</Text>
+        </Pressable>
+        <Pressable
+          style={{
+            padding: 10,
+            backgroundColor: "pink",
+            borderRadius: 10,
+            margin: 5,
+          }}
+          android_ripple={{ color: "pink" }}
+          onPress={() => setText("Ismail Abderazak")}
+        >
+          <Text style={{ color: "white" }}>Ismail Abderazak</Text>
+        </Pressable>
+        <Pressable
+          style={{
+            padding: 10,
+            backgroundColor: "pink",
+            borderRadius: 10,
+            margin: 5,
+          }}
+          android_ripple={{ color: "pink" }}
+          onPress={() => setText("Habouche Abdou")}
+        >
+          <Text style={{ color: "white" }}>Habouche Abdou</Text>
+        </Pressable>
+      </View>
+      <View>
+        <TextInput
+          placeholder="Enter a name"
+          style={{
+            backgroundColor: "white",
+            height: 40,
+            width: 200,
+            margin: 12,
             padding: 10,
             borderRadius: 10,
-            color: "white",
-            fontFamily: "RowdiesBold",
           }}
-        >
-          go to selectProfile
+          value={value}
+          onChangeText={setValue}
+        />
+      </View>
+      <View>
+        <Text style={{ fontFamily: "RowdiesBold", fontSize: 20 }}>
+          {value.length > 3 ? value : "your text is short"}
         </Text>
-      </Pressable>
+      </View>
     </View>
   );
 }

@@ -1,202 +1,237 @@
-import { FlatList, Image, Pressable, Text, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import colors from "../colors";
-import { setSelectedProfile } from "../redux/selectedProfileSlice";
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  Pressable,
+  StatusBar,
+  Text,
+  View,
+} from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { useSelector } from "react-redux";
 import avatars from "../avatars";
+import colors from "../colors";
 export default function SelectProfile({ navigation }) {
   const profiles = useSelector((state) => state.profiles.value);
-  const dispatch = useDispatch();
-  const pressHandler = (index) => {
-    dispatch(setSelectedProfile({ index }));
-    navigation.replace("Home");
-  };
   return (
-    <View
-      style={{
-        alignItems: "center",
-        backgroundColor: "white",
-        minHeight: "100%",
-      }}
-    >
-      <Image
-        resizeMode="stretch"
-        style={{ width: 200, height: 200, marginTop: 20 }}
-        source={require("../../assets/images/kid.png")}
+    <SafeAreaProvider>
+      <StatusBar
+        backgroundColor={"#FFF"}
+        translucent={true}
+        barStyle={"light-content"}
       />
-      <Text
-        style={{
-          fontFamily: "RowdiesBold",
-          fontSize: 30,
-          width: "50%",
-          textAlign: "center",
-        }}
-      >
-        Choisir votre profil
-      </Text>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          borderColor: colors.YELLOW,
-          borderWidth: 2,
-          padding: 14,
-          width: "90%",
-          borderRadius: 20,
-          marginTop: 20,
-        }}
-      >
-        <FlatList
-          snapToAlignment="center"
-          snapToInterval={200}
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={(_, index) => index.toString()}
-          data={profiles}
-          horizontal
-          renderItem={({ item, index }) => (
-            <View style={{ alignItems: "center" }}>
-              <View
-                style={{
-                  backgroundColor: colors.YELLOW,
-                  borderRadius: 999,
-                  transform: [{ translateX: -7 }, { translateY: 15 }],
-                  zIndex: 10,
-                  padding: 2,
-                }}
-              >
-                <Image
-                  source={avatars[item.avatar]}
-                  resizeMode="stretch"
-                  style={{
-                    width: 70,
-                    height: 70,
-                    transform: [{ scale: 1.2 }, { translateY: -10 }],
-                  }}
-                />
-              </View>
-              <View
-                style={{
-                  backgroundColor: colors.BEIGE,
-                  borderColor: colors.YELLOW,
-                  borderWidth: 2,
-                  borderRadius: 20,
-                  marginRight: 20,
-                  width: 200,
-                  alignItems: "center",
-                }}
-              >
-                <View style={{ alignItems: "center" }}>
-                  <Text
-                    style={{
-                      fontFamily: "RowdiesBold",
-                      marginTop: 17,
-                      fontSize: 18,
-                    }}
-                  >
-                    {item.name}
-                  </Text>
-                  <View
-                    style={{
-                      height: 2,
-                      borderRadius: 10,
-                      marginTop: 6,
-                      width: 100,
-                      backgroundColor: colors.YELLOW,
-                    }}
-                  />
-                  <Text
-                    style={{
-                      fontFamily: "RowdiesBold",
-                      marginTop: 17,
-                      fontSize: 18,
-                    }}
-                  >
-                    {2022 - item.birthday.year} ans
-                  </Text>
-                  <View
-                    style={{
-                      height: 2,
-                      borderRadius: 10,
-                      marginTop: 6,
-                      width: 100,
-                      backgroundColor: colors.YELLOW,
-                    }}
-                  />
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      marginTop: 17,
-                      backgroundColor: "white",
-                      paddingHorizontal: 10,
-                      paddingVertical: 4,
-                      borderRadius: 10,
-                      shadowOffset: {
-                        width: 2,
-                        height: 2,
-                      },
-                      shadowOpacity: 0.8,
-                      shadowRadius: 4,
-                      elevation: 3,
-                      alignItems: "center",
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontFamily: "Rowdies",
-                        fontSize: 15,
-                        marginRight: 7,
-                      }}
-                    >
-                      {item.score}
-                    </Text>
-                    <Image
-                      style={{ width: 20, height: 20 }}
-                      resizeMode="stretch"
-                      source={require("../../assets/icons/gold.png")}
-                    />
-                  </View>
-                </View>
-                <Pressable onPress={() => pressHandler(index)}>
-                  {({ pressed }) => (
-                    <Text
-                      style={{
-                        fontFamily: "RowdiesBold",
-                        fontSize: 18,
-                        color: "white",
-                        backgroundColor: pressed
-                          ? "transparent"
-                          : colors.YELLOW,
-                        paddingHorizontal: 20,
-                        paddingVertical: 5,
-                        borderTopRightRadius: 10,
-                        borderTopLeftRadius: 10,
-                        marginTop: 17,
-                      }}
-                    >
-                      Choisir
-                    </Text>
-                  )}
-                </Pressable>
-              </View>
-            </View>
-          )}
-        />
-      </View>
-      <Pressable onPress={() => navigation.push("AddProfile")}>
-        <Text
+      <SafeAreaView>
+        <View
           style={{
-            paddingHorizontal: 20,
-            paddingVertical: 10,
-            borderColor: colors.YELLOW,
-            borderWidth: 2,
-            borderRadius: 20,
-            fontFamily: "RowdiesBold",
-            fontSize: 20,
-            marginTop: 35,
+            backgroundColor: "white",
+            height: "100%",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          Ajouter un profil
-        </Text>
-      </Pressable>
-    </View>
+          <Image
+            source={require("../../assets/icons/strawberry.png")}
+            style={{
+              position: "absolute",
+              width: 50,
+              height: 50,
+              top: Dimensions.get("window").height / 3,
+              right: 25,
+            }}
+            resizeMode="contain"
+          />
+          <Image
+            source={require("../../assets/icons/fond1.png")}
+            style={{
+              position: "absolute",
+              width: 40,
+              height: 40,
+              top: "40%",
+              left: 25,
+            }}
+            resizeMode="contain"
+          />
+          <Image
+            source={require("../../assets/icons/cup.png")}
+            style={{
+              position: "absolute",
+              width: 70,
+              height: 70,
+              top: "90%",
+              left: 25,
+            }}
+            resizeMode="contain"
+          />
+
+          <View style={{ height: 200, marginBottom: "5%" }}>
+            <Image
+              source={require("../../assets/hero/hero0.png")}
+              resizeMode={"contain"}
+            />
+          </View>
+          <Text
+            style={{
+              fontFamily: "RowdiesBold",
+              fontSize: 30,
+              textAlign: "center",
+            }}
+          >
+            Choisir votre profil
+          </Text>
+          <View
+            style={{
+              borderColor: colors.SECOND,
+              borderWidth: 4,
+              borderRadius: 50,
+              width: "80%",
+              height: "40%",
+              paddingHorizontal: 20,
+              overflow: "hidden",
+            }}
+          >
+            <FlatList
+              keyExtractor={(_) => _.id}
+              showsVerticalScrollIndicator={false}
+              data={profiles}
+              renderItem={({ item, index }) => (
+                <View
+                  style={{
+                    backgroundColor:
+                      index % 3 === 0
+                        ? colors.COLOR1 + "80"
+                        : index % 3 === 1
+                        ? colors.COLOR2 + "80"
+                        : colors.COLOR3 + "70",
+                    borderRadius: 20,
+                    marginVertical: 12,
+                    borderWidth: 2,
+                    borderColor:
+                      index % 3 === 0
+                        ? colors.COLOR1
+                        : index % 3 === 1
+                        ? colors.COLOR2
+                        : colors.COLOR3,
+                    overflow: "hidden",
+                  }}
+                >
+                  <Pressable
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      padding: 5,
+                      alignItems: "center",
+                    }}
+                    android_ripple={{
+                      color:
+                        index % 3 === 0
+                          ? colors.COLOR1
+                          : index % 3 === 1
+                          ? colors.COLOR2
+                          : colors.COLOR3,
+                    }}
+                  >
+                    <View>
+                      <Image
+                        source={avatars[item.avatar]}
+                        style={{ width: 80, height: 80 }}
+                        resizeMode="contain"
+                      />
+                    </View>
+                    <View style={{ alignItems: "center" }}>
+                      <Text
+                        style={{
+                          fontFamily: "RowdiesBold",
+                          color: "white",
+                          fontSize: 18,
+                        }}
+                      >
+                        {item.name}
+                      </Text>
+                      <Text
+                        style={{
+                          fontFamily: "RowdiesBold",
+                          color: "white",
+                          fontSize: 18,
+                        }}
+                      >
+                        Niveau {item.level}
+                      </Text>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          backgroundColor: "white",
+                          borderRadius: 10,
+                          paddingHorizontal: 8,
+                        }}
+                      >
+                        <Text
+                          style={{
+                            marginHorizontal: 10,
+                            fontFamily: "RowdiesBold",
+                          }}
+                        >
+                          {item.score}
+                        </Text>
+                        <Image
+                          style={{ height: 20, width: 20 }}
+                          resizeMode="contain"
+                          source={require("../../assets/icons/gold.png")}
+                        />
+                      </View>
+                    </View>
+                    <View
+                      style={{
+                        overflow: "hidden",
+                        backgroundColor: "white",
+                        borderRadius: 999,
+                        borderColor:
+                          index % 3 === 0
+                            ? colors.COLOR1
+                            : index % 3 === 1
+                            ? colors.COLOR2
+                            : colors.COLOR3,
+                        borderWidth: 1,
+                      }}
+                    >
+                      {/*<Pressable
+                        android_ripple={{
+                          color: "#FFFFF11",
+                        }}
+                        style={{
+                          padding: 10,
+                        }}
+                      >
+                        <Image
+                          source={require("../../assets/icons/arrow.png")}
+                          style={{ width: 10, height: 10 }}
+                          resizeMode="contain"
+                        />
+                      </Pressable>*/}
+                    </View>
+                  </Pressable>
+                </View>
+              )}
+            />
+          </View>
+          <Pressable style={{ marginBottom: 15 }}>
+            {({ pressed }) => (
+              <Text
+                style={{
+                  color: pressed ? colors.SECOND + "90" : colors.SECOND,
+                  fontFamily: "RowdiesBold",
+                  textDecorationLine: "underline",
+                  textDecorationColor: colors.SECOND,
+                  textDecorationStyle: "solid",
+                  fontSize: 18,
+                }}
+              >
+                gérer mes profiles
+              </Text>
+            )}
+          </Pressable>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }

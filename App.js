@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NativeBaseProvider } from "native-base";
 
 //Screens
 
@@ -20,16 +21,18 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ header: () => null }}>
-          <Stack.Screen name="Loading" component={Loading} />
-          <Stack.Screen name="AddProfile" component={AddProfile} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="FirstTime" component={FirstTime} />
-          <Stack.Screen name="SelectProfile" component={SelectProfile} />
-          <Stack.Screen name="Home" component={Home} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ header: () => null }}>
+            <Stack.Screen name="Loading" component={Loading} />
+            <Stack.Screen name="SelectProfile" component={SelectProfile} />
+            <Stack.Screen name="AddProfile" component={AddProfile} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="FirstTime" component={FirstTime} />
+            <Stack.Screen name="Home" component={Home} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NativeBaseProvider>
     </Provider>
   );
 }

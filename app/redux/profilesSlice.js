@@ -3,13 +3,44 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   value: [
     {
+      id: 0,
       name: "Asmaa",
-      birthday: { month: 1, year: 2015 },
-      score: 120000,
+      birthday: 2015,
+      score: 500,
+      avatar: 2,
+      music: false,
+      sound: false,
+      language: 0,
+      badges: [
+        {
+          image: require("../../assets/badges/badge0.png"),
+          text: "Master",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge2.png"),
+          text: "BlaBla",
+        },
+        {
+          image: require("../../assets/badges/badge1.png"),
+          text: "BlaBla",
+        },
+      ],
+      levels: [],
+      level: 2,
+    },
+    {
+      id: 1,
+      name: "Islem",
+      birthday: 2002,
+      score: 100,
       avatar: 1,
       music: false,
-      sound: true,
-      language: 1,
+      sound: false,
+      language: 0,
       badges: [
         {
           image: require("../../assets/badges/badge0.png"),
@@ -29,15 +60,17 @@ const initialState = {
         },
       ],
       levels: [],
+      level: 3,
     },
     {
-      name: "Badro",
-      birthday: { day: 21, month: 1, year: 2005 },
-      score: 500,
-      avatar: 2,
+      id: 3,
+      name: "badro",
+      birthday: 2002,
+      score: 1000,
+      avatar: 4,
       music: false,
-      sound: true,
-      language: 1,
+      sound: false,
+      language: 0,
       badges: [
         {
           image: require("../../assets/badges/badge0.png"),
@@ -57,43 +90,17 @@ const initialState = {
         },
       ],
       levels: [],
+      level: 3,
     },
     {
-      name: "Marwa",
-      birthday: { day: 17, month: 7, year: 2008 },
-      score: 500,
-      avatar: 2,
+      id: 4,
+      name: "hadjer",
+      birthday: 2002,
+      score: 10020,
+      avatar: 3,
       music: false,
-      sound: true,
-      language: 1,
-      badges: [
-        {
-          image: require("../../assets/badges/badge0.png"),
-          text: "Master",
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: "3CEM",
-        },
-        {
-          image: require("../../assets/badges/badge2.png"),
-          text: "BlaBla",
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
-        },
-      ],
-      levels: [],
-    },
-    {
-      name: "Rabah",
-      birthday: { day: 3, month: 9, year: 1969 },
-      score: 500,
-      avatar: 2,
-      music: false,
-      sound: true,
-      language: 1,
+      sound: false,
+      language: 0,
       badges: [
         {
           image: require("../../assets/badges/badge0.png"),
@@ -113,6 +120,7 @@ const initialState = {
         },
       ],
       levels: [],
+      level: 3,
     },
   ],
 };

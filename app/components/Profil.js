@@ -1,4 +1,4 @@
-import { Center, FlatList, Modal, Pressable, ScrollView } from "native-base";
+import { Center, FlatList, Modal, Pressable } from "native-base";
 import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
 import { useSelector } from "react-redux";
@@ -28,8 +28,8 @@ export default function Profil() {
           <Image
             style={{
               padding: 2,
-              height: 40,
-              width: 40,
+              height: 60,
+              width: 60,
             }}
             resizeMode="contain"
             source={avatars[profiles[selectedProfile].avatar]}
@@ -39,7 +39,7 @@ export default function Profil() {
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <View
           style={{
-            backgroundColor: colors.YELLOW,
+            backgroundColor: colors.MAIN,
             width: "85%",
             height: "85%",
             borderRadius: 20,
@@ -285,7 +285,7 @@ export default function Profil() {
                       marginTop: 7,
                       backgroundColor:
                         item.name === profiles[selectedProfile].name
-                          ? colors.YELLOW
+                          ? colors.MAIN
                           : colors.CYAN,
                       borderRadius: 10,
                     }}

@@ -1,6 +1,7 @@
-import { Text, View } from "react-native";
+import { Pressable, Image, Text, View } from "react-native";
+import { useState, useEffect } from "react";
 
-export default function Login() {
+export default function Login({ navigation }) {
   return (
     <View>
       <Text>Login</Text>

@@ -1,15 +1,17 @@
 import { useSelector } from "react-redux";
 import { Audio } from "expo-av";
 import { useEffect, useState } from "react";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { Text } from "react-native";
+import { View, Text } from "react-native";
 
 export default function Home({ navigation }) {
+  //REDUX
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const music = useSelector(
     (state) => state.profiles.value[selectedProfile].music
   );
+  //------------------------------------
+  // SOUNDS SETUP
   const [sound, setSound] = useState(null);
   const setup = async () => {
     try {
@@ -52,11 +54,10 @@ export default function Home({ navigation }) {
   useEffect(() => {
     return sound ? () => sound.unloadAsync() : undefined;
   }, [sound]);
+  //-----------------------------------------
   return (
-    <SafeAreaProvider>
-      <SafeAreaView>
-        <Text>Hello</Text>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <View>
+      <Text>Hello {profiles[selectedProfile].name}</Text>
+    </View>
   );
 }

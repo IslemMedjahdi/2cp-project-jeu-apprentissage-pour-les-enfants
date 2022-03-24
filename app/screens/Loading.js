@@ -87,7 +87,7 @@ export default function Loading({ navigation }) {
             margin: 5,
           }}
           android_ripple={{ color: "pink" }}
-          onPress={() => navigation.replace("SelectProfile")}
+          onPress={() => setText("Islem Medjahdi")}
         >
           <Text style={{ color: "white" }}>Islem Medjahdi</Text>
         </Pressable>
@@ -147,6 +147,23 @@ export default function Loading({ navigation }) {
         <Text style={{ fontFamily: "RowdiesBold", fontSize: 20 }}>
           {value.length > 3 ? value : "your text is short"}
         </Text>
+      </View>
+      <View>
+        <Pressable onPress={() => navigation.replace("SelectProfile")}>
+          <Text
+            style={{
+              padding: 10,
+              backgroundColor: "pink",
+              borderRadius: 10,
+              marginTop: 20,
+              color: "white",
+              fontWeight: "bold",
+              fontSize: 20,
+            }}
+          >
+            start the application
+          </Text>
+        </Pressable>
       </View>
     </View>
   );

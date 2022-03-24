@@ -14,6 +14,7 @@ import AddProfile from "./app/screens/AddProfile";
 //redux
 import { Provider } from "react-redux";
 import { store } from "./app/redux/store";
+import Intro from "./app/screens/Intro";
 
 // stack
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ export default function App() {
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="FirstTime" component={FirstTime} />
             <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Intro" component={Intro} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

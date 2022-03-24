@@ -20,12 +20,12 @@ export default function SelectProfile({ navigation }) {
       return profile.id === id;
     });
     dispatch(setSelectedProfile({ index }));
-    navigation.replace("Home");
+    navigation.replace("Intro");
   };
   return (
     <View style={{ height: "100%" }}>
       <StatusBar
-        backgroundColor={"#FFF"}
+        backgroundColor={"white"}
         translucent={true}
         barStyle={"light-content"}
       />

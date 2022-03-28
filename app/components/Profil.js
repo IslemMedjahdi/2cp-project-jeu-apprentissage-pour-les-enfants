@@ -13,6 +13,9 @@ export default function Profil() {
     profilesSorted.sort((a, b) => b.score - a.score);
     return profilesSorted;
   };
+
+  const [page, setPage] = useState(0);
+
   return (
     <Center>
       <Pressable onPress={() => setShowModal(true)}>
@@ -22,7 +25,7 @@ export default function Profil() {
             borderWidth: 2,
             borderRadius: 900,
             padding: 4,
-            backgroundColor: colors.BEIGE,
+            backgroundColor: colors.MAIN,
           }}
         >
           <Image
@@ -36,324 +39,265 @@ export default function Profil() {
           />
         </View>
       </Pressable>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal
+        animationPreset="slide"
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      >
         <View
           style={{
-            backgroundColor: colors.MAIN,
+            backgroundColor: "white",
             width: "85%",
-            height: "85%",
+            height: "70%",
             borderRadius: 20,
           }}
         >
-          <View style={{ alignItems: "center" }}>
-            <View
-              style={{
-                alignItems: "center",
-                flexDirection: "row",
-                borderColor: "white",
-                justifyContent: "space-between",
-                borderWidth: 2,
-                borderRadius: 20,
-                padding: 8,
-                backgroundColor: colors.BEIGE,
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 3,
-                  height: 10,
-                },
-                shadowOpacity: 0.9,
-                shadowRadius: 3,
-                elevation: 5,
-                transform: [{ translateY: -10 }],
-              }}
-            >
-              <Text
-                style={{
-                  fontFamily: "RowdiesBold",
-                  color: "white",
-                  fontSize: 20,
-                  textAlign: "center",
-                  marginRight: 10,
-                }}
-              >
-                {profiles[selectedProfile].language === 0
-                  ? "Profile"
-                  : profiles[selectedProfile].language === 1
-                  ? "Profil"
-                  : "الصفحة الشخصية"}
-              </Text>
-              <Image
-                style={{ width: 40, height: 40 }}
-                resizeMode="contain"
-                source={avatars[profiles[selectedProfile].avatar]}
-              />
-            </View>
-          </View>
-          <Pressable
+          <View
             style={{
-              marginTop: -50,
-              marginRight: 10,
-              borderRadius: 999,
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              height: "15%",
             }}
-            onPress={() => setShowModal(false)}
           >
-            <Image
+            <Pressable
               style={{
-                alignSelf: "flex-end",
+                padding: 5,
                 backgroundColor: "white",
-                width: 30,
-                borderRadius: 999,
-                height: 30,
+                borderWidth: page === 0 ? 2 : 0,
+                borderColor: colors.MAIN,
+                borderRadius: 10,
+                transform: [{ scale: page === 0 ? 1.1 : 1 }],
               }}
-              source={require("../../assets/icons/Close.png")}
-            />
-          </Pressable>
-          <View style={{ alignItems: "center", marginTop: 30 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
+              onPress={() => setPage(0)}
             >
               <Text
                 style={{
-                  textAlign: "center",
+                  paddingVertical: 7,
+                  paddingHorizontal: 20,
+                  backgroundColor: colors.MAIN,
+                  color: "white",
+                  borderRadius: 10,
                   fontFamily: "RowdiesBold",
-                  fontSize: 20,
                 }}
               >
-                {profiles[selectedProfile].name}
+                Profil
               </Text>
-            </View>
-            <View
+            </Pressable>
+            <Pressable
               style={{
-                width: "50%",
-                height: 2,
-                backgroundColor: "black",
-                alignSelf: "center",
-                marginBottom: 20,
-                marginTop: 7,
-              }}
-            />
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontFamily: "RowdiesBold",
-                  fontSize: 20,
-                }}
-              >
-                {2022 - profiles[selectedProfile].birthday.year}{" "}
-                {profiles[selectedProfile].language === 0
-                  ? "ans"
-                  : profiles[selectedProfile].language === 1
-                  ? "years"
-                  : "سنوات"}
-              </Text>
-            </View>
-            <View
-              style={{
-                width: "50%",
-                height: 2,
-                backgroundColor: "black",
-                alignSelf: "center",
-                marginBottom: 20,
-                marginTop: 7,
-              }}
-            />
-            <View
-              style={{
+                padding: 5,
                 backgroundColor: "white",
-                width: "80%",
-                alignItems: "center",
-                borderRadius: 20,
-                overflow: "hidden",
-                marginTop: 5,
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 4,
-                },
-                shadowOpacity: 0.3,
-                shadowRadius: 4.65,
-                elevation: 8,
+                borderWidth: page === 1 ? 2 : 0,
+                borderColor: colors.MAIN,
+                borderRadius: 10,
+                transform: [{ scale: page === 1 ? 1.1 : 1 }],
               }}
+              onPress={() => setPage(1)}
             >
               <Text
                 style={{
+                  paddingVertical: 7,
+                  paddingHorizontal: 20,
+                  backgroundColor: colors.MAIN,
+                  color: "white",
+                  borderRadius: 10,
                   fontFamily: "RowdiesBold",
-                  fontSize: 18,
-                  width: "50%",
-                  textAlign: "center",
-                  marginVertical: 5,
                 }}
               >
-                {profiles[selectedProfile].language === 0
-                  ? "Mes Trophées"
-                  : profiles[selectedProfile].language === 1
-                  ? "My trophies"
-                  : "إنجازاتي"}
+                Classement
               </Text>
-              <FlatList
-                showsHorizontalScrollIndicator={false}
-                snapToAlignment="center"
-                snapToInterval={50}
-                style={{ padding: 7 }}
-                horizontal
-                keyExtractor={(_, index) => index.toString()}
-                data={profiles[selectedProfile].badges}
-                renderItem={({ item }) => (
+            </Pressable>
+          </View>
+          <View
+            style={{
+              backgroundColor: colors.MAIN,
+              alignItems: "center",
+              padding: 10,
+              height: "75%",
+            }}
+          >
+            {page === 0 ? (
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "space-evenly",
+                  height: "100%",
+                }}
+              >
+                <View
+                  style={{
+                    alignSelf: "stretch",
+                  }}
+                >
                   <View
                     style={{
-                      backgroundColor: colors.CYAN,
+                      paddingVertical: 10,
+                      paddingHorizontal: 20,
+                      backgroundColor: "white",
                       borderRadius: 10,
-
-                      marginRight: 10,
-                      padding: 20,
-                      alignItems: "center",
+                      shadowColor: "#000",
+                      shadowOffset: {
+                        width: 0,
+                        height: 4,
+                      },
+                      shadowOpacity: 0.3,
+                      shadowRadius: 4.65,
+                      elevation: 8,
                     }}
                   >
-                    <Image
-                      source={item.image}
-                      resizeMode={"contain"}
-                      style={{ width: 50, height: 50 }}
-                    />
                     <Text
-                      style={{
-                        fontFamily: "RowdiesBold",
-                        textAlign: "center",
-                        color: "white",
-                        marginTop: 5,
-                        fontSize: 18,
-                      }}
+                      style={{ fontFamily: "RowdiesBold", textAlign: "center" }}
                     >
-                      {item.text}
+                      Name: {profiles[selectedProfile].name}
                     </Text>
                   </View>
-                )}
-              />
-            </View>
-            <View
-              style={{
-                backgroundColor: "white",
-                borderRadius: 20,
-                width: "95%",
-                marginTop: 20,
-                padding: 10,
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 5,
-                },
-                shadowOpacity: 0.2,
-                shadowRadius: 4.65,
-                elevation: 8,
-              }}
-            >
-              <Text
-                style={{
-                  fontFamily: "RowdiesBold",
-                  fontSize: 18,
-                  textAlign: "center",
-                }}
-              >
-                {profiles[selectedProfile].language === 0
-                  ? "Classement"
-                  : profiles[selectedProfile].language === 1
-                  ? "LeaderBoard"
-                  : "الترتيب"}
-              </Text>
-
-              <FlatList
-                showsVerticalScrollIndicator={false}
-                height={200}
-                keyExtractor={(_, index) => index.toString()}
-                data={sortedProfiles()}
-                renderItem={({ item, index }) => (
                   <View
                     style={{
+                      paddingVertical: 10,
+                      paddingHorizontal: 20,
+                      backgroundColor: "white",
+                      borderRadius: 10,
+                      marginTop: 10,
+                      shadowColor: "#000",
+                      shadowOffset: {
+                        width: 0,
+                        height: 4,
+                      },
+                      shadowOpacity: 0.3,
+                      shadowRadius: 4.65,
+                      elevation: 8,
+                    }}
+                  >
+                    <Text
+                      style={{ fontFamily: "RowdiesBold", textAlign: "center" }}
+                    >
+                      Age:{" "}
+                      {new Date().getFullYear() -
+                        profiles[selectedProfile].birthday}
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      paddingVertical: 10,
+                      paddingHorizontal: 20,
+                      backgroundColor: "white",
+                      borderRadius: 10,
+                      marginTop: 10,
                       flexDirection: "row",
                       alignItems: "center",
-                      justifyContent: "space-between",
-                      marginTop: 7,
-                      backgroundColor:
-                        item.name === profiles[selectedProfile].name
-                          ? colors.MAIN
-                          : colors.CYAN,
-                      borderRadius: 10,
+                      justifyContent: "center",
+                      shadowColor: "#000",
+                      shadowOffset: {
+                        width: 0,
+                        height: 4,
+                      },
+                      shadowOpacity: 0.3,
+                      shadowRadius: 4.65,
+                      elevation: 8,
                     }}
                   >
+                    <Text style={{ fontFamily: "RowdiesBold", marginRight: 5 }}>
+                      Score: {profiles[selectedProfile].score}
+                    </Text>
                     <Image
-                      source={avatars[item.avatar]}
-                      resizeMode={"contain"}
-                      style={{
-                        width: 50,
-                        height: 50,
-                      }}
+                      style={{ width: 20, height: 20 }}
+                      source={require("../../assets/icons/gold.png")}
                     />
-                    <Text
-                      style={{
-                        fontFamily: "Rowdies",
-                        fontSize: 18,
-                        width: 70,
-                        textAlign: "center",
-                      }}
-                    >
-                      {item.name === profiles[selectedProfile].name
-                        ? profiles[selectedProfile].language === 0
-                          ? "Moi"
-                          : profiles[selectedProfile].language === 1
-                          ? "Me"
-                          : "أنا"
-                        : item.name}
-                    </Text>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        backgroundColor: "white",
-                        padding: 2,
-                        borderRadius: 6,
-                        alignItems: "center",
-                      }}
-                    >
-                      <Text
-                        style={{
-                          marginRight: 7,
-                          fontFamily: "Rowdies",
-                          minWidth: 70,
-                          textAlign: "center",
-                        }}
-                      >
-                        {item.score}
-                      </Text>
-                      <Image
-                        style={{ width: 20, height: 20 }}
-                        resizeMode="contain"
-                        source={require("../../assets/icons/gold.png")}
-                      />
-                    </View>
-                    <Text
-                      style={{
-                        color: "white",
-                        fontFamily: "RowdiesBold",
-                        fontSize: 17,
-                        marginRight: 14,
-                      }}
-                    >
-                      {index + 1}
-                    </Text>
                   </View>
-                )}
-              />
-            </View>
+                </View>
+                <View>
+                  <View
+                    style={{
+                      backgroundColor: "white",
+                      width: "80%",
+                      alignItems: "center",
+                      borderRadius: 20,
+                      overflow: "hidden",
+                      marginTop: 10,
+                      shadowColor: "#000",
+                      shadowOffset: {
+                        width: 0,
+                        height: 4,
+                      },
+                      shadowOpacity: 0.3,
+                      shadowRadius: 4.65,
+                      elevation: 8,
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontFamily: "RowdiesBold",
+                        fontSize: 18,
+                        width: "50%",
+                        textAlign: "center",
+                        marginVertical: 5,
+                      }}
+                    >
+                      {profiles[selectedProfile].language === 0
+                        ? "Mes Trophées"
+                        : profiles[selectedProfile].language === 1
+                        ? "My trophies"
+                        : "إنجازاتي"}
+                    </Text>
+                    <FlatList
+                      showsHorizontalScrollIndicator={false}
+                      snapToAlignment="center"
+                      snapToInterval={100}
+                      style={{
+                        padding: 7,
+                      }}
+                      horizontal
+                      keyExtractor={(_, index) => index.toString()}
+                      data={profiles[selectedProfile].badges}
+                      renderItem={({ item }) => (
+                        <View
+                          style={{
+                            backgroundColor: colors.SECOND + "AA",
+                            borderRadius: 10,
+                            overflow: "hidden",
+                            marginRight: 10,
+                            padding: 20,
+                            alignItems: "center",
+                          }}
+                        >
+                          <Image
+                            source={item.image}
+                            resizeMode={"contain"}
+                            style={{ width: 50, height: 50 }}
+                          />
+                          <Text
+                            style={{
+                              fontFamily: "RowdiesBold",
+                              textAlign: "center",
+                              color: "white",
+                              marginTop: 5,
+                              fontSize: 18,
+                              minWidth: 80,
+                            }}
+                          >
+                            {item.text}
+                          </Text>
+                        </View>
+                      )}
+                    />
+                  </View>
+                </View>
+              </View>
+            ) : (
+              <View></View>
+            )}
           </View>
+          <Pressable
+            onPress={() => setShowModal(false)}
+            style={{
+              height: "10%",
+              justifyContent: "center",
+              flexDirection: "row",
+            }}
+          >
+            <Image source={require("../../assets/icons/Undo.png")} />
+          </Pressable>
         </View>
       </Modal>
     </Center>

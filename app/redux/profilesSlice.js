@@ -18,15 +18,15 @@ const initialState = {
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
+          text: "Welcome",
         },
         {
           image: require("../../assets/badges/badge2.png"),
-          text: "BlaBla",
+          text: "Trophy",
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
+          text: "Medjahdi",
         },
       ],
       levels: [],

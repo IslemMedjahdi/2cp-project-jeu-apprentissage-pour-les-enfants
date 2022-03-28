@@ -1,7 +1,16 @@
 import { useSelector } from "react-redux";
 import { Audio } from "expo-av";
 import { useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import Profil from "../components/Profil";
+import {
+  View,
+  Text,
+  ImageBackground,
+  StatusBar,
+  Dimensions,
+} from "react-native";
+import HomeCard from "../components/HomeCard";
+import colors from "../colors";
 
 export default function Home({ navigation }) {
   //REDUX
@@ -57,7 +66,37 @@ export default function Home({ navigation }) {
   //-----------------------------------------
   return (
     <View>
-      <Text>Hello {profiles[selectedProfile].name}</Text>
+      <StatusBar translucent={true} barStyle={"light-content"} />
+      <ImageBackground
+        source={require("../../assets/background/background0.jpg")}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <View style={{ padding: 20 }}>
+          <View
+            style={{ height: (25 * Dimensions.get("screen").height) / 100 }}
+          >
+            <Profil />
+          </View>
+          <View
+            style={{
+              height: (75 * Dimensions.get("screen").height) / 3,
+            }}
+          >
+            <HomeCard
+              title={"Accéder à la carte"}
+              desc={"commence ta propre histoire"}
+              image={require("../../assets/hero/mystick2.png")}
+              color={colors.MAIN}
+            />
+            <HomeCard
+              title={"Accéder à la carte"}
+              desc={"commence ta propre histoire"}
+              image={require("../../assets/hero/mystick3.png")}
+              color={colors.SECOND}
+            />
+          </View>
+        </View>
+      </ImageBackground>
     </View>
   );
 }

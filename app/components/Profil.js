@@ -272,8 +272,6 @@ export default function Profil({ language }) {
                         width: "50%",
                         textAlign: "center",
                         marginVertical: 5,
-                        borderBottomColor: "black",
-                        borderBottomWidth: 2,
                       }}
                     >
                       {language === 0
@@ -400,7 +398,11 @@ export default function Profil({ language }) {
                               }}
                             >
                               {item.id === profiles[selectedProfile].id
-                                ? "MOI"
+                                ? language === 0
+                                  ? "Moi"
+                                  : language === 1
+                                  ? "Me"
+                                  : "أنا"
                                 : item.name}
                             </Text>
                           </View>

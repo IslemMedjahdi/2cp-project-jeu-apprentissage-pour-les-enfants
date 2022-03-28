@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Audio } from "expo-av";
 import { useEffect, useState } from "react";
 import Profil from "../components/Profil";
@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import HomeCard from "../components/HomeCard";
 import colors from "../colors";
+import { toggleMusic } from "../redux/profilesSlice";
 
 export default function Home({ navigation }) {
   //REDUX
@@ -19,6 +20,7 @@ export default function Home({ navigation }) {
   const music = useSelector(
     (state) => state.profiles.value[selectedProfile].music
   );
+  const dispatch = useDispatch();
   //------------------------------------
   // SOUNDS SETUP
   const [sound, setSound] = useState(null);
@@ -60,6 +62,14 @@ export default function Home({ navigation }) {
         pause();
       }
   }, [music]);
+  const clickMusicHandler = () => {
+    dispatch(toggleMusic({ payload: { selectedProfile } }));
+    if (music) {
+      play();
+    } else {
+      pause();
+    }
+  };
   useEffect(() => {
     return sound ? () => sound.unloadAsync() : undefined;
   }, [sound]);
@@ -73,13 +83,16 @@ export default function Home({ navigation }) {
       >
         <View style={{ padding: 20 }}>
           <View
-            style={{ height: (25 * Dimensions.get("screen").height) / 100 }}
+            style={{
+              height: (20 * Dimensions.get("window").height) / 100,
+              justifyContent: "center",
+            }}
           >
             <Profil />
           </View>
           <View
             style={{
-              height: (75 * Dimensions.get("screen").height) / 3,
+              height: (80 * Dimensions.get("window").height) / 3,
             }}
           >
             <HomeCard

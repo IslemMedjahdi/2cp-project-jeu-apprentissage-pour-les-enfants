@@ -147,7 +147,11 @@ export default function Profil() {
                     }}
                   >
                     <Text
-                      style={{ fontFamily: "RowdiesBold", textAlign: "center" }}
+                      style={{
+                        fontFamily: "RowdiesBold",
+                        textAlign: "center",
+                        fontSize: 16,
+                      }}
                     >
                       Name: {profiles[selectedProfile].name}
                     </Text>
@@ -170,7 +174,11 @@ export default function Profil() {
                     }}
                   >
                     <Text
-                      style={{ fontFamily: "RowdiesBold", textAlign: "center" }}
+                      style={{
+                        fontFamily: "RowdiesBold",
+                        textAlign: "center",
+                        fontSize: 16,
+                      }}
                     >
                       Age:{" "}
                       {new Date().getFullYear() -
@@ -197,11 +205,17 @@ export default function Profil() {
                       elevation: 8,
                     }}
                   >
-                    <Text style={{ fontFamily: "RowdiesBold", marginRight: 5 }}>
+                    <Text
+                      style={{
+                        fontFamily: "RowdiesBold",
+                        marginRight: 7,
+                        fontSize: 16,
+                      }}
+                    >
                       Score: {profiles[selectedProfile].score}
                     </Text>
                     <Image
-                      style={{ width: 20, height: 20 }}
+                      style={{ width: 22, height: 22 }}
                       source={require("../../assets/icons/gold.png")}
                     />
                   </View>
@@ -285,7 +299,90 @@ export default function Profil() {
                 </View>
               </View>
             ) : (
-              <View></View>
+              <View style={{ width: "100%", alignItems: "center" }}>
+                <View style={{ height: "10%" }}>
+                  <Image
+                    resizeMode="contain"
+                    style={{ height: "100%" }}
+                    source={require("../../assets/badges/badge4.png")}
+                  />
+                </View>
+                <View style={{ height: "90%", width: "90%" }}>
+                  <FlatList
+                    keyExtractor={(item) => item.id}
+                    data={sortedProfiles()}
+                    renderItem={({ item, index }) => (
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          justifyContent: "space-between",
+                          marginVertical: 7,
+                          borderRadius: 10,
+                          padding: 5,
+                          backgroundColor:
+                            item.id === profiles[selectedProfile].id
+                              ? "#FFD447"
+                              : "white",
+                          alignItems: "center",
+                        }}
+                      >
+                        <View style={{ width: "20%" }}>
+                          <Image
+                            style={{ height: 50, width: 50 }}
+                            resizeMode="contain"
+                            source={avatars[item.avatar]}
+                          />
+                        </View>
+                        <View style={{ width: "30%", alignItems: "center" }}>
+                          <Text
+                            style={{
+                              color: "black",
+                              fontFamily: "RowdiesBold",
+                            }}
+                          >
+                            {item.id === profiles[selectedProfile].id
+                              ? "MOI"
+                              : item.name}
+                          </Text>
+                        </View>
+                        <View
+                          style={{
+                            flexDirection: "row",
+                            alignItems: "center",
+                            backgroundColor: "white",
+                            paddingHorizontal: 3,
+                            paddingVertical: 1,
+                            borderRadius: 5,
+                            borderWidth: 1,
+                            borderColor: "#000",
+                            Width: "35%",
+                            flex: 1,
+                            justifyContent: "center",
+                          }}
+                        >
+                          <Text
+                            style={{
+                              fontFamily: "RowdiesBold",
+                              marginRight: 5,
+                            }}
+                          >
+                            {item.score}
+                          </Text>
+                          <Image
+                            style={{ height: 20, width: 20 }}
+                            source={require("../../assets/icons/gold.png")}
+                          />
+                        </View>
+                        <View style={{ width: "15%", alignItems: "center" }}>
+                          <Text style={{ fontFamily: "RowdiesBold" }}>
+                            #{index + 1}
+                          </Text>
+                        </View>
+                      </View>
+                    )}
+                  />
+                </View>
+              </View>
             )}
           </View>
           <Pressable
@@ -294,9 +391,14 @@ export default function Profil() {
               height: "10%",
               justifyContent: "center",
               flexDirection: "row",
+              alignItems: "center",
             }}
           >
-            <Image source={require("../../assets/icons/Undo.png")} />
+            <Image
+              style={{ height: "90%" }}
+              resizeMode="contain"
+              source={require("../../assets/icons/Undo.png")}
+            />
           </Pressable>
         </View>
       </Modal>

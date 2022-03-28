@@ -5,7 +5,7 @@ export default function HomeCard({ title, desc, image, color }) {
   return (
     <View style={{ marginTop: 20, borderRadius: 20, overflow: "hidden" }}>
       <Pressable
-        style={{ backgroundColor: color + "DD", padding: 10 }}
+        style={{ backgroundColor: color + "CC", padding: 10 }}
         android_ripple={{ color: color }}
       >
         <View>

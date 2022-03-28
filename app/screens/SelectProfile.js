@@ -42,7 +42,7 @@ export default function SelectProfile({ navigation }) {
             position: "absolute",
             width: 50,
             height: 50,
-            top: Dimensions.get("screen").height / 3,
+            top: Dimensions.get("window").height / 3,
             right: 25,
           }}
           resizeMode="contain"
@@ -53,7 +53,7 @@ export default function SelectProfile({ navigation }) {
             position: "absolute",
             width: 40,
             height: 40,
-            top: (3 * Dimensions.get("screen").height) / 12,
+            top: (3 * Dimensions.get("window").height) / 12,
             left: 25,
           }}
           resizeMode="contain"
@@ -64,14 +64,14 @@ export default function SelectProfile({ navigation }) {
             position: "absolute",
             width: 70,
             height: 70,
-            top: (11 * Dimensions.get("screen").height) / 12,
+            top: (11 * Dimensions.get("window").height) / 12,
             left: 25,
           }}
           resizeMode="contain"
         />
         <View
           style={{
-            height: (27 * Dimensions.get("screen").height) / 100,
+            height: (25 * Dimensions.get("window").height) / 100,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -86,8 +86,8 @@ export default function SelectProfile({ navigation }) {
         </View>
         <View
           style={{
-            height: (20 * Dimensions.get("screen").height) / 100,
-            width: Dimensions.get("screen").width / 2,
+            height: (20 * Dimensions.get("window").height) / 100,
+            width: Dimensions.get("window").width / 2,
             justifyContent: "center",
           }}
         >
@@ -106,8 +106,8 @@ export default function SelectProfile({ navigation }) {
             borderColor: colors.SECOND,
             borderWidth: 4,
             borderRadius: 50,
-            width: (4 * Dimensions.get("screen").width) / 5,
-            height: (43 * Dimensions.get("screen").height) / 100,
+            width: (4 * Dimensions.get("window").width) / 5,
+            height: (45 * Dimensions.get("window").height) / 100,
             paddingHorizontal: 20,
             overflow: "hidden",
           }}
@@ -240,7 +240,7 @@ export default function SelectProfile({ navigation }) {
         </View>
         <View
           style={{
-            height: Dimensions.get("screen").height / 10,
+            height: Dimensions.get("window").height / 10,
             justifyContent: "center",
           }}
         >

@@ -314,70 +314,94 @@ export default function Profil() {
                     renderItem={({ item, index }) => (
                       <View
                         style={{
-                          flexDirection: "row",
-                          justifyContent: "space-between",
                           marginVertical: 7,
                           borderRadius: 10,
-                          padding: 5,
-                          backgroundColor:
-                            item.id === profiles[selectedProfile].id
-                              ? "#FFD447"
-                              : "white",
-                          alignItems: "center",
+                          overflow: "hidden",
+                          shadowColor: "#000",
+                          shadowOffset: {
+                            width: 0,
+                            height: 2,
+                          },
+                          shadowOpacity: 0.3,
+                          shadowRadius: 20,
+                          elevation: 4,
                         }}
                       >
-                        <View style={{ width: "20%" }}>
-                          <Image
-                            style={{ height: 50, width: 50 }}
-                            resizeMode="contain"
-                            source={avatars[item.avatar]}
-                          />
-                        </View>
-                        <View style={{ width: "30%", alignItems: "center" }}>
-                          <Text
-                            style={{
-                              color: "black",
-                              fontFamily: "RowdiesBold",
-                            }}
-                          >
-                            {item.id === profiles[selectedProfile].id
-                              ? "MOI"
-                              : item.name}
-                          </Text>
-                        </View>
-                        <View
+                        <Pressable
                           style={{
                             flexDirection: "row",
+                            justifyContent: "space-between",
+                            padding: 5,
+                            backgroundColor:
+                              item.id === profiles[selectedProfile].id
+                                ? "#FFD447"
+                                : "white",
                             alignItems: "center",
-                            backgroundColor: "white",
-                            paddingHorizontal: 3,
-                            paddingVertical: 1,
-                            borderRadius: 5,
-                            borderWidth: 1,
-                            borderColor: "#000",
-                            Width: "35%",
-                            flex: 1,
-                            justifyContent: "center",
                           }}
+                          android_ripple={{
+                            color:
+                              item.id === profiles[selectedProfile].id
+                                ? "yellow"
+                                : "white",
+                          }}
+                          onPress={() =>
+                            item.id === profiles[selectedProfile].id &&
+                            setPage(0)
+                          }
                         >
-                          <Text
+                          <View style={{ width: "20%" }}>
+                            <Image
+                              style={{ height: 50, width: 50 }}
+                              resizeMode="contain"
+                              source={avatars[item.avatar]}
+                            />
+                          </View>
+                          <View style={{ width: "30%", alignItems: "center" }}>
+                            <Text
+                              style={{
+                                color: "black",
+                                fontFamily: "RowdiesBold",
+                              }}
+                            >
+                              {item.id === profiles[selectedProfile].id
+                                ? "MOI"
+                                : item.name}
+                            </Text>
+                          </View>
+                          <View
                             style={{
-                              fontFamily: "RowdiesBold",
-                              marginRight: 5,
+                              flexDirection: "row",
+                              alignItems: "center",
+                              backgroundColor: "white",
+                              paddingHorizontal: 3,
+                              paddingVertical: 1,
+                              borderRadius: 5,
+                              borderWidth: 1,
+                              borderColor: "#000",
+                              Width: "35%",
+                              flex: 1,
+                              justifyContent: "center",
                             }}
                           >
-                            {item.score}
-                          </Text>
-                          <Image
-                            style={{ height: 20, width: 20 }}
-                            source={require("../../assets/icons/gold.png")}
-                          />
-                        </View>
-                        <View style={{ width: "15%", alignItems: "center" }}>
-                          <Text style={{ fontFamily: "RowdiesBold" }}>
-                            #{index + 1}
-                          </Text>
-                        </View>
+                            <Text
+                              style={{
+                                fontFamily: "RowdiesBold",
+                                marginRight: 5,
+                              }}
+                            >
+                              {item.score}
+                            </Text>
+                            <Image
+                              style={{ height: 20, width: 20 }}
+                              source={require("../../assets/icons/gold.png")}
+                            />
+                          </View>
+                          <View style={{ width: "15%", alignItems: "center" }}>
+                            <Text style={{ fontFamily: "RowdiesBold" }}>
+                              #{index + 1}
+                            </Text>
+                          </View>
+                        </Pressable>
                       </View>
                     )}
                   />

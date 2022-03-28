@@ -42,7 +42,10 @@ export default function Profil() {
       <Modal
         animationPreset="slide"
         isOpen={showModal}
-        onClose={() => setShowModal(false)}
+        onClose={() => {
+          setShowModal(false);
+          setPage(0);
+        }}
       >
         <View
           style={{
@@ -246,6 +249,8 @@ export default function Profil() {
                         width: "50%",
                         textAlign: "center",
                         marginVertical: 5,
+                        borderBottomColor: "black",
+                        borderBottomWidth: 2,
                       }}
                     >
                       {profiles[selectedProfile].language === 0
@@ -254,6 +259,7 @@ export default function Profil() {
                         ? "My trophies"
                         : "إنجازاتي"}
                     </Text>
+
                     <FlatList
                       showsHorizontalScrollIndicator={false}
                       snapToAlignment="center"
@@ -267,31 +273,37 @@ export default function Profil() {
                       renderItem={({ item }) => (
                         <View
                           style={{
-                            backgroundColor: colors.SECOND + "AA",
-                            borderRadius: 10,
-                            overflow: "hidden",
                             marginRight: 10,
-                            padding: 20,
-                            alignItems: "center",
+                            overflow: "hidden",
+                            borderRadius: 10,
                           }}
                         >
-                          <Image
-                            source={item.image}
-                            resizeMode={"contain"}
-                            style={{ width: 50, height: 50 }}
-                          />
-                          <Text
+                          <Pressable
+                            android_ripple={{ color: colors.SECOND }}
                             style={{
-                              fontFamily: "RowdiesBold",
-                              textAlign: "center",
-                              color: "white",
-                              marginTop: 5,
-                              fontSize: 18,
-                              minWidth: 80,
+                              backgroundColor: colors.SECOND + "AA",
+                              padding: 20,
+                              alignItems: "center",
                             }}
                           >
-                            {item.text}
-                          </Text>
+                            <Image
+                              source={item.image}
+                              resizeMode={"contain"}
+                              style={{ width: 50, height: 50 }}
+                            />
+                            <Text
+                              style={{
+                                fontFamily: "RowdiesBold",
+                                textAlign: "center",
+                                color: "white",
+                                marginTop: 5,
+                                fontSize: 18,
+                                minWidth: 80,
+                              }}
+                            >
+                              {item.text}
+                            </Text>
+                          </Pressable>
                         </View>
                       )}
                     />
@@ -361,6 +373,7 @@ export default function Profil() {
                               style={{
                                 color: "black",
                                 fontFamily: "RowdiesBold",
+                                fontSize: 16,
                               }}
                             >
                               {item.id === profiles[selectedProfile].id
@@ -396,7 +409,13 @@ export default function Profil() {
                               source={require("../../assets/icons/gold.png")}
                             />
                           </View>
-                          <View style={{ width: "15%", alignItems: "center" }}>
+                          <View
+                            style={{
+                              width: "15%",
+                              alignItems: "center",
+                              fontSize: 16,
+                            }}
+                          >
                             <Text style={{ fontFamily: "RowdiesBold" }}>
                               #{index + 1}
                             </Text>
@@ -410,12 +429,16 @@ export default function Profil() {
             )}
           </View>
           <Pressable
-            onPress={() => setShowModal(false)}
+            onPress={() => {
+              setShowModal(false);
+              setPage(0);
+            }}
             style={{
               height: "10%",
               justifyContent: "center",
               flexDirection: "row",
               alignItems: "center",
+              alignSelf: "center",
             }}
           >
             <Image

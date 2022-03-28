@@ -12,6 +12,7 @@ import {
 import HomeCard from "../components/HomeCard";
 import colors from "../colors";
 import { toggleMusic } from "../redux/profilesSlice";
+import Settings from "../components/Settings";
 
 export default function Home({ navigation }) {
   //REDUX
@@ -85,10 +86,13 @@ export default function Home({ navigation }) {
           <View
             style={{
               height: (20 * Dimensions.get("window").height) / 100,
-              justifyContent: "center",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              flexDirection: "row",
             }}
           >
             <Profil />
+            <Settings />
           </View>
           <View
             style={{

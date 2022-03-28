@@ -14,19 +14,19 @@ const initialState = {
       badges: [
         {
           image: require("../../assets/badges/badge0.png"),
-          text: "Master",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "Welcome",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge2.png"),
-          text: "Trophy",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "Medjahdi",
+          text: ["Master", "Master", "عربية"],
         },
       ],
       levels: [],
@@ -44,19 +44,19 @@ const initialState = {
       badges: [
         {
           image: require("../../assets/badges/badge0.png"),
-          text: "Master",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge2.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
       ],
       levels: [],
@@ -74,19 +74,19 @@ const initialState = {
       badges: [
         {
           image: require("../../assets/badges/badge0.png"),
-          text: "Master",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge2.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
       ],
       levels: [],
@@ -104,19 +104,19 @@ const initialState = {
       badges: [
         {
           image: require("../../assets/badges/badge0.png"),
-          text: "Master",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge2.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
         {
           image: require("../../assets/badges/badge1.png"),
-          text: "BlaBla",
+          text: ["Master", "Master", "عربية"],
         },
       ],
       levels: [],

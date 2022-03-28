@@ -11,7 +11,11 @@ import {
 } from "react-native";
 import HomeCard from "../components/HomeCard";
 import colors from "../colors";
-import { toggleMusic } from "../redux/profilesSlice";
+import {
+  changeLanguage,
+  toggleMusic,
+  toggleSound,
+} from "../redux/profilesSlice";
 import Settings from "../components/Settings";
 
 export default function Home({ navigation }) {
@@ -64,17 +68,23 @@ export default function Home({ navigation }) {
       }
   }, [music]);
   const clickMusicHandler = () => {
-    dispatch(toggleMusic({ payload: { selectedProfile } }));
+    dispatch(toggleMusic({ selectedProfile }));
     if (music) {
       play();
     } else {
       pause();
     }
   };
+  const clickSoundHandler = () => {
+    dispatch(toggleSound({ selectedProfile }));
+  };
   useEffect(() => {
     return sound ? () => sound.unloadAsync() : undefined;
   }, [sound]);
   //-----------------------------------------
+  const clickLanguageHandler = () => {
+    dispatch(changeLanguage({ selectedProfile }));
+  };
   return (
     <View>
       <StatusBar translucent={true} barStyle={"light-content"} />
@@ -91,8 +101,13 @@ export default function Home({ navigation }) {
               flexDirection: "row",
             }}
           >
-            <Profil />
-            <Settings />
+            <Profil language={profiles[selectedProfile].language} />
+            <Settings
+              toggleMusic={clickMusicHandler}
+              toggleSound={clickSoundHandler}
+              toggleLanguage={clickLanguageHandler}
+              language={profiles[selectedProfile].language}
+            />
           </View>
           <View
             style={{
@@ -100,16 +115,42 @@ export default function Home({ navigation }) {
             }}
           >
             <HomeCard
-              title={"Accéder à la carte"}
-              desc={"commence ta propre histoire"}
+              title={
+                profiles[selectedProfile].language === 0
+                  ? "Accéder à la carte"
+                  : profiles[selectedProfile].language === 1
+                  ? "Access to the map"
+                  : "اختيار الخريطة"
+              }
+              desc={
+                profiles[selectedProfile].language === 0
+                  ? "commence ta propre histoire"
+                  : profiles[selectedProfile].language === 1
+                  ? "Start your own story"
+                  : "ابدأ قصتك الخاصة"
+              }
               image={require("../../assets/hero/mystick2.png")}
               color={colors.MAIN}
+              language={profiles[selectedProfile].language}
             />
             <HomeCard
-              title={"Accéder à la carte"}
-              desc={"commence ta propre histoire"}
+              title={
+                profiles[selectedProfile].language === 0
+                  ? "Accéder aux challenges"
+                  : profiles[selectedProfile].language === 1
+                  ? "Access to challenges"
+                  : "اختيار التحديات"
+              }
+              desc={
+                profiles[selectedProfile].language === 0
+                  ? "débloque plus de challenges"
+                  : profiles[selectedProfile].language === 1
+                  ? "unlock more challenges"
+                  : "افتح تحديات أكثر"
+              }
               image={require("../../assets/hero/mystick3.png")}
               color={colors.SECOND}
+              language={profiles[selectedProfile].language}
             />
           </View>
         </View>

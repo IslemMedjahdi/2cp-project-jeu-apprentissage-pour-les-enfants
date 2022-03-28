@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, Pressable, Dimensions } from "react-native";
 
-export default function HomeCard({ title, desc, image, color }) {
+export default function HomeCard({ title, desc, image, color, language }) {
   return (
     <View style={{ marginTop: 20, borderRadius: 20, overflow: "hidden" }}>
       <Pressable
@@ -19,8 +19,13 @@ export default function HomeCard({ title, desc, image, color }) {
             {title}
           </Text>
         </View>
-        <View style={{ flexDirection: "row" }}>
-          <View style={{ alignItems: "flex-start", flex: 2 }}>
+        <View style={{ flexDirection: language === 2 ? "row-reverse" : "row" }}>
+          <View
+            style={{
+              alignItems: language === 2 ? "flex-end" : "flex-start",
+              flex: 2,
+            }}
+          >
             <Text
               style={{
                 color: "white",
@@ -49,7 +54,7 @@ export default function HomeCard({ title, desc, image, color }) {
                 android_ripple={{ color: "#AAAAAA" }}
               >
                 <Text style={{ color: color, fontFamily: "RowdiesBold" }}>
-                  Jouer
+                  {language === 0 ? "Jouer" : language === 1 ? "Play" : "العب"}
                 </Text>
               </Pressable>
             </View>
@@ -60,6 +65,7 @@ export default function HomeCard({ title, desc, image, color }) {
               height: "100%",
               width: "100%",
               flex: 1,
+              transform: [{ rotateY: "180deg" }],
             }}
             source={image}
           />

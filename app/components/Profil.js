@@ -4,7 +4,7 @@ import { Image, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import colors from "../colors";
 import avatars from "../avatars";
-export default function Profil() {
+export default function Profil({ language }) {
   const [showModal, setShowModal] = useState(false);
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
@@ -84,7 +84,11 @@ export default function Profil() {
                   fontFamily: "RowdiesBold",
                 }}
               >
-                Profil
+                {language === 0
+                  ? "Profil"
+                  : language === 1
+                  ? "Profle"
+                  : "الصفحة الشخصية"}
               </Text>
             </Pressable>
             <Pressable
@@ -108,7 +112,11 @@ export default function Profil() {
                   fontFamily: "RowdiesBold",
                 }}
               >
-                Classement
+                {language === 0
+                  ? "classement"
+                  : language === 1
+                  ? "leaderboard"
+                  : "الترتيب"}
               </Text>
             </Pressable>
           </View>
@@ -156,7 +164,12 @@ export default function Profil() {
                         fontSize: 16,
                       }}
                     >
-                      Name: {profiles[selectedProfile].name}
+                      {language === 0
+                        ? "Nom"
+                        : language === 1
+                        ? "Name"
+                        : "الاسم"}
+                      : {profiles[selectedProfile].name}
                     </Text>
                   </View>
                   <View
@@ -183,7 +196,12 @@ export default function Profil() {
                         fontSize: 16,
                       }}
                     >
-                      Age:{" "}
+                      {language === 0
+                        ? "Age"
+                        : language === 1
+                        ? "Age"
+                        : "العمر"}
+                      :
                       {new Date().getFullYear() -
                         profiles[selectedProfile].birthday}
                     </Text>
@@ -195,7 +213,7 @@ export default function Profil() {
                       backgroundColor: "white",
                       borderRadius: 10,
                       marginTop: 10,
-                      flexDirection: "row",
+                      flexDirection: language === 2 ? "row-reverse" : "row",
                       alignItems: "center",
                       justifyContent: "center",
                       shadowColor: "#000",
@@ -211,11 +229,16 @@ export default function Profil() {
                     <Text
                       style={{
                         fontFamily: "RowdiesBold",
-                        marginRight: 7,
+                        marginHorizontal: 7,
                         fontSize: 16,
                       }}
                     >
-                      Score: {profiles[selectedProfile].score}
+                      {language === 0
+                        ? "score"
+                        : language === 1
+                        ? "score"
+                        : "النقاط"}
+                      : {profiles[selectedProfile].score}
                     </Text>
                     <Image
                       style={{ width: 22, height: 22 }}
@@ -253,9 +276,9 @@ export default function Profil() {
                         borderBottomWidth: 2,
                       }}
                     >
-                      {profiles[selectedProfile].language === 0
+                      {language === 0
                         ? "Mes Trophées"
-                        : profiles[selectedProfile].language === 1
+                        : language === 1
                         ? "My trophies"
                         : "إنجازاتي"}
                     </Text>
@@ -301,7 +324,7 @@ export default function Profil() {
                                 minWidth: 80,
                               }}
                             >
-                              {item.text}
+                              {item.text[language]}
                             </Text>
                           </Pressable>
                         </View>

@@ -2,13 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Audio } from "expo-av";
 import { useEffect, useState } from "react";
 import Profil from "../components/Profil";
-import {
-  View,
-  Text,
-  ImageBackground,
-  StatusBar,
-  Dimensions,
-} from "react-native";
+import { View, ImageBackground, StatusBar, Dimensions } from "react-native";
 import HomeCard from "../components/HomeCard";
 import colors from "../colors";
 import {

@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import avatars from "../avatars";
 import colors from "../colors";
+import ProfilesManager from "../components/ProfilesManager";
 import { setSelectedProfile } from "../redux/selectedProfileSlice";
 export default function SelectProfile({ navigation }) {
   const profiles = useSelector((state) => state.profiles.value); //get the profiles from redux
@@ -217,22 +218,7 @@ export default function SelectProfile({ navigation }) {
                           : colors.COLOR3,
                       borderWidth: 1,
                     }}
-                  >
-                    {/*<Pressable
-                        android_ripple={{
-                          color: "#FFFFF11",
-                        }}
-                        style={{
-                          padding: 10,
-                        }}
-                      >
-                        <Image
-                          source={require("../../assets/icons/arrow.png")}
-                          style={{ width: 10, height: 10 }}
-                          resizeMode="contain"
-                        />
-                      </Pressable>*/}
-                  </View>
+                  ></View>
                 </Pressable>
               </View>
             )}
@@ -244,22 +230,7 @@ export default function SelectProfile({ navigation }) {
             justifyContent: "center",
           }}
         >
-          <Pressable>
-            {({ pressed }) => (
-              <Text
-                style={{
-                  color: pressed ? colors.SECOND + "90" : colors.SECOND,
-                  fontFamily: "RowdiesBold",
-                  textDecorationLine: "underline",
-                  textDecorationColor: colors.SECOND,
-                  textDecorationStyle: "solid",
-                  fontSize: 18,
-                }}
-              >
-                gérer mes profiles
-              </Text>
-            )}
-          </Pressable>
+          <ProfilesManager />
         </View>
       </View>
     </View>

@@ -81,7 +81,8 @@ export default function Profil({ language }) {
                   backgroundColor: colors.MAIN,
                   color: "white",
                   borderRadius: 10,
-                  fontFamily: "RowdiesBold",
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: language === 2 ? 17 : 14,
                 }}
               >
                 {language === 0
@@ -109,7 +110,8 @@ export default function Profil({ language }) {
                   backgroundColor: colors.MAIN,
                   color: "white",
                   borderRadius: 10,
-                  fontFamily: "RowdiesBold",
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: language === 2 ? 17 : 14,
                 }}
               >
                 {language === 0
@@ -157,20 +159,38 @@ export default function Profil({ language }) {
                       elevation: 8,
                     }}
                   >
-                    <Text
+                    <View
                       style={{
-                        fontFamily: "RowdiesBold",
-                        textAlign: "center",
-                        fontSize: 16,
+                        flexDirection: language === 2 ? "row-reverse" : "row",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
-                      {language === 0
-                        ? "Nom"
-                        : language === 1
-                        ? "Name"
-                        : "الاسم"}
-                      : {profiles[selectedProfile].name}
-                    </Text>
+                      <Text
+                        style={{
+                          fontFamily:
+                            language === 2 ? "ArbFont" : "RowdiesBold",
+                          fontSize: language === 2 ? 19 : 16,
+                          textAlign: "center",
+                        }}
+                      >
+                        {language === 0
+                          ? "Nom"
+                          : language === 1
+                          ? "Name"
+                          : "الاسم"}
+                        :
+                      </Text>
+                      <Text
+                        style={{
+                          fontFamily: "RowdiesBold",
+                          fontSize: 16,
+                          textAlign: "center",
+                        }}
+                      >
+                        {profiles[selectedProfile].name}
+                      </Text>
+                    </View>
                   </View>
                   <View
                     style={{
@@ -191,9 +211,9 @@ export default function Profil({ language }) {
                   >
                     <Text
                       style={{
-                        fontFamily: "RowdiesBold",
+                        fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                        fontSize: language === 2 ? 19 : 16,
                         textAlign: "center",
-                        fontSize: 16,
                       }}
                     >
                       {language === 0
@@ -228,9 +248,9 @@ export default function Profil({ language }) {
                   >
                     <Text
                       style={{
-                        fontFamily: "RowdiesBold",
+                        fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                        fontSize: language === 2 ? 19 : 16,
                         marginHorizontal: 7,
-                        fontSize: 16,
                       }}
                     >
                       {language === 0
@@ -267,8 +287,8 @@ export default function Profil({ language }) {
                   >
                     <Text
                       style={{
-                        fontFamily: "RowdiesBold",
-                        fontSize: 18,
+                        fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                        fontSize: language === 2 ? 21 : 18,
                         width: "50%",
                         textAlign: "center",
                         marginVertical: 5,
@@ -314,11 +334,12 @@ export default function Profil({ language }) {
                             />
                             <Text
                               style={{
-                                fontFamily: "RowdiesBold",
+                                fontFamily:
+                                  language === 2 ? "ArbFont" : "RowdiesBold",
+                                fontSize: language === 2 ? 22 : 18,
                                 textAlign: "center",
                                 color: "white",
                                 marginTop: 5,
-                                fontSize: 18,
                                 minWidth: 80,
                               }}
                             >

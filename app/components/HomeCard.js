@@ -5,15 +5,15 @@ export default function HomeCard({ title, desc, image, color, language }) {
   return (
     <View style={{ marginTop: 20, borderRadius: 20, overflow: "hidden" }}>
       <Pressable
-        style={{ backgroundColor: color + "CC", padding: 10 }}
+        style={{ backgroundColor: color + "CC", padding: 15 }}
         android_ripple={{ color: color }}
       >
         <View>
           <Text
             style={{
-              fontFamily: "RowdiesBold",
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
               color: "white",
-              fontSize: 25,
+              fontSize: language === 2 ? 30 : 25,
             }}
           >
             {title}
@@ -29,8 +29,8 @@ export default function HomeCard({ title, desc, image, color, language }) {
             <Text
               style={{
                 color: "white",
-                fontFamily: "RowdiesBold",
-                fontSize: 17,
+                fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                fontSize: language === 2 ? 20 : 17,
                 marginBottom: 40,
                 textAlign: "center",
               }}
@@ -53,7 +53,12 @@ export default function HomeCard({ title, desc, image, color, language }) {
                 }}
                 android_ripple={{ color: "#AAAAAA" }}
               >
-                <Text style={{ color: color, fontFamily: "RowdiesBold" }}>
+                <Text
+                  style={{
+                    color: color,
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                  }}
+                >
                   {language === 0 ? "Jouer" : language === 1 ? "Play" : "العب"}
                 </Text>
               </Pressable>

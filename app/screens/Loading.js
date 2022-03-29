@@ -9,6 +9,7 @@ const fetchFont = () => {
     RowdiesBold: require("../../assets/fonts/Rowdies-Bold.ttf"),
     Rowdies: require("../../assets/fonts/Rowdies-Regular.ttf"),
     RowdiesLight: require("../../assets/fonts/Rowdies-Light.ttf"),
+    ArbFont: require("../../assets/fonts/arbFont.otf"),
   });
 };
 

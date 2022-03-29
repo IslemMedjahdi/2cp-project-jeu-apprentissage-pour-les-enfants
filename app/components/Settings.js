@@ -52,7 +52,7 @@ export default function Settings({
           }}
         >
           <View style={{ height: "15%", justifyContent: "center" }}>
-            <Pressable
+            <View
               style={{
                 padding: 5,
                 backgroundColor: "white",
@@ -68,7 +68,8 @@ export default function Settings({
                   backgroundColor: colors.MAIN,
                   color: "white",
                   borderRadius: 10,
-                  fontFamily: "RowdiesBold",
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: language === 2 ? 19 : 16,
                 }}
               >
                 {language === 0
@@ -77,7 +78,7 @@ export default function Settings({
                   ? "Settings"
                   : "إعدادات"}
               </Text>
-            </Pressable>
+            </View>
           </View>
           <View
             style={{
@@ -107,7 +108,8 @@ export default function Settings({
                 style={{
                   color: "white",
                   fontFamily: "RowdiesBold",
-                  fontSize: 18,
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: language === 2 ? 20 : 18,
                 }}
               >
                 {language === 0 ? "son" : language === 1 ? "sound" : "صوت"}
@@ -139,8 +141,8 @@ export default function Settings({
               <Text
                 style={{
                   color: "white",
-                  fontFamily: "RowdiesBold",
-                  fontSize: 18,
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: language === 2 ? 20 : 18,
                 }}
               >
                 {language === 0
@@ -176,8 +178,8 @@ export default function Settings({
               <Text
                 style={{
                   color: "white",
-                  fontFamily: "RowdiesBold",
-                  fontSize: 18,
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: language === 2 ? 20 : 18,
                 }}
               >
                 {language === 0

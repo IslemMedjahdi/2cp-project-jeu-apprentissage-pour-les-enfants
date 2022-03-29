@@ -10,6 +10,7 @@ import Login from "./app/screens/Login";
 import SelectProfile from "./app/screens/SelectProfile";
 import FirstTime from "./app/screens/FirstTime";
 import AddProfile from "./app/screens/AddProfile";
+import Test from "./app/screens/Test";
 
 //redux
 import { Provider } from "react-redux";
@@ -32,6 +33,7 @@ export default function App() {
             <Stack.Screen name="FirstTime" component={FirstTime} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Intro" component={Intro} />
+            <Stack.Screen name="Test" component={Test} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

@@ -25,7 +25,7 @@ export default function Loading({ navigation }) {
     }, 3000);
   }, []);
   const pressHandler = () => {
-    navigation.replace("SelectProfile");
+    navigation.replace("FirstTime");
   };
   const [text, setText] = useState("nothing");
   const [value, setValue] = useState("");
@@ -150,7 +150,7 @@ export default function Loading({ navigation }) {
         </Text>
       </View>
       <View>
-        <Pressable onPress={() => navigation.replace("SelectProfile")}>
+        <Pressable onPress={() => navigation.replace("Test")}>
           <Text
             style={{
               padding: 10,

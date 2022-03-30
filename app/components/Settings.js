@@ -10,6 +10,9 @@ export default function Settings({
   toggleSound,
   toggleLanguage,
   language,
+  music,
+  sound,
+  navigation,
 }) {
   const [showModal, setShowModal] = useState(false);
   return (
@@ -86,120 +89,177 @@ export default function Settings({
               backgroundColor: colors.MAIN,
               width: "100%",
               padding: 20,
+              alignItems: "center",
             }}
           >
-            <View
-              style={{
-                flexDirection: "row",
-                width: "100%",
-                alignItems: "center",
-                justifyContent: "space-between",
-                borderBottomWidth: 3,
-                borderColor: "white",
-                padding: 5,
-              }}
-            >
-              <Image
-                style={{ width: 40, height: 40 }}
-                resizeMode="contain"
-                source={require("../../assets/icons/loudspeaker.png")}
-              />
-              <Text
+            <View style={{ height: "60%", width: "100%" }}>
+              <View
                 style={{
-                  color: "white",
-                  fontFamily: "RowdiesBold",
-                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                  fontSize: language === 2 ? 20 : 18,
+                  flexDirection: language === 2 ? "row-reverse" : "row",
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  borderBottomWidth: 3,
+                  borderColor: "white",
+                  height: "25%",
                 }}
               >
-                {language === 0 ? "son" : language === 1 ? "sound" : "صوت"}
-              </Text>
-              <Switch
-                size="lg"
-                colorScheme="white"
-                offThumbColor="red.400"
-                onThumbColor="green.400"
-                onValueChange={toggleSound}
-              />
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                width: "100%",
-                alignItems: "center",
-                justifyContent: "space-between",
-                borderBottomWidth: 3,
-                borderColor: "white",
-                padding: 5,
-              }}
-            >
-              <Image
-                style={{ width: 40, height: 40 }}
-                resizeMode="contain"
-                source={require("../../assets/icons/notes.png")}
-              />
-              <Text
-                style={{
-                  color: "white",
-                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                  fontSize: language === 2 ? 20 : 18,
-                }}
-              >
-                {language === 0
-                  ? "musique"
-                  : language === 1
-                  ? "music"
-                  : "موسيقى"}
-              </Text>
-              <Switch
-                size="lg"
-                colorScheme="white"
-                offThumbColor="red.400"
-                onThumbColor="green.400"
-                onValueChange={toggleMusic}
-              />
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                width: "100%",
-                alignItems: "center",
-                justifyContent: "space-between",
-                borderBottomWidth: 3,
-                borderColor: "white",
-                padding: 5,
-              }}
-            >
-              <Image
-                style={{ width: 40, height: 40 }}
-                resizeMode="contain"
-                source={require("../../assets/icons/Language.png")}
-              />
-              <Text
-                style={{
-                  color: "white",
-                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                  fontSize: language === 2 ? 20 : 18,
-                }}
-              >
-                {language === 0
-                  ? "langue"
-                  : language === 1
-                  ? "language"
-                  : "لغة"}
-              </Text>
-              <Pressable onPress={toggleLanguage}>
                 <Image
-                  style={{ width: 45, height: 45 }}
-                  resizeMode={"contain"}
-                  source={
-                    language === 0
-                      ? require("../../assets/flags/flag0.png")
-                      : language === 1
-                      ? require("../../assets/flags/flag1.png")
-                      : require("../../assets/flags/flag2.png")
-                  }
+                  style={{ width: 40, height: 40 }}
+                  resizeMode="contain"
+                  source={require("../../assets/icons/loudspeaker.png")}
                 />
+                <Text
+                  style={{
+                    color: "white",
+                    fontFamily: "RowdiesBold",
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                    fontSize: language === 2 ? 20 : 18,
+                  }}
+                >
+                  {language === 0 ? "son" : language === 1 ? "sound" : "صوت"}
+                </Text>
+                <Switch
+                  size="lg"
+                  thumbColor={sound ? "green" : "red"}
+                  trackColor={{ false: "white", true: "white" }}
+                  onToggle={toggleSound}
+                  value={sound}
+                />
+              </View>
+              <View
+                style={{
+                  flexDirection: language === 2 ? "row-reverse" : "row",
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  borderBottomWidth: 3,
+                  borderColor: "white",
+                  height: "25%",
+                }}
+              >
+                <Image
+                  style={{ width: 40, height: 40 }}
+                  resizeMode="contain"
+                  source={require("../../assets/icons/notes.png")}
+                />
+                <Text
+                  style={{
+                    color: "white",
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                    fontSize: language === 2 ? 20 : 18,
+                  }}
+                >
+                  {language === 0
+                    ? "musique"
+                    : language === 1
+                    ? "music"
+                    : "موسيقى"}
+                </Text>
+                <Switch
+                  size="lg"
+                  thumbColor={music ? "green" : "red"}
+                  trackColor={{ false: "white", true: "white" }}
+                  onToggle={toggleMusic}
+                  value={music}
+                />
+              </View>
+              <View
+                style={{
+                  flexDirection: language === 2 ? "row-reverse" : "row",
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  borderBottomWidth: 3,
+                  borderColor: "white",
+                  height: "25%",
+                }}
+              >
+                <Image
+                  style={{ width: 40, height: 40 }}
+                  resizeMode="contain"
+                  source={require("../../assets/icons/Language.png")}
+                />
+                <Text
+                  style={{
+                    color: "white",
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                    fontSize: language === 2 ? 20 : 18,
+                  }}
+                >
+                  {language === 0
+                    ? "langue"
+                    : language === 1
+                    ? "language"
+                    : "لغة"}
+                </Text>
+                <Pressable onPress={toggleLanguage}>
+                  <Image
+                    style={{ width: 45, height: 45 }}
+                    resizeMode={"contain"}
+                    source={
+                      language === 0
+                        ? require("../../assets/flags/flag0.png")
+                        : language === 1
+                        ? require("../../assets/flags/flag1.png")
+                        : require("../../assets/flags/flag2.png")
+                    }
+                  />
+                </Pressable>
+              </View>
+              <View
+                style={{
+                  flexDirection: language === 2 ? "row-reverse" : "row",
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  borderBottomWidth: 3,
+                  borderColor: "white",
+                  height: "25%",
+                }}
+              >
+                <Image
+                  style={{ width: 40, height: 40 }}
+                  resizeMode="contain"
+                  source={require("../../assets/icons/aide.png")}
+                />
+                <Text
+                  style={{
+                    color: "white",
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                    fontSize: language === 2 ? 20 : 18,
+                  }}
+                >
+                  {language === 0 ? "Aide" : language === 1 ? "Help" : "مساعدة"}
+                </Text>
+                <View style={{ width: "18%" }}></View>
+              </View>
+            </View>
+            <View style={{ height: "40%" }}>
+              <Pressable
+                style={{
+                  marginTop: "auto",
+                  alignItems: "center",
+                  backgroundColor: "white",
+                  paddingHorizontal: 10,
+                  paddingVertical: 10,
+                  borderRadius: 10,
+                }}
+                onPress={() => navigation.replace("SelectProfile")}
+              >
+                <Text
+                  style={{
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                    fontSize: language === 2 ? 22 : 18,
+                    color: colors.MAIN,
+                  }}
+                >
+                  {language === 0
+                    ? "se déconnecter"
+                    : language === 1
+                    ? "sign out"
+                    : "تسجيل الخروج"}
+                </Text>
               </Pressable>
             </View>
           </View>

@@ -10,12 +10,14 @@ import Login from "./app/screens/Login";
 import SelectProfile from "./app/screens/SelectProfile";
 import FirstTime from "./app/screens/FirstTime";
 import AddProfile from "./app/screens/AddProfile";
-import Test from "./app/screens/Test";
+import Begin from "./app/screens/Begin";
+import Intro from "./app/screens/Intro";
+import DeleteProfile from "./app/screens/DeleteProfile";
+import ModifyProfile from "./app/screens/ModifyProfile";
 
 //redux
 import { Provider } from "react-redux";
 import { store } from "./app/redux/store";
-import Intro from "./app/screens/Intro";
 
 // stack
 const Stack = createNativeStackNavigator();
@@ -29,11 +31,13 @@ export default function App() {
             <Stack.Screen name="Loading" component={Loading} />
             <Stack.Screen name="SelectProfile" component={SelectProfile} />
             <Stack.Screen name="AddProfile" component={AddProfile} />
+            <Stack.Screen name="DeleteProfile" component={DeleteProfile} />
+            <Stack.Screen name="ModifyProfile" component={ModifyProfile} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="FirstTime" component={FirstTime} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Intro" component={Intro} />
-            <Stack.Screen name="Test" component={Test} />
+            <Stack.Screen name="Commencer" component={Begin} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

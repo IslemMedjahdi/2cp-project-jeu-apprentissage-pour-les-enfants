@@ -4,6 +4,7 @@ import { Image, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import colors from "../colors";
 import avatars from "../avatars";
+import badges from "../badges";
 export default function Profil({ language }) {
   const [showModal, setShowModal] = useState(false);
   const profiles = useSelector((state) => state.profiles.value);
@@ -305,16 +306,17 @@ export default function Profil({ language }) {
                       showsHorizontalScrollIndicator={false}
                       snapToAlignment="center"
                       snapToInterval={100}
+                      inverted={language === 2}
                       style={{
                         padding: 7,
                       }}
                       horizontal
                       keyExtractor={(_, index) => index.toString()}
                       data={profiles[selectedProfile].badges}
-                      renderItem={({ item }) => (
+                      renderItem={({ item, index }) => (
                         <View
                           style={{
-                            marginRight: 10,
+                            marginStart: 10,
                             overflow: "hidden",
                             borderRadius: 10,
                           }}
@@ -328,7 +330,7 @@ export default function Profil({ language }) {
                             }}
                           >
                             <Image
-                              source={item.image}
+                              source={badges[item.image]}
                               resizeMode={"contain"}
                               style={{ width: 50, height: 50 }}
                             />

@@ -61,7 +61,7 @@ export default function Home({ navigation }) {
         pause();
       }
   }, [music]);
-  const clickMusicHandler = () => {
+  const clickMusicHandler = (a) => {
     dispatch(toggleMusic({ selectedProfile }));
     if (music) {
       play();
@@ -69,7 +69,7 @@ export default function Home({ navigation }) {
       pause();
     }
   };
-  const clickSoundHandler = () => {
+  const clickSoundHandler = (a) => {
     dispatch(toggleSound({ selectedProfile }));
   };
   useEffect(() => {
@@ -101,6 +101,9 @@ export default function Home({ navigation }) {
               toggleSound={clickSoundHandler}
               toggleLanguage={clickLanguageHandler}
               language={profiles[selectedProfile].language}
+              music={profiles[selectedProfile].music}
+              sound={profiles[selectedProfile].sound}
+              navigation={navigation}
             />
           </View>
           <View

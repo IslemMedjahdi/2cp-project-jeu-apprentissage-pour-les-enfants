@@ -1,128 +1,8 @@
+import AsyncStorageLib from "@react-native-async-storage/async-storage";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: [
-    {
-      id: 0,
-      name: "Asmaa",
-      birthday: 2015,
-      score: 500,
-      avatar: 2,
-      music: false,
-      sound: false,
-      language: 0,
-      badges: [
-        {
-          image: require("../../assets/badges/badge0.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge2.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-      ],
-      levels: [],
-      level: 2,
-    },
-    {
-      id: 1,
-      name: "Islem",
-      birthday: 2002,
-      score: 100,
-      avatar: 1,
-      music: false,
-      sound: false,
-      language: 0,
-      badges: [
-        {
-          image: require("../../assets/badges/badge0.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge2.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-      ],
-      levels: [],
-      level: 3,
-    },
-    {
-      id: 3,
-      name: "badro",
-      birthday: 2002,
-      score: 1000,
-      avatar: 4,
-      music: false,
-      sound: false,
-      language: 0,
-      badges: [
-        {
-          image: require("../../assets/badges/badge0.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge2.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-      ],
-      levels: [],
-      level: 3,
-    },
-    {
-      id: 4,
-      name: "hadjer",
-      birthday: 2002,
-      score: 10020,
-      avatar: 3,
-      music: false,
-      sound: false,
-      language: 0,
-      badges: [
-        {
-          image: require("../../assets/badges/badge0.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge2.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-        {
-          image: require("../../assets/badges/badge1.png"),
-          text: ["Master", "Master", "عربية"],
-        },
-      ],
-      levels: [],
-      level: 3,
-    },
-  ],
+  value: [],
 };
 
 export const profilesSlice = createSlice({
@@ -132,19 +12,31 @@ export const profilesSlice = createSlice({
     toggleMusic: (state, action) => {
       state.value[action.payload.selectedProfile].music =
         !state.value[action.payload.selectedProfile].music;
+      AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
+        (e) => console.warn(e)
+      );
     },
     toggleSound: (state, action) => {
       state.value[action.payload.selectedProfile].sound =
         !state.value[action.payload.selectedProfile].sound;
+      AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
+        (e) => console.warn(e)
+      );
     },
     changeLanguage: (state, action) => {
       if (state.value[action.payload.selectedProfile].language < 2)
         state.value[action.payload.selectedProfile].language++;
       else state.value[action.payload.selectedProfile].language = 0;
+      AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
+        (e) => console.warn(e)
+      );
+    },
+    loadProfiles: (state, action) => {
+      state.value = action.payload.profiles;
     },
   },
 });
 
-export const { toggleMusic, toggleSound, changeLanguage } =
+export const { toggleMusic, toggleSound, changeLanguage, loadProfiles } =
   profilesSlice.actions;
 export default profilesSlice.reducer;

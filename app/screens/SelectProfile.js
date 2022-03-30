@@ -14,6 +14,7 @@ import ProfilesManager from "../components/ProfilesManager";
 import { setSelectedProfile } from "../redux/selectedProfileSlice";
 export default function SelectProfile({ navigation }) {
   const profiles = useSelector((state) => state.profiles.value); //get the profiles from redux
+  const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
   // profile pressed handler
   const pressHandler = (id) => {
@@ -94,12 +95,16 @@ export default function SelectProfile({ navigation }) {
         >
           <Text
             style={{
-              fontFamily: "RowdiesBold",
-              fontSize: 30,
+              fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: user.language === 2 ? 36 : 30,
               textAlign: "center",
             }}
           >
-            Choisir votre profil
+            {user.language === 0
+              ? "Choisir votre profil"
+              : user.language === 1
+              ? "Choose your profile"
+              : "اختر صفحتك الشخصية"}
           </Text>
         </View>
         <View
@@ -140,7 +145,7 @@ export default function SelectProfile({ navigation }) {
               >
                 <Pressable
                   style={{
-                    flexDirection: "row",
+                    flexDirection: user.language === 2 ? "row-reverse" : "row",
                     justifyContent: "space-between",
                     padding: 5,
                     alignItems: "center",
@@ -166,20 +171,26 @@ export default function SelectProfile({ navigation }) {
                     <Text
                       style={{
                         fontFamily: "RowdiesBold",
+                        fontSize: user.language === 2 ? 20 : 18,
                         color: "white",
-                        fontSize: 18,
                       }}
                     >
                       {item.name}
                     </Text>
                     <Text
                       style={{
-                        fontFamily: "RowdiesBold",
                         color: "white",
-                        fontSize: 18,
+                        fontFamily:
+                          user.language === 2 ? "ArbFont" : "RowdiesBold",
+                        fontSize: user.language === 2 ? 20 : 18,
                       }}
                     >
-                      Niveau {item.level}
+                      {user.language === 0
+                        ? "Niveau"
+                        : user.language === 1
+                        ? "Level"
+                        : "المستوى"}{" "}
+                      {item.level}
                     </Text>
                     <View
                       style={{
@@ -230,7 +241,7 @@ export default function SelectProfile({ navigation }) {
             justifyContent: "center",
           }}
         >
-          <ProfilesManager />
+          <ProfilesManager language={user.language} navigation={navigation} />
         </View>
       </View>
     </View>

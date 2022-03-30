@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export default function Login({ navigation }) {
+export default function ModifyProfile() {
   return (
     <View>
-      <Text>Login</Text>
+      <Text>ModifyProfile Profile</Text>
     </View>
   );
 }

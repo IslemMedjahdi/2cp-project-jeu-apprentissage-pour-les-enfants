@@ -1,7 +1,7 @@
 import { Pressable, Dimensions, Text, View, Image } from "react-native";
 import colors from "../colors";
 
-export default function Test() {
+export default function Begin() {
   return (
     <View
       style={{

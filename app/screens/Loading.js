@@ -4,6 +4,9 @@ import { Text, View, Pressable, Image, TextInput } from "react-native";
 //font
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
+import { useDispatch } from "react-redux";
+import { loadProfiles } from "../redux/profilesSlice";
+import AsyncStorageLib from "@react-native-async-storage/async-storage";
 const fetchFont = () => {
   return Font.loadAsync({
     RowdiesBold: require("../../assets/fonts/Rowdies-Bold.ttf"),
@@ -15,6 +18,21 @@ const fetchFont = () => {
 
 export default function Loading({ navigation }) {
   const [fontLoaded, setfontLoaded] = useState(false);
+  const dispatch = useDispatch();
+  const tryToGetData = async () => {
+    try {
+      const value = await AsyncStorageLib.getItem("profiles", value);
+      if (value !== null) {
+        const profiles = await JSON.parse(value);
+        dispatch(loadProfiles({ profiles }));
+        navigation.replace("SelectProfile");
+      } else {
+        navigation.replace("FirstTime");
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+  };
   useEffect(() => {
     setTimeout(() => {
       /* 
@@ -22,11 +40,9 @@ export default function Loading({ navigation }) {
                 get The info from local storage, if existe navigate to select Profiles (offline)
                 if not :  show login (online) + new User screen ( offline)
       */
+      tryToGetData();
     }, 3000);
   }, []);
-  const pressHandler = () => {
-    navigation.replace("FirstTime");
-  };
   const [text, setText] = useState("nothing");
   const [value, setValue] = useState("");
   if (!fontLoaded) {
@@ -150,7 +166,7 @@ export default function Loading({ navigation }) {
         </Text>
       </View>
       <View>
-        <Pressable onPress={() => navigation.replace("Test")}>
+        <Pressable onPress={() => navigation.replace("FirstTime")}>
           <Text
             style={{
               padding: 10,

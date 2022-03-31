@@ -1,9 +1,124 @@
-import { Text, View } from "react-native";
+import AsyncStorageLib from "@react-native-async-storage/async-storage";
+import { Dimensions, Image, Pressable, Text, View } from "react-native";
+import NameInput from "../components/NameInput";
+import { useState } from "react";
+import SelectAge from "../components/SelectAge";
+import SelectAvatar from "../components/SelectAvatar";
+import colors from "../colors";
+import { useSelector } from "react-redux";
 
-export default function AddProfile() {
+export default function AddProfile({ navigation }) {
+  const language = useSelector((state) => state.user.value.language);
+  const [page, setPage] = useState(0);
+  const [profile, setProfile] = useState({
+    id: 0,
+    avatar: 0,
+    score: 0,
+    music: true,
+    sound: true,
+    language: language,
+    badges: [
+      {
+        image: 0,
+        text: ["nouveau hero", "New Hero", "بطل جديد"],
+      },
+    ],
+    levels: [],
+    level: 1,
+  });
   return (
-    <View>
-      <Text>Add profile</Text>
+    <View style={{ alignItems: "center", backgroundColor: "white" }}>
+      <View
+        style={{
+          height: (20 * Dimensions.get("window").height) / 100,
+          justifyContent: "center",
+        }}
+      >
+        <Image
+          resizeMode="contain"
+          style={{ height: "80%" }}
+          source={require("../../assets/hero/mystick3.png")}
+        />
+      </View>
+      <Image
+        source={require("../../assets/icons/strawberry.png")}
+        style={{
+          position: "absolute",
+          width: 50,
+          height: 50,
+          top: Dimensions.get("window").height / 3,
+          right: 25,
+        }}
+        resizeMode="contain"
+      />
+      <Image
+        source={require("../../assets/icons/fond1.png")}
+        style={{
+          position: "absolute",
+          width: 40,
+          height: 40,
+          top: (3 * Dimensions.get("window").height) / 12,
+          left: 25,
+        }}
+        resizeMode="contain"
+      />
+      <Image
+        source={require("../../assets/icons/cup.png")}
+        style={{
+          position: "absolute",
+          width: 70,
+          height: 70,
+          top: (11 * Dimensions.get("window").height) / 12,
+          left: 25,
+        }}
+        resizeMode="contain"
+      />
+      {page === 0 && (
+        <NameInput
+          language={language}
+          setPage={setPage}
+          setProfile={setProfile}
+        />
+      )}
+      {page === 1 && (
+        <SelectAge
+          setPage={setPage}
+          language={language}
+          setProfile={setProfile}
+        />
+      )}
+      {page === 2 && (
+        <SelectAvatar
+          language={language}
+          setPage={setPage}
+          setProfile={setProfile}
+          profile={profile}
+          navigation={navigation}
+        />
+      )}
+      <View
+        style={{
+          height: (15 * Dimensions.get("window").height) / 100,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "30%",
+          alignItems: "center",
+        }}
+      >
+        {[0, 1, 2].map((item) => (
+          <View
+            key={item}
+            style={{
+              height: 16,
+              width: 16,
+              borderRadius: 8,
+              borderColor: colors.SECOND,
+              borderWidth: 1,
+              backgroundColor: item === page ? colors.SECOND : "transparent",
+            }}
+          />
+        ))}
+      </View>
     </View>
   );
 }

@@ -121,8 +121,8 @@ export default function Settings({
                 </Text>
                 <Switch
                   size="lg"
-                  thumbColor={sound ? "green" : "red"}
-                  trackColor={{ false: "white", true: "white" }}
+                  thumbColor={sound ? "#2EEA84" : "#E73922"}
+                  trackColor={{ false: "#FF6B6B", true: "#6BFF72" }}
                   onToggle={toggleSound}
                   value={sound}
                 />
@@ -158,8 +158,8 @@ export default function Settings({
                 </Text>
                 <Switch
                   size="lg"
-                  thumbColor={music ? "green" : "red"}
-                  trackColor={{ false: "white", true: "white" }}
+                  thumbColor={music ? "#2EEA84" : "#E73922"}
+                  trackColor={{ false: "#FF6B6B", true: "#6BFF72" }}
                   onToggle={toggleMusic}
                   value={music}
                 />

@@ -7,7 +7,7 @@ export default function HomeCard({ title, desc, image, color, language }) {
       <Pressable
         style={{
           backgroundColor: color + "CC",
-          padding: language === 2 ? 20 : 15,
+          padding: language === 2 ? 20 : language === 0 ? 10 : 15,
         }}
         android_ripple={{ color: color }}
       >

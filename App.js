@@ -8,7 +8,6 @@ import Home from "./app/screens/Home";
 import Loading from "./app/screens/Loading";
 import Login from "./app/screens/Login";
 import SelectProfile from "./app/screens/SelectProfile";
-import FirstTime from "./app/screens/FirstTime";
 import AddProfile from "./app/screens/AddProfile";
 import Begin from "./app/screens/Begin";
 import Intro from "./app/screens/Intro";
@@ -34,10 +33,9 @@ export default function App() {
             <Stack.Screen name="DeleteProfile" component={DeleteProfile} />
             <Stack.Screen name="ModifyProfile" component={ModifyProfile} />
             <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="FirstTime" component={FirstTime} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Intro" component={Intro} />
-            <Stack.Screen name="Commencer" component={Begin} />
+            <Stack.Screen name="Begin" component={Begin} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

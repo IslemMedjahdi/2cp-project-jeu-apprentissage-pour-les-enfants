@@ -1,98 +1,31 @@
-import { Pressable, Dimensions, Text, View, Image } from "react-native";
+import { useState } from "react";
+import { View } from "react-native";
 import colors from "../colors";
+import Language from "../components/Language";
+import NewOldUser from "../components/NewOldUser";
+import Salut from "../components/Salut";
 
-export default function Begin() {
+export default function Begin({ navigation }) {
+  const [page, setPage] = useState(0);
+  const [language, setLanguage] = useState(3);
   return (
     <View
       style={{
         flex: 1,
-        alignItems: "center",
         justifyContent: "center",
+        alignItems: "center",
         backgroundColor: colors.MAIN,
       }}
     >
-      <View
-        style={{
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "70%",
-          height: Dimensions.get("window").height / 2,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            height: Dimensions.get("window").height / 2,
-          }}
-        >
-          <Image
-            resizeMode="contain"
-            source={require("../../assets/hero/mystick2.png")}
-            style={{
-              width: Dimensions.get("window").width / 3.5,
-              top: "-70%",
-            }}
-          />
-        </View>
-        <View style={{}}>
-          <Text
-            style={{
-              textAlign: "center",
-              fontFamily: "RowdiesBold",
-              color: "#FFF",
-              fontSize: 16,
-            }}
-          >
-            Apprendre avec XXXXX{" "}
-          </Text>
-        </View>
-      </View>
-      <View>
-        <View
-          style={{
-            borderRadius: 20,
-            overflow: "hidden",
-            width: "80%",
-            padding: 10,
-            backgroundColor: colors.COLOR3 + "AA",
-          }}
-        >
-          <Pressable style={{ padding: 10, backgroundColor: colors.COLOR2 }}>
-            <Text
-              style={{
-                textAlign: "center",
-                fontFamily: "RowdiesBold",
-                color: "#FFF",
-                fontSize: 16,
-              }}
-            >
-              Je veux commencer
-            </Text>
-          </Pressable>
-        </View>
-        <View
-          style={{
-            borderRadius: 20,
-            overflow: "hidden",
-            width: "80%",
-          }}
-        >
-          <Pressable
-            style={{ padding: 10, backgroundColor: colors.COLOR3 + "AA" }}
-          >
-            <Text
-              style={{
-                textAlign: "center",
-                fontFamily: "RowdiesBold",
-                color: "#FFF",
-                fontSize: 16,
-              }}
-            >
-              Je posséde un compte
-            </Text>
-          </Pressable>
-        </View>
-      </View>
+      {page === 0 && (
+        <Language
+          setPage={setPage}
+          language={language}
+          setLanguage={setLanguage}
+        />
+      )}
+      {page === 1 && <Salut setPage={setPage} language={language} />}
+      {page === 2 && <NewOldUser language={language} navigation={navigation} />}
     </View>
   );
 }

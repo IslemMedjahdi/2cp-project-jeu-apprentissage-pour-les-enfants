@@ -25,7 +25,7 @@ export default function SelectProfile({ navigation }) {
     navigation.replace("Intro");
   };
   return (
-    <View style={{ height: "100%" }}>
+    <View style={{ height: "100%", backgroundColor: "white" }}>
       <StatusBar
         backgroundColor={"white"}
         translucent={true}
@@ -170,7 +170,8 @@ export default function SelectProfile({ navigation }) {
                   <View style={{ alignItems: "center" }}>
                     <Text
                       style={{
-                        fontFamily: "RowdiesBold",
+                        fontFamily:
+                          user.language === 2 ? "ArbFont" : "RowdiesBold",
                         fontSize: user.language === 2 ? 20 : 18,
                         color: "white",
                       }}

@@ -58,7 +58,7 @@ export default function Profil({ language }) {
         >
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: language === 2 ? "row-reverse" : "row",
               justifyContent: "space-evenly",
               alignItems: "center",
               height: "15%",
@@ -385,7 +385,8 @@ export default function Profil({ language }) {
                       >
                         <Pressable
                           style={{
-                            flexDirection: "row",
+                            flexDirection:
+                              language === 2 ? "row-reverse" : "row",
                             justifyContent: "space-between",
                             padding: 5,
                             backgroundColor:
@@ -416,8 +417,9 @@ export default function Profil({ language }) {
                             <Text
                               style={{
                                 color: "black",
-                                fontFamily: "RowdiesBold",
-                                fontSize: 16,
+                                fontFamily:
+                                  language === 2 ? "ArbFont" : "RowdiesBold",
+                                fontSize: language === 2 ? 18 : 16,
                               }}
                             >
                               {item.id === profiles[selectedProfile].id

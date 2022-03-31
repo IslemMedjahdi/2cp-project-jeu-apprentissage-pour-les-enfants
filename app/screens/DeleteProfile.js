@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 
 export default function DeleteProfile() {
   return (
-    <View>
+    <View style={{ backgroundColor: "white" }}>
       <Text>Delete Profile</Text>
     </View>
   );

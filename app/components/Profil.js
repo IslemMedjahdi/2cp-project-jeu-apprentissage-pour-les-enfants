@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import * as Animatable from "react-native-animatable";
-import colors from "../colors";
-import avatars from "../avatars";
-import badges from "../badges";
+import colors from "../data/colors";
+import avatars from "../data/avatars";
+import badges from "../data/badges";
 export default function Profil({ language }) {
   const [showModal, setShowModal] = useState(false);
   const profiles = useSelector((state) => state.profiles.value);

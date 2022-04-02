@@ -8,7 +8,7 @@ import {
   BackHandler,
 } from "react-native";
 import AsyncStorageLib from "@react-native-async-storage/async-storage";
-import colors from "../colors";
+import colors from "../data/colors";
 
 export default function NewOldUser({ language, navigation, setPage }) {
   useEffect(() => {
@@ -24,7 +24,12 @@ export default function NewOldUser({ language, navigation, setPage }) {
   const pressHandler = () => {
     AsyncStorageLib.setItem(
       "user",
-      JSON.stringify({ language: language, connected: false })
+      JSON.stringify({
+        language: language,
+        connected: false,
+        email: "",
+        uid: 0,
+      })
     );
     navigation.replace("Loading");
   };
@@ -101,6 +106,7 @@ export default function NewOldUser({ language, navigation, setPage }) {
         </View>
         <View style={{ borderRadius: 10, overflow: "hidden" }}>
           <Pressable
+            onPress={() => navigation.navigate("Login", { language })}
             android_ripple={{ color: "#ffffff40" }}
             style={{
               backgroundColor: colors.SECOND,

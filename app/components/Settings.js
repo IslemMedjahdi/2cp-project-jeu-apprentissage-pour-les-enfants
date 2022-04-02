@@ -1,7 +1,7 @@
 import { Center, Modal, Pressable, Switch } from "native-base";
 import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
-import colors from "../colors";
+import colors from "../data/colors";
 import * as Animatable from "react-native-animatable";
 
 export default function Settings({

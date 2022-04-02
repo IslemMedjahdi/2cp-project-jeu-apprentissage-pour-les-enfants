@@ -33,6 +33,9 @@ export const profilesSlice = createSlice({
     },
     loadProfiles: (state, action) => {
       state.value = action.payload.profiles;
+      AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
+        (e) => console.warn(e)
+      );
     },
     addProfileHandler: (state, action) => {
       state.value.push(action.payload.profile);

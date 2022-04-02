@@ -1,10 +1,9 @@
-import AsyncStorageLib from "@react-native-async-storage/async-storage";
-import { Dimensions, Image, Pressable, Text, View } from "react-native";
+import { Dimensions, Image, View } from "react-native";
 import NameInput from "../components/NameInput";
 import { useState } from "react";
 import SelectAge from "../components/SelectAge";
 import SelectAvatar from "../components/SelectAvatar";
-import colors from "../colors";
+import colors from "../data/colors";
 import { useSelector } from "react-redux";
 
 export default function AddProfile({ navigation }) {

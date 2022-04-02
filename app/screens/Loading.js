@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { loadProfiles } from "../redux/profilesSlice";
 import AsyncStorageLib from "@react-native-async-storage/async-storage";
 import { loadUser } from "../redux/userSlice";
+import { doc, setDoc } from "firebase/firestore";
+import { app, db } from "../Core/firebaseConfig";
 
 const firstTime = false;
 const fetchFont = () => {
@@ -27,7 +29,7 @@ export default function Loading({ navigation }) {
       if (value !== null) {
         const user = await JSON.parse(value);
         dispatch(loadUser({ user }));
-        tryToGetData();
+        tryToGetData(user);
       } else {
         navigation.replace("Begin");
       }
@@ -35,11 +37,16 @@ export default function Loading({ navigation }) {
       console.warn(e);
     }
   };
-  const tryToGetData = async () => {
+  const tryToGetData = async (user) => {
     try {
       const value = await AsyncStorageLib.getItem("profiles");
       if (value !== null) {
         const profiles = await JSON.parse(value);
+        if (user.connected) {
+          setDoc(doc(db, "users", user.uid), { profiles }).catch((e) =>
+            console.log(e)
+          );
+        }
         dispatch(loadProfiles({ profiles }));
         navigation.replace("SelectProfile");
       } else {

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Profil from "../components/Profil";
 import { View, ImageBackground, StatusBar, Dimensions } from "react-native";
 import HomeCard from "../components/HomeCard";
-import colors from "../colors";
+import colors from "../data/colors";
 import {
   changeLanguage,
   toggleMusic,

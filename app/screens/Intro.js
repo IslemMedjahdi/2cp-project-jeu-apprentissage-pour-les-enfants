@@ -1,6 +1,6 @@
 import { Pressable, StatusBar, Text, View } from "react-native";
 import { useSelector } from "react-redux";
-import colors from "../colors";
+import colors from "../data/colors";
 
 export default function Intro({ navigation }) {
   // get the infos from Redux

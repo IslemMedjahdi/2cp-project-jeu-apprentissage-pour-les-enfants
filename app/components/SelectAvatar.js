@@ -7,8 +7,8 @@ import {
   Pressable,
   Image,
 } from "react-native";
-import colors from "../colors";
-import avatars from "../avatars";
+import colors from "../data/colors";
+import avatars from "../data/avatars";
 import { useDispatch } from "react-redux";
 import { addProfileHandler } from "../redux/profilesSlice";
 import * as Animatable from "react-native-animatable";

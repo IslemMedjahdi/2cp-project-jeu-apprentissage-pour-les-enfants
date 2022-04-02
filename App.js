@@ -6,13 +6,14 @@ import { NativeBaseProvider } from "native-base";
 
 import Home from "./app/screens/Home";
 import Loading from "./app/screens/Loading";
-import Login from "./app/screens/Login";
+import LinkUser from "./app/screens/LinkUser";
 import SelectProfile from "./app/screens/SelectProfile";
 import AddProfile from "./app/screens/AddProfile";
 import Begin from "./app/screens/Begin";
 import Intro from "./app/screens/Intro";
 import DeleteProfile from "./app/screens/DeleteProfile";
 import ModifyProfile from "./app/screens/ModifyProfile";
+import Login from "./app/screens/Login";
 
 //redux
 import { Provider } from "react-redux";
@@ -36,10 +37,11 @@ export default function App() {
             <Stack.Screen name="AddProfile" component={AddProfile} />
             <Stack.Screen name="DeleteProfile" component={DeleteProfile} />
             <Stack.Screen name="ModifyProfile" component={ModifyProfile} />
-            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="LinkUser" component={LinkUser} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Intro" component={Intro} />
             <Stack.Screen name="Begin" component={Begin} />
+            <Stack.Screen name="Login" component={Login} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

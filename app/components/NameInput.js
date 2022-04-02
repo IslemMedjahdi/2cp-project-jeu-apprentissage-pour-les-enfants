@@ -7,7 +7,7 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-import colors from "../colors";
+import colors from "../data/colors";
 import { useState } from "react";
 
 export default function NameInput({ language, setProfile, setPage }) {
@@ -85,6 +85,7 @@ export default function NameInput({ language, setProfile, setPage }) {
             borderWidth: 2,
             borderRadius: 10,
             color: colors.SECOND,
+            textAlign: language === 2 ? "right" : "left",
           }}
           maxLength={12}
           placeholderTextColor={colors.SECOND + "90"}

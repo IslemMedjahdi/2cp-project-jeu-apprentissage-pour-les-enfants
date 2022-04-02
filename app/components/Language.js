@@ -1,6 +1,6 @@
 import React from "react";
 import { Dimensions, Image, Pressable, Text, View } from "react-native";
-import colors from "../colors";
+import colors from "../data/colors";
 
 export default function Language({ language, setLanguage, setPage }) {
   return (

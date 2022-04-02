@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View } from "react-native";
-import colors from "../colors";
+import colors from "../data/colors";
 import Language from "../components/Language";
 import NewOldUser from "../components/NewOldUser";
 import Salut from "../components/Salut";

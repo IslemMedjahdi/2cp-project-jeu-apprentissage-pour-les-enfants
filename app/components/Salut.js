@@ -7,7 +7,7 @@ import {
   BackHandler,
 } from "react-native";
 import React, { useEffect } from "react";
-import colors from "../colors";
+import colors from "../data/colors";
 
 export default function Salut({ language, setPage }) {
   useEffect(() => {

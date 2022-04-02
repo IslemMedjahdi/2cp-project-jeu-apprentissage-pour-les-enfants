@@ -8,8 +8,8 @@ import {
   View,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import avatars from "../avatars";
-import colors from "../colors";
+import avatars from "../data/avatars";
+import colors from "../data/colors";
 import ProfilesManager from "../components/ProfilesManager";
 import { setSelectedProfile } from "../redux/selectedProfileSlice";
 import * as Animatable from "react-native-animatable";
@@ -253,7 +253,12 @@ export default function SelectProfile({ navigation }) {
             justifyContent: "center",
           }}
         >
-          <ProfilesManager language={user.language} navigation={navigation} />
+          <ProfilesManager
+            connected={user.connected}
+            language={user.language}
+            navigation={navigation}
+            email={user.email}
+          />
         </View>
       </View>
     </View>

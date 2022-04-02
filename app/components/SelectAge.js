@@ -8,7 +8,7 @@ import {
   BackHandler,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
-import colors from "../colors";
+import colors from "../data/colors";
 export default function SelectAge({ language, setPage, setProfile }) {
   const [age, setAge] = useState(4);
   const pressHandler = () => {

@@ -2,10 +2,15 @@ import { Center, Modal, Pressable } from "native-base";
 import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
-import colors from "../colors";
+import colors from "../data/colors";
 import { changeLanguageUser } from "../redux/userSlice";
 
-export default function ProfilesManager({ language, navigation }) {
+export default function ProfilesManager({
+  language,
+  navigation,
+  connected,
+  email,
+}) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   return (
@@ -214,6 +219,64 @@ export default function ProfilesManager({ language, navigation }) {
                 />
               </Pressable>
             </View>
+            {!connected ? (
+              <Pressable
+                style={{
+                  flexDirection: language === 2 ? "row-reverse" : "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  borderBottomColor: "white",
+                  borderBottomWidth: 2,
+                  padding: 10,
+                  width: "80%",
+                }}
+                onPress={() => navigation.navigate("LinkUser")}
+              >
+                <Text
+                  style={{
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                    fontSize: language === 2 ? 22 : 20,
+                    color: "white",
+                  }}
+                >
+                  {language === 0
+                    ? "Connectez-vous à un compte Google"
+                    : language === 1
+                    ? "Link to google account"
+                    : "الربط مع حسابي غوغل"}
+                </Text>
+                <Image
+                  resizeMode="contain"
+                  style={{ width: 40, height: 40 }}
+                  source={require("../../assets/icons/Add.png")}
+                />
+              </Pressable>
+            ) : (
+              <View style={{ alignItems: "center" }}>
+                <Text
+                  style={{
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                    fontSize: language === 2 ? 22 : 20,
+                    color: "white",
+                  }}
+                >
+                  {language === 0
+                    ? "Compte connecté avec"
+                    : language === 1
+                    ? "Account connected with"
+                    : "الحساب مربوط ب"}
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: "RowdiesBold",
+                    fontSize: 20,
+                    color: "white",
+                  }}
+                >
+                  {email}
+                </Text>
+              </View>
+            )}
           </View>
           <Pressable
             onPress={() => {

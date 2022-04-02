@@ -26,7 +26,11 @@ export default function App() {
     <Provider store={store}>
       <NativeBaseProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ header: () => null }}>
+          <Stack.Navigator
+            screenOptions={{
+              header: () => null,
+            }}
+          >
             <Stack.Screen name="Loading" component={Loading} />
             <Stack.Screen name="SelectProfile" component={SelectProfile} />
             <Stack.Screen name="AddProfile" component={AddProfile} />

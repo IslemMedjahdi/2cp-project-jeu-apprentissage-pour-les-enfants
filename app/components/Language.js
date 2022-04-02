@@ -1,12 +1,8 @@
 import React from "react";
 import { Dimensions, Image, Pressable, Text, View } from "react-native";
-import { useDispatch } from "react-redux";
 import colors from "../colors";
 
 export default function Language({ language, setLanguage, setPage }) {
-  const pressHandler = () => {
-    setPage(1);
-  };
   return (
     <View>
       <View
@@ -137,13 +133,14 @@ export default function Language({ language, setLanguage, setPage }) {
         <View
           style={{
             flex: 2,
+            width: "80%",
             flexDirection: language === 2 ? "row-reverse" : "row",
             justifyContent: "space-between",
             alignItems: "center",
           }}
         >
           <Image
-            resizeMode="contain"
+            resizeMode="cover"
             style={{
               height: "100%",
               width: "50%",
@@ -155,14 +152,19 @@ export default function Language({ language, setLanguage, setPage }) {
               onPress={() => setPage(1)}
               style={{
                 alignItems: "center",
-                justifyContent: "space-evenly",
+                justifyContent: "center",
                 height: "100%",
+                width: "50%",
               }}
             >
               <Image
                 resizeMode="contain"
-                style={{ width: 50, height: 50 }}
-                source={require("../../assets/icons/settings.png")}
+                style={{
+                  width: 50,
+                  height: 50,
+                  transform: [{ rotate: language === 2 ? "180deg" : "0deg" }],
+                }}
+                source={require("../../assets/icons/bigArrow.png")}
               />
               <Text
                 style={{

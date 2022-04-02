@@ -13,7 +13,7 @@ export default function AddProfile({ navigation }) {
   const [profile, setProfile] = useState({
     id: 0,
     avatar: 0,
-    score: 0,
+    score: 100,
     music: true,
     sound: true,
     language: language,
@@ -27,7 +27,9 @@ export default function AddProfile({ navigation }) {
     level: 1,
   });
   return (
-    <View style={{ alignItems: "center", backgroundColor: "white" }}>
+    <View
+      style={{ alignItems: "center", backgroundColor: "white", height: "100%" }}
+    >
       <View
         style={{
           height: (20 * Dimensions.get("window").height) / 100,
@@ -99,7 +101,7 @@ export default function AddProfile({ navigation }) {
       <View
         style={{
           height: (15 * Dimensions.get("window").height) / 100,
-          flexDirection: "row",
+          flexDirection: language === 2 ? "row-reverse" : "row",
           justifyContent: "space-between",
           width: "30%",
           alignItems: "center",

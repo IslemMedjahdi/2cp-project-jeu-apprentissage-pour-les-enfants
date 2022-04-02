@@ -12,6 +12,8 @@ import avatars from "../avatars";
 import colors from "../colors";
 import ProfilesManager from "../components/ProfilesManager";
 import { setSelectedProfile } from "../redux/selectedProfileSlice";
+import * as Animatable from "react-native-animatable";
+
 export default function SelectProfile({ navigation }) {
   const profiles = useSelector((state) => state.profiles.value); //get the profiles from redux
   const user = useSelector((state) => state.user.value);
@@ -123,7 +125,10 @@ export default function SelectProfile({ navigation }) {
             showsVerticalScrollIndicator={false}
             data={profiles}
             renderItem={({ item, index }) => (
-              <View
+              <Animatable.View
+                duration={700}
+                animation={index % 2 === 0 ? "fadeInRight" : "fadeInLeft"}
+                delay={index * 300}
                 style={{
                   backgroundColor:
                     index % 3 === 0
@@ -163,7 +168,13 @@ export default function SelectProfile({ navigation }) {
                   <View>
                     <Image
                       source={avatars[item.avatar]}
-                      style={{ width: 80, height: 80 }}
+                      style={{
+                        width: 80,
+                        height: 80,
+                        transform: [
+                          { rotateY: user.language === 2 ? "180deg" : "0deg" },
+                        ],
+                      }}
                       resizeMode="contain"
                     />
                   </View>
@@ -232,7 +243,7 @@ export default function SelectProfile({ navigation }) {
                     }}
                   ></View>
                 </Pressable>
-              </View>
+              </Animatable.View>
             )}
           />
         </View>

@@ -12,6 +12,7 @@ import { useState } from "react";
 
 export default function NameInput({ language, setProfile, setPage }) {
   const [value, setValue] = useState("");
+  const [error, setError] = useState(false);
   const pressHandler = () => {
     if (value.trim().length > 0) {
       setProfile((profile) => {
@@ -19,7 +20,7 @@ export default function NameInput({ language, setProfile, setPage }) {
       });
       setPage(1);
     } else {
-      console.warn("value must be > 0");
+      setError(true);
     }
   };
   return (
@@ -71,7 +72,6 @@ export default function NameInput({ language, setProfile, setPage }) {
         style={{
           height: (25 * Dimensions.get("window").height) / 100,
           width: "80%",
-          alignItems: "center",
           justifyContent: "center",
         }}
       >
@@ -84,7 +84,9 @@ export default function NameInput({ language, setProfile, setPage }) {
             borderColor: colors.SECOND,
             borderWidth: 2,
             borderRadius: 10,
+            color: colors.SECOND,
           }}
+          maxLength={12}
           placeholderTextColor={colors.SECOND + "90"}
           placeholder={
             language === 0
@@ -93,8 +95,27 @@ export default function NameInput({ language, setProfile, setPage }) {
               ? "your child name"
               : "اسم طفلك"
           }
-          onChangeText={setValue}
+          onChangeText={(text) => {
+            setValue(text);
+            setError(false);
+          }}
         />
+        {error && (
+          <Text
+            style={{
+              fontFamily: language === 2 ? "ArbFont" : "Rowdies",
+              color: "red",
+              marginStart: 5,
+              marginTop: 5,
+            }}
+          >
+            {language === 0
+              ? "Le nom ne doit pas être vide"
+              : language === 1
+              ? "Name must not be empty"
+              : "يجب ألا يكون الاسم فارغا"}
+          </Text>
+        )}
       </View>
       <View
         style={{
@@ -103,30 +124,32 @@ export default function NameInput({ language, setProfile, setPage }) {
           justifyContent: "center",
         }}
       >
-        <Pressable
-          style={{
-            backgroundColor: colors.SECOND,
-            paddingHorizontal: 20,
-            paddingVertical: 15,
-            borderRadius: 10,
-          }}
-          onPress={() => pressHandler()}
-        >
-          <Text
+        <View style={{ borderRadius: 10, overflow: "hidden" }}>
+          <Pressable
+            android_ripple={{ color: "#ffffff30" }}
             style={{
-              fontFamily: language === 2 ? "ArbFont" : "Rowdies",
-              fontSize: language === 2 ? 18 : 16,
-              color: "white",
-              textAlign: "center",
+              backgroundColor: colors.SECOND,
+              paddingHorizontal: 20,
+              paddingVertical: 15,
             }}
+            onPress={() => pressHandler()}
           >
-            {language === 0
-              ? "Continuer"
-              : language === 1
-              ? "Continue"
-              : "تابع"}
-          </Text>
-        </Pressable>
+            <Text
+              style={{
+                fontFamily: language === 2 ? "ArbFont" : "Rowdies",
+                fontSize: language === 2 ? 18 : 16,
+                color: "white",
+                textAlign: "center",
+              }}
+            >
+              {language === 0
+                ? "Continuer"
+                : language === 1
+                ? "Continue"
+                : "تابع"}
+            </Text>
+          </Pressable>
+        </View>
       </View>
     </>
   );

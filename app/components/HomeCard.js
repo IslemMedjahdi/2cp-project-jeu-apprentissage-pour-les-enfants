@@ -1,9 +1,21 @@
 import React from "react";
 import { View, Text, Image, Pressable, Dimensions } from "react-native";
+import * as Animatable from "react-native-animatable";
 
-export default function HomeCard({ title, desc, image, color, language }) {
+export default function HomeCard({
+  title,
+  desc,
+  image,
+  color,
+  language,
+  animation,
+}) {
   return (
-    <View style={{ marginTop: 20, borderRadius: 20, overflow: "hidden" }}>
+    <Animatable.View
+      animation={animation}
+      duration={1000}
+      style={{ marginTop: 20, borderRadius: 20, overflow: "hidden" }}
+    >
       <Pressable
         style={{
           backgroundColor: color + "CC",
@@ -79,6 +91,6 @@ export default function HomeCard({ title, desc, image, color, language }) {
           />
         </View>
       </Pressable>
-    </View>
+    </Animatable.View>
   );
 }

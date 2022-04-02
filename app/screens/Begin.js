@@ -25,7 +25,13 @@ export default function Begin({ navigation }) {
         />
       )}
       {page === 1 && <Salut setPage={setPage} language={language} />}
-      {page === 2 && <NewOldUser language={language} navigation={navigation} />}
+      {page === 2 && (
+        <NewOldUser
+          setPage={setPage}
+          language={language}
+          navigation={navigation}
+        />
+      )}
     </View>
   );
 }

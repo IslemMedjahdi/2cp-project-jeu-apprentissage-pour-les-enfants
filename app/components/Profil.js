@@ -2,6 +2,7 @@ import { Center, FlatList, Modal, Pressable } from "native-base";
 import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
 import { useSelector } from "react-redux";
+import * as Animatable from "react-native-animatable";
 import colors from "../colors";
 import avatars from "../avatars";
 import badges from "../badges";
@@ -19,27 +20,29 @@ export default function Profil({ language }) {
 
   return (
     <Center>
-      <Pressable onPress={() => setShowModal(true)}>
-        <View
-          style={{
-            borderColor: "white",
-            borderWidth: 2,
-            borderRadius: 900,
-            padding: 4,
-            backgroundColor: colors.MAIN,
-          }}
-        >
-          <Image
+      <Animatable.View animation={"zoomIn"} duration={700} delay={500}>
+        <Pressable onPress={() => setShowModal(true)}>
+          <View
             style={{
-              padding: 2,
-              height: 60,
-              width: 60,
+              borderColor: "white",
+              borderWidth: 2,
+              borderRadius: 900,
+              padding: 4,
+              backgroundColor: colors.MAIN,
             }}
-            resizeMode="contain"
-            source={avatars[profiles[selectedProfile].avatar]}
-          />
-        </View>
-      </Pressable>
+          >
+            <Image
+              style={{
+                padding: 2,
+                height: 60,
+                width: 60,
+              }}
+              resizeMode="contain"
+              source={avatars[profiles[selectedProfile].avatar]}
+            />
+          </View>
+        </Pressable>
+      </Animatable.View>
       <Modal
         animationPreset="slide"
         isOpen={showModal}
@@ -144,7 +147,9 @@ export default function Profil({ language }) {
                     alignSelf: "stretch",
                   }}
                 >
-                  <View
+                  <Animatable.View
+                    animation={language === 2 ? "fadeInRight" : "fadeInLeft"}
+                    duration={700}
                     style={{
                       paddingVertical: 10,
                       paddingHorizontal: 20,
@@ -184,16 +189,20 @@ export default function Profil({ language }) {
                       </Text>
                       <Text
                         style={{
-                          fontFamily: "RowdiesBold",
-                          fontSize: 16,
+                          fontFamily:
+                            language === 2 ? "ArbFont" : "RowdiesBold",
+                          fontSize: language === 2 ? 19 : 16,
                           textAlign: "center",
                         }}
                       >
                         {profiles[selectedProfile].name}
                       </Text>
                     </View>
-                  </View>
-                  <View
+                  </Animatable.View>
+                  <Animatable.View
+                    animation={language === 2 ? "fadeInRight" : "fadeInLeft"}
+                    duration={700}
+                    delay={300}
                     style={{
                       paddingVertical: 10,
                       paddingHorizontal: 20,
@@ -226,8 +235,11 @@ export default function Profil({ language }) {
                       {new Date().getFullYear() -
                         profiles[selectedProfile].birthday}
                     </Text>
-                  </View>
-                  <View
+                  </Animatable.View>
+                  <Animatable.View
+                    animation={language === 2 ? "fadeInRight" : "fadeInLeft"}
+                    duration={700}
+                    delay={600}
                     style={{
                       paddingVertical: 10,
                       paddingHorizontal: 20,
@@ -265,9 +277,13 @@ export default function Profil({ language }) {
                       style={{ width: 22, height: 22 }}
                       source={require("../../assets/icons/gold.png")}
                     />
-                  </View>
+                  </Animatable.View>
                 </View>
-                <View>
+                <Animatable.View
+                  animation={language === 2 ? "fadeInRight" : "fadeInLeft"}
+                  duration={700}
+                  delay={900}
+                >
                   <View
                     style={{
                       backgroundColor: "white",
@@ -352,7 +368,7 @@ export default function Profil({ language }) {
                       )}
                     />
                   </View>
-                </View>
+                </Animatable.View>
               </View>
             ) : (
               <View style={{ width: "100%", alignItems: "center" }}>
@@ -368,7 +384,12 @@ export default function Profil({ language }) {
                     keyExtractor={(item) => item.id}
                     data={sortedProfiles()}
                     renderItem={({ item, index }) => (
-                      <View
+                      <Animatable.View
+                        animation={
+                          index % 2 === 0 ? "fadeInRight" : "fadeInLeft"
+                        }
+                        duration={500}
+                        delay={index * 400}
                         style={{
                           marginVertical: 7,
                           borderRadius: 10,
@@ -408,7 +429,15 @@ export default function Profil({ language }) {
                         >
                           <View style={{ width: "20%" }}>
                             <Image
-                              style={{ height: 50, width: 50 }}
+                              style={{
+                                height: 50,
+                                width: 50,
+                                transform: [
+                                  {
+                                    rotateY: language === 2 ? "180deg" : "0deg",
+                                  },
+                                ],
+                              }}
                               resizeMode="contain"
                               source={avatars[item.avatar]}
                             />
@@ -471,7 +500,7 @@ export default function Profil({ language }) {
                             </Text>
                           </View>
                         </Pressable>
-                      </View>
+                      </Animatable.View>
                     )}
                   />
                 </View>

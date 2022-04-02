@@ -1,5 +1,13 @@
-import React, { useState } from "react";
-import { View, Text, Pressable, Dimensions, FlatList } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  Pressable,
+  Dimensions,
+  FlatList,
+  BackHandler,
+} from "react-native";
+import * as Animatable from "react-native-animatable";
 import colors from "../colors";
 export default function SelectAge({ language, setPage, setProfile }) {
   const [age, setAge] = useState(4);
@@ -9,6 +17,16 @@ export default function SelectAge({ language, setPage, setProfile }) {
     });
     setPage(2);
   };
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => {
+        setPage(0);
+        return true;
+      }
+    );
+    return () => backHandler.remove();
+  }, []);
   return (
     <>
       <View
@@ -69,11 +87,14 @@ export default function SelectAge({ language, setPage, setProfile }) {
             height: "100%",
             padding: 20,
           }}
-          data={[4, 5, 6, 7]}
+          data={language === 2 ? [5, 4, 7, 6] : [4, 5, 6, 7]}
           numColumns={2}
           keyExtractor={(item) => item}
           renderItem={({ item }) => (
-            <View
+            <Animatable.View
+              animation={"zoomIn"}
+              duration={500}
+              delay={(item - 4) * 300}
               style={{
                 alignItems: "center",
                 justifyContent: "center",
@@ -103,10 +124,10 @@ export default function SelectAge({ language, setPage, setProfile }) {
                   }}
                 >
                   {item}{" "}
-                  {language === 0 ? "ans" : language === 1 ? "years" : "سنة"}
+                  {language === 0 ? "ans" : language === 1 ? "years" : "سنوات"}
                 </Text>
               </Pressable>
-            </View>
+            </Animatable.View>
           )}
         />
       </View>

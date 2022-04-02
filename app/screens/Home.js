@@ -112,6 +112,7 @@ export default function Home({ navigation }) {
             }}
           >
             <HomeCard
+              animation={"fadeInDown"}
               title={
                 profiles[selectedProfile].language === 0
                   ? "Accéder à la carte"
@@ -131,6 +132,7 @@ export default function Home({ navigation }) {
               language={profiles[selectedProfile].language}
             />
             <HomeCard
+              animation={"fadeInUp"}
               title={
                 profiles[selectedProfile].language === 0
                   ? "Accéder aux challenges"

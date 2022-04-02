@@ -11,6 +11,8 @@ import colors from "../colors";
 import avatars from "../avatars";
 import { useDispatch } from "react-redux";
 import { addProfileHandler } from "../redux/profilesSlice";
+import * as Animatable from "react-native-animatable";
+
 export default function SelectAvatar({
   language,
   setPage,
@@ -99,7 +101,10 @@ export default function SelectAvatar({
           numColumns={3}
           keyExtractor={(item) => item}
           renderItem={({ item }) => (
-            <View
+            <Animatable.View
+              duration={500}
+              delay={item * 100}
+              animation={"zoomIn"}
               style={{
                 alignItems: "center",
                 justifyContent: "center",
@@ -125,7 +130,7 @@ export default function SelectAvatar({
                   source={avatars[item]}
                 />
               </Pressable>
-            </View>
+            </Animatable.View>
           )}
         />
       </View>

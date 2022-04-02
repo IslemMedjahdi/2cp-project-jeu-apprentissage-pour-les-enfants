@@ -1,9 +1,8 @@
-import { Center, FlatList, Modal, Pressable, Switch } from "native-base";
+import { Center, Modal, Pressable, Switch } from "native-base";
 import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
-import { useSelector } from "react-redux";
 import colors from "../colors";
-import avatars from "../avatars";
+import * as Animatable from "react-native-animatable";
 
 export default function Settings({
   toggleMusic,
@@ -17,27 +16,29 @@ export default function Settings({
   const [showModal, setShowModal] = useState(false);
   return (
     <Center>
-      <Pressable onPress={() => setShowModal(true)}>
-        <View
-          style={{
-            borderColor: "white",
-            borderWidth: 2,
-            borderRadius: 900,
-            padding: 4,
-            backgroundColor: "white",
-          }}
-        >
-          <Image
+      <Animatable.View animation={"zoomIn"} duration={700} delay={500}>
+        <Pressable onPress={() => setShowModal(true)}>
+          <View
             style={{
-              padding: 2,
-              height: 40,
-              width: 40,
+              borderColor: "white",
+              borderWidth: 2,
+              borderRadius: 900,
+              padding: 4,
+              backgroundColor: "white",
             }}
-            resizeMode="contain"
-            source={require("../../assets/icons/settings.png")}
-          />
-        </View>
-      </Pressable>
+          >
+            <Image
+              style={{
+                padding: 2,
+                height: 40,
+                width: 40,
+              }}
+              resizeMode="contain"
+              source={require("../../assets/icons/settings.png")}
+            />
+          </View>
+        </Pressable>
+      </Animatable.View>
       <Modal
         animationPreset="slide"
         isOpen={showModal}
@@ -236,31 +237,38 @@ export default function Settings({
               </View>
             </View>
             <View style={{ height: "40%" }}>
-              <Pressable
+              <View
                 style={{
                   marginTop: "auto",
-                  alignItems: "center",
-                  backgroundColor: "white",
-                  paddingHorizontal: 10,
-                  paddingVertical: 10,
                   borderRadius: 10,
+                  overflow: "hidden",
                 }}
-                onPress={() => navigation.replace("SelectProfile")}
               >
-                <Text
+                <Pressable
+                  android_ripple={{ color: colors.MAIN + "20" }}
                   style={{
-                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                    fontSize: language === 2 ? 22 : 18,
-                    color: colors.MAIN,
+                    alignItems: "center",
+                    backgroundColor: "white",
+                    paddingHorizontal: 10,
+                    paddingVertical: 10,
                   }}
+                  onPress={() => navigation.replace("SelectProfile")}
                 >
-                  {language === 0
-                    ? "se déconnecter"
-                    : language === 1
-                    ? "sign out"
-                    : "تسجيل الخروج"}
-                </Text>
-              </Pressable>
+                  <Text
+                    style={{
+                      fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                      fontSize: language === 2 ? 22 : 18,
+                      color: colors.MAIN,
+                    }}
+                  >
+                    {language === 0
+                      ? "se déconnecter"
+                      : language === 1
+                      ? "sign out"
+                      : "تسجيل الخروج"}
+                  </Text>
+                </Pressable>
+              </View>
             </View>
           </View>
           <Pressable

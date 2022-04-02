@@ -93,7 +93,7 @@ export default function ProfilesManager({ language, navigation }) {
                 padding: 10,
                 width: "80%",
               }}
-              onPress={() => navigation.push("AddProfile")}
+              onPress={() => navigation.navigate("AddProfile")}
             >
               <Text
                 style={{
@@ -111,7 +111,7 @@ export default function ProfilesManager({ language, navigation }) {
               <Image
                 resizeMode="contain"
                 style={{ width: 40, height: 40 }}
-                source={require("../../assets/icons/settings.png")}
+                source={require("../../assets/icons/Add.png")}
               />
             </Pressable>
             <Pressable
@@ -124,7 +124,7 @@ export default function ProfilesManager({ language, navigation }) {
                 width: "80%",
                 padding: 10,
               }}
-              onPress={() => navigation.push("ModifyProfile")}
+              onPress={() => navigation.navigate("ModifyProfile")}
             >
               <Text
                 style={{
@@ -142,7 +142,7 @@ export default function ProfilesManager({ language, navigation }) {
               <Image
                 resizeMode="contain"
                 style={{ width: 40, height: 40 }}
-                source={require("../../assets/icons/settings.png")}
+                source={require("../../assets/icons/Modify.png")}
               />
             </Pressable>
             <Pressable
@@ -155,7 +155,7 @@ export default function ProfilesManager({ language, navigation }) {
                 width: "80%",
                 padding: 10,
               }}
-              onPress={() => navigation.push("DeleteProfile")}
+              onPress={() => navigation.navigate("DeleteProfile")}
             >
               <Text
                 style={{
@@ -173,7 +173,7 @@ export default function ProfilesManager({ language, navigation }) {
               <Image
                 resizeMode="contain"
                 style={{ width: 40, height: 40 }}
-                source={require("../../assets/icons/settings.png")}
+                source={require("../../assets/icons/Remove.png")}
               />
             </Pressable>
             <View

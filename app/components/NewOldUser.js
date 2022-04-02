@@ -1,9 +1,26 @@
-import React from "react";
-import { Dimensions, Pressable, Text, View, Image } from "react-native";
+import React, { useEffect } from "react";
+import {
+  Dimensions,
+  Pressable,
+  Text,
+  View,
+  Image,
+  BackHandler,
+} from "react-native";
 import AsyncStorageLib from "@react-native-async-storage/async-storage";
 import colors from "../colors";
 
-export default function NewOldUser({ language, navigation }) {
+export default function NewOldUser({ language, navigation, setPage }) {
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => {
+        setPage(1);
+        return true;
+      }
+    );
+    return () => backHandler.remove();
+  }, []);
   const pressHandler = () => {
     AsyncStorageLib.setItem(
       "user",
@@ -30,14 +47,17 @@ export default function NewOldUser({ language, navigation }) {
         style={{
           height: (25 * Dimensions.get("window").height) / 100,
           justifyContent: "center",
+          width: (80 * Dimensions.get("window").width) / 100,
+          alignItems: "center",
         }}
       >
         <Text
           style={{
             fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-            fontSize: language === 2 ? 28 : 26,
+            fontSize: language === 2 ? 30 : 26,
             color: "white",
-            alignItems: "center",
+            textAlign: "center",
+            width: "100%",
           }}
         >
           {language === 0
@@ -53,45 +73,57 @@ export default function NewOldUser({ language, navigation }) {
           justifyContent: "space-evenly",
         }}
       >
-        <Pressable
-          onPress={() => pressHandler()}
-          style={{ backgroundColor: colors.SECOND, borderRadius: 10 }}
-        >
-          <Text
+        <View style={{ borderRadius: 10, overflow: "hidden" }}>
+          <Pressable
+            android_ripple={{ color: "#ffffff40" }}
+            onPress={() => pressHandler()}
             style={{
-              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-              fontSize: language === 2 ? 20 : 18,
-              color: "white",
-              textAlign: "center",
+              backgroundColor: colors.SECOND,
               paddingVertical: 10,
               paddingHorizontal: 6,
             }}
           >
-            {language === 0
-              ? "Je veux commencer"
-              : language === 1
-              ? "I want to start"
-              : "أريد أن أبدأ"}
-          </Text>
-        </Pressable>
-        <Pressable style={{ backgroundColor: colors.SECOND, borderRadius: 10 }}>
-          <Text
+            <Text
+              style={{
+                fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                fontSize: language === 2 ? 20 : 18,
+                color: "white",
+                textAlign: "center",
+              }}
+            >
+              {language === 0
+                ? "Je veux commencer"
+                : language === 1
+                ? "I want to start"
+                : "أريد أن أبدأ"}
+            </Text>
+          </Pressable>
+        </View>
+        <View style={{ borderRadius: 10, overflow: "hidden" }}>
+          <Pressable
+            android_ripple={{ color: "#ffffff40" }}
             style={{
-              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-              fontSize: language === 2 ? 20 : 18,
-              color: "white",
-              textAlign: "center",
+              backgroundColor: colors.SECOND,
               paddingVertical: 10,
               paddingHorizontal: 6,
             }}
           >
-            {language === 0
-              ? "Je posseède un compte"
-              : language === 1
-              ? "I have an account"
-              : "لدي حساب"}
-          </Text>
-        </Pressable>
+            <Text
+              style={{
+                fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                fontSize: language === 2 ? 20 : 18,
+                color: "white",
+                textAlign: "center",
+              }}
+            >
+              {language === 0
+                ? "Je posseède un compte"
+                : language === 1
+                ? "I have an account"
+                : "لدي حساب"}
+            </Text>
+          </Pressable>
+        </View>
       </View>
     </View>
   );

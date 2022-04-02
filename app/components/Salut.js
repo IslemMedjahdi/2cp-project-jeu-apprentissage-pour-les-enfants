@@ -1,8 +1,25 @@
-import { View, Text, Image, Pressable, Dimensions } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  Image,
+  Pressable,
+  Dimensions,
+  BackHandler,
+} from "react-native";
+import React, { useEffect } from "react";
 import colors from "../colors";
 
 export default function Salut({ language, setPage }) {
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => {
+        setPage(0);
+        return true;
+      }
+    );
+    return () => backHandler.remove();
+  }, []);
   return (
     <View
       style={{

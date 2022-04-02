@@ -240,10 +240,10 @@ export default function ProfilesManager({
                   }}
                 >
                   {language === 0
-                    ? "Connectez-vous à un compte Google"
+                    ? "Connectez-vous avec votre email"
                     : language === 1
-                    ? "Link to google account"
-                    : "الربط مع حسابي غوغل"}
+                    ? "Connect with your email"
+                    : "الربط مع بريدي الالكترونيء"}
                 </Text>
                 <Image
                   resizeMode="contain"

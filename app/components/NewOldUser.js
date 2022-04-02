@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import AsyncStorageLib from "@react-native-async-storage/async-storage";
 import colors from "../data/colors";
+import * as Animatable from "react-native-animatable";
 
 export default function NewOldUser({ language, navigation, setPage }) {
   useEffect(() => {
@@ -35,7 +36,9 @@ export default function NewOldUser({ language, navigation, setPage }) {
   };
   return (
     <View style={{ backgroundColor: colors.MAIN }}>
-      <View
+      <Animatable.View
+        animation={"fadeInRight"}
+        duration={1000}
         style={{
           height: (40 * Dimensions.get("window").height) / 100,
           justifyContent: "center",
@@ -47,8 +50,11 @@ export default function NewOldUser({ language, navigation, setPage }) {
           style={{ height: "80%", width: "80%" }}
           source={require("../../assets/hero/mystick2.png")}
         />
-      </View>
-      <View
+      </Animatable.View>
+      <Animatable.View
+        animation={"fadeInRight"}
+        duration={1000}
+        delay={300}
         style={{
           height: (25 * Dimensions.get("window").height) / 100,
           justifyContent: "center",
@@ -71,14 +77,19 @@ export default function NewOldUser({ language, navigation, setPage }) {
             ? "Learn with Mystick"
             : "تعلم مع ميستيك"}
         </Text>
-      </View>
+      </Animatable.View>
       <View
         style={{
           height: (35 * Dimensions.get("window").height) / 100,
           justifyContent: "space-evenly",
         }}
       >
-        <View style={{ borderRadius: 10, overflow: "hidden" }}>
+        <Animatable.View
+          animation={"fadeInRight"}
+          duration={1000}
+          delay={600}
+          style={{ borderRadius: 10, overflow: "hidden" }}
+        >
           <Pressable
             android_ripple={{ color: "#ffffff40" }}
             onPress={() => pressHandler()}
@@ -103,8 +114,13 @@ export default function NewOldUser({ language, navigation, setPage }) {
                 : "أريد أن أبدأ"}
             </Text>
           </Pressable>
-        </View>
-        <View style={{ borderRadius: 10, overflow: "hidden" }}>
+        </Animatable.View>
+        <Animatable.View
+          animation={"fadeInLeft"}
+          duration={1000}
+          delay={800}
+          style={{ borderRadius: 10, overflow: "hidden" }}
+        >
           <Pressable
             onPress={() => navigation.navigate("Login", { language })}
             android_ripple={{ color: "#ffffff40" }}
@@ -129,7 +145,7 @@ export default function NewOldUser({ language, navigation, setPage }) {
                 : "لدي حساب"}
             </Text>
           </Pressable>
-        </View>
+        </Animatable.View>
       </View>
     </View>
   );

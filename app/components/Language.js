@@ -1,6 +1,7 @@
 import React from "react";
 import { Dimensions, Image, Pressable, Text, View } from "react-native";
 import colors from "../data/colors";
+import * as Animatable from "react-native-animatable";
 
 export default function Language({ language, setLanguage, setPage }) {
   return (
@@ -25,7 +26,9 @@ export default function Language({ language, setLanguage, setPage }) {
             : "Choisissez une langue"}
         </Text>
       </View>
-      <View
+      <Animatable.View
+        animation={"slideInRight"}
+        duration={1000}
         style={{
           backgroundColor: "white",
           borderRadius: 20,
@@ -182,7 +185,7 @@ export default function Language({ language, setLanguage, setPage }) {
             </Pressable>
           )}
         </View>
-      </View>
+      </Animatable.View>
     </View>
   );
 }

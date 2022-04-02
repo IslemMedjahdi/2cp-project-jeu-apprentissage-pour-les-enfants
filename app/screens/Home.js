@@ -16,6 +16,7 @@ export default function Home({ navigation }) {
   //REDUX
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
+  const language = useSelector((state) => state.user.value.language);
   const music = useSelector(
     (state) => state.profiles.value[selectedProfile].music
   );
@@ -76,9 +77,6 @@ export default function Home({ navigation }) {
     return sound ? () => sound.unloadAsync() : undefined;
   }, [sound]);
   //-----------------------------------------
-  const clickLanguageHandler = () => {
-    dispatch(changeLanguage({ selectedProfile }));
-  };
   return (
     <View>
       <StatusBar translucent={true} barStyle={"light-content"} />
@@ -95,12 +93,11 @@ export default function Home({ navigation }) {
               flexDirection: "row",
             }}
           >
-            <Profil language={profiles[selectedProfile].language} />
+            <Profil language={language} />
             <Settings
               toggleMusic={clickMusicHandler}
               toggleSound={clickSoundHandler}
-              toggleLanguage={clickLanguageHandler}
-              language={profiles[selectedProfile].language}
+              language={language}
               music={profiles[selectedProfile].music}
               sound={profiles[selectedProfile].sound}
               navigation={navigation}
@@ -114,42 +111,42 @@ export default function Home({ navigation }) {
             <HomeCard
               animation={"fadeInDown"}
               title={
-                profiles[selectedProfile].language === 0
+                language === 0
                   ? "Accéder à la carte"
-                  : profiles[selectedProfile].language === 1
+                  : language === 1
                   ? "Access to the map"
                   : "اختيار الخريطة"
               }
               desc={
-                profiles[selectedProfile].language === 0
+                language === 0
                   ? "commence ta propre histoire"
-                  : profiles[selectedProfile].language === 1
+                  : language === 1
                   ? "Start your own story"
                   : "ابدأ قصتك الخاصة"
               }
               image={require("../../assets/hero/mystick2.png")}
               color={colors.MAIN}
-              language={profiles[selectedProfile].language}
+              language={language}
             />
             <HomeCard
               animation={"fadeInUp"}
               title={
-                profiles[selectedProfile].language === 0
+                language === 0
                   ? "Accéder aux challenges"
-                  : profiles[selectedProfile].language === 1
+                  : language === 1
                   ? "Access to challenges"
                   : "اختيار التحديات"
               }
               desc={
-                profiles[selectedProfile].language === 0
+                language === 0
                   ? "débloque plus de challenges"
-                  : profiles[selectedProfile].language === 1
+                  : language === 1
                   ? "unlock more challenges"
                   : "افتح تحديات أكثر"
               }
               image={require("../../assets/hero/mystick3.png")}
               color={colors.SECOND}
-              language={profiles[selectedProfile].language}
+              language={language}
             />
           </View>
         </View>

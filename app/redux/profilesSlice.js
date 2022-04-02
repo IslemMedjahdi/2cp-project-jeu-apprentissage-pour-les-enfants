@@ -23,14 +23,6 @@ export const profilesSlice = createSlice({
         (e) => console.warn(e)
       );
     },
-    changeLanguage: (state, action) => {
-      if (state.value[action.payload.selectedProfile].language < 2)
-        state.value[action.payload.selectedProfile].language++;
-      else state.value[action.payload.selectedProfile].language = 0;
-      AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
-        (e) => console.warn(e)
-      );
-    },
     loadProfiles: (state, action) => {
       state.value = action.payload.profiles;
       AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
@@ -49,7 +41,6 @@ export const profilesSlice = createSlice({
 export const {
   toggleMusic,
   toggleSound,
-  changeLanguage,
   loadProfiles,
   addProfileHandler,
 } = profilesSlice.actions;

@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React, { useEffect } from "react";
 import colors from "../data/colors";
-
+import * as Animatable from "react-native-animatable";
 export default function Salut({ language, setPage }) {
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
@@ -34,10 +34,10 @@ export default function Salut({ language, setPage }) {
           justifyContent: "space-evenly",
           alignItems: "center",
           width: "70%",
-          height: Dimensions.get("window").height / 2,
+          height: "50%",
         }}
       >
-        <View>
+        <Animatable.View animation={"fadeInDown"} duration={1000}>
           <Text
             style={{
               color: "#FFF",
@@ -53,8 +53,10 @@ export default function Salut({ language, setPage }) {
               ? "Start an adventure with Mystick"
               : "إبدأ مغامرتك مع ميستيك"}
           </Text>
-        </View>
-        <View
+        </Animatable.View>
+        <Animatable.View
+          animation={"fadeInUp"}
+          duration={1000}
           style={{
             borderRadius: 20,
             overflow: "hidden",
@@ -82,26 +84,26 @@ export default function Salut({ language, setPage }) {
               {language === 0 ? "Commencer" : language === 1 ? "Start" : "إبدأ"}
             </Text>
           </Pressable>
-        </View>
+        </Animatable.View>
       </View>
-      <View
+      <Animatable.View
+        animation={"pulse"}
+        iterationCount={"infinite"}
+        duration={1000}
         style={{
           flexDirection: "row",
-          height: Dimensions.get("window").height / 2,
+          height: "50%",
+          alignItems: "flex-end",
+          justifyContent: "flex-end",
+          width: "100%",
         }}
       >
         <Image
           resizeMode="contain"
-          style={{
-            transform: [
-              { translateX: Dimensions.get("window").width / 5 },
-              { rotate: "-15deg" },
-              { translateY: Dimensions.get("window").height / 16 },
-            ],
-          }}
+          style={{}}
           source={require("../../assets/hero/acceuil.png")}
         />
-      </View>
+      </Animatable.View>
     </View>
   );
 }

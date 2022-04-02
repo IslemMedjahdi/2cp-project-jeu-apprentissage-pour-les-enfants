@@ -7,10 +7,9 @@ import * as Animatable from "react-native-animatable";
 export default function Settings({
   toggleMusic,
   toggleSound,
-  toggleLanguage,
-  language,
   music,
   sound,
+  language,
   navigation,
 }) {
   const [showModal, setShowModal] = useState(false);
@@ -164,49 +163,6 @@ export default function Settings({
                   onToggle={toggleMusic}
                   value={music}
                 />
-              </View>
-              <View
-                style={{
-                  flexDirection: language === 2 ? "row-reverse" : "row",
-                  width: "100%",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottomWidth: 3,
-                  borderColor: "white",
-                  height: "25%",
-                }}
-              >
-                <Image
-                  style={{ width: 40, height: 40 }}
-                  resizeMode="contain"
-                  source={require("../../assets/icons/Language.png")}
-                />
-                <Text
-                  style={{
-                    color: "white",
-                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                    fontSize: language === 2 ? 20 : 18,
-                  }}
-                >
-                  {language === 0
-                    ? "langue"
-                    : language === 1
-                    ? "language"
-                    : "لغة"}
-                </Text>
-                <Pressable onPress={toggleLanguage}>
-                  <Image
-                    style={{ width: 45, height: 45 }}
-                    resizeMode={"contain"}
-                    source={
-                      language === 0
-                        ? require("../../assets/flags/flag0.png")
-                        : language === 1
-                        ? require("../../assets/flags/flag1.png")
-                        : require("../../assets/flags/flag2.png")
-                    }
-                  />
-                </Pressable>
               </View>
               <View
                 style={{

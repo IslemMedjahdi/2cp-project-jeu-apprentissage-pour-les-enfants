@@ -15,7 +15,6 @@ export default function AddProfile({ navigation }) {
     score: 100,
     music: true,
     sound: true,
-    language: language,
     badges: [
       {
         image: 0,
@@ -79,6 +78,7 @@ export default function AddProfile({ navigation }) {
           language={language}
           setPage={setPage}
           setProfile={setProfile}
+          navigation={navigation}
         />
       )}
       {page === 1 && (

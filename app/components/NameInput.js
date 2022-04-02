@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -6,11 +6,27 @@ import {
   Image,
   TextInput,
   Pressable,
+  BackHandler,
 } from "react-native";
 import colors from "../data/colors";
 import { useState } from "react";
 
-export default function NameInput({ language, setProfile, setPage }) {
+export default function NameInput({
+  language,
+  setProfile,
+  setPage,
+  navigation,
+}) {
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => {
+        navigation.replace("SelectProfile");
+        return true;
+      }
+    );
+    return () => backHandler.remove();
+  }, []);
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
   const pressHandler = () => {

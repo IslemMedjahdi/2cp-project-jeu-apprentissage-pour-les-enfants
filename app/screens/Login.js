@@ -29,7 +29,7 @@ export default function Login({ navigation, route }) {
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
       () => {
-        navigation.navigate("Begin");
+        navigation.replace("Begin");
         return true;
       }
     );
@@ -59,7 +59,7 @@ export default function Login({ navigation, route }) {
             },
           })
         );
-        navigation.navigate("SelectProfile");
+        navigation.replace("SelectProfile");
       })
       .catch((e) => setError(e.code))
       .finally(() => setLoading(false));

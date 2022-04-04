@@ -1,4 +1,5 @@
 import {
+  BackHandler,
   Dimensions,
   FlatList,
   Image,
@@ -13,6 +14,7 @@ import colors from "../data/colors";
 import ProfilesManager from "../components/ProfilesManager";
 import { setSelectedProfile } from "../redux/selectedProfileSlice";
 import * as Animatable from "react-native-animatable";
+import { useEffect } from "react";
 
 export default function SelectProfile({ navigation }) {
   const profiles = useSelector((state) => state.profiles.value); //get the profiles from redux
@@ -26,6 +28,15 @@ export default function SelectProfile({ navigation }) {
     dispatch(setSelectedProfile({ index }));
     navigation.replace("Intro");
   };
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => {
+        return true;
+      }
+    );
+    return () => backHandler.remove();
+  }, []);
   return (
     <View style={{ height: "100%", backgroundColor: "white" }}>
       <StatusBar

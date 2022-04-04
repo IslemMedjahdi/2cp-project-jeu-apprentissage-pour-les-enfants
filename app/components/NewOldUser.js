@@ -122,7 +122,7 @@ export default function NewOldUser({ language, navigation, setPage }) {
           style={{ borderRadius: 10, overflow: "hidden" }}
         >
           <Pressable
-            onPress={() => navigation.navigate("Login", { language })}
+            onPress={() => navigation.replace("Login", { language })}
             android_ripple={{ color: "#ffffff40" }}
             style={{
               backgroundColor: colors.SECOND,

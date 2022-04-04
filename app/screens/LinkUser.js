@@ -48,7 +48,7 @@ export default function LinkUser({ navigation }) {
           ? "les mots de passe ne correspondent pas"
           : language === 1
           ? "password are not matching"
-          : "كلمتي السر لا يتطابفان"
+          : "كلمتي السر لا يتطابقان"
       );
     }
   };
@@ -57,7 +57,7 @@ export default function LinkUser({ navigation }) {
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
       () => {
-        navigation.navigate("SelectProfile");
+        navigation.replace("SelectProfile");
         return true;
       }
     );
@@ -94,10 +94,10 @@ export default function LinkUser({ navigation }) {
           }}
         >
           {language === 0
-            ? "Connectez vous avec votre compte existant"
+            ? "Linker votre compte"
             : language === 1
-            ? "Connect with your existant account"
-            : "قم بتسجيل الدخول بحسابك"}
+            ? "Link your account"
+            : "اربط حسابك مع اللعبة"}
         </Text>
       </View>
       <View

@@ -98,7 +98,7 @@ export default function ProfilesManager({
                 padding: 10,
                 width: "80%",
               }}
-              onPress={() => navigation.navigate("AddProfile")}
+              onPress={() => navigation.replace("AddProfile")}
             >
               <Text
                 style={{
@@ -129,7 +129,7 @@ export default function ProfilesManager({
                 width: "80%",
                 padding: 10,
               }}
-              onPress={() => navigation.navigate("ModifyProfile")}
+              onPress={() => navigation.replace("ModifyProfile")}
             >
               <Text
                 style={{
@@ -160,7 +160,7 @@ export default function ProfilesManager({
                 width: "80%",
                 padding: 10,
               }}
-              onPress={() => navigation.navigate("DeleteProfile")}
+              onPress={() => navigation.replace("DeleteProfile")}
             >
               <Text
                 style={{
@@ -230,7 +230,7 @@ export default function ProfilesManager({
                   padding: 10,
                   width: "80%",
                 }}
-                onPress={() => navigation.navigate("LinkUser")}
+                onPress={() => navigation.replace("LinkUser")}
               >
                 <Text
                   style={{

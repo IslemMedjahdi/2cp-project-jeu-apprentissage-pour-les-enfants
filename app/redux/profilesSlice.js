@@ -38,10 +38,6 @@ export const profilesSlice = createSlice({
   },
 });
 
-export const {
-  toggleMusic,
-  toggleSound,
-  loadProfiles,
-  addProfileHandler,
-} = profilesSlice.actions;
+export const { toggleMusic, toggleSound, loadProfiles, addProfileHandler } =
+  profilesSlice.actions;
 export default profilesSlice.reducer;

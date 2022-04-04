@@ -143,52 +143,62 @@ export default function SelectAvatar({
           flexDirection: language === 2 ? "row" : "row-reverse",
         }}
       >
-        <Pressable
-          onPress={() => pressHandler()}
-          style={{
-            backgroundColor: colors.SECOND,
-            paddingHorizontal: 20,
-            paddingVertical: 15,
-            borderRadius: 10,
-          }}
-        >
-          <Text
+        <View style={{ borderRadius: 10, overflow: "hidden" }}>
+          <Pressable
+            android_ripple={{ color: "#FFFFFF40" }}
+            onPress={() => pressHandler()}
             style={{
-              fontFamily: language === 2 ? "ArbFont" : "Rowdies",
-              fontSize: language === 2 ? 18 : 16,
-              color: "white",
-              textAlign: "center",
+              backgroundColor: colors.SECOND,
+              paddingHorizontal: 20,
+              paddingVertical: 15,
             }}
           >
-            {language === 0
-              ? "Continuer"
-              : language === 1
-              ? "Continue"
-              : "تابع"}
-          </Text>
-        </Pressable>
-        <Pressable
+            <Text
+              style={{
+                fontFamily: language === 2 ? "ArbFont" : "Rowdies",
+                fontSize: language === 2 ? 18 : 16,
+                color: "white",
+                textAlign: "center",
+              }}
+            >
+              {language === 0
+                ? "Continuer"
+                : language === 1
+                ? "Continue"
+                : "تابع"}
+            </Text>
+          </Pressable>
+        </View>
+        <View
           style={{
-            backgroundColor: "transparent",
             borderColor: colors.SECOND,
             borderWidth: 1,
-            paddingHorizontal: 20,
-            paddingVertical: 15,
             borderRadius: 10,
+            overflow: "hidden",
           }}
-          onPress={() => setPage(1)}
         >
-          <Text
+          <Pressable
+            android_ripple={{ color: colors.SECOND }}
             style={{
-              fontFamily: language === 2 ? "ArbFont" : "Rowdies",
-              fontSize: language === 2 ? 18 : 16,
-              color: colors.SECOND,
-              textAlign: "center",
+              backgroundColor: "transparent",
+
+              paddingHorizontal: 20,
+              paddingVertical: 15,
             }}
+            onPress={() => setPage(1)}
           >
-            {language === 0 ? "Retour" : language === 1 ? "Back" : "رجوع"}
-          </Text>
-        </Pressable>
+            <Text
+              style={{
+                fontFamily: language === 2 ? "ArbFont" : "Rowdies",
+                fontSize: language === 2 ? 18 : 16,
+                color: colors.SECOND,
+                textAlign: "center",
+              }}
+            >
+              {language === 0 ? "Retour" : language === 1 ? "Back" : "رجوع"}
+            </Text>
+          </Pressable>
+        </View>
       </View>
     </>
   );

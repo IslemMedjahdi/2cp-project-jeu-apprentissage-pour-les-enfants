@@ -34,8 +34,8 @@ export default function Profil({ language }) {
             <Image
               style={{
                 padding: 2,
-                height: 60,
-                width: 60,
+                height: 50,
+                width: 50,
               }}
               resizeMode="contain"
               source={avatars[profiles[selectedProfile].avatar]}

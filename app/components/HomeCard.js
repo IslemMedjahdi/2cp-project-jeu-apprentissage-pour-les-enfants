@@ -9,6 +9,7 @@ export default function HomeCard({
   color,
   language,
   animation,
+  pressHandler,
 }) {
   return (
     <Animatable.View
@@ -17,6 +18,7 @@ export default function HomeCard({
       style={{ marginTop: 20, borderRadius: 20, overflow: "hidden" }}
     >
       <Pressable
+        onPress={pressHandler}
         style={{
           backgroundColor: color + "CC",
           padding: language === 2 ? 20 : language === 0 ? 10 : 15,

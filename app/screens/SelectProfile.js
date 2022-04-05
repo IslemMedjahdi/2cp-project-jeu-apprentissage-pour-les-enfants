@@ -131,132 +131,161 @@ export default function SelectProfile({ navigation }) {
             overflow: "hidden",
           }}
         >
-          <FlatList
-            keyExtractor={(_) => _.id}
-            showsVerticalScrollIndicator={false}
-            data={profiles}
-            renderItem={({ item, index }) => (
-              <Animatable.View
-                duration={700}
-                animation={index % 2 === 0 ? "fadeInRight" : "fadeInLeft"}
-                delay={index * 300}
+          {profiles.length === 0 ? (
+            <View
+              style={{
+                width: "100%",
+                height: "100%",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text
                 style={{
-                  backgroundColor:
-                    index % 3 === 0
-                      ? colors.COLOR1 + "80"
-                      : index % 3 === 1
-                      ? colors.COLOR2 + "80"
-                      : colors.COLOR3 + "70",
-                  borderRadius: 20,
-                  marginVertical: 12,
-                  borderWidth: 2,
-                  borderColor:
-                    index % 3 === 0
-                      ? colors.COLOR1
-                      : index % 3 === 1
-                      ? colors.COLOR2
-                      : colors.COLOR3,
-                  overflow: "hidden",
+                  fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: user.language === 2 ? 22 : 20,
+                  textAlign: "center",
+                  color: "gray",
                 }}
               >
-                <Pressable
+                {user.language === 0
+                  ? "La liste des profils est vide, vous devez ajouter un nouveau profil"
+                  : user.language === 1
+                  ? "The profiles list is empty. You need to add a new Profile"
+                  : "قائمة الصفحات فارغة.\n قم بإضافة صفحة شخصية جديدة"}
+              </Text>
+            </View>
+          ) : (
+            <FlatList
+              keyExtractor={(_) => _.id}
+              showsVerticalScrollIndicator={false}
+              data={profiles}
+              renderItem={({ item, index }) => (
+                <Animatable.View
+                  duration={700}
+                  animation={index % 2 === 0 ? "fadeInRight" : "fadeInLeft"}
+                  delay={index * 300}
                   style={{
-                    flexDirection: user.language === 2 ? "row-reverse" : "row",
-                    justifyContent: "space-between",
-                    padding: 5,
-                    alignItems: "center",
-                  }}
-                  onPress={() => pressHandler(item.id)}
-                  android_ripple={{
-                    color:
+                    backgroundColor:
+                      index % 3 === 0
+                        ? colors.COLOR1 + "80"
+                        : index % 3 === 1
+                        ? colors.COLOR2 + "80"
+                        : colors.COLOR3 + "70",
+                    borderRadius: 20,
+                    marginVertical: 12,
+                    borderWidth: 2,
+                    borderColor:
                       index % 3 === 0
                         ? colors.COLOR1
                         : index % 3 === 1
                         ? colors.COLOR2
                         : colors.COLOR3,
+                    overflow: "hidden",
                   }}
                 >
-                  <View>
-                    <Image
-                      source={avatars[item.avatar]}
-                      style={{
-                        width: 80,
-                        height: 80,
-                        transform: [
-                          { rotateY: user.language === 2 ? "180deg" : "0deg" },
-                        ],
-                      }}
-                      resizeMode="contain"
-                    />
-                  </View>
-                  <View style={{ alignItems: "center" }}>
-                    <Text
-                      style={{
-                        fontFamily:
-                          user.language === 2 ? "ArbFont" : "RowdiesBold",
-                        fontSize: user.language === 2 ? 20 : 18,
-                        color: "white",
-                      }}
-                    >
-                      {item.name}
-                    </Text>
-                    <Text
-                      style={{
-                        color: "white",
-                        fontFamily:
-                          user.language === 2 ? "ArbFont" : "RowdiesBold",
-                        fontSize: user.language === 2 ? 20 : 18,
-                      }}
-                    >
-                      {user.language === 0
-                        ? "Niveau"
-                        : user.language === 1
-                        ? "Level"
-                        : "المستوى"}{" "}
-                      {item.level}
-                    </Text>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        backgroundColor: "white",
-                        borderRadius: 10,
-                        paddingHorizontal: 8,
-                      }}
-                    >
-                      <Text
-                        style={{
-                          marginHorizontal: 10,
-                          fontFamily: "RowdiesBold",
-                        }}
-                      >
-                        {item.score}
-                      </Text>
-                      <Image
-                        style={{ height: 20, width: 20 }}
-                        resizeMode="contain"
-                        source={require("../../assets/icons/gold.png")}
-                      />
-                    </View>
-                  </View>
-                  <View
+                  <Pressable
                     style={{
-                      overflow: "hidden",
-                      backgroundColor: "white",
-                      borderRadius: 999,
-                      borderColor:
+                      flexDirection:
+                        user.language === 2 ? "row-reverse" : "row",
+                      justifyContent: "space-between",
+                      padding: 5,
+                      alignItems: "center",
+                    }}
+                    onPress={() => pressHandler(item.id)}
+                    android_ripple={{
+                      color:
                         index % 3 === 0
                           ? colors.COLOR1
                           : index % 3 === 1
                           ? colors.COLOR2
                           : colors.COLOR3,
-                      borderWidth: 1,
                     }}
-                  ></View>
-                </Pressable>
-              </Animatable.View>
-            )}
-          />
+                  >
+                    <View>
+                      <Image
+                        source={avatars[item.avatar]}
+                        style={{
+                          width: 80,
+                          height: 80,
+                          transform: [
+                            {
+                              rotateY: user.language === 2 ? "180deg" : "0deg",
+                            },
+                          ],
+                        }}
+                        resizeMode="contain"
+                      />
+                    </View>
+                    <View style={{ alignItems: "center" }}>
+                      <Text
+                        style={{
+                          fontFamily:
+                            user.language === 2 ? "ArbFont" : "RowdiesBold",
+                          fontSize: user.language === 2 ? 20 : 18,
+                          color: "white",
+                        }}
+                      >
+                        {item.name}
+                      </Text>
+                      <Text
+                        style={{
+                          color: "white",
+                          fontFamily:
+                            user.language === 2 ? "ArbFont" : "RowdiesBold",
+                          fontSize: user.language === 2 ? 20 : 18,
+                        }}
+                      >
+                        {user.language === 0
+                          ? "Niveau"
+                          : user.language === 1
+                          ? "Level"
+                          : "المستوى"}{" "}
+                        {item.level}
+                      </Text>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          backgroundColor: "white",
+                          borderRadius: 10,
+                          paddingHorizontal: 8,
+                        }}
+                      >
+                        <Text
+                          style={{
+                            marginHorizontal: 10,
+                            fontFamily: "RowdiesBold",
+                          }}
+                        >
+                          {item.score}
+                        </Text>
+                        <Image
+                          style={{ height: 20, width: 20 }}
+                          resizeMode="contain"
+                          source={require("../../assets/icons/gold.png")}
+                        />
+                      </View>
+                    </View>
+                    <View
+                      style={{
+                        overflow: "hidden",
+                        backgroundColor: "white",
+                        borderRadius: 999,
+                        borderColor:
+                          index % 3 === 0
+                            ? colors.COLOR1
+                            : index % 3 === 1
+                            ? colors.COLOR2
+                            : colors.COLOR3,
+                        borderWidth: 1,
+                      }}
+                    ></View>
+                  </Pressable>
+                </Animatable.View>
+              )}
+            />
+          )}
         </View>
         <View
           style={{

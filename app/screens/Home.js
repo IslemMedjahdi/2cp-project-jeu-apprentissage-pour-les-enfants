@@ -90,7 +90,7 @@ export default function Home({ navigation }) {
               height: (20 * Dimensions.get("window").height) / 100,
               justifyContent: "space-evenly",
               alignItems: "center",
-              flexDirection: "row",
+              flexDirection: language === 2 ? "row-reverse" : "row",
             }}
           >
             <Profil language={language} />
@@ -127,6 +127,7 @@ export default function Home({ navigation }) {
               image={require("../../assets/hero/mystick2.png")}
               color={colors.MAIN}
               language={language}
+              pressHandler={() => navigation.navigate("SelectTheme")}
             />
             <HomeCard
               animation={"fadeInUp"}

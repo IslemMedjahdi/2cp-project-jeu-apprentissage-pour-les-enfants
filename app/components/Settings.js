@@ -1,6 +1,6 @@
 import { Center, Modal, Pressable, Switch } from "native-base";
 import React, { useState } from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Linking, Text, View } from "react-native";
 import colors from "../data/colors";
 import * as Animatable from "react-native-animatable";
 
@@ -101,7 +101,7 @@ export default function Settings({
                   justifyContent: "space-between",
                   borderBottomWidth: 3,
                   borderColor: "white",
-                  height: "25%",
+                  height: "20%",
                 }}
               >
                 <Image
@@ -164,7 +164,10 @@ export default function Settings({
                   value={music}
                 />
               </View>
-              <View
+              <Pressable
+                onPress={() =>
+                  Linking.openURL("https://github.com/IslemMedjahdi")
+                }
                 style={{
                   flexDirection: language === 2 ? "row-reverse" : "row",
                   width: "100%",
@@ -190,7 +193,41 @@ export default function Settings({
                   {language === 0 ? "Aide" : language === 1 ? "Help" : "مساعدة"}
                 </Text>
                 <View style={{ width: "18%" }}></View>
-              </View>
+              </Pressable>
+              <Pressable
+                onPress={() =>
+                  Linking.openURL("https://github.com/IslemMedjahdi")
+                }
+                style={{
+                  flexDirection: language === 2 ? "row-reverse" : "row",
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  borderBottomWidth: 3,
+                  borderColor: "white",
+                  height: "25%",
+                }}
+              >
+                <Image
+                  style={{ width: 40, height: 40 }}
+                  resizeMode="contain"
+                  source={require("../../assets/icons/star.png")}
+                />
+                <Text
+                  style={{
+                    color: "white",
+                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                    fontSize: language === 2 ? 20 : 18,
+                  }}
+                >
+                  {language === 0
+                    ? "Crédits"
+                    : language === 1
+                    ? "Credits"
+                    : "فريق العمل"}
+                </Text>
+                <View style={{ width: "18%" }}></View>
+              </Pressable>
             </View>
             <View style={{ height: "40%" }}>
               <View

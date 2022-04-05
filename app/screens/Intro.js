@@ -28,6 +28,9 @@ export default function Intro({ navigation }) {
     );
     return () => backHandler.remove();
   }, []);
+  const pressHandler = () => {
+    navigation.replace("Home");
+  };
   return (
     <View>
       <StatusBar
@@ -104,7 +107,7 @@ export default function Intro({ navigation }) {
                   : "لا شيئ أفضل من التعلم و الاستمتاع"}
               </Text>
 
-              <Pressable onPress={() => navigation.replace("Home")}>
+              <Pressable onPress={pressHandler}>
                 {({ pressed }) => (
                   <Text
                     style={{

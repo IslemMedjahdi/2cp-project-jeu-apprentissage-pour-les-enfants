@@ -21,7 +21,13 @@ export default function AddProfile({ navigation }) {
         text: ["nouveau hero", "New Hero", "بطل جديد"],
       },
     ],
-    levels: [],
+    levels: [
+      { unLocked: true, stars: 0 },
+      { unLocked: false, stars: 0 },
+      { unLocked: false, stars: 0 },
+      { unLocked: false, stars: 0 },
+      { unLocked: false, stars: 0 },
+    ],
     level: 1,
   });
   return (

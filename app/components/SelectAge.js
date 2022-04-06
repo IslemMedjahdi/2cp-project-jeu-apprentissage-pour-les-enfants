@@ -133,9 +133,10 @@ export default function SelectAge({ language, setPage, setProfile }) {
       </View>
       <View
         style={{
-          height: (7 * Dimensions.get("window").height) / 100,
+          height: (13 * Dimensions.get("window").height) / 100,
           alignItems: "center",
           justifyContent: "space-evenly",
+          marginTop : 10,
           width: "80%",
           flexDirection: language === 2 ? "row" : "row-reverse",
         }}
@@ -183,7 +184,6 @@ export default function SelectAge({ language, setPage, setProfile }) {
             android_ripple={{ color: colors.SECOND }}
             style={{
               backgroundColor: "transparent",
-
               paddingHorizontal: 20,
               paddingVertical: 15,
             }}

@@ -105,7 +105,7 @@ export default function AddProfile({ navigation }) {
       )}
       <View
         style={{
-          height: (15 * Dimensions.get("window").height) / 100,
+          height: (10 * Dimensions.get("window").height) / 100,
           flexDirection: language === 2 ? "row-reverse" : "row",
           justifyContent: "space-between",
           width: "30%",

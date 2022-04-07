@@ -41,14 +41,13 @@ export default function Login({ navigation, route }) {
     const data = await getDoc(doc(db, "users", uid));
     if (data.exists()) {
       dispatch(loadProfiles({ profiles: data.data().profiles }));
-      console.log(data.data().profiles);
+      navigation.replace("SelectProfile");
     }
   };
   const submitHandler = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((response) => {
-        getData(response.user.uid);
         dispatch(
           loadUser({
             user: {
@@ -59,7 +58,7 @@ export default function Login({ navigation, route }) {
             },
           })
         );
-        navigation.replace("SelectProfile");
+        getData(response.user.uid);
       })
       .catch((e) => setError(e.code))
       .finally(() => setLoading(false));

@@ -133,7 +133,7 @@ export default function SelectAge({ language, setPage, setProfile }) {
       </View>
       <View
         style={{
-          height: (7 * Dimensions.get("window").height) / 100,
+          height: (13 * Dimensions.get("window").height) / 100,
           alignItems: "center",
           justifyContent: "space-evenly",
           width: "80%",

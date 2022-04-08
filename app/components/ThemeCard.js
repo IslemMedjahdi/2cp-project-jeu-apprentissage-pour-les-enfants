@@ -63,7 +63,7 @@ export default function ThemeCard({
                 {name[language]}
               </Text>
             </View>
-            {unlocked && stars !== 0 && (
+            {unlocked && (
               <View
                 style={{
                   flexDirection: "row",

@@ -139,6 +139,7 @@ export default function SelectAvatar({
           height: (13 * Dimensions.get("window").height) / 100,
           alignItems: "center",
           justifyContent: "space-evenly",
+          marginTop : 10,
           width: "80%",
           flexDirection: language === 2 ? "row" : "row-reverse",
         }}

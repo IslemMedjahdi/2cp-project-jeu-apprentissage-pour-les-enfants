@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import BouncingPreloader from 'react-native-bouncing-preloaders';
 import { Spinner, HStack, Heading} from "native-base";
+import LottieView from 'lottie-react-native';
 //font
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
@@ -13,6 +14,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { app, db } from "../Core/firebaseConfig";
 import colors from "../data/colors";
 import { useSelector } from "react-redux";
+import { borderColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 const firstTime = false;
 const fetchFont = () => {
@@ -73,7 +75,7 @@ export default function Loading({ navigation }) {
       get The info from local storage, if existe navigate to select Profiles (offline)
       if not :  show login (online) + new User screen ( offline)
       */
-    },4000);
+    },5000);
   }, []);
 
 
@@ -91,13 +93,15 @@ export default function Loading({ navigation }) {
   return (
     <View
       style={{
-        backgroundColor: colors.COLOR2,
         height: "100%",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-end",
+        backgroundColor : "white"
       }}
     >
-        <View>
+         <View style={{
+
+         }}>
             <BouncingPreloader
                 icons={[
                   require("../../assets/hero/mystick1.png"),
@@ -109,13 +113,13 @@ export default function Loading({ navigation }) {
                   require("../../assets/hero/mytick4.png"),
 
                 ]}
-                leftRotation="-90deg"
-                leftDistance={-80}
+                leftRotation="0deg"
+                leftDistance={-100}
                 speed={1200}
-                size={120} />
+                size={150} />
         </View>
 
-        <View style={{
+        {/* <View style={{
           marginTop : 50
         }}>
           <HStack space={3} justifyContent="center">
@@ -128,7 +132,23 @@ export default function Loading({ navigation }) {
                   : "جاري تحميل"}
             </Heading>
           </HStack>
-        </View>
+        </View>  */}
+
+            <View style={{
+
+              width : "100%",
+              height : "50%"
+            }}>
+            <LottieView 
+            source={require('../../99589-loader-for-web.json')} autoPlay loop />
+            </View>
+        
+
+
+
+       
+
+
     </View>
   );
 }

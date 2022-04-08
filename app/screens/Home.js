@@ -5,11 +5,7 @@ import Profil from "../components/Profil";
 import { View, ImageBackground, StatusBar, Dimensions } from "react-native";
 import HomeCard from "../components/HomeCard";
 import colors from "../data/colors";
-import {
-  changeLanguage,
-  toggleMusic,
-  toggleSound,
-} from "../redux/profilesSlice";
+import { toggleMusic, toggleSound } from "../redux/profilesSlice";
 import Settings from "../components/Settings";
 
 export default function Home({ navigation }) {

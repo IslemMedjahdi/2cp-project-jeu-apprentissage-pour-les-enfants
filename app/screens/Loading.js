@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
-import BouncingPreloader from 'react-native-bouncing-preloaders';
-import { Spinner, HStack, Heading} from "native-base";
-import LottieView from 'lottie-react-native';
+import { View } from "react-native";
+import BouncingPreloader from "react-native-bouncing-preloaders";
+import LottieView from "lottie-react-native";
 //font
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
@@ -12,9 +11,6 @@ import AsyncStorageLib from "@react-native-async-storage/async-storage";
 import { loadUser } from "../redux/userSlice";
 import { doc, setDoc } from "firebase/firestore";
 import { app, db } from "../Core/firebaseConfig";
-import colors from "../data/colors";
-import { useSelector } from "react-redux";
-import { borderColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 const firstTime = false;
 const fetchFont = () => {
@@ -29,7 +25,6 @@ const fetchFont = () => {
 export default function Loading({ navigation }) {
   const [fontLoaded, setfontLoaded] = useState(false);
   const dispatch = useDispatch();
-  const language=1; // todo : language tji men data te3 user
   const tryToGetUser = async () => {
     try {
       const value = await AsyncStorageLib.getItem("user");
@@ -70,17 +65,9 @@ export default function Loading({ navigation }) {
       } else {
         tryToGetUser();
       }
-      /* 
-      @Todo
-      get The info from local storage, if existe navigate to select Profiles (offline)
-      if not :  show login (online) + new User screen ( offline)
-      */
-    },5000);
+    }, 5000);
   }, []);
 
-
-  const [text, setText] = useState("nothing");
-  const [value, setValue] = useState("");
   if (!fontLoaded) {
     return (
       <AppLoading
@@ -96,30 +83,28 @@ export default function Loading({ navigation }) {
         height: "100%",
         alignItems: "center",
         justifyContent: "flex-end",
-        backgroundColor : "white"
+        backgroundColor: "white",
       }}
     >
-         <View style={{
+      <View style={{}}>
+        <BouncingPreloader
+          icons={[
+            require("../../assets/hero/mystick1.png"),
+            null,
+            require("../../assets/hero/mystick2.png"),
+            null,
+            require("../../assets/hero/mystick3.png"),
+            null,
+            require("../../assets/hero/mytick4.png"),
+          ]}
+          leftRotation="0deg"
+          leftDistance={-100}
+          speed={1200}
+          size={150}
+        />
+      </View>
 
-         }}>
-            <BouncingPreloader
-                icons={[
-                  require("../../assets/hero/mystick1.png"),
-                  null,
-                  require("../../assets/hero/mystick2.png"),
-                  null,
-                  require("../../assets/hero/mystick3.png"),
-                  null,
-                  require("../../assets/hero/mytick4.png"),
-
-                ]}
-                leftRotation="0deg"
-                leftDistance={-100}
-                speed={1200}
-                size={150} />
-        </View>
-
-        {/* <View style={{
+      {/* <View style={{
           marginTop : 50
         }}>
           <HStack space={3} justifyContent="center">
@@ -134,23 +119,18 @@ export default function Loading({ navigation }) {
           </HStack>
         </View>  */}
 
-            <View style={{
-
-              width : "100%",
-              height : "50%"
-            }}>
-            <LottieView 
-            source={require('../../99589-loader-for-web.json')} autoPlay loop />
-            </View>
-        
-
-
-
-       
-
-
+      <View
+        style={{
+          width: "100%",
+          height: "50%",
+        }}
+      >
+        <LottieView
+          source={require("../../99589-loader-for-web.json")}
+          autoPlay
+          loop
+        />
+      </View>
     </View>
   );
 }
-
-

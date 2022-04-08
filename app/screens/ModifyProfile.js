@@ -49,7 +49,7 @@ export default function ModifyProfile({ navigation }) {
           backgroundColor: "white",
           flex: 1,
           alignItems: "center",
-          justifyContent : "space-evenly"
+          justifyContent: "space-evenly",
         }}
       >
         <Image
@@ -58,7 +58,7 @@ export default function ModifyProfile({ navigation }) {
             position: "absolute",
             width: 40,
             height: 40,
-            top: (Dimensions.get("window").height) / 25,
+            top: Dimensions.get("window").height / 25,
             left: 25,
           }}
           resizeMode="contain"
@@ -70,14 +70,16 @@ export default function ModifyProfile({ navigation }) {
             width: 150,
             height: 150,
             top: (9.5 * Dimensions.get("window").height) / 12,
-            left : -10
+            left: user.language === 2 ? undefined : -10,
+            right: user.language === 2 ? 10 : undefined,
+            transform: [{ rotateY: user.language === 2 ? "180deg" : "0deg" }],
           }}
           resizeMode="contain"
         />
         <View
           style={{
             height: (30 * Dimensions.get("window").height) / 100,
-            width: Dimensions.get("window").width ,
+            width: Dimensions.get("window").width,
             justifyContent: "center",
           }}
         >
@@ -262,24 +264,47 @@ export default function ModifyProfile({ navigation }) {
             />
           )}
         </View>
-        <Pressable
-            onPress={() => {
-              navigation.replace("SelectProfile") ;
-            }}
+        <View
+          style={{
+            height: (20 * Dimensions.get("window").height) / 100,
+            justifyContent: "center",
+          }}
+        >
+          <View
             style={{
-              height: 25*Dimensions.get("window").height/100,
-              justifyContent: "center",
-              flexDirection: "row",
-              alignItems: "center",
-              alignSelf: "center",
+              borderRadius: 10,
+              overflow: "hidden",
+              borderColor: colors.MAIN,
+              borderWidth: 1,
             }}
           >
-            <Image
-              style={{ height: "90%" }}
-              resizeMode="contain"
-              source={require("../../assets/icons/Undo.png")}
-            />
-          </Pressable>
+            <Pressable
+              style={{
+                backgroundColor: "transparent",
+
+                paddingHorizontal: 20,
+                paddingVertical: 15,
+              }}
+              android_ripple={{ color: colors.MAIN }}
+              onPress={() => navigation.replace("SelectProfile")}
+            >
+              <Text
+                style={{
+                  fontFamily: user.language === 2 ? "ArbFont" : "Rowdies",
+                  fontSize: user.language === 2 ? 18 : 16,
+                  color: colors.MAIN,
+                  textAlign: "center",
+                }}
+              >
+                {user.language === 0
+                  ? "Retour"
+                  : user.language === 1
+                  ? "Back"
+                  : "رجوع"}
+              </Text>
+            </Pressable>
+          </View>
+        </View>
       </View>
     </View>
   );

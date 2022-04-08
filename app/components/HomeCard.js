@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, Pressable, Dimensions } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 import * as Animatable from "react-native-animatable";
 
 export default function HomeCard({

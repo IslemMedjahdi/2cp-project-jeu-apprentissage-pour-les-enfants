@@ -14,7 +14,6 @@ import Intro from "./app/screens/Intro";
 import DeleteProfile from "./app/screens/DeleteProfile";
 import ModifyProfile from "./app/screens/ModifyProfile";
 import ModifySelectedProfile from "./app/screens/ModifySelectedProfile";
-
 import Login from "./app/screens/Login";
 import SelectTheme from "./app/screens/SelectTheme";
 import ShowProgress from "./app/screens/ShowProgress";
@@ -41,7 +40,10 @@ export default function App() {
             <Stack.Screen name="AddProfile" component={AddProfile} />
             <Stack.Screen name="DeleteProfile" component={DeleteProfile} />
             <Stack.Screen name="ModifyProfile" component={ModifyProfile} />
-            <Stack.Screen name="ModifySelectedProfile" component={ModifySelectedProfile} />
+            <Stack.Screen
+              name="ModifySelectedProfile"
+              component={ModifySelectedProfile}
+            />
             <Stack.Screen name="LinkUser" component={LinkUser} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Intro" component={Intro} />

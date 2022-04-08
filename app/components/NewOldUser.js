@@ -37,7 +37,7 @@ export default function NewOldUser({ language, navigation, setPage }) {
   return (
     <View style={{ backgroundColor: colors.MAIN }}>
       <Animatable.View
-        animation={"fadeInRight"}
+        animation={"fadeInDown"}
         duration={1000}
         style={{
           height: (40 * Dimensions.get("window").height) / 100,

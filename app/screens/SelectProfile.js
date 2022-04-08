@@ -15,6 +15,7 @@ import ProfilesManager from "../components/ProfilesManager";
 import { setSelectedProfile } from "../redux/selectedProfileSlice";
 import * as Animatable from "react-native-animatable";
 import { useEffect } from "react";
+import UserSettings from "../components/UserSettings";
 
 export default function SelectProfile({ navigation }) {
   const profiles = useSelector((state) => state.profiles.value); //get the profiles from redux
@@ -290,10 +291,16 @@ export default function SelectProfile({ navigation }) {
         <View
           style={{
             height: Dimensions.get("window").height / 10,
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
         >
           <ProfilesManager
+            connected={user.connected}
+            language={user.language}
+            navigation={navigation}
+            email={user.email}
+          />
+          <UserSettings
             connected={user.connected}
             language={user.language}
             navigation={navigation}

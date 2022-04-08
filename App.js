@@ -15,6 +15,7 @@ import DeleteProfile from "./app/screens/DeleteProfile";
 import ModifyProfile from "./app/screens/ModifyProfile";
 import Login from "./app/screens/Login";
 import SelectTheme from "./app/screens/SelectTheme";
+import ShowProgress from "./app/screens/ShowProgress";
 
 //redux
 import { Provider } from "react-redux";
@@ -44,6 +45,7 @@ export default function App() {
             <Stack.Screen name="Begin" component={Begin} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SelectTheme" component={SelectTheme} />
+            <Stack.Screen name="ShowProgress" component={ShowProgress} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

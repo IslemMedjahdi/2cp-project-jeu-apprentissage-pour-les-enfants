@@ -35,9 +35,18 @@ export const profilesSlice = createSlice({
         (e) => console.warn(e)
       );
     },
+    changeProfileHandler: (state, action) => {
+      state.value=state.value.filter((profile)=>{
+        return (profile.id!==action.payload.profile.id) ;
+      })
+      state.value.push(action.payload.profile);
+      AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
+        (e) => console.warn(e)
+      );
+    },
   },
 });
 
-export const { toggleMusic, toggleSound, loadProfiles, addProfileHandler } =
+export const { toggleMusic,changeProfileHandler, toggleSound, loadProfiles, addProfileHandler } =
   profilesSlice.actions;
 export default profilesSlice.reducer;

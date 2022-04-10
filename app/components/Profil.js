@@ -230,10 +230,15 @@ export default function Profil({ language }) {
                         ? "Age"
                         : language === 1
                         ? "Age"
-                        : "العمر"}
-                      :
+                        : "العمر"}{" "}
+                      :{" "}
                       {new Date().getFullYear() -
-                        profiles[selectedProfile].birthday}
+                        profiles[selectedProfile].birthday}{" "}
+                      {language === 0
+                        ? "ans"
+                        : language === 1
+                        ? "years"
+                        : "سنوات"}
                     </Text>
                   </Animatable.View>
                   <Animatable.View

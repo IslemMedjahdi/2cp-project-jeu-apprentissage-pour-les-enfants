@@ -99,7 +99,7 @@ export default function ModifyProfile({ navigation }) {
         </View>
         <View
           style={{
-            borderColor: colors.MAIN,
+            borderColor: colors.SECOND,
             borderWidth: 4,
             borderRadius: 50,
             width: (4 * Dimensions.get("window").width) / 5,
@@ -274,7 +274,7 @@ export default function ModifyProfile({ navigation }) {
             style={{
               borderRadius: 10,
               overflow: "hidden",
-              borderColor: colors.MAIN,
+              borderColor: colors.SECOND,
               borderWidth: 1,
             }}
           >
@@ -285,14 +285,14 @@ export default function ModifyProfile({ navigation }) {
                 paddingHorizontal: 20,
                 paddingVertical: 15,
               }}
-              android_ripple={{ color: colors.MAIN }}
+              android_ripple={{ color: colors.SECOND }}
               onPress={() => navigation.replace("SelectProfile")}
             >
               <Text
                 style={{
                   fontFamily: user.language === 2 ? "ArbFont" : "Rowdies",
                   fontSize: user.language === 2 ? 18 : 16,
-                  color: colors.MAIN,
+                  color: colors.SECOND,
                   textAlign: "center",
                 }}
               >

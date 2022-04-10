@@ -113,7 +113,9 @@ export default function SelectAge({ language, setPage, setProfile }) {
                   padding: item === age ? 22 : 20,
                   backgroundColor: item === age ? colors.SECOND : "transparent",
                 }}
-                onPress={() => setAge(item)}
+                onPress={() => {
+                  setAge(item);
+                }}
               >
                 <Text
                   style={{
@@ -136,7 +138,7 @@ export default function SelectAge({ language, setPage, setProfile }) {
           height: (13 * Dimensions.get("window").height) / 100,
           alignItems: "center",
           justifyContent: "space-evenly",
-          marginTop : 10,
+          marginTop: 10,
           width: "80%",
           flexDirection: language === 2 ? "row" : "row-reverse",
         }}

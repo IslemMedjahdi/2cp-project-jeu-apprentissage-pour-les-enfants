@@ -68,7 +68,7 @@ export default function ModifyName({
           style={{
             backgroundColor: "white",
             width: "90%",
-            height: "50%",
+            height: Dimensions.get("window").height/2,
             borderRadius: 20,
             borderWidth: 2,
             borderColor: colors.SECOND,

@@ -56,7 +56,7 @@ export default function ModifySelectedProfile({ navigation }) {
     });
   };
   const saveHandler = () => {
-    dispatch(changeProfileHandler({profile}));
+    dispatch(changeProfileHandler({profile,selectedProfile}));
     navigation.replace("Loading");
   };
   useEffect(() => {

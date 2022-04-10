@@ -35,8 +35,9 @@ export default function ModifyAvatar({
             width: 70,
             zindex: 1,
             transform: [
-              { translateY: (-15 * Dimensions.get("window").height) / 100 },
+              { translateY: (-11 * Dimensions.get("window").height) / 100 },
             ],
+            //a modifier
           }}
         >
           <Animatable.Image
@@ -54,8 +55,9 @@ export default function ModifyAvatar({
         <View
           style={{
             transform: [
-              { translateY: (-15 * Dimensions.get("window").height) / 100 },
+              { translateY: (-11 * Dimensions.get("window").height) / 100 },
             ],
+            // a modifier 
           }}
         >
           <Text
@@ -85,7 +87,7 @@ export default function ModifyAvatar({
           style={{
             backgroundColor: "white",
             width: "90%",
-            height: "50%",
+            height: "62%",
             borderRadius: 20,
             alignItems: "center",
             borderWidth: 2,

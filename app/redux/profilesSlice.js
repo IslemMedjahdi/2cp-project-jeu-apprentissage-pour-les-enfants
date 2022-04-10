@@ -36,10 +36,11 @@ export const profilesSlice = createSlice({
       );
     },
     changeProfileHandler: (state, action) => {
-      state.value=state.value.filter((profile)=>{
-        return (profile.id!==action.payload.profile.id) ;
-      })
-      state.value.push(action.payload.profile);
+      // state.value=state.value.filter((profile)=>{
+      //   return (profile.id!==action.payload.profile.id) ;
+      // })
+      // state.value.push(action.payload.profile);
+      state.value[action.payload.selectedProfile]=action.payload.profile;
       AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
         (e) => console.warn(e)
       );

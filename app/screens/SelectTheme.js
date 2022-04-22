@@ -203,6 +203,7 @@ export default function SelectTheme({ navigation }) {
               data={themes}
               renderItem={({ item, index }) => (
                 <ThemeCard
+                  navigation={navigation}
                   index={index}
                   item={item}
                   profiles={profiles}

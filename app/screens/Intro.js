@@ -1,6 +1,5 @@
 import {
   ImageBackground,
-  StyleSheet,
   Image,
   Pressable,
   StatusBar,

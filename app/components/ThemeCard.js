@@ -4,6 +4,7 @@ import { Image, Pressable, Text, View, ImageBackground } from "react-native";
 import colors from "../data/colors";
 
 export default function ThemeCard({
+  navigation,
   index,
   name,
   language,
@@ -35,6 +36,7 @@ export default function ThemeCard({
       >
         <Pressable
           android_ripple={{ color: "#FFFFFF90" }}
+          onPress={()=>(navigation.replace("QuizzTest"))}
           style={{
             width: "100%",
             height: "100%",

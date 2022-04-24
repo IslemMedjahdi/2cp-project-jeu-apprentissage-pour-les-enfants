@@ -17,6 +17,7 @@ import ModifySelectedProfile from "./app/screens/ModifySelectedProfile";
 import Login from "./app/screens/Login";
 import SelectTheme from "./app/screens/SelectTheme";
 import ShowProgress from "./app/screens/ShowProgress";
+import QuizzTest from "./app/screens/QuizzTest";
 
 //redux
 import { Provider } from "react-redux";
@@ -50,6 +51,7 @@ export default function App() {
             <Stack.Screen name="Begin" component={Begin} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SelectTheme" component={SelectTheme} />
+            <Stack.Screen name="QuizzTest" component={QuizzTest} />
             <Stack.Screen name="ShowProgress" component={ShowProgress} />
           </Stack.Navigator>
         </NavigationContainer>

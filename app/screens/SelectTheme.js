@@ -26,7 +26,6 @@ export default function SelectTheme({ navigation }) {
         backgroundColor: colors.MAIN,
         height: "100%",
         alignItems: "center",
-        padding: 20,
       }}
     >
       <View
@@ -36,6 +35,7 @@ export default function SelectTheme({ navigation }) {
           alignItems: "center",
           justifyContent: "space-between",
           width: "100%",
+          padding: 20,
         }}
       >
         <Animatable.View animation={"zoomIn"} duration={700}>
@@ -52,9 +52,9 @@ export default function SelectTheme({ navigation }) {
           style={{
             flexDirection: "row",
             alignItems: "center",
-            backgroundColor: "white",
             padding: 10,
             borderRadius: 10,
+            backgroundColor: "white",
           }}
         >
           <Text
@@ -79,10 +79,10 @@ export default function SelectTheme({ navigation }) {
       </View>
       <View
         style={{
-          height: (30 * Dimensions.get("window").height) / 100,
+          height: (7 * Dimensions.get("window").height) / 100,
           width: "100%",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
         }}
       >
         <Text
@@ -98,58 +98,73 @@ export default function SelectTheme({ navigation }) {
             ? "History Mode"
             : "نمط القصة"}
         </Text>
+      </View>
+      <View
+        style={{
+          height: (23 * Dimensions.get("window").height) / 100,
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingHorizontal: 20,
+        }}
+      >
         <Animatable.View
           animation={language === 2 ? "fadeInRight" : "fadeInLeft"}
           duration={1000}
           style={{
             width: "100%",
-            overflow: "hidden",
-            borderRadius: 20,
+            height: "100%",
           }}
         >
-          <Pressable
-            android_ripple={{ color: "#FFFFFFDD" }}
-            onLongPress={() => {
-              heroRef.current?.shake();
-              Vibration.vibrate(200);
-            }}
-            style={{
-              backgroundColor: "#FFFFFF90",
-              padding: 10,
-              flexDirection: language === 2 ? "row-reverse" : "row",
-              alignItems: "center",
-            }}
+          <View
+            style={{ overflow: "hidden", borderRadius: 20, maxHeight: "100%" }}
           >
-            <Text
+            <Pressable
+              android_ripple={{ color: "#FFFFFFDD" }}
+              onLongPress={() => {
+                heroRef.current?.shake();
+                Vibration.vibrate(200);
+              }}
               style={{
-                fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                fontSize: language === 2 ? 22 : 20,
-                width: "65%",
-                textAlign: "center",
+                backgroundColor: "#FFFFFF90",
+                flexDirection: language === 2 ? "row-reverse" : "row",
+                alignItems: "center",
               }}
             >
-              {language === 0
-                ? "Termines ton niveau pour débloquer des nouveaux !"
-                : language === 1
-                ? "Finish your level to unlock others !"
-                : "أكمل مستواك الحالي لتفتح مستويات أخرى !"}
-            </Text>
-            <Animatable.View ref={heroRef} style={{ width: "35%" }}>
-              <Image
-                resizeMode="contain"
+              <Text
                 style={{
-                  width: "100%",
-                  transform: [{ rotateY: language === 2 ? "180deg" : "0deg" }],
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: language === 2 ? 22 : 20,
+                  width: "65%",
+                  textAlign: "center",
                 }}
-                source={require("../../assets/hero/mystick0.png")}
-              />
-            </Animatable.View>
-          </Pressable>
+              >
+                {language === 0
+                  ? "Termines ton niveau pour débloquer des nouveaux !"
+                  : language === 1
+                  ? "Finish your level to unlock others !"
+                  : "أكمل مستواك الحالي لتفتح مستويات أخرى !"}
+              </Text>
+              <Animatable.View ref={heroRef} style={{ width: "35%" }}>
+                <Image
+                  resizeMode="contain"
+                  style={{
+                    width: "100%",
+                    transform: [
+                      { rotateY: language === 2 ? "180deg" : "0deg" },
+                    ],
+                  }}
+                  source={require("../../assets/hero/mystick0.png")}
+                />
+              </Animatable.View>
+            </Pressable>
+          </View>
         </Animatable.View>
       </View>
       <View
         style={{
           height: (60 * Dimensions.get("window").height) / 100,
+          paddingHorizontal: 20,
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
@@ -158,8 +173,8 @@ export default function SelectTheme({ navigation }) {
         <View
           style={{
             backgroundColor: "#FFFFFFBB",
-            height: "90%",
             width: "100%",
+            height: "90%",
             alignItems: "center",
             borderRadius: 20,
             overflow: "hidden",

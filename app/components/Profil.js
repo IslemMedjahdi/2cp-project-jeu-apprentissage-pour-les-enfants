@@ -1,4 +1,4 @@
-import { Center, FlatList, Modal, Pressable } from "native-base";
+import { Center, FlatList, Modal, Pressable, ScrollView } from "native-base";
 import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
 import { useSelector } from "react-redux";
@@ -81,6 +81,7 @@ export default function Profil({ language }) {
               <Text
                 style={{
                   paddingVertical: 7,
+                  maxHeight: "80%",
                   paddingHorizontal: 20,
                   backgroundColor: colors.MAIN,
                   color: "white",
@@ -110,6 +111,7 @@ export default function Profil({ language }) {
               <Text
                 style={{
                   paddingVertical: 7,
+                  maxHeight: "80%",
                   paddingHorizontal: 20,
                   backgroundColor: colors.MAIN,
                   color: "white",
@@ -135,18 +137,15 @@ export default function Profil({ language }) {
             }}
           >
             {page === 0 ? (
-              <View
+              <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{ alignItems: "center" }}
                 style={{
-                  alignItems: "center",
-                  justifyContent: "space-evenly",
                   height: "100%",
+                  width: "100%",
                 }}
               >
-                <View
-                  style={{
-                    alignSelf: "stretch",
-                  }}
-                >
+                <View style={{ alignSelf: "stretch" }}>
                   <Animatable.View
                     animation={language === 2 ? "fadeInRight" : "fadeInLeft"}
                     duration={700}
@@ -208,7 +207,7 @@ export default function Profil({ language }) {
                       paddingHorizontal: 20,
                       backgroundColor: "white",
                       borderRadius: 10,
-                      marginTop: 10,
+                      marginTop: 15,
                       shadowColor: "#000",
                       shadowOffset: {
                         width: 0,
@@ -250,7 +249,7 @@ export default function Profil({ language }) {
                       paddingHorizontal: 20,
                       backgroundColor: "white",
                       borderRadius: 10,
-                      marginTop: 10,
+                      marginTop: 15,
                       flexDirection: language === 2 ? "row-reverse" : "row",
                       alignItems: "center",
                       justifyContent: "center",
@@ -296,7 +295,7 @@ export default function Profil({ language }) {
                       alignItems: "center",
                       borderRadius: 20,
                       overflow: "hidden",
-                      marginTop: 10,
+                      marginTop: 15,
                       shadowColor: "#000",
                       shadowOffset: {
                         width: 0,
@@ -374,7 +373,7 @@ export default function Profil({ language }) {
                     />
                   </View>
                 </Animatable.View>
-              </View>
+              </ScrollView>
             ) : (
               <View style={{ width: "100%", alignItems: "center" }}>
                 <View style={{ height: "10%" }}>
@@ -386,6 +385,7 @@ export default function Profil({ language }) {
                 </View>
                 <View style={{ height: "90%", width: "90%" }}>
                   <FlatList
+                    showsVerticalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={sortedProfiles()}
                     renderItem={({ item, index }) => (

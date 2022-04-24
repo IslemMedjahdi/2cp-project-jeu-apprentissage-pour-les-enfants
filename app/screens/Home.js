@@ -75,15 +75,18 @@ export default function Home({ navigation }) {
   //-----------------------------------------
   return (
     <View>
-      <StatusBar translucent={true} barStyle={"light-content"} />
       <ImageBackground
         source={require("../../assets/background/background0.jpg")}
-        style={{ width: "100%", height: "100%" }}
+        style={{
+          width: Dimensions.get("screen").width,
+          height: Dimensions.get("screen").height,
+        }}
       >
-        <View style={{ padding: 20 }}>
+        <View style={{ alignItems: "center" }}>
           <View
             style={{
               height: (20 * Dimensions.get("window").height) / 100,
+              width: "100%",
               justifyContent: "space-evenly",
               alignItems: "center",
               flexDirection: language === 2 ? "row-reverse" : "row",
@@ -99,53 +102,49 @@ export default function Home({ navigation }) {
               navigation={navigation}
             />
           </View>
-          <View
-            style={{
-              height: (80 * Dimensions.get("window").height) / 3,
-            }}
-          >
-            <HomeCard
-              animation={"fadeInDown"}
-              title={
-                language === 0
-                  ? "Accéder à la carte"
-                  : language === 1
-                  ? "Access to the map"
-                  : "اختيار الخريطة"
-              }
-              desc={
-                language === 0
-                  ? "commence ta propre histoire"
-                  : language === 1
-                  ? "Start your own story"
-                  : "ابدأ قصتك الخاصة"
-              }
-              image={require("../../assets/hero/mystick2.png")}
-              color={colors.MAIN}
-              language={language}
-              pressHandler={() => navigation.navigate("SelectTheme")}
-            />
-            <HomeCard
-              animation={"fadeInUp"}
-              title={
-                language === 0
-                  ? "Accéder aux challenges"
-                  : language === 1
-                  ? "Access to challenges"
-                  : "اختيار التحديات"
-              }
-              desc={
-                language === 0
-                  ? "débloque plus de challenges"
-                  : language === 1
-                  ? "unlock more challenges"
-                  : "افتح تحديات أكثر"
-              }
-              image={require("../../assets/hero/mystick3.png")}
-              color={colors.SECOND}
-              language={language}
-            />
-          </View>
+
+          <HomeCard
+            animation={"fadeInDown"}
+            title={
+              language === 0
+                ? "Accéder à la carte"
+                : language === 1
+                ? "Access to the map"
+                : "اختيار الخريطة"
+            }
+            desc={
+              language === 0
+                ? "commence ta propre histoire"
+                : language === 1
+                ? "Start your own story"
+                : "ابدأ قصتك الخاصة"
+            }
+            image={require("../../assets/hero/mystick2.png")}
+            color={colors.MAIN}
+            language={language}
+            pressHandler={() => navigation.navigate("SelectTheme")}
+          />
+
+          <HomeCard
+            animation={"fadeInUp"}
+            title={
+              language === 0
+                ? "Accéder aux challenges"
+                : language === 1
+                ? "Access to challenges"
+                : "اختيار التحديات"
+            }
+            desc={
+              language === 0
+                ? "débloque plus de challenges"
+                : language === 1
+                ? "unlock more challenges"
+                : "افتح تحديات أكثر"
+            }
+            image={require("../../assets/hero/mystick3.png")}
+            color={colors.SECOND}
+            language={language}
+          />
         </View>
       </ImageBackground>
     </View>

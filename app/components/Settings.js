@@ -72,7 +72,7 @@ export default function Settings({
                   color: "white",
                   borderRadius: 10,
                   fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                  fontSize: language === 2 ? 19 : 16,
+                  fontSize: language === 2 ? 17 : 14,
                 }}
               >
                 {language === 0
@@ -88,11 +88,10 @@ export default function Settings({
               height: "75%",
               backgroundColor: colors.MAIN,
               width: "100%",
-              padding: 20,
               alignItems: "center",
             }}
           >
-            <View style={{ height: "60%", width: "100%" }}>
+            <View style={{ height: "80%", width: "100%", padding: 20 }}>
               <View
                 style={{
                   flexDirection: language === 2 ? "row-reverse" : "row",
@@ -101,7 +100,7 @@ export default function Settings({
                   justifyContent: "space-between",
                   borderBottomWidth: 3,
                   borderColor: "white",
-                  height: "20%",
+                  height: "25%",
                 }}
               >
                 <Image
@@ -229,12 +228,17 @@ export default function Settings({
                 <View style={{ width: "18%" }}></View>
               </Pressable>
             </View>
-            <View style={{ height: "40%" }}>
+            <View
+              style={{
+                height: "20%",
+              }}
+            >
               <View
                 style={{
-                  marginTop: "auto",
                   borderRadius: 10,
                   overflow: "hidden",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <Pressable

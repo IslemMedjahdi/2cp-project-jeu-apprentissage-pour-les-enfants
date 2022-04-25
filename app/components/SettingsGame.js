@@ -5,9 +5,7 @@ import colors from "../data/colors";
 import * as Animatable from "react-native-animatable";
 
 export default function SettingsGame({
-  toggleMusic,
   toggleSound,
-  music,
   sound,
   language,
   navigation,
@@ -127,43 +125,6 @@ export default function SettingsGame({
                   value={sound}
                 />
               </View>
-              <View
-                style={{
-                  flexDirection: language === 2 ? "row-reverse" : "row",
-                  width: "100%",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottomWidth: 3,
-                  borderColor: "white",
-                  height: "35%",
-                }}
-              >
-                <Image
-                  style={{ width: 40, height: 40 }}
-                  resizeMode="contain"
-                  source={require("../../assets/icons/notes.png")}
-                />
-                <Text
-                  style={{
-                    color: "white",
-                    fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                    fontSize: language === 2 ? 20 : 18,
-                  }}
-                >
-                  {language === 0
-                    ? "musique"
-                    : language === 1
-                    ? "music"
-                    : "موسيقى"}
-                </Text>
-                <Switch
-                  size="lg"
-                  thumbColor={music ? "#2EEA84" : "#E73922"}
-                  trackColor={{ false: "#FF6B6B", true: "#6BFF72" }}
-                  onToggle={toggleMusic}
-                  value={music}
-                />
-              </View>
 
               <View
                 style={{
@@ -181,8 +142,9 @@ export default function SettingsGame({
                   source={require("../../assets/icons/quitter.png")}
                 />
                 <Pressable
-                style={{marginLeft: "12%",}} 
-                onPress={()=>(navigation.replace("SelectTheme"))}>
+                  style={{ marginLeft: "12%" }}
+                  onPress={() => navigation.replace("SelectTheme")}
+                >
                   <Text
                     style={{
                       marginLeft: "23%",

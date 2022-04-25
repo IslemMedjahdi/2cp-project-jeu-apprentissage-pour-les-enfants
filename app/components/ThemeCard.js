@@ -1,6 +1,13 @@
 import React from "react";
 import * as Animatable from "react-native-animatable";
-import { Image, Pressable, Text, View, ImageBackground } from "react-native";
+import {
+  Image,
+  Pressable,
+  Text,
+  View,
+  ImageBackground,
+  Vibration,
+} from "react-native";
 import colors from "../data/colors";
 
 export default function ThemeCard({
@@ -11,6 +18,7 @@ export default function ThemeCard({
   background,
   unlocked,
   stars,
+  sound,
 }) {
   return (
     <Animatable.View
@@ -36,7 +44,10 @@ export default function ThemeCard({
       >
         <Pressable
           android_ripple={{ color: "#FFFFFF90" }}
-          onPress={()=>(navigation.replace("QuizzTest"))}
+          onPress={() => {
+            navigation.replace("QuizzTest", { index }); //unlocked &&
+          }}
+          onLongPress={() => !unlocked && Vibration.vibrate(200)}
           style={{
             width: "100%",
             height: "100%",

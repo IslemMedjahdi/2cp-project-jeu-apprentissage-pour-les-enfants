@@ -7,7 +7,7 @@ import HomeCard from "../components/HomeCard";
 import colors from "../data/colors";
 import { toggleMusic, toggleSound } from "../redux/profilesSlice";
 import Settings from "../components/Settings";
-
+import { useRoute } from "@react-navigation/native";
 export default function Home({ navigation }) {
   //REDUX
   const profiles = useSelector((state) => state.profiles.value);
@@ -58,7 +58,7 @@ export default function Home({ navigation }) {
         pause();
       }
   }, [music]);
-  const clickMusicHandler = (a) => {
+  const clickMusicHandler = () => {
     dispatch(toggleMusic({ selectedProfile }));
     if (music) {
       play();
@@ -66,7 +66,7 @@ export default function Home({ navigation }) {
       pause();
     }
   };
-  const clickSoundHandler = (a) => {
+  const clickSoundHandler = () => {
     dispatch(toggleSound({ selectedProfile }));
   };
   useEffect(() => {

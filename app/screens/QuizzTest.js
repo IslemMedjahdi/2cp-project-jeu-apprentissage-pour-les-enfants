@@ -1,25 +1,25 @@
 import {
   BackHandler,
   Dimensions,
-  FlatList,
   Image,
   StatusBar,
   Text,
   View,
   ImageBackground,
-  Pressable
+  Pressable,
 } from "react-native";
-import { Audio } from "expo-av";
-import { toggleMusic, toggleSound } from "../redux/profilesSlice";
+import * as Speech from "expo-speech";
+import themes from "../data/themes";
+import { muteMusic, toggleMusic, toggleSound } from "../redux/profilesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../data/colors";
-import questions from "../data/questions";
 import * as Animatable from "react-native-animatable";
 import { useEffect, useState } from "react";
 import SettingsGame from "../components/SettingsGame";
+import AnswerCard from "../components/AnswerCard";
 
-export default function SelectProfile({ navigation }) {
-
+export default function QuizzTest({ navigation, route }) {
+  const { index } = route.params;
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
@@ -29,99 +29,105 @@ export default function SelectProfile({ navigation }) {
     );
     return () => backHandler.remove();
   }, []);
-  
   //REDUX
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
-  const music = useSelector(
-    (state) => state.profiles.value[selectedProfile].music
-  );
+  const music = profiles[selectedProfile].music;
   const dispatch = useDispatch();
-  const [question, setQuestion] = useState(0);
+  const [indexQuestion, setIndexQuestion] = useState(0);
+  const [soundQuestionOn, setSoundQuestionOn] = useState(true);
+  const [answersColors, setAnswersColors] = useState([
+    "white",
+    "white",
+    "white",
+    "white",
+  ]);
+  const [disabled, setDisabled] = useState(false);
+  const [score, setScore] = useState(0);
+  useEffect(() => {
+    dispatch(muteMusic({ selectedProfile }));
+    return () => {
+      if (music) {
+        clickMusicHandler();
+      }
+    };
+  }, []);
+  useEffect(() => {
+    Speech.stop();
+    const options = {
+      language: language === 0 ? "fr" : language === 1 ? "en" : "ar-SA",
+    };
+    if (soundQuestionOn && profiles[selectedProfile].sound) {
+      Speech.speak(
+        themes[index].questions[indexQuestion].question[language],
+        options
+      );
+      themes[index].questions[indexQuestion].answers[0] &&
+        Speech.speak(
+          themes[index].questions[indexQuestion].answers[0].answer[language],
+          options
+        );
+      themes[index].questions[indexQuestion].answers[1] &&
+        Speech.speak(
+          themes[index].questions[indexQuestion].answers[1].answer[language],
+          options
+        );
+      themes[index].questions[indexQuestion].answers[2] &&
+        Speech.speak(
+          themes[index].questions[indexQuestion].answers[2].answer[language],
+          options
+        );
+      themes[index].questions[indexQuestion].answers[3] &&
+        Speech.speak(
+          themes[index].questions[indexQuestion].answers[3].answer[language],
+          options
+        );
+    }
+    return () => Speech.stop();
+  }, [indexQuestion, soundQuestionOn, profiles[selectedProfile].sound]);
+
   //------------------------------------
   // SOUNDS SETUP
-  const [sound, setSound] = useState(null);
-  const [soundQuestionOn, setSoundQuestionOn] = useState(false);
-
-  const setup = async () => {
-    try {
-      await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
-      const { sound } = await Audio.Sound.createAsync(
-        require("../../assets/sounds/music.mp3"),
-        { isLooping: true }
-      );
-      setSound(sound);
-      if (music) await sound.playAsync();
-    } catch (e) {
-      throw e;
-    }
-  };
-
-  const play = async () => {
-    try {
-      await sound.playAsync();
-    } catch (e) {
-      throw e;
-    }
-  };
-
-  const pause = async () => {
-    try {
-      await sound.pauseAsync();
-    } catch (e) {
-      throw e;
-    }
-  };
-
-  useEffect(() => {
-    setup();
-  }, []);
-
-  useEffect(() => {
-    if (sound)
-      if (music) {
-        play();
-      } else {
-        pause();
-      }
-  }, [music]);
-
-  const clickMusicHandler = (a) => {
+  const clickMusicHandler = () => {
     dispatch(toggleMusic({ selectedProfile }));
-    if (music) {
-      play();
-    } else {
-      pause();
-    }
   };
 
-  const clickSoundHandler = (a) => {
+  const clickSoundHandler = () => {
     dispatch(toggleSound({ selectedProfile }));
   };
 
-  useEffect(() => {
-    return sound ? () => sound.unloadAsync() : undefined;
-  }, [sound]);
-
   const onPressHandlerQuestion = () => {
     if (!soundQuestionOn) {
-      console.log("is playing");
       setSoundQuestionOn(true);
-      //play son te3 la question
     } else {
-      console.log("is not playing");
       setSoundQuestionOn(false);
-      //pause son te3 la question
     }
   };
-
-  const onPressHandlerAnswer = (isRight) => {
-    if (isRight) {
-      question === (questions.length - 1) ? setQuestion(0) : setQuestion(question + 1);
-      // traitement te3 ki ykhayer reponse s7i7a
-    } else {
-      // traitement te3 ki ykhayer reponse ghelta
+  const onPressHandlerAnswer = (correct, answerIndex, color) => {
+    let newAnswersColors = [...answersColors];
+    newAnswersColors[answerIndex] =
+      color === 0
+        ? "#72CC50"
+        : color === 1
+        ? "#FBF40E"
+        : color === 2
+        ? "#F7A400"
+        : "#FF4A4A";
+    setAnswersColors(newAnswersColors);
+    if (correct) {
+      setDisabled(true);
+      const newScore =
+        score + newAnswersColors.filter((x) => x == "white").length * 100;
+      setTimeout(() => {
+        setScore(newScore);
+        setAnswersColors(["white", "white", "white", "white"]);
+        indexQuestion === themes[index].questions.length - 1
+          ? console.warn("score : " + newScore)
+          : setIndexQuestion(indexQuestion + 1);
+        setDisabled(false);
+      }, 1000);
+      setSoundQuestionOn(true);
     }
   };
   //-----------------------------------------
@@ -185,10 +191,8 @@ export default function SelectProfile({ navigation }) {
             />
           </Animatable.View>
           <SettingsGame
-            toggleMusic={clickMusicHandler}
             toggleSound={clickSoundHandler}
             language={language}
-            music={profiles[selectedProfile].music}
             sound={profiles[selectedProfile].sound}
             navigation={navigation}
           />
@@ -213,8 +217,7 @@ export default function SelectProfile({ navigation }) {
               borderTopRightRadius: 15,
             }}
           >
-            {" "}
-            {question + 1} / 7
+            {indexQuestion + 1} / {themes[index].questions.length}
           </Text>
         </View>
         <View
@@ -232,15 +235,14 @@ export default function SelectProfile({ navigation }) {
           <Text
             style={{
               color: "black",
-              fontFamily: "RowdiesBold",
-              fontSize: 16,
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: language === 2 ? 18 : 16,
               padding: 15,
               borderRadius: 15,
               textAlign: "center",
             }}
           >
-            {" "}
-            {questions[question].question}
+            {themes[index].questions[indexQuestion].question[language]}
           </Text>
           <Pressable
             onPress={onPressHandlerQuestion}
@@ -268,136 +270,95 @@ export default function SelectProfile({ navigation }) {
         >
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: language === 2 ? "row-reverse" : "row",
               justifyContent: "space-between",
               alignItems: "center",
             }}
           >
-            <Pressable
-              onPress={() =>
-                onPressHandlerAnswer(questions[question].answers[0].isRight)
-              }
-              style={{
-                height: (17 * Dimensions.get("window").height) / 100,
-                width: "45%",
-                borderRadius: 15,
-                borderColor: colors.MAIN,
-                borderWidth: 3,
-                backgroundColor: "white",
-                margin: 5,
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  color: "black",
-                  fontFamily: "RowdiesBold",
-                  fontSize: 16,
-                  padding: 15,
-                  borderRadius: 15,
-                  textAlign: "center",
-                }}
-              >
-                {" "}
-                {questions[question].answers[0].body}
-              </Text>
-            </Pressable>
-            <Pressable
-              onPress={() =>
-                onPressHandlerAnswer(questions[question].answers[1].isRight)
-              }
-              style={{
-                height: (17 * Dimensions.get("window").height) / 100,
-                width: "45%",
-                borderRadius: 15,
-                borderColor: colors.MAIN,
-                borderWidth: 3,
-                backgroundColor: "white",
-                margin: 5,
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  color: "black",
-                  fontFamily: "RowdiesBold",
-                  fontSize: 16,
-                  padding: 15,
-                  borderRadius: 15,
-                  textAlign: "center",
-                }}
-              >
-                {" "}
-                {questions[question].answers[1].body}
-              </Text>
-            </Pressable>
+            {themes[index].questions[indexQuestion].answers[0] && (
+              <AnswerCard
+                language={language}
+                disabled={disabled}
+                bgColor={answersColors[0]}
+                pressHandlerAnswer={() =>
+                  onPressHandlerAnswer(
+                    themes[index].questions[indexQuestion].answers[0].correct,
+                    0,
+                    themes[index].questions[indexQuestion].answers[0].color
+                  )
+                }
+                answer={
+                  themes[index].questions[indexQuestion].answers[0].answer[
+                    language
+                  ]
+                }
+              />
+            )}
+            {themes[index].questions[indexQuestion].answers[1] && (
+              <AnswerCard
+                language={language}
+                disabled={disabled}
+                bgColor={answersColors[1]}
+                pressHandlerAnswer={() =>
+                  onPressHandlerAnswer(
+                    themes[index].questions[indexQuestion].answers[1].correct,
+                    1,
+                    themes[index].questions[indexQuestion].answers[1].color
+                  )
+                }
+                answer={
+                  themes[index].questions[indexQuestion].answers[1].answer[
+                    language
+                  ]
+                }
+              />
+            )}
           </View>
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: language === 2 ? "row-reverse" : "row",
               justifyContent: "space-between",
               alignItems: "center",
             }}
           >
-            <Pressable
-              onPress={() =>
-                onPressHandlerAnswer(questions[question].answers[2].isRight)
-              }
-              style={{
-                height: (17 * Dimensions.get("window").height) / 100,
-                width: "45%",
-                borderRadius: 15,
-                borderColor: colors.MAIN,
-                borderWidth: 3,
-                backgroundColor: "white",
-                margin: 5,
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  color: "black",
-                  fontFamily: "RowdiesBold",
-                  fontSize: 16,
-                  padding: 15,
-                  borderRadius: 15,
-                  textAlign: "center",
-                }}
-              >
-                {" "}
-                {questions[question].answers[2].body}
-              </Text>
-            </Pressable>
-
-            <Pressable
-              onPress={() =>
-                onPressHandlerAnswer(questions[question].answers[3].isRight)
-              }
-              style={{
-                height: (17 * Dimensions.get("window").height) / 100,
-                width: "45%",
-                borderRadius: 15,
-                borderColor: colors.MAIN,
-                borderWidth: 3,
-                backgroundColor: "white",
-                margin: 5,
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  color: "black",
-                  fontFamily: "RowdiesBold",
-                  fontSize: 16,
-                  padding: 15,
-                  borderRadius: 15,
-                  textAlign: "center",
-                }}
-              >
-                {" "}
-                {questions[question].answers[3].body}
-              </Text>
-            </Pressable>
+            {themes[index].questions[indexQuestion].answers[2] && (
+              <AnswerCard
+                language={language}
+                disabled={disabled}
+                bgColor={answersColors[2]}
+                pressHandlerAnswer={() =>
+                  onPressHandlerAnswer(
+                    themes[index].questions[indexQuestion].answers[2].correct,
+                    2,
+                    themes[index].questions[indexQuestion].answers[2].color
+                  )
+                }
+                answer={
+                  themes[index].questions[indexQuestion].answers[2].answer[
+                    language
+                  ]
+                }
+              />
+            )}
+            {themes[index].questions[indexQuestion].answers[3] && (
+              <AnswerCard
+                language={language}
+                disabled={disabled}
+                bgColor={answersColors[3]}
+                pressHandlerAnswer={() =>
+                  onPressHandlerAnswer(
+                    themes[index].questions[indexQuestion].answers[3].correct,
+                    3,
+                    themes[index].questions[indexQuestion].answers[3].color
+                  )
+                }
+                answer={
+                  themes[index].questions[indexQuestion].answers[3].answer[
+                    language
+                  ]
+                }
+              />
+            )}
           </View>
         </View>
       </ImageBackground>

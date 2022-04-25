@@ -16,6 +16,9 @@ export const profilesSlice = createSlice({
         (e) => console.warn(e)
       );
     },
+    muteMusic: (state, action) => {
+      state.value[action.payload.selectedProfile].music = false;
+    },
     toggleSound: (state, action) => {
       state.value[action.payload.selectedProfile].sound =
         !state.value[action.payload.selectedProfile].sound;
@@ -36,11 +39,7 @@ export const profilesSlice = createSlice({
       );
     },
     changeProfileHandler: (state, action) => {
-      // state.value=state.value.filter((profile)=>{
-      //   return (profile.id!==action.payload.profile.id) ;
-      // })
-      // state.value.push(action.payload.profile);
-      state.value[action.payload.selectedProfile]=action.payload.profile;
+      state.value[action.payload.selectedProfile] = action.payload.profile;
       AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
         (e) => console.warn(e)
       );
@@ -48,6 +47,12 @@ export const profilesSlice = createSlice({
   },
 });
 
-export const { toggleMusic,changeProfileHandler, toggleSound, loadProfiles, addProfileHandler } =
-  profilesSlice.actions;
+export const {
+  toggleMusic,
+  changeProfileHandler,
+  toggleSound,
+  loadProfiles,
+  addProfileHandler,
+  muteMusic,
+} = profilesSlice.actions;
 export default profilesSlice.reducer;

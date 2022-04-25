@@ -117,6 +117,7 @@ export default function QuizzTest({ navigation, route }) {
     setAnswersColors(newAnswersColors);
     if (correct) {
       setDisabled(true);
+      setImg(require("../../assets/hero/mystick6.png"));
       const newScore =
         score + newAnswersColors.filter((x) => x == "white").length * 100;
       setTimeout(() => {
@@ -126,12 +127,26 @@ export default function QuizzTest({ navigation, route }) {
           ? console.warn("score : " + newScore)
           : setIndexQuestion(indexQuestion + 1);
         setDisabled(false);
+        setImg(require("../../assets/hero/mytick4.png"));
       }, 1000);
       setSoundQuestionOn(true);
+    } else {
+      switch (newAnswersColors.filter((x) => x == "white").length) {
+        case 1:
+          setImg(require("../../assets/hero/mystick8.png"));
+          break;
+        case 2:
+          setImg(require("../../assets/hero/mystick5.png"));
+          break;
+
+        case 3:
+          setImg(require("../../assets/hero/mystick9.png"));
+          break;
+      }
     }
   };
   //-----------------------------------------
-
+  const [img, setImg] = useState(require("../../assets/hero/mytick4.png"));
   return (
     <View style={{ height: "100%", backgroundColor: "white" }}>
       <StatusBar
@@ -150,10 +165,7 @@ export default function QuizzTest({ navigation, route }) {
             bottom: 80,
           }}
         >
-          <Image
-            style={{ height: 150, width: 150 }}
-            source={require("../../assets/hero/mytick4.png")}
-          />
+          <Image style={{ height: 150, width: 150 }} source={img} />
         </View>
         <View
           style={{

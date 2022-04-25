@@ -201,7 +201,7 @@ export default function ProfilesManager({ language, navigation }) {
               <Image
                 resizeMode="contain"
                 style={{ width: 40, height: 40 }}
-                source={require("../../assets/icons/Remove.png")}
+                source={require("../../assets/icons/progres.png")}
               />
             </Pressable>
           </View>

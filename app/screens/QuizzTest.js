@@ -53,6 +53,7 @@ export default function QuizzTest({ navigation, route }) {
       }
     };
   }, []);
+
   useEffect(() => {
     Speech.stop();
     const options = {
@@ -128,8 +129,8 @@ export default function QuizzTest({ navigation, route }) {
           : setIndexQuestion(indexQuestion + 1);
         setDisabled(false);
         setImg(require("../../assets/hero/mytick4.png"));
+        setSoundQuestionOn(true);
       }, 1000);
-      setSoundQuestionOn(true);
     } else {
       switch (newAnswersColors.filter((x) => x == "white").length) {
         case 1:
@@ -155,8 +156,9 @@ export default function QuizzTest({ navigation, route }) {
         barStyle={"light-content"}
       />
       <ImageBackground
-        source={require("../../assets/background/background0.jpg")}
+        source={themes[index].backgroundGame}
         style={{ width: "100%", height: "100%", alignItems: "center" }}
+        resizeMode={"cover"}
       >
         <View
           style={{
@@ -264,7 +266,11 @@ export default function QuizzTest({ navigation, route }) {
             }}
           >
             <Image
-              source={require("../../assets/icons/loudspeaker.png")}
+              source={
+                soundQuestionOn
+                  ? require("../../assets/icons/sonquestion.png")
+                  : require("../../assets/icons/sonOFF.png")
+              }
               style={{
                 position: "relative",
                 height: 50,

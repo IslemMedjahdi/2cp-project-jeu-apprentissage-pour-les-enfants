@@ -2,6 +2,7 @@ const themes = [
   {
     name: ["à la maison", "At Home", "في المنزل"],
     background: require("../../assets/background/background1.jpg"),
+    backgroundGame: require("../../assets/background/background1.jpg"),
     questions: [
       {
         question: ["in frensh", "in english", "in arabic"],
@@ -32,7 +33,8 @@ const themes = [
   },
   {
     name: ["Au marché", "At the greengrocer", "في السوق"],
-    background: require("../../assets/background/background1.jpg"),
+    background: require("../../assets/background/march.png"),
+    backgroundGame: require("../../assets/background/marche.png"),
     questions: [
       {
         question: [
@@ -779,7 +781,8 @@ const themes = [
   },
   {
     name: ["chez le medecin ", "at the doctor", "عند الطبيب"],
-    background: require("../../assets/background/background1.jpg"),
+    background: require("../../assets/background/hopital.png"),
+    backgroundGame: require("../../assets/background/cabinet.jpg"),
     questions: [
       {
         question: [
@@ -1119,13 +1122,67 @@ const themes = [
   },
   {
     name: ["Au restaurent", "At the restaurent", "في المطعم"],
-    background: require("../../assets/background/background1.jpg"),
-    questions: [],
+    background: require("../../assets/background/restaurant.png"),
+    backgroundGame: require("../../assets/background/restau.png"),
+    questions: [
+      {
+        question: ["in frensh", "in english", "in arabic"],
+        answers: [
+          {
+            answer: ["in frensh", "in english", "in arabic"],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: ["in frensh", "in english", "in arabic"],
+            correct: false,
+            color: 2,
+          },
+          {
+            answer: ["in frensh", "in english", "in arabic"],
+            correct: false,
+            color: 3,
+          },
+          {
+            answer: ["in frensh", "in english", "in arabic"],
+            correct: false,
+            color: 1,
+          },
+        ],
+      },
+    ],
   },
   {
     name: ["Avec mes amis", "With my friends", "مع أصدقائي"],
-    background: require("../../assets/background/background1.jpg"),
-    questions: [],
+    background: require("../../assets/background/ecole.png"),
+    backgroundGame: require("../../assets/background/ecolebg.png"),
+    questions: [
+      {
+        question: ["in frensh", "in english", "in arabic"],
+        answers: [
+          {
+            answer: ["in frensh", "in english", "in arabic"],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: ["in frensh", "in english", "in arabic"],
+            correct: false,
+            color: 2,
+          },
+          {
+            answer: ["in frensh", "in english", "in arabic"],
+            correct: false,
+            color: 3,
+          },
+          {
+            answer: ["in frensh", "in english", "in arabic"],
+            correct: false,
+            color: 1,
+          },
+        ],
+      },
+    ],
   },
 ];
 

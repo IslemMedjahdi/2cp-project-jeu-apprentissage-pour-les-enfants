@@ -1,5 +1,6 @@
 import { Text, Pressable, Dimensions, View } from "react-native";
 import colors from "../data/colors";
+import * as Animatable from "react-native-animatable";
 export default function AnswerCard({
   pressHandlerAnswer,
   answer,
@@ -8,7 +9,9 @@ export default function AnswerCard({
   language,
 }) {
   return (
-    <View
+    <Animatable.View
+      animation={"zoomIn"}
+      duration={1000}
       style={{
         height: (17 * Dimensions.get("window").height) / 100,
         width: "45%",
@@ -44,6 +47,6 @@ export default function AnswerCard({
           {answer}
         </Text>
       </Pressable>
-    </View>
+    </Animatable.View>
   );
 }

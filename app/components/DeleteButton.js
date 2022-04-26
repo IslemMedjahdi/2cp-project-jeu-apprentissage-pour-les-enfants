@@ -13,7 +13,10 @@ export default function DeleteButton({ language, deleteProfileHandler, name }) {
           borderless: true,
         }}
       >
-        <Image source={require("../../assets/icons/Remove.png")} />
+        <Image
+          style={{ width: 50, height: 50 }}
+          source={require("../../assets/icons/Remove.png")}
+        />
       </Pressable>
       <Modal
         isOpen={isOpen}

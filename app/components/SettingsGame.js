@@ -134,6 +134,7 @@ export default function SettingsGame({
                   borderBottomWidth: 3,
                   borderColor: "white",
                   height: "35%",
+                  justifyContent: "space-between",
                 }}
               >
                 <Image
@@ -141,13 +142,9 @@ export default function SettingsGame({
                   resizeMode="contain"
                   source={require("../../assets/icons/quitter.png")}
                 />
-                <Pressable
-                  style={{ marginLeft: "12%" }}
-                  onPress={() => navigation.replace("SelectTheme")}
-                >
+                <Pressable onPress={() => navigation.replace("SelectTheme")}>
                   <Text
                     style={{
-                      marginLeft: "23%",
                       color: "white",
                       fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
                       fontSize: language === 2 ? 20 : 18,
@@ -160,6 +157,7 @@ export default function SettingsGame({
                       : "خروج"}
                   </Text>
                 </Pressable>
+                <View />
               </View>
             </View>
           </View>

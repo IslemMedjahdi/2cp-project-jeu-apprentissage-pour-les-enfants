@@ -42,8 +42,11 @@ export default function SelectTheme({ navigation }) {
           <Pressable onPress={() => navigation.goBack()}>
             <Image
               resizeMode="contain"
-              style={{ width: 40, height: 40 }}
-              source={require("../../assets/icons/quitter.png")}
+              style={{
+                width: 40,
+                height: 40,
+              }}
+              source={require("../../assets/icons/sortir.png")}
             />
           </Pressable>
         </Animatable.View>

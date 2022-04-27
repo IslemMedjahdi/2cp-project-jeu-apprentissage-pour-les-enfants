@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Dimensions,
   FlatList,
@@ -19,6 +19,10 @@ export default function SelectTheme({ navigation }) {
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
   const heroRef = useRef(null);
+  
+  useEffect(()=>{
+    console.log(profiles[selectedProfile]);
+  },[]);
 
   return (
     <View
@@ -220,18 +224,21 @@ export default function SelectTheme({ navigation }) {
               keyExtractor={(_, index) => index}
               data={themes}
               renderItem={({ item, index }) => (
-                <ThemeCard
-                  navigation={navigation}
-                  index={index}
-                  item={item}
-                  profiles={profiles}
-                  language={language}
-                  selectedProfile={selectedProfile}
-                  background={item.background}
-                  unlocked={profiles[selectedProfile].levels[index].unLocked}
-                  name={item.name}
-                  stars={profiles[selectedProfile].levels[index].stars}
-                />
+                <View>
+                  <Text> 9</Text>
+                  <ThemeCard
+                    navigation={navigation}
+                    index={index}
+                    item={item}
+                    profiles={profiles}
+                    language={language}
+                    selectedProfile={selectedProfile}
+                    background={item.background}
+                    unlocked={profiles[selectedProfile].levels[index].unLocked}
+                    name={item.name}
+                    stars={profiles[selectedProfile].levels[index].stars}
+                  />
+                </View>
               )}
             />
           </View>

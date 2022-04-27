@@ -45,7 +45,7 @@ export default function ThemeCard({
         <Pressable
           android_ripple={{ color: "#FFFFFF90" }}
           onPress={() => {
-            navigation.replace("QuizzTest", { index }); //unlocked &&
+            if (unlocked) navigation.replace("QuizzTest", { index }); //unlocked &&
           }}
           onLongPress={() => !unlocked && Vibration.vibrate(200)}
           style={{

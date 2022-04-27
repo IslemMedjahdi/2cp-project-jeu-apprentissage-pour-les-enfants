@@ -11,6 +11,7 @@ import SelectProfile from "./app/screens/SelectProfile";
 import AddProfile from "./app/screens/AddProfile";
 import Begin from "./app/screens/Begin";
 import Intro from "./app/screens/Intro";
+import LoadingGame from "./app/screens/LoadingGame";
 import DeleteProfile from "./app/screens/DeleteProfile";
 import ModifyProfile from "./app/screens/ModifyProfile";
 import ModifySelectedProfile from "./app/screens/ModifySelectedProfile";
@@ -18,6 +19,7 @@ import Login from "./app/screens/Login";
 import SelectTheme from "./app/screens/SelectTheme";
 import ShowProgress from "./app/screens/ShowProgress";
 import QuizzTest from "./app/screens/QuizzTest";
+import Results from "./app/screens/Results";
 
 //redux
 import { Provider } from "react-redux";
@@ -52,6 +54,8 @@ export default function App() {
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SelectTheme" component={SelectTheme} />
             <Stack.Screen name="QuizzTest" component={QuizzTest} />
+            <Stack.Screen name="Results" component={Results} />
+            <Stack.Screen name="LoadingGame" component={LoadingGame} />
             <Stack.Screen name="ShowProgress" component={ShowProgress} />
           </Stack.Navigator>
         </NavigationContainer>

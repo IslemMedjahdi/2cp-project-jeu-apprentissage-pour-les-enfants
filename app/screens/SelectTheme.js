@@ -167,7 +167,7 @@ export default function SelectTheme({ navigation }) {
                   style={{
                     width: "100%",
                     transform: [
-                      { rotateY: language === 2 ? "180deg" : "0deg" },
+                      { rotateY: language === 2 ? "0deg" : "180deg" },
                     ],
                   }}
                   source={require("../../assets/hero/mystick0.png")}

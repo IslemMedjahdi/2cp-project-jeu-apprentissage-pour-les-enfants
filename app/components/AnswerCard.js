@@ -1,4 +1,4 @@
-import { Text, Pressable, Dimensions, View } from "react-native";
+import { Text, Pressable, Dimensions } from "react-native";
 import colors from "../data/colors";
 import * as Animatable from "react-native-animatable";
 export default function AnswerCard({

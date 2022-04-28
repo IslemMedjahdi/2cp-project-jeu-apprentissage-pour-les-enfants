@@ -6,9 +6,9 @@ import userSlice from "./userSlice";
 
 export const store = configureStore({
   reducer: {
+    music: musicSlice,
     profiles: profilesSlice,
     selectedProfile: selectedProfileSlice,
     user: userSlice,
-    music: musicSlice,
   },
 });

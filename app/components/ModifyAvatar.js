@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   FlatList,
   Pressable,
@@ -57,7 +56,7 @@ export default function ModifyAvatar({
             transform: [
               { translateY: (-11 * Dimensions.get("window").height) / 100 },
             ],
-            // a modifier 
+            // a modifier
           }}
         >
           <Text

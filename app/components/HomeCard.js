@@ -80,6 +80,7 @@ export default function HomeCard({
                 }}
               >
                 <Pressable
+                  onPress={pressHandler}
                   style={{
                     backgroundColor: "white",
                     paddingHorizontal: 20,

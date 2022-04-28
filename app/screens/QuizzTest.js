@@ -8,10 +8,9 @@ import {
   ImageBackground,
   Pressable,
 } from "react-native";
-import { Modal } from "native-base";
 import * as Speech from "expo-speech";
 import themes from "../data/themes";
-import { muteMusic, toggleMusic, toggleSound } from "../redux/profilesSlice";
+import { toggleMusic, toggleSound } from "../redux/profilesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../data/colors";
 import * as Animatable from "react-native-animatable";

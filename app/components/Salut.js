@@ -1,11 +1,4 @@
-import {
-  View,
-  Text,
-  Image,
-  Pressable,
-  Dimensions,
-  BackHandler,
-} from "react-native";
+import { View, Text, Image, Pressable, BackHandler } from "react-native";
 import React, { useEffect } from "react";
 import colors from "../data/colors";
 import * as Animatable from "react-native-animatable";

@@ -10,10 +10,8 @@ import {
 import { changeProfileHandler } from "../redux/profilesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import colors from "../data/colors";
-import avatars from "../data/avatars";
 import React from "react";
 import { useEffect, useState } from "react";
-import * as Animatable from "react-native-animatable";
 import ModifyAge from "../components/ModifyAge";
 import ModifyName from "../components/ModifyName";
 import ModifyAvatar from "../components/ModifyAvatar";

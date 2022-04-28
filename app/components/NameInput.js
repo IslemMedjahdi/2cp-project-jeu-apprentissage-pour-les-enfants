@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Dimensions,
-  Image,
   TextInput,
   Pressable,
   BackHandler,

@@ -18,7 +18,6 @@ export default function ThemeCard({
   background,
   unlocked,
   stars,
-  sound,
 }) {
   return (
     <Animatable.View

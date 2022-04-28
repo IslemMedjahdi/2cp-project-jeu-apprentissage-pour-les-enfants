@@ -1,8 +1,8 @@
 const themes = [
   {
     name: ["à la maison", "At Home", "في المنزل"],
-    background: require("../../assets/background/background1.jpg"),
-    backgroundGame: require("../../assets/background/background1.jpg"),
+    background: require("../../assets/background/background1.png"),
+    backgroundGame: require("../../assets/background/background1.png"),
     questions: [
       {
         question: ["in frensh", "in english", "in arabic"],

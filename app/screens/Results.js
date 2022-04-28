@@ -2,16 +2,44 @@ import { Text, View, ImageBackground, Pressable, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import colors from "../data/colors";
 import themes from "../data/themes";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import * as Animatable from "react-native-animatable";
+import { Audio } from "expo-av";
 
 export default function Results({ navigation, route }) {
   const { index, score } = route.params;
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const [profile, setProfile] = useState(profiles[selectedProfile]);
-  const [stars, setStars] = useState(0);
+  const [stars, setStars] = useState(null);
   const [levels, setLevels] = useState(profile.levels);
   const [newScore, setNewScore] = useState(profile.score + score);
+  const [sound, setSound] = useState(null);
+  // music Setup
+  const setup = async () => {
+    try {
+      await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
+      const { sound: audioSound } = await Audio.Sound.createAsync(
+        stars > 1
+          ? require("../../assets/sounds/good_game.mp3")
+          : require("../../assets/sounds/game_over.mp3")
+      );
+      await audioSound.playAsync();
+      setSound(audioSound);
+    } catch (e) {
+      throw e;
+    }
+  };
+  useEffect(() => {
+    if (stars != null) {
+      setup();
+    }
+  }, [stars]);
+  useEffect(() => {
+    return () => {
+      sound && sound.unloadAsync();
+    };
+  });
   useEffect(() => {
     if (
       score >=
@@ -92,16 +120,20 @@ export default function Results({ navigation, route }) {
             paddingHorizontal: 7,
           }}
         >
-          {Array.from(Array(stars).keys()).map((item) => (
-            <Image
+          {Array.from(Array(stars).keys()).map((item, index) => (
+            <Animatable.Image
+              animation={"zoomIn"}
+              delay={index * 500}
               key={item}
               resizeMode="contain"
               style={{ height: 70, width: 70 }}
               source={require("../../assets/icons/star.png")}
             />
           ))}
-          {Array.from(Array(3 - stars).keys()).map((item) => (
-            <Image
+          {Array.from(Array(3 - stars).keys()).map((item, index) => (
+            <Animatable.Image
+              animation={"zoomIn"}
+              delay={index * 500 + stars * 500}
               key={item}
               resizeMode="contain"
               style={{ height: 70, width: 70 }}

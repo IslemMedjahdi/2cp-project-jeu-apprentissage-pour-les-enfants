@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FlatList, Pressable, Text, View } from "react-native";
 import { Center, Modal } from "native-base";
 import colors from "../data/colors";

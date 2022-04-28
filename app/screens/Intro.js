@@ -30,6 +30,22 @@ export default function Intro({ navigation }) {
   const pressHandler = () => {
     navigation.replace("Home");
   };
+  // sound
+  const sound = useSelector((state) => state.music.value);
+  const play = async () => {
+    try {
+      await sound.playAsync();
+    } catch (e) {
+      throw e;
+    }
+  };
+  useEffect(() => {
+    if (profiles[selectedProfile].music) {
+      play();
+    }
+  }, []);
+
+  //----------------------
   return (
     <View>
       <StatusBar

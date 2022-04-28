@@ -19,11 +19,19 @@ export default function SelectTheme({ navigation }) {
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
   const heroRef = useRef(null);
-  
-  useEffect(()=>{
-    console.log(profiles[selectedProfile]);
-  },[]);
-
+  const sound = useSelector((state) => state.music.value);
+  useEffect(() => {
+    if (profiles[selectedProfile].music) {
+      play();
+    }
+  }, []);
+  const play = async () => {
+    try {
+      await sound.playAsync();
+    } catch (e) {
+      throw e;
+    }
+  };
   return (
     <View
       style={{
@@ -70,6 +78,7 @@ export default function SelectTheme({ navigation }) {
               fontSize: 16,
               marginHorizontal: 7,
               color: "black",
+              height: "100%",
             }}
           >
             {profiles[selectedProfile].score}
@@ -225,7 +234,6 @@ export default function SelectTheme({ navigation }) {
               data={themes}
               renderItem={({ item, index }) => (
                 <View>
-                  <Text> 9</Text>
                   <ThemeCard
                     navigation={navigation}
                     index={index}

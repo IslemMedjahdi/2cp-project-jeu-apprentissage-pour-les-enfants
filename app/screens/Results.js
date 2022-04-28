@@ -11,12 +11,30 @@ export default function Results({ navigation, route }) {
   const [profile, setProfile] = useState(profiles[selectedProfile]);
   const [stars, setStars] = useState(0);
   const [levels, setLevels] = useState(profile.levels);
-  const [newScore,setNewScore] = useState(profile.score + score);
+  const [newScore, setNewScore] = useState(profile.score + score);
   useEffect(() => {
-    if (score === themes[index].questions.length * 300) setStars(3);
-    else if (score >= themes[index].questions.length * 300) setStars(2);
-    else if (score === 0) setStars(0);
-    else setStars(1);
+    if (
+      score >=
+      ((80 * themes[index].questions.length) / 100) * 300 +
+        ((10 * themes[index].questions.length) / 100) * 200 +
+        ((5 * themes[index].questions.length) / 100) * 100
+    )
+      setStars(3);
+    else if (
+      score >=
+      ((60 * themes[index].questions.length) / 100) * 300 +
+        ((20 * themes[index].questions.length) / 100) * 200 +
+        ((10 * themes[index].questions.length) / 100) * 100
+    )
+      setStars(2);
+    else if (
+      score >=
+      ((50 * themes[index].questions.length) / 100) * 300 +
+        ((10 * themes[index].questions.length) / 100) * 200 +
+        ((5 * themes[index].questions.length) / 100) * 100
+    )
+      setStars(1);
+    else setStars(0);
   }, []);
 
   useEffect(() => {
@@ -40,8 +58,8 @@ export default function Results({ navigation, route }) {
   }, [stars]);
 
   useEffect(() => {
-    setProfile({ ...profile, levels: levels,score : newScore });
-  }, levels);
+    setProfile({ ...profile, levels: levels, score: newScore });
+  }, [...levels]);
 
   return (
     <ImageBackground
@@ -131,56 +149,58 @@ export default function Results({ navigation, route }) {
             width: "100%",
           }}
         >
-          <Pressable
-            onPress={() => {
-              navigation.replace("LoadingGame", {
-                profile,
-                destination: 0,
-              });
-            }}
-            style={{
-              backgroundColor: colors.MAIN,
-              padding: 10,
-              borderRadius: 15,
-              width: "40%",
-            }}
-          >
-            <Text
+          <View style={{ borderRadius: 15, width: "40%", overflow: "hidden" }}>
+            <Pressable
+              android_ripple={{ color: "#FFFFFF20" }}
+              onPress={() => {
+                navigation.replace("LoadingGame", {
+                  profile,
+                  destination: 0,
+                });
+              }}
               style={{
-                fontFamily: "RowdiesBold",
-                fontSize: 18,
-                color: "white",
-                textAlign: "center",
+                backgroundColor: colors.MAIN,
+                padding: 10,
               }}
             >
-              Home
-            </Text>
-          </Pressable>
-          <Pressable
-            onPress={() =>
-              navigation.replace("LoadingGame", {
-                profile,
-                destination: 1,
-              })
-            }
-            style={{
-              backgroundColor: colors.MAIN,
-              padding: 10,
-              borderRadius: 15,
-              width: "40%",
-            }}
-          >
-            <Text
+              <Text
+                style={{
+                  fontFamily: "RowdiesBold",
+                  fontSize: 18,
+                  color: "white",
+                  textAlign: "center",
+                }}
+              >
+                Home
+              </Text>
+            </Pressable>
+          </View>
+          <View style={{ borderRadius: 15, width: "40%", overflow: "hidden" }}>
+            <Pressable
+              android_ripple={{ color: "#FFFFFF20" }}
+              onPress={() =>
+                navigation.replace("LoadingGame", {
+                  profile,
+                  destination: 1,
+                })
+              }
               style={{
-                fontFamily: "RowdiesBold",
-                fontSize: 18,
-                color: "white",
-                textAlign: "center",
+                backgroundColor: colors.MAIN,
+                padding: 10,
               }}
             >
-              Story Mode
-            </Text>
-          </Pressable>
+              <Text
+                style={{
+                  fontFamily: "RowdiesBold",
+                  fontSize: 18,
+                  color: "white",
+                  textAlign: "center",
+                }}
+              >
+                Story Mode
+              </Text>
+            </Pressable>
+          </View>
         </View>
       </View>
     </ImageBackground>

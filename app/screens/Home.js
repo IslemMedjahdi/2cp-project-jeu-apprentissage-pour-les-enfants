@@ -7,9 +7,10 @@ import HomeCard from "../components/HomeCard";
 import colors from "../data/colors";
 import { toggleMusic, toggleSound } from "../redux/profilesSlice";
 import Settings from "../components/Settings";
-import { useRoute } from "@react-navigation/native";
-export default function Home({ navigation }) {
+import React from "react";
+export default React.memo(function Home({ navigation }) {
   //REDUX
+
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
@@ -19,20 +20,13 @@ export default function Home({ navigation }) {
   const dispatch = useDispatch();
   //------------------------------------
   // SOUNDS SETUP
-  const [sound, setSound] = useState(null);
-  const setup = async () => {
-    try {
-      await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
-      const { sound } = await Audio.Sound.createAsync(
-        require("../../assets/sounds/music.mp3"),
-        { isLooping: true }
-      );
-      setSound(sound);
-      if (music) await sound.playAsync();
-    } catch (e) {
-      throw e;
+  const sound = useSelector((state) => state.music.value);
+  useEffect(() => {
+    if (music) {
+      play();
     }
-  };
+  }, []);
+
   const play = async () => {
     try {
       await sound.playAsync();
@@ -47,31 +41,17 @@ export default function Home({ navigation }) {
       throw e;
     }
   };
-  useEffect(() => {
-    setup();
-  }, []);
-  useEffect(() => {
-    if (sound)
-      if (music) {
-        play();
-      } else {
-        pause();
-      }
-  }, [music]);
   const clickMusicHandler = () => {
-    dispatch(toggleMusic({ selectedProfile }));
-    if (music) {
+    if (!music) {
       play();
     } else {
       pause();
     }
+    dispatch(toggleMusic({ selectedProfile }));
   };
   const clickSoundHandler = () => {
     dispatch(toggleSound({ selectedProfile }));
   };
-  useEffect(() => {
-    return sound ? () => sound.unloadAsync() : undefined;
-  }, [sound]);
   //-----------------------------------------
   return (
     <View>
@@ -149,4 +129,4 @@ export default function Home({ navigation }) {
       </ImageBackground>
     </View>
   );
-}
+});

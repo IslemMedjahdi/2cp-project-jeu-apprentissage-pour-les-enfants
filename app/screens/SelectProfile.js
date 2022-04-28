@@ -21,6 +21,20 @@ export default function SelectProfile({ navigation }) {
   const profiles = useSelector((state) => state.profiles.value); //get the profiles from redux
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
+
+  // pause music
+  const sound = useSelector((state) => state.music.value);
+  const stop = async () => {
+    try {
+      await sound.stopAsync();
+    } catch (e) {
+      throw e;
+    }
+  };
+  useEffect(() => {
+    stop();
+  }, []);
+  //
   // profile pressed handler
   const pressHandler = (id) => {
     const index = profiles.findIndex((profile) => {

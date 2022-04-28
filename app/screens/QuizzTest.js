@@ -8,7 +8,7 @@ import {
   ImageBackground,
   Pressable,
 } from "react-native";
-import {  Modal} from "native-base";
+import { Modal } from "native-base";
 import * as Speech from "expo-speech";
 import themes from "../data/themes";
 import { muteMusic, toggleMusic, toggleSound } from "../redux/profilesSlice";
@@ -34,11 +34,9 @@ export default function QuizzTest({ navigation, route }) {
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
-  const music = profiles[selectedProfile].music;
   const dispatch = useDispatch();
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [soundQuestionOn, setSoundQuestionOn] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
   const [answersColors, setAnswersColors] = useState([
     "white",
     "white",
@@ -47,14 +45,22 @@ export default function QuizzTest({ navigation, route }) {
   ]);
   const [disabled, setDisabled] = useState(false);
   const [score, setScore] = useState(0);
+
+  //
+  const sound = useSelector((state) => state.music.value);
+
+  const pause = async () => {
+    try {
+      await sound.pauseAsync();
+    } catch (e) {
+      throw e;
+    }
+  };
+
   useEffect(() => {
-    dispatch(muteMusic({ selectedProfile }));
-    return () => {
-      if (music) {
-        clickMusicHandler();
-      }
-    };
+    pause();
   }, []);
+  //
 
   useEffect(() => {
     Speech.stop();
@@ -122,12 +128,14 @@ export default function QuizzTest({ navigation, route }) {
       setDisabled(true);
       setImg(require("../../assets/hero/mystick6.png"));
       const newScore =
-        score + newAnswersColors.filter((x) => x == "white").length * 100;
+        score +
+        newAnswersColors.filter((x) => x == "white").length * 100 -
+        (4 - themes[index].questions[answerIndex].answers.length) * 100;
       setTimeout(() => {
         setScore(newScore);
         setAnswersColors(["white", "white", "white", "white"]);
         indexQuestion === themes[index].questions.length - 1
-          ? navigation.replace("Results",{index : index,score : newScore})
+          ? navigation.replace("Results", { index: index, score: newScore })
           : setIndexQuestion(indexQuestion + 1);
         setDisabled(false);
         setImg(require("../../assets/hero/mytick4.png"));

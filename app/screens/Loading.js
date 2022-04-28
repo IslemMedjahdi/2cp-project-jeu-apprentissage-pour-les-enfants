@@ -5,12 +5,14 @@ import LottieView from "lottie-react-native";
 //font
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadProfiles } from "../redux/profilesSlice";
 import AsyncStorageLib from "@react-native-async-storage/async-storage";
 import { loadUser } from "../redux/userSlice";
 import { doc, setDoc } from "firebase/firestore";
 import { app, db } from "../Core/firebaseConfig";
+import { Audio } from "expo-av";
+import { setMusic } from "../redux/musicSlice";
 
 const firstTime = false;
 const fetchFont = () => {
@@ -23,8 +25,25 @@ const fetchFont = () => {
 };
 
 export default function Loading({ navigation }) {
-  const [fontLoaded, setfontLoaded] = useState(false);
+  // music Setup
   const dispatch = useDispatch();
+  const setup = async () => {
+    try {
+      await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
+      const { sound: audioSound } = await Audio.Sound.createAsync(
+        require("../../assets/sounds/music.mp3"),
+        { isLooping: true }
+      );
+      dispatch(setMusic({ sound: audioSound }));
+    } catch (e) {
+      throw e;
+    }
+  };
+  useEffect(() => {
+    setup();
+  }, []);
+  // ----------------------------------------------------------
+  const [fontLoaded, setfontLoaded] = useState(false);
   const tryToGetUser = async () => {
     try {
       const value = await AsyncStorageLib.getItem("user");

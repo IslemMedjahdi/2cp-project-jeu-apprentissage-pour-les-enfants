@@ -1,4 +1,4 @@
-import { Text, Pressable, Dimensions } from "react-native";
+import { Text, Pressable, Dimensions, Image } from "react-native";
 import colors from "../data/colors";
 import * as Animatable from "react-native-animatable";
 export default function AnswerCard({
@@ -7,6 +7,8 @@ export default function AnswerCard({
   bgColor,
   disabled,
   language,
+  type,
+  image,
 }) {
   return (
     <Animatable.View
@@ -34,18 +36,31 @@ export default function AnswerCard({
         }}
         android_ripple={{ color: colors.MAIN + "40" }}
       >
-        <Text
-          style={{
-            color: "black",
-            fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-            fontSize: language === 2 ? 18 : 16,
-            padding: 15,
-            borderRadius: 15,
-            textAlign: "center",
-          }}
-        >
-          {answer}
-        </Text>
+        {type === 1 && image ? (
+          <Image
+            source={image}
+            style={{
+              width: "100%",
+              height: "100%",
+              backgroundColor: bgColor,
+              opacity: bgColor === "white" ? 1 : 0.3,
+            }}
+            resizeMode={"cover"}
+          />
+        ) : (
+          <Text
+            style={{
+              color: "black",
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: language === 2 ? 18 : 16,
+              padding: 15,
+              borderRadius: 15,
+              textAlign: "center",
+            }}
+          >
+            {answer}
+          </Text>
+        )}
       </Pressable>
     </Animatable.View>
   );

@@ -126,10 +126,18 @@ export default function QuizzTest({ navigation, route }) {
     if (correct) {
       setDisabled(true);
       setImg(require("../../assets/hero/mystick6.png"));
-      const newScore =
-        score +
-        newAnswersColors.filter((x) => x == "white").length * 100 -
-        (4 - themes[index].questions[answerIndex].answers.length) * 100;
+      const nbWhite = newAnswersColors.filter((x) => x == "white").length;
+      let newScore = 0;
+      if (themes[index].questions[answerIndex].answers.length === 2) {
+        if (nbWhite !== 3) {
+          newScore = score;
+        } else {
+          newScore = score + 30;
+        }
+      } else {
+        newScore = score + nbWhite * 10;
+      }
+
       setTimeout(() => {
         setScore(newScore);
         setAnswersColors(["white", "white", "white", "white"]);
@@ -259,7 +267,7 @@ export default function QuizzTest({ navigation, route }) {
             style={{
               color: "black",
               fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-              fontSize: language === 2 ? 18 : 16,
+              fontSize: language === 2 ? 25 : 22,
               padding: 15,
               borderRadius: 15,
               textAlign: "center",
@@ -304,6 +312,8 @@ export default function QuizzTest({ navigation, route }) {
           >
             {themes[index].questions[indexQuestion].answers[0] && (
               <AnswerCard
+                type={themes[index].questions[indexQuestion].type}
+                image={themes[index].questions[indexQuestion].answers[0].image}
                 language={language}
                 disabled={disabled}
                 bgColor={answersColors[0]}
@@ -323,6 +333,8 @@ export default function QuizzTest({ navigation, route }) {
             )}
             {themes[index].questions[indexQuestion].answers[1] && (
               <AnswerCard
+                type={themes[index].questions[indexQuestion].type}
+                image={themes[index].questions[indexQuestion].answers[1].image}
                 language={language}
                 disabled={disabled}
                 bgColor={answersColors[1]}
@@ -350,6 +362,8 @@ export default function QuizzTest({ navigation, route }) {
           >
             {themes[index].questions[indexQuestion].answers[2] && (
               <AnswerCard
+                image={themes[index].questions[indexQuestion].answers[2].image}
+                type={themes[index].questions[indexQuestion].type}
                 language={language}
                 disabled={disabled}
                 bgColor={answersColors[2]}
@@ -369,6 +383,8 @@ export default function QuizzTest({ navigation, route }) {
             )}
             {themes[index].questions[indexQuestion].answers[3] && (
               <AnswerCard
+                image={themes[index].questions[indexQuestion].answers[3].image}
+                type={themes[index].questions[indexQuestion].type}
                 language={language}
                 disabled={disabled}
                 bgColor={answersColors[3]}

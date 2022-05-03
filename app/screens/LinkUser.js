@@ -77,7 +77,7 @@ export default function LinkUser({ navigation }) {
         <Image
           resizeMode="contain"
           style={{ height: "100%" }}
-          source={require("../../assets/hero/mystick0.png")}
+          source={require("../../assets/hero/mystick10.png")}
         />
       </View>
       <View

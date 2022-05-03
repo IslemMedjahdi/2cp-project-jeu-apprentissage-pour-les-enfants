@@ -13,7 +13,6 @@ export default function Results({ navigation, route }) {
   const [profile, setProfile] = useState(profiles[selectedProfile]);
   const [stars, setStars] = useState(null);
   const [levels, setLevels] = useState(profile.levels);
-  const [newScore, setNewScore] = useState(profile.score + score);
   const [sound, setSound] = useState(null);
   // music Setup
   const setup = async () => {
@@ -43,23 +42,23 @@ export default function Results({ navigation, route }) {
   useEffect(() => {
     if (
       score >=
-      ((80 * themes[index].questions.length) / 100) * 300 +
-        ((10 * themes[index].questions.length) / 100) * 200 +
-        ((5 * themes[index].questions.length) / 100) * 100
+      ((80 * themes[index].questions.length) / 100) * 30 +
+        ((10 * themes[index].questions.length) / 100) * 20 +
+        ((5 * themes[index].questions.length) / 100) * 10
     )
       setStars(3);
     else if (
       score >=
-      ((60 * themes[index].questions.length) / 100) * 300 +
-        ((20 * themes[index].questions.length) / 100) * 200 +
-        ((10 * themes[index].questions.length) / 100) * 100
+      ((60 * themes[index].questions.length) / 100) * 30 +
+        ((20 * themes[index].questions.length) / 100) * 20 +
+        ((10 * themes[index].questions.length) / 100) * 10
     )
       setStars(2);
     else if (
       score >=
-      ((50 * themes[index].questions.length) / 100) * 300 +
-        ((10 * themes[index].questions.length) / 100) * 200 +
-        ((5 * themes[index].questions.length) / 100) * 100
+      ((50 * themes[index].questions.length) / 100) * 30 +
+        ((10 * themes[index].questions.length) / 100) * 20 +
+        ((5 * themes[index].questions.length) / 100) * 10
     )
       setStars(1);
     else setStars(0);
@@ -72,12 +71,11 @@ export default function Results({ navigation, route }) {
           return j === index ? { stars: stars, unLocked: true } : item;
         });
       });
-      if (stars === 3) {
+      if (stars >= 2) {
         if (index !== profile.levels.length - 1) {
-          setProfile({ ...profile, level: profile.level + 1 });
           setLevels((existingItems) => {
             return existingItems.map((item, j) => {
-              return j === index + 1 ? { stars: 0, unLocked: true } : item;
+              return j === index + 1 ? { ...item, unLocked: true } : item;
             });
           });
         }
@@ -86,7 +84,7 @@ export default function Results({ navigation, route }) {
   }, [stars]);
 
   useEffect(() => {
-    setProfile({ ...profile, levels: levels, score: newScore });
+    setProfile({ ...profile, levels: levels, score: profile.score + score });
   }, [...levels]);
 
   return (
@@ -155,7 +153,14 @@ export default function Results({ navigation, route }) {
             source={require("../../assets/hero/mystick5.png")}
           />
         )}
-        {(stars === 2 || stars === 1) && ( //hedi l'image tetbadel
+        {stars === 2 && ( //hedi l'image tetbadel
+          <Image
+            resizeMode="contain"
+            style={{ height: 150, width: 150 }}
+            source={require("../../assets/hero/mytick4.png")}
+          />
+        )}
+        {stars === 1 && ( //hedi l'image tetbadel
           <Image
             resizeMode="contain"
             style={{ height: 150, width: 150 }}

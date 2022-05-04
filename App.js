@@ -20,6 +20,7 @@ import SelectTheme from "./app/screens/SelectTheme";
 import ShowProgress from "./app/screens/ShowProgress";
 import QuizzTest from "./app/screens/QuizzTest";
 import Results from "./app/screens/Results";
+import ShowProgressSelectedProfile from "./app/screens/ShowProgressSelectedProfile";
 
 //redux
 import { Provider } from "react-redux";
@@ -57,6 +58,7 @@ export default function App() {
             <Stack.Screen name="Results" component={Results} />
             <Stack.Screen name="LoadingGame" component={LoadingGame} />
             <Stack.Screen name="ShowProgress" component={ShowProgress} />
+            <Stack.Screen name="ShowProgressSelectedProfile" component={ShowProgressSelectedProfile} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

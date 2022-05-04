@@ -73,6 +73,7 @@ export default function Results({ navigation, route }) {
       });
       if (stars >= 2) {
         if (index !== profile.levels.length - 1) {
+          setProfile({ ...profile, level: profile.level + 1 });
           setLevels((existingItems) => {
             return existingItems.map((item, j) => {
               return j === index + 1 ? { ...item, unLocked: true } : item;

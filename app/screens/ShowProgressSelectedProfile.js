@@ -43,7 +43,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
           backgroundColor: colors.MAIN,
           borderBottomLeftRadius: 30,
           borderBottomRightRadius: 30,
-          flexDirection: "row",
+          flexDirection: language === 2 ? "row-reverse" : "row",
         }}
       >
         <View
@@ -66,7 +66,11 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
           >
             <Image
               source={avatars[profile.avatar]}
-              style={{ height: 100, width: 100 }}
+              style={{
+                height: 100,
+                width: 100,
+                transform: [{ rotateY: language === 2 ? "180deg" : "0deg" }],
+              }}
               resizeMode="contain"
             />
           </View>
@@ -81,21 +85,23 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
           <Text
             style={{
               color: "white",
-              fontFamily: "RowdiesBold",
-              fontSize: 30,
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: language === 2 ? 33 : 30,
             }}
           >
-            {" "}
-            Nom : {profile.name}
+            {language === 0 ? "Nom" : language === 1 ? "Name" : "الاسم"} :{" "}
+            {profile.name}
           </Text>
           <Text
             style={{
               color: "white",
-              fontFamily: "RowdiesBold",
-              fontSize: 30,
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: language === 2 ? 33 : 30,
             }}
           >
-            Age : {new Date().getFullYear() - profile.birthday} ans
+            {language === 0 ? "Age" : language === 1 ? "Age" : "العمر"} :{" "}
+            {new Date().getFullYear() - profile.birthday}{" "}
+            {language === 0 ? "ans" : language === 1 ? "years" : "سنوات"}
           </Text>
         </View>
       </View>
@@ -109,7 +115,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
         <View
           style={{
             height: (10 * Dimensions.get("window").height) / 100,
-            flexDirection: "row",
+            flexDirection: language === 2 ? "row-reverse" : "row",
             width: "100%",
             alignItems: "center",
             justifyContent: "center",
@@ -118,34 +124,44 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
           <Text
             style={{
               color: "black",
-              fontFamily: "RowdiesBold",
-              fontSize: 28,
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: language === 2 ? 30 : 28,
               width: "60%",
             }}
           >
-            Score accumulé :
+            {language === 0
+              ? "Score accumulé :"
+              : language === 1
+              ? "Accumulated score :"
+              : "النقاط المحصلة : "}
           </Text>
-          <Text
+          <View
             style={{
-              color: colors.MAIN,
-              fontFamily: "RowdiesBold",
-              fontSize: 28,
-              borderWidth: 2,
-              paddingHorizontal: 30,
               borderRadius: 20,
               borderColor: colors.MAIN,
               width: "30%",
               height: "55%",
-              textAlign: "center",
+              borderWidth: 2,
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {profile.score}
-          </Text>
+            <Text
+              style={{
+                color: colors.MAIN,
+                fontFamily: "RowdiesBold",
+                fontSize: 20,
+                textAlign: "center",
+              }}
+            >
+              {profile.score}
+            </Text>
+          </View>
         </View>
         <View
           style={{
             height: (10 * Dimensions.get("window").height) / 100,
-            flexDirection: "row",
+            flexDirection: language === 2 ? "row-reverse" : "row",
             width: "100%",
             alignItems: "center",
             justifyContent: "center",
@@ -154,34 +170,45 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
           <Text
             style={{
               color: "black",
-              fontFamily: "RowdiesBold",
-              fontSize: 28,
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: language === 2 ? 30 : 28,
               width: "60%",
             }}
           >
-            Niveau actuel :
+            {language === 0
+              ? " Niveau actuel : "
+              : language === 1
+              ? "Actual level : "
+              : "المستوى الحالي : "}
           </Text>
-          <Text
+
+          <View
             style={{
-              color: colors.MAIN,
-              fontFamily: "RowdiesBold",
-              fontSize: 28,
-              borderWidth: 2,
-              paddingHorizontal: 30,
               borderRadius: 20,
               borderColor: colors.MAIN,
               width: "30%",
               height: "55%",
-              textAlign: "center",
+              borderWidth: 2,
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {profile.level} / {themes.length}
-          </Text>
+            <Text
+              style={{
+                color: colors.MAIN,
+                fontFamily: "RowdiesBold",
+                fontSize: 20,
+                textAlign: "center",
+              }}
+            >
+              {profile.level} / {themes.length}
+            </Text>
+          </View>
         </View>
         <View
           style={{
             height: (10 * Dimensions.get("window").height) / 100,
-            flexDirection: "row",
+            flexDirection: language === 2 ? "row-reverse" : "row",
             width: "100%",
             alignItems: "center",
             justifyContent: "center",
@@ -190,29 +217,39 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
           <Text
             style={{
               color: "black",
-              fontFamily: "RowdiesBold",
-              fontSize: 28,
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: language === 2 ? 30 : 28,
               width: "60%",
             }}
           >
-            Badges :
+            {language === 0
+              ? " Badges : "
+              : language === 1
+              ? " Badges : "
+              : "الإنجازات : "}
           </Text>
-          <Text
+          <View
             style={{
-              color: colors.MAIN,
-              fontFamily: "RowdiesBold",
-              fontSize: 28,
-              borderWidth: 2,
-              paddingHorizontal: 30,
               borderRadius: 20,
               borderColor: colors.MAIN,
               width: "30%",
               height: "55%",
-              textAlign: "center",
+              borderWidth: 2,
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {profile.badges.length} / 5
-          </Text>
+            <Text
+              style={{
+                color: colors.MAIN,
+                fontSize: 20,
+                fontFamily: "RowdiesBold",
+                textAlign: "center",
+              }}
+            >
+              {profile.badges.length} / 5
+            </Text>
+          </View>
         </View>
       </View>
       <View
@@ -227,16 +264,20 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
         <Text
           style={{
             color: "white",
-            fontSize: 22,
-            fontFamily: "RowdiesBold",
+            fontSize: language === 2 ? 24 : 22,
+            fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
             alignSelf: "center",
           }}
         >
-          Compétences acquises
+          {language === 0
+            ? "Compétences acquises"
+            : language === 1
+            ? "Acquired skills"
+            : "الكفاءات المكتسبة"}
         </Text>
         <View
           style={{
-            flexDirection: "row",
+            flexDirection: language === 2 ? "row-reverse" : "row",
             width: "100%",
             height: "82%",
             justifyContent: "center",
@@ -253,6 +294,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
                   width: "100%",
                   justifyContent: "center",
                   alignItems: "center",
+                  transform: [{ rotateY: language === 2 ? "180deg" : "0deg" }],
                 }}
               >
                 <Image
@@ -274,7 +316,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
           >
             <View
               style={{
-                flexDirection: "row",
+                flexDirection: language === 2 ? "row-reverse" : "row",
                 alignSelf: "center",
                 justifyContent: "space-evenly",
                 width: "90%",
@@ -283,16 +325,20 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
               <Text
                 style={{
                   fontSize: 20,
-                  fontFamily: "RowdiesBold",
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
                 }}
               >
-                Theme :
+                {language === 0
+                  ? "Theme : "
+                  : language === 1
+                  ? "Theme : "
+                  : "المستوى : "}
               </Text>
               <Text
                 style={{
                   color: colors.MAIN,
                   fontSize: 20,
-                  fontFamily: "RowdiesBold",
+                  fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
                 }}
               >
                 {themes[themePage].name[language]}
@@ -309,19 +355,28 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
                     style={{
                       alignSelf: "center",
                       width: "100%",
-                      flexDirection: "row",
+                      flexDirection: language === 2 ? "row-reverse" : "row",
                       justifyContent: "center",
-                      margin: 4,
+                      alignItems: "center",
+                      marginHorizontal: 4,
+                      marginVertical: 10,
                     }}
                   >
-                    <Text style={{ color: colors.MAIN, fontSize: 30 }}>
-                      {" • "}
-                    </Text>
+                    <View
+                      style={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: 5,
+                        backgroundColor: colors.MAIN,
+                        marginHorizontal: 5,
+                      }}
+                    />
                     <Text
                       style={{
-                        fontFamily: "Rowdies",
-                        fontSize: 16,
+                        fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                        fontSize: language === 2 ? 18 : 16,
                         width: "90%",
+                        lineHeight: language === 2 ? 20 : 18,
                       }}
                     >
                       {item[language]}
@@ -363,6 +418,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
                   width: "100%",
                   justifyContent: "center",
                   alignItems: "center",
+                  transform: [{ rotateY: language === 2 ? "180deg" : "0deg" }],
                 }}
               >
                 <Image

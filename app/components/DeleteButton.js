@@ -51,17 +51,18 @@ export default function DeleteButton({ language, deleteProfileHandler, name }) {
             <Text
               style={{
                 fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                fontSize: language === 3 ? 20 : 25,
+                fontSize: language === 2 ? 28 : 25,
                 textAlign: "center",
                 maxWidth: "90%",
               }}
             >
               {language === 0
-                ? "Voulez-vous vraiment supprimer le profil de "
+                ? "Voulez-vous vraiment supprimer le profil de  "
                 : language === 1
-                ? "Are you sure you want to delete the profile of "
-                : " هل أنت متأكد أنك تريد حذف صفحة"}
-              {name} ?
+                ? "Are you sure you want to delete the profile of  "
+                : "  هل أنت متأكد أنك تريد حذف صفحة"}
+              {name}
+              {language === 0 ? " ? " : language === 1 ? " ? " : " ؟ "}
             </Text>
           </View>
           <View
@@ -85,7 +86,7 @@ export default function DeleteButton({ language, deleteProfileHandler, name }) {
               <Text
                 style={{
                   fontFamily: language === 2 ? "ArbFont" : "Rowdies",
-                  fontSize: language === 0 ? 20 : 15,
+                  fontSize: language === 2 ? 24 : 22,
                   color: "white",
                   textAlign: "center",
                 }}
@@ -104,7 +105,7 @@ export default function DeleteButton({ language, deleteProfileHandler, name }) {
               flexDirection: language === 2 ? "row-reverse" : "row",
               justifyContent: "flex-end",
               alignItems: "center",
-              alignSelf: "flex-end",
+              alignSelf: language === 2 ? "flex-start" : "flex-end",
               height: "30%",
             }}
           >
@@ -113,7 +114,7 @@ export default function DeleteButton({ language, deleteProfileHandler, name }) {
                 <Text
                   style={{
                     fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                    fontSize: language === 0 ? 20 : 16,
+                    fontSize: language === 2 ? 22 : 20,
                     textAlign: "center",
                     color: pressed ? colors.SECOND + "AA" : colors.SECOND,
                     textDecorationLine: "underline",
@@ -132,6 +133,7 @@ export default function DeleteButton({ language, deleteProfileHandler, name }) {
               style={{
                 width: 160,
                 height: 160,
+                transform: [{ rotateY: language === 2 ? "180deg" : "0deg" }],
               }}
               resizeMode="contain"
             />

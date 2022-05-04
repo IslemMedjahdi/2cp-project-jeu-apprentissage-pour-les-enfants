@@ -36,6 +36,7 @@ export default function Profil({ language }) {
                 padding: 2,
                 height: 50,
                 width: 50,
+                transform: [{ rotateY: language === 2 ? "180deg" : "0deg" }],
               }}
               resizeMode="contain"
               source={avatars[profiles[selectedProfile].avatar]}

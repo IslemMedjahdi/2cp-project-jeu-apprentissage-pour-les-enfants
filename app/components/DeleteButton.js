@@ -35,7 +35,7 @@ export default function DeleteButton({ language, deleteProfileHandler, name }) {
             height: "40%",
             borderRadius: 40,
             alignItems: "center",
-            borderWidth: 2,
+            borderWidth: 3,
             borderColor: colors.SECOND,
             justifyContent: "space-around",
           }}

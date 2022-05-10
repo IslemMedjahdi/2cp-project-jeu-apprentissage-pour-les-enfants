@@ -1,26 +1,23 @@
 import { useEffect, useState } from "react";
-import { View ,Text} from "react-native";
+import { View, Text } from "react-native";
 import BouncingPreloader from "react-native-bouncing-preloaders";
 import LottieView from "lottie-react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { changeProfileHandler } from "../redux/profilesSlice";
 import colors from "../data/colors";
 
+export default function LoadingGame({ navigation, route }) {
+  const { profile, destination } = route.params;
+  const dispatch = useDispatch();
+  const selectedProfile = useSelector((state) => state.selectedProfile.value);
 
-export default function LoadingGame({navigation,route}) {
-    const {profile,destination} = route.params;
-    const dispatch = useDispatch();
-    const selectedProfile = useSelector((state) => state.selectedProfile.value);
-
-
-    useEffect(() => {
-        dispatch(changeProfileHandler({ profile, selectedProfile }));
-        setTimeout(() => {
-            if (destination===1) navigation.replace("SelectTheme");
-            else navigation.replace("Home");
-
-        }, 5000);
-      }, []);
+  useEffect(() => {
+    dispatch(changeProfileHandler({ profile, selectedProfile }));
+    setTimeout(() => {
+      if (destination === 1) navigation.replace("SelectTheme");
+      else navigation.replace("Home");
+    }, 5000);
+  }, []);
   return (
     <View
       style={{
@@ -46,8 +43,6 @@ export default function LoadingGame({navigation,route}) {
           rightDistance={-100}
           speed={1200}
           size={200}
-
-
         />
       </View>
       <View
@@ -63,5 +58,5 @@ export default function LoadingGame({navigation,route}) {
         />
       </View>
     </View>
-  )
+  );
 }

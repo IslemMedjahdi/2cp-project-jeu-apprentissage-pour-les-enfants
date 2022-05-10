@@ -103,7 +103,7 @@ export default function Loading({ navigation }) {
         height: "100%",
         alignItems: "center",
         justifyContent: "flex-end",
-        backgroundColor: colors.SECOND,
+        backgroundColor: "white",
       }}
     >
       <View style={{}}>

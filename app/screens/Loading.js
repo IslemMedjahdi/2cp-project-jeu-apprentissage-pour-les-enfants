@@ -13,6 +13,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { app, db } from "../Core/firebaseConfig";
 import { Audio } from "expo-av";
 import { setMusic } from "../redux/musicSlice";
+import colors from "../data/colors";
 
 const firstTime = false;
 const fetchFont = () => {
@@ -102,42 +103,26 @@ export default function Loading({ navigation }) {
         height: "100%",
         alignItems: "center",
         justifyContent: "flex-end",
-        backgroundColor: "white",
+        backgroundColor: colors.SECOND,
       }}
     >
       <View style={{}}>
         <BouncingPreloader
           icons={[
-            require("../../assets/hero/mystick1.png"),
+            require("../../assets/hero/mystick3.png"),
             null,
             require("../../assets/hero/mystick2.png"),
             null,
-            require("../../assets/hero/mystick3.png"),
+            require("../../assets/hero/mystick9.png"),
             null,
-            require("../../assets/hero/mytick4.png"),
+            require("../../assets/hero/mystick10.png"),
           ]}
           leftRotation="0deg"
           leftDistance={-100}
           speed={1200}
-          size={150}
+          size={200}
         />
       </View>
-
-      {/* <View style={{
-          marginTop : 50
-        }}>
-          <HStack space={3} justifyContent="center">
-            <Spinner accessibilityLabel="Loading posts" size="sm" color="black"/>
-            <Heading color="black" fontSize="lg" fontFamily= {language === 2 ? "ArbFont" : "RowdiesBold"}>
-                {language === 0
-                  ? "Chargement"
-                  : language === 1
-                  ? "Loading"
-                  : "جاري تحميل"}
-            </Heading>
-          </HStack>
-        </View>  */}
-
       <View
         style={{
           width: "100%",

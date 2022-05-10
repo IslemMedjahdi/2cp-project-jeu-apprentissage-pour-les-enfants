@@ -4,6 +4,7 @@ import BouncingPreloader from "react-native-bouncing-preloaders";
 import LottieView from "lottie-react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { changeProfileHandler } from "../redux/profilesSlice";
+import colors from "../data/colors";
 
 
 export default function LoadingGame({navigation,route}) {
@@ -32,18 +33,21 @@ export default function LoadingGame({navigation,route}) {
       <View style={{}}>
         <BouncingPreloader
           icons={[
-            require("../../assets/hero/mystick1.png"),
-            null,
-            require("../../assets/hero/mystick2.png"),
-            null,
-            require("../../assets/hero/mystick3.png"),
-            null,
-            require("../../assets/hero/mytick4.png"),
+            require("../../assets/images/0.png"),
+            require("../../assets/images/3.png"),
+            require("../../assets/images/1.png"),
+            require("../../assets/images/4.png"),
+            require("../../assets/images/2.png"),
+            require("../../assets/images/5.png"),
           ]}
-          leftRotation="0deg"
+          leftRotation="180deg"
           leftDistance={-100}
+          rightRotation="-180deg"
+          rightDistance={-100}
           speed={1200}
-          size={150}
+          size={200}
+
+
         />
       </View>
       <View

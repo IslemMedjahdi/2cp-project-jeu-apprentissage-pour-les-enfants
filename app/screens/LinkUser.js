@@ -94,7 +94,7 @@ export default function LinkUser({ navigation }) {
           }}
         >
           {language === 0
-            ? "Linker votre compte"
+            ? "Lier votre compte"
             : language === 1
             ? "Link your account"
             : "اربط حسابك مع اللعبة"}

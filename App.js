@@ -7,6 +7,8 @@ import { NativeBaseProvider } from "native-base";
 import Home from "./app/screens/Home";
 import Loading from "./app/screens/Loading";
 import LinkUser from "./app/screens/LinkUser";
+import StoryBook from "./app/screens/StoryBook.js"
+import Story from "./app/screens/Story.js";
 import SelectProfile from "./app/screens/SelectProfile";
 import AddProfile from "./app/screens/AddProfile";
 import Begin from "./app/screens/Begin";
@@ -58,6 +60,8 @@ export default function App() {
             <Stack.Screen name="Results" component={Results} />
             <Stack.Screen name="LoadingGame" component={LoadingGame} />
             <Stack.Screen name="ShowProgress" component={ShowProgress} />
+            <Stack.Screen name="StoryBook" component={StoryBook} />
+            <Stack.Screen name="Story" component={Story} />
             <Stack.Screen name="ShowProgressSelectedProfile" component={ShowProgressSelectedProfile} />
           </Stack.Navigator>
         </NavigationContainer>

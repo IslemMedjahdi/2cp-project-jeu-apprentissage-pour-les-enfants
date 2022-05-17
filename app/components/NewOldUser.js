@@ -72,10 +72,10 @@ export default function NewOldUser({ language, navigation, setPage }) {
           }}
         >
           {language === 0
-            ? "Apprendre avec Mystick"
+            ? "Apprendre avec \n Cathy"
             : language === 1
-            ? "Learn with Mystick"
-            : "تعلم مع ميستيك"}
+            ? "Learn with \n Cathy"
+            : "تعلم مع كاثي"}
         </Text>
       </Animatable.View>
       <View
@@ -94,7 +94,7 @@ export default function NewOldUser({ language, navigation, setPage }) {
             android_ripple={{ color: "#ffffff40" }}
             onPress={() => pressHandler()}
             style={{
-              backgroundColor: colors.SECOND,
+              backgroundColor: colors.COLOR3,
               paddingVertical: 10,
               paddingHorizontal: 6,
             }}
@@ -125,7 +125,7 @@ export default function NewOldUser({ language, navigation, setPage }) {
             onPress={() => navigation.replace("Login", { language })}
             android_ripple={{ color: "#ffffff40" }}
             style={{
-              backgroundColor: colors.SECOND,
+              backgroundColor: colors.COLOR3,
               paddingVertical: 10,
               paddingHorizontal: 6,
             }}

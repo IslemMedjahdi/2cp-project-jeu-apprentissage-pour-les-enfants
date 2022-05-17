@@ -15,6 +15,7 @@ import colors from "../data/colors";
 import * as Animatable from "react-native-animatable";
 import DeleteButton from "../components/DeleteButton";
 import { loadProfiles } from "../redux/profilesSlice";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default function DeleteProfile({ navigation }) {
   useEffect(() => {
@@ -53,58 +54,22 @@ export default function DeleteProfile({ navigation }) {
         }}
       >
         <Image
-          source={require("../../assets/icons/strawberry.png")}
-          style={{
-            position: "absolute",
-            width: 50,
-            height: 50,
-            top: Dimensions.get("window").height / 3,
-            right: 25,
-          }}
-          resizeMode="contain"
-        />
-        <Image
           source={require("../../assets/icons/fond1.png")}
           style={{
             position: "absolute",
             width: 40,
             height: 40,
-            top: (3 * Dimensions.get("window").height) / 12,
-            left: 25,
-          }}
-          resizeMode="contain"
-        />
-        <Image
-          source={require("../../assets/icons/cup.png")}
-          style={{
-            position: "absolute",
-            width: 70,
-            height: 70,
-            top: (11 * Dimensions.get("window").height) / 12,
-            left: 25,
+            top: Dimensions.get("window").height / 30,
+            left: 10,
           }}
           resizeMode="contain"
         />
         <View
           style={{
-            height: (25 * Dimensions.get("window").height) / 100,
-            alignItems: "center",
+            height: (32 * Dimensions.get("window").height) / 100,
+            width: Dimensions.get("window").width,
             justifyContent: "center",
-          }}
-        >
-          <Image
-            style={{
-              height: "100%",
-            }}
-            source={require("../../assets/hero/mytick4.png")}
-            resizeMode={"contain"}
-          />
-        </View>
-        <View
-          style={{
-            height: (20 * Dimensions.get("window").height) / 100,
-            width: Dimensions.get("window").width / 2,
-            justifyContent: "center",
+            paddingTop:50,
           }}
         >
           <Text
@@ -112,15 +77,18 @@ export default function DeleteProfile({ navigation }) {
               fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
               fontSize: user.language === 2 ? 36 : 30,
               textAlign: "center",
+              color:"black",
+              paddingHorizontal:25,
             }}
           >
             {user.language === 0
-              ? "Supprimer un profil"
+              ? "Choisissez le profil que vous voulez supprimer "
               : user.language === 1
-              ? "Delete a profile"
-              : "حذف صفحة شخصية"}
+              ? "Choose the profile you want to delete"
+              : "اختر الملف الشخصي الذي تريد حذفه"}
           </Text>
         </View>
+       
         <View
           style={{
             borderColor: colors.SECOND,
@@ -251,12 +219,30 @@ export default function DeleteProfile({ navigation }) {
             )}
           />
         </View>
+        <View style={{ paddingTop:15 }}>
+            <Text style={{
+                        color: "grey",
+                        opacity:0.6,
+                        fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
+                        fontSize: user.language === 3 ? 20 : 15,
+                        textAlign:"center",
+                        paddingHorizontal:30,
+                      }}> 
+            {user.language === 0
+              ? "En supprimant un profil, toutes les données seront automatiquement effacées "
+              : user.language === 1
+              ? "By deleting a profile, all data will be automatically deleted"
+              : "بحذف الملف الشخصي ، سيتم حذف جميع البيانات تلقائيًا"}
+            </Text>
+          </View>
         <View
           style={{
             height: Dimensions.get("window").height / 10,
             justifyContent: "center",
+            paddingTop:20
           }}
         >
+          
           <View
             style={{
               borderRadius: 10,

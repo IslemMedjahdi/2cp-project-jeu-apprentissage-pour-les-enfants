@@ -31,7 +31,7 @@ export default function Results({ navigation, route }) {
   };
   useEffect(() => {
     if (stars != null) {
-      setup();
+      if (profiles[selectedProfile].music) setup();
     }
   }, [stars]);
   useEffect(() => {

@@ -345,7 +345,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
               </Text>
             </View>
             <View style={{ borderWidth: 2, borderColor: colors.MAIN }}></View>
-            {profile.levels[themePage].stars === 3 && (
+            {profile.levels[themePage].stars >= 2 && (
               <FlatList
                 showsVerticalScrollIndicator={false}
                 keyExtractor={(_, index) => index.toString()}
@@ -385,7 +385,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
                 )}
               />
             )}
-            {profile.levels[themePage].stars !== 3 && (
+            {profile.levels[themePage].stars < 2 && (
               <View
                 style={{
                   height: "85%",

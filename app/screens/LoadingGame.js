@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
-import { View ,Text} from "react-native";
+import { View, Text } from "react-native";
 import BouncingPreloader from "react-native-bouncing-preloaders";
 import LottieView from "lottie-react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { changeProfileHandler } from "../redux/profilesSlice";
+import colors from "../data/colors";
 
+export default function LoadingGame({ navigation, route }) {
+  const { profile, destination } = route.params;
+  const dispatch = useDispatch();
+  const selectedProfile = useSelector((state) => state.selectedProfile.value);
 
-export default function LoadingGame({navigation,route}) {
-    const {profile,destination} = route.params;
-    const dispatch = useDispatch();
-    const selectedProfile = useSelector((state) => state.selectedProfile.value);
-
-
-    useEffect(() => {
-        dispatch(changeProfileHandler({ profile, selectedProfile }));
-        setTimeout(() => {
-            if (destination===1) navigation.replace("SelectTheme");
-            else navigation.replace("Home");
-
-        }, 5000);
-      }, []);
+  useEffect(() => {
+    dispatch(changeProfileHandler({ profile, selectedProfile }));
+    setTimeout(() => {
+      if (destination === 1) navigation.replace("SelectTheme");
+      else navigation.replace("Home");
+    }, 5000);
+  }, []);
   return (
     <View
       style={{
@@ -32,18 +30,19 @@ export default function LoadingGame({navigation,route}) {
       <View style={{}}>
         <BouncingPreloader
           icons={[
-            require("../../assets/hero/mystick1.png"),
-            null,
-            require("../../assets/hero/mystick2.png"),
-            null,
-            require("../../assets/hero/mystick3.png"),
-            null,
-            require("../../assets/hero/mytick4.png"),
+            require("../../assets/images/0.png"),
+            require("../../assets/images/3.png"),
+            require("../../assets/images/1.png"),
+            require("../../assets/images/4.png"),
+            require("../../assets/images/2.png"),
+            require("../../assets/images/5.png"),
           ]}
-          leftRotation="0deg"
+          leftRotation="180deg"
           leftDistance={-100}
+          rightRotation="-180deg"
+          rightDistance={-100}
           speed={1200}
-          size={150}
+          size={200}
         />
       </View>
       <View
@@ -59,5 +58,5 @@ export default function LoadingGame({navigation,route}) {
         />
       </View>
     </View>
-  )
+  );
 }

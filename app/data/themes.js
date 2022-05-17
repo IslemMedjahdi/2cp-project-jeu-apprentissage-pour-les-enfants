@@ -715,8 +715,8 @@ const themes = [
           {
             answer: ["tomates fraîches ", "fresh tomatoes", "طماطم طازجة "],
             image: null,
-            correct: false,
-            color: 3,
+            correct: true,
+            color: 0,
           },
           {
             answer: [
@@ -725,8 +725,8 @@ const themes = [
               "الطماطم المعلبة   ",
             ],
             image: null,
-            correct: true,
-            color: 0,
+            correct: false,
+            color: 3,
           },
         ],
       },

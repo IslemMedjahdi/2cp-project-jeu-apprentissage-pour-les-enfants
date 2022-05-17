@@ -527,6 +527,7 @@ const themes = [
           ":في الشتاء ، الفاكهة التي يجب أن تشتريها هي",
         ],
         type: 1,
+        explanation: ["french", "arabic", "english"],
         answers: [
           {
             answer: ["Orange", "Oranges", ""],
@@ -563,6 +564,7 @@ const themes = [
           "أي من الأطعمة التالية لا يجب أن تضعها في سلتك؟",
         ],
         type: 1,
+        explanation: ["french", "arabic", "english"],
         answers: [
           {
             answer: ["La viande", "meat", "لحم"],
@@ -597,6 +599,7 @@ const themes = [
           "ما الذي يجب ألا تشتريه لوجبة الإفطار؟",
         ],
         type: 1,
+        explanation: ["french", "arabic", "english"],
         answers: [
           {
             answer: ["Soda", "", ""],
@@ -632,6 +635,7 @@ const themes = [
           "للعشاء ، يجب تجنب تناول",
         ],
         type: 1,
+        explanation: ["Les gens qui mangent des nouilles instantanées au moins deux fois par semaine accroissent de 68% le risque de cholestérol élevé, de diabète et d'hypertension, selon une nouvelle étude.", "أظهرت دراسة جديدة أن الأشخاص الذين يتناولون المعكرونة سريعة التحضير مرتين على الأقل في الأسبوع يزيدون من خطر الإصابة بارتفاع الكوليسترول والسكري وارتفاع ضغط الدم بنسبة 68٪.", "People who eat instant noodles at least twice a week increase their risk of high cholesterol, diabetes and hypertension by 68%, according to a new study."],
         answers: [
           {
             answer: ["Riz brun", "brown rice", "أرز اسمر "],
@@ -667,6 +671,7 @@ const themes = [
           "لصلصة المعكرونة  لا بد من شراء بعض",
         ],
         type: 1,
+        explanation: ["«Consommer des tomates une fois par jour permet d'apporter de l'eau à ceux qui boivent peu,   La tomate est également riche en vitamine A, B, C et E ainsi qu'en oligo-éléments (potassium) bons pour le fonctionnement rénal.",""إن تناول الطماطم مرة واحدة يوميًا يوفر الماء لمن يشربون القليل ، كما أن الطماطم غنية بالفيتامينات A و B و C و E بالإضافة إلى العناصر النزرة (البوتاسيوم) المفيدة لعمل الكلى." et"إن تناول الطماطم مرة واحدة يوميًا يوفر الماء لمن يشربون القليل ، كما أن الطماطم غنية بالفيتامينات A و B و C و E بالإضافة إلى العناصر النزرة (البوتاسيوم) المفيدة لعمل الكلى.", "eEating tomatoes once a day provides water for those who drink little, The tomato is also rich in vitamins A, B, C and E as well as trace elements (potassium) good for the functioning renal."],
         answers: [
           {
             answer: ["tomates fraîches ", "fresh tomatoes", "طماطم طازجة "],
@@ -687,45 +692,9 @@ const themes = [
         ],
       },
 
-      {
-        question: [
-          "Quelle boite de sucre devrais-tu prendre?",
-          "What kind of sugar should you take?",
-          "أي علبة سكر يجب أن تأخذها؟",
-        ],
-        type: 1,
-        answers: [
-          {
-            answer: ["Sucre de canne complet", "raw sugar", "السكر الخام"],
-            image: null,
-            correct: false,
-            color: 1,
-          },
+      
 
-          {
-            answer: ["Le sucre brun", "brown sugar", "سكر بني    "],
-            image: null,
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["Le sucre normal", "normal sugar", "   "],
-            image: null,
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: [
-              "Presque les memes",
-              "they are about the same",
-              "تقريبا نفس الشيء",
-            ],
-            image: null,
-            correct: true,
-            color: 0,
-          },
-        ],
-      },
+       
 
       {
         question: [
@@ -734,7 +703,7 @@ const themes = [
           "انقر فوق الدخيل: للحصول على سلطتك ، يجب تجنب الشراء",
         ],
         type: 1,
-
+        explanation: ["Riche en lipides (à cause du jaune de l'oeuf), il favorise aussi le cholestérol. C'est pourquoi les spécialistes le déconseillent,", "غني بالدهون (بسبب صفار البيض) ، كما أنه يعزز الكوليسترول. ولهذا ينصح المختصون بعدم القيام بذلك ", "Rich in lipids (because of the egg yolk), it also promotes cholesterol. This is why specialists advise against it."],
         answers: [
           {
             answer: ["La laitue", "", ""],
@@ -774,6 +743,7 @@ const themes = [
           "ما نوع اللحوم التي يجب تجنبها؟",
         ],
         type: 1,
+        explanation: ["null"],
         answers: [
           {
             answer: ["Le blanc de poulet", "chicken breast", "صدر دجاج"],
@@ -808,6 +778,7 @@ const themes = [
           "من أجل خبز الإفطار ، يجب أن تشتريه له   ",
         ],
         type: 1,
+        explanation: ["La margarine, riche en gras trans, est plus nocive pour la santé que le beurre et le fromage, riches en gras saturés.", "المرغرين ، الذي يحتوي على نسبة عالية من الدهون المتحولة ، أكثر ضررًا بالصحة من الزبدة والجبن ، حيث يحتوي على نسبة عالية من الدهون المشبعة.", "Margarine, high in trans fat, is more harmful to health than butter and cheese, high in saturated fat."],
         answers: [
           {
             answer: ["La margarine", "margarine", "المرغرين"],
@@ -830,6 +801,7 @@ const themes = [
           "هل ينصح بشراء فواكه وخضروات خارج موسمها؟",
         ],
         type: 0,
+        explanation: ["les fruits et légumes de saison sont récolter à maturité. Par conséquent, ils ont un meilleur goût et ils renferment le plus de nutriments.", "يتم حصاد الفواكه والخضروات الموسمية عندما تنضج. ونتيجة لذلك ، فإن مذاقها أفضل وتحتوي على معظم العناصر الغذائية.", "seasonal fruits and vegetables are harvested when ripe. As a result, they taste better and contain the most nutrients."],
         answers: [
           {
             answer: ["Oui", "Yes", "نعم"],

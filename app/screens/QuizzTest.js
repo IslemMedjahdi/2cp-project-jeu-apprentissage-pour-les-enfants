@@ -17,9 +17,11 @@ import * as Animatable from "react-native-animatable";
 import { useEffect, useState } from "react";
 import SettingsGame from "../components/SettingsGame";
 import AnswerCard from "../components/AnswerCard";
+import { Center, Modal } from "native-base";
 
 export default function QuizzTest({ navigation, route }) {
   const { index } = route.params;
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
@@ -124,6 +126,7 @@ export default function QuizzTest({ navigation, route }) {
         : "#FF4A4A";
     setAnswersColors(newAnswersColors);
     if (correct) {
+      setIsOpen(true);
       setDisabled(true);
       setImg(require("../../assets/hero/mystick6.png"));
       const nbWhite = newAnswersColors.filter((x) => x == "white").length;
@@ -260,14 +263,14 @@ export default function QuizzTest({ navigation, route }) {
             borderWidth: 3,
             backgroundColor: "white",
             marginTop: -3,
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
           }}
         >
           <Text
             style={{
               color: "black",
               fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-              fontSize: language === 2 ? 25 : 22,
+              fontSize: language === 2 ? 25 : 25,
               padding: 15,
               borderRadius: 15,
               textAlign: "center",
@@ -279,7 +282,6 @@ export default function QuizzTest({ navigation, route }) {
             onPress={onPressHandlerQuestion}
             style={{
               left: 20,
-              bottom: 20,
             }}
           >
             <Image
@@ -404,6 +406,57 @@ export default function QuizzTest({ navigation, route }) {
             )}
           </View>
         </View>
+        <Center>
+          <Modal
+            isOpen={isOpen}
+            style={{
+              height: (60 * Dimensions.get("window").height) / 100,
+              width: "90%",
+              borderWidth: 5,
+              borderRadius: 39,
+              backgroundColor: colors.MAIN,
+              borderColor: "white",
+              alignSelf : "center",
+              justifyContent : "space-evenly",
+              position : "absolute",
+              top : (20 * Dimensions.get("window").height) / 100,
+            }}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontSize: 25,
+                fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+                textAlign : "center",
+                padding : 20,
+                height : (40 * Dimensions.get("window").height) / 100,
+              }}
+            >
+              {themes[index].questions[indexQuestion].explanation[language]}
+            </Text>
+            <Image
+              source={require("../../assets/hero/mystick10.png")}
+              style={{
+                height: 150,
+                width: 150,
+                transform: [{ rotateY: "180deg" }],
+                bottom: 20,
+                position: "absolute",
+                left: 10,
+              }}
+              resizeMode="contain"
+            />
+            <Pressable onPress={()=>{setIsOpen(false)}} style={{ bottom: 40, position: "absolute", right: 40 }}>
+              <Image
+                source={require("../../assets/icons/whiteArrowright.png")}
+                style={{
+                  height: 60,
+                  width: 60,
+                }}
+              />
+            </Pressable>
+          </Modal>
+        </Center>
       </ImageBackground>
     </View>
   );

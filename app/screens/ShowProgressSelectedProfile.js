@@ -380,7 +380,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
           navigation.goBack();
         }}
         style={{
-          height: (10 * Dimensions.get("window").height) / 100,
+          height: (14 * Dimensions.get("window").height) / 100,
           justifyContent: "center",
           alignItems: "center",
           alignSelf: "center",

@@ -52,8 +52,8 @@ export default function AnswerCard({
             style={{
               color: "black",
               fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-              fontSize: language === 2 ? 18 : 16,
-              padding: 15,
+              fontSize: language === 2 ? 18 : 19,
+              padding: 10,
               borderRadius: 15,
               textAlign: "center",
             }}

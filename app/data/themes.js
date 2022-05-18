@@ -7,23 +7,23 @@ const themes = [
     intro: [
       " Notre aventure commence ici à la maison. Ensemble nous apprendrons les secrets d’une alimentation saine. Olé,que l’aventure commence !",
       "Our adventure begins here at home. Together we will learn the secrets of healthy eating. Olé, let the adventure begin!",
-      "تبدأ مغامرتنا هنا في المنزل. سنتعلم معًا أسرار الأكل الصحي. يا أولي ، فلتبدأ المغامرة!",
+      "!تبدأ مغامرتنا هنا في المنزل. سنتعلم معًا أسرار الأكل الصحي. هيا ، فلتبدأ المغامرة",
     ],
     skills: [
       [
         "Prendre conscience de ce qu’est une alimentation saine",
         "Become aware of healthy eating",
-        "كن على دراية بالأكل الصحي",
+        "التعرف على مفهوم الأكل الصحي",
       ],
       [
         "Prendre conscience de ce qu’est un repas équilibré",
         "Become aware of what a balanced meal is",
-        "كن على دراية بماهية الوجبة المتوازنة",
+        "التعرف على مفهوم  الوجبة المتوازنة",
       ],
       [
         "Prendre connaissance du nombre de repas par jour ainsi que leur importance ",
         "Know the number of meals per day and their importance",
-        "اعرف عدد الوجبات في اليوم واهميتها",
+        "التعرف على عدد الوجبات في اليوم واهميتها",
       ],
     ],
     questions: [
@@ -272,6 +272,31 @@ const themes = [
       },
       {
         question: [
+          "Est ce que c'est bien de boire beaucoup d'eau durant la journée ?",
+          "Is it good to drink a lot of water during the day ?",
+          "هل من الجيد شرب الكثير من الماء خلال اليوم ؟",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: ["Vrai", "True", "صحيح"],
+            correct: true,
+            color: 0,
+            explanation: [
+              "L'eau représente 65% du corps humain. C'est un besoin vital pour assurer notre survie de même que l'oxygène ou la nourriture.",
+              "Water represents 65% of the human body. It is a vital need to ensure our survival as well as oxygen or food",
+              "يمثل الماء 65٪ من جسم الإنسان. إنها حاجة حيوية لضمان بقائنا كالأكسجين أو الطعام.",
+            ],
+          },
+          {
+            answer: ["Faux", "False", "خطأ"],
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
           "Que devrais-je prendre lorsque j'ai faim entre les repas ?",
           "What should I take when I am hungry after eating ?",
           "ماذا يجب أن آخذ عندما أجوع بين الوجبات ؟",
@@ -309,70 +334,7 @@ const themes = [
           },
         ],
       },
-      {
-        question: [
-          "Est ce que c'est bien de boire beaucoup d'eau durant la journée ?",
-          "Is it good to drink a lot of water during the day ?",
-          "هل من الجيد شرب الكثير من الماء خلال اليوم ؟",
-        ],
-        type: 0,
-        answers: [
-          {
-            answer: ["Vrai", "True", "صحيح"],
-            correct: true,
-            color: 0,
-            explanation: [
-              "L'eau représente 65% du corps humain. C'est un besoin vital pour assurer notre survie de même que l'oxygène ou la nourriture.",
-              "Water represents 65% of the human body. It is a vital need to ensure our survival as well as oxygen or food",
-              "يمثل الماء 65٪ من جسم الإنسان. إنها حاجة حيوية لضمان بقائنا كالأكسجين أو الطعام.",
-            ],
-          },
-          {
-            answer: ["Faux", "False", "خطأ"],
-            correct: false,
-            color: 3,
-          },
-        ],
-      },
-      {
-        question: [
-          "Lequel de ces aliments ne fait pas partie de la famille des féculents ?",
-          "Which of these foods is not part of the starch family ?",
-          "أي من الأطعمة التالية ليس جزءًا من عائلة النشويات ؟",
-        ],
-        type: 1,
-        answers: [
-          {
-            answer: ["Le pain", "Bread", "الخبز"],
-            image: null,
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["Les pâtes", "Pasta", "المعجنات"],
-            image: null,
-            correct: false,
-            color: 1,
-          },
-          {
-            answer: ["La viande", "Meats", "اللحوم"],
-            image: null,
-            correct: true,
-            color: 0,
-            explanation: [
-              "La famille des féculents réunit les nutriments d'origine végétale, tandis que la viande est d'origine animale. Elle appartient à la famille des protéines",
-              "The family of starches brings together nutrients of plant origin, while meat is of animal origin. It belongs to the protein family",
-              "تجمع عائلة النشويات بين العناصر الغذائية من أصل نباتي ، في حين أن اللحوم من أصل حيواني. فهي تنتمي إلى عائلة البروتينات",
-            ],
-          },
-          {
-            answer: ["Les céréales", "Cereals", "الحبوب"],
-            image: null,
-            correct: false,
-            color: 3,
-          },
-        ],
-      },
+
       {
         question: [
           "Quel aliment doit rester occasionnel pour un sain petit déjeuner ?",
@@ -447,6 +409,45 @@ const themes = [
       },
       {
         question: [
+          "Lequel de ces aliments ne fait pas partie de la famille des féculents ?",
+          "Which of these foods is not part of the starch family ?",
+          "أي من الأطعمة التالية ليس جزءًا من عائلة النشويات ؟",
+        ],
+        type: 1,
+        answers: [
+          {
+            answer: ["Le pain", "Bread", "الخبز"],
+            image: null,
+            correct: false,
+            color: 2,
+          },
+          {
+            answer: ["Les pâtes", "Pasta", "المعجنات"],
+            image: null,
+            correct: false,
+            color: 1,
+          },
+          {
+            answer: ["La viande", "Meats", "اللحوم"],
+            image: null,
+            correct: true,
+            color: 0,
+            explanation: [
+              "La famille des féculents réunit les nutriments d'origine végétale, tandis que la viande est d'origine animale. Elle appartient à la famille des protéines",
+              "The family of starches brings together nutrients of plant origin, while meat is of animal origin. It belongs to the protein family",
+              "تجمع عائلة النشويات بين العناصر الغذائية من أصل نباتي ، في حين أن اللحوم من أصل حيواني. فهي تنتمي إلى عائلة البروتينات",
+            ],
+          },
+          {
+            answer: ["Les céréales", "Cereals", "الحبوب"],
+            image: null,
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
           "Je fais partie de la famille des viandes et dérivés. Je suis pondu par la poule. Il faut me déplacer avec précaution sinon je casse. Qui suis-je ?",
           "I belong to the family of meat and its derivatives, I came from the chicken, I must move carefully or else I will break. who am I ?",
           "أنا من عائلة اللحوم ومشتقاتها, جئت  من الدجاجة , يجب أن أتحرك بعناية وإلا أنكسر. من أنا ؟",
@@ -498,50 +499,63 @@ const themes = [
     intro: [
       "Oups! je crois qu’il nous manque des ingrédients pour préparer le dîner. Allons faire les courses! Je te tiendrai compagnie pour faire les bons choix car pas tout ce qui se vend est sain et bon pour la santé",
       ,
-      "Oops! I think we are missing ingredients to prepare dinner. Let's go shopping! I will keep you company to make the right choices because not everything that is sold is healthy and good for your health",
-      "عفوًا! أعتقد أننا نفتقد بعض المكونات لتحضير العشاء. دعنا نذهب للتسوق! سأحافظ على صحبتك لاتخاذ الخيارات الصحيحة لأنه ليس كل ما يبيع صحيًا وجيدًا لصحتك",
+      "Oops! I think we are missing ingredients to prepare dinner. Let's go shopping! I will be with you to make the right choices because not everything that is sold is healthy ",
+      "عفوًا! أعتقد أننا نفتقد بعض المكونات لتحضير العشاء. دعنا نذهب للتسوق! سأصاحبك لاتخاذ الخيارات الصحيحة لأنه ليس كل ما يباع يعد جيدًا لصحتك",
     ],
     skills: [
       [
         "Se familiariser avec la notion d’aliments de saison ",
-        "Become familiar with the concept of seasonal foods",
+        "Become familiar with the concept of seasonal food",
         "التعرف على مفهوم الأطعمة الموسمية",
       ],
       [
         "Être en mesure de faire les bons achats pour pouvoir préparer un repas équilibré.",
         "Being able to make the right purchases to be able to prepare a balanced meal",
-        "أن تكون قادرًا على إجراء عمليات الشراء الصحيحة لتكون قادرًا على إعداد وجبة متوازنة",
+        "القدرة على إقتناء المشتريات الصحيحة من اجل  إعداد وجبة متوازنة",
       ],
       [
         "Savoir reconnaître la meilleure qualité d’un seul et même produit",
         "Knowing how to recognize the best quality of a single product",
-        "معرفة كيفية التعرف على أفضل جودة لمنتج واحد",
+        "القدرة على التعرف على أفضل جودة للمنتج الواحد",
       ],
     ],
     questions: [
       {
         question: [
-          "Est-il conseillé d'acheter des fruits et légumes d'hors saison? ",
-          "Is it advisable to buy fruits and vegetables out of their season?",
-          "هل ينصح بشراء فواكه وخضروات خارج موسمها؟",
+          "En hiver, le fruit que tu devrais acheter est :",
+          "In winter, the fruit you should buy is:",
+          ":في الشتاء ، الفاكهة التي يجب أن تشتريها هي",
         ],
-        type: 0,
+        type: 1,
         answers: [
           {
-            answer: ["Oui", "Yes", "نعم"],
-            //image: require("noimage is required here"),
-            correct: false,
-            color: 1,
-          },
-
-          {
-            answer: ["Non", "No", "لا"],
-            //image: require("noimage is required here"),
+            answer: ["Orange", "Oranges", ""],
+            image: null,
             correct: true,
             color: 0,
           },
+
+          {
+            answer: ["Banane", "", "   "],
+            image: null,
+            correct: false,
+            color: 1,
+          },
+          {
+            answer: ["Ananas", "", "  "],
+            image: null,
+            correct: false,
+            color: 2,
+          },
+          {
+            answer: ["Kiwi", "", ""],
+            image: null,
+            correct: false,
+            color: 3,
+          },
         ],
       },
+
       {
         question: [
           "Lequel des aliments suivants tu ne dois pas mettre dans ton panier ?",
@@ -557,7 +571,7 @@ const themes = [
             color: 1,
           },
           {
-            answer: ["Ketchup", "Ketchup", "كاتشب"],
+            answer: ["Ketchup", "Ketchup", ""],
             image: null,
             correct: true,
             color: 0,
@@ -585,65 +599,32 @@ const themes = [
         type: 1,
         answers: [
           {
-            answer: ["Soda", "soda", "صودا"],
+            answer: ["Soda", "", ""],
             image: null,
             correct: true,
             color: 0,
           },
           {
-            answer: ["Boite de céreales ", "cereal box", "علبة حبوب"],
+            answer: ["Boite de céreales ", "", ""],
             image: null,
             correct: false,
             color: 3,
           },
           {
-            answer: ["Du biscuit ", "biscuit", "بسكويت"],
+            answer: ["Du biscuit ", "", ""],
             image: null,
             correct: false,
             color: 2,
           },
           {
-            answer: ["De la confiture", "jam", "مربى"],
+            answer: ["De la confiture", "", ""],
             image: null,
             correct: false,
             color: 1,
           },
         ],
       },
-      {
-        question: [
-          "Quelle viande tu dois éviter?",
-          "What type of meat you should  avoid? ",
-          "ما نوع اللحوم التي يجب تجنبها؟",
-        ],
-        type: 1,
-        answers: [
-          {
-            answer: ["Le blanc de poulet", "chicken breast", "صدر دجاج"],
-            image: null,
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["La viande surgelée", "Frozen meat", "لحم مجمد"],
-            image: null,
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: ["Poisson", "Fish", "سمك"],
-            image: null,
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: ["La viande hachée", "Minced meat", "لحم مفروم"],
-            image: null,
-            correct: false,
-            color: 1,
-          },
-        ],
-      },
+
       {
         question: [
           "Pour le diner, tu dois éviter de prendre ",
@@ -665,45 +646,20 @@ const themes = [
             color: 1,
           },
           {
-            answer: [
-              "Nouilles instantanées",
-              "Instant noodle",
-              "معكرونة فورية",
-            ],
+            answer: ["Nouilles instantanées", "Instant noodle", " "],
             image: null,
             correct: true,
             color: 0,
           },
           {
-            answer: ["Des aubergines", "Eggplant", " باذنجان"],
+            answer: ["Des aubergines", " ", " "],
             image: null,
             correct: false,
             color: 3,
           },
         ],
       },
-      {
-        question: [
-          "pour ta tartine du petit déjeuner, tu dois acheter",
-          "for your breakfast toast, youhave to buy",
-          "من أجل خبز الإفطار ، يجب أن تشتريه له   ",
-        ],
-        type: 1,
-        answers: [
-          {
-            answer: ["La margarine", "margarine", "المرغرين"],
-            image: null,
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: ["Le beurre", "butter", "الزبدة"],
-            image: null,
-            correct: true,
-            color: 0,
-          },
-        ],
-      },
+
       {
         question: [
           "pour la sauce des pates, tu dois acheter des",
@@ -753,7 +709,7 @@ const themes = [
             color: 2,
           },
           {
-            answer: ["Le sucre normal", "normal sugar", "سكر عادي"],
+            answer: ["Le sucre normal", "normal sugar", "   "],
             image: null,
             correct: false,
             color: 3,
@@ -767,41 +723,6 @@ const themes = [
             image: null,
             correct: true,
             color: 0,
-          },
-        ],
-      },
-      {
-        question: [
-          "En hiver, le fruit que tu devrais acheter est :",
-          "In winter, the fruit you should buy is:",
-          ":في الشتاء ، الفاكهة التي يجب أن تشتريها هي",
-        ],
-        type: 1,
-        answers: [
-          {
-            answer: ["Orange", "Oranges", "برتقال"],
-            image: null,
-            correct: true,
-            color: 0,
-          },
-
-          {
-            answer: ["Banane", "Bananas", "موز"],
-            image: null,
-            correct: false,
-            color: 1,
-          },
-          {
-            answer: ["Ananas", "Ananas", "أناناس"],
-            image: null,
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["Kiwi", "Kiwi", "كيوي"],
-            image: null,
-            correct: false,
-            color: 3,
           },
         ],
       },
@@ -823,7 +744,11 @@ const themes = [
           },
 
           {
-            answer: ["Olives", "Olives", "زيتون"],
+            answer: [
+              "Olives",
+              "TRADUCTION NO NEED, CUZ WE WILL PUT IMAGES ",
+              "   ",
+            ],
             image: null,
             correct: false,
             color: 1,
@@ -836,6 +761,85 @@ const themes = [
           },
           {
             answer: ["La mayonnaise", "", ""],
+            image: null,
+            correct: true,
+            color: 0,
+          },
+        ],
+      },
+      {
+        question: [
+          "Quelle viande tu dois éviter?",
+          "What type of meat you should  avoid? ",
+          "ما نوع اللحوم التي يجب تجنبها؟",
+        ],
+        type: 1,
+        answers: [
+          {
+            answer: ["Le blanc de poulet", "chicken breast", "صدر دجاج"],
+            image: null,
+            correct: false,
+            color: 2,
+          },
+          {
+            answer: ["La viande surgelée", "", ""],
+            image: null,
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: ["Poisson ", "", ""],
+            image: null,
+            correct: false,
+            color: 3,
+          },
+          {
+            answer: ["La viande hachée", "", ""],
+            image: null,
+            correct: false,
+            color: 1,
+          },
+        ],
+      },
+      {
+        question: [
+          "pour ta tartine du petit déjeuner, tu dois acheter",
+          "for your breakfast toast, you have to buy",
+          "من أجل خبز الإفطار ، يجب أن تشتريه له   ",
+        ],
+        type: 1,
+        answers: [
+          {
+            answer: ["La margarine", "margarine", "المرغرين"],
+            image: null,
+            correct: false,
+            color: 3,
+          },
+          {
+            answer: ["Le beurre", "butter", "الزبدة"],
+            image: null,
+            correct: true,
+            color: 0,
+          },
+        ],
+      },
+      {
+        question: [
+          "Est-il conseillé d'acheter des fruits et légumes d'hors saison? ",
+          "Is it advisable to buy fruits and vegetables out of their season?",
+          "هل ينصح بشراء فواكه وخضروات خارج موسمها؟",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: ["Oui", "Yes", "نعم"],
+            image: null,
+            correct: false,
+            color: 1,
+          },
+
+          {
+            answer: ["Non", "No", "لا"],
             image: null,
             correct: true,
             color: 0,
@@ -1331,18 +1335,18 @@ const themes = [
     intro: [
       "Aujourd’hui nous allons manger au restaurant, chouette n’est ce pas ? Mais n’oublions pas les bonnes habitudes alimentaires. Que l’aventure commence!",
       "Today we are going to eat at the restaurant, nice isn't it? But let’s not forget good eating habits. Let the adventure begin!",
-      "اليوم سوف نأكل في المطعم ، أليس كذلك؟ لكن دعونا لا ننسى عادات الأكل الجيدة. فلتبدأ المغامرة!",
+      "!اليوم سوف نأكل في المطعم ، أليس كذلك؟ لكن دعونا لا ننسى عادات الأكل الجيدة. فلتبدأ المغامرة!",
     ],
     skills: [
       [
         "Prendre conscience des bonnes habitudes en mangeant",
         "Become aware of good eating habits",
-        "كن على دراية بعادات الأكل الجيدة",
+        "الكون على دراية بعادات الأكل الجيدة   ",
       ],
       [
         "Être en mesure de faire le bon choix à partir d’un menu .",
-        "Become aware of good eating habits",
-        "كن على دراية بعادات الأكل الجيدة",
+        "Being able to make the right choice from a menu.",
+        "القدرة على الاختيار الصحيح من قائمة المطعم",
       ],
     ],
     questions: [
@@ -1621,7 +1625,7 @@ const themes = [
 
           {
             answer: ["Non", "No", "لا"],
-            //image: require("noimage is required here"),
+            image: null,
             correct: true,
             color: 0,
             explanation: [
@@ -1643,7 +1647,7 @@ const themes = [
         answers: [
           {
             answer: ["Oui", "Yes", "نعم"],
-            //image: require("noimage is required here"),
+            image: null,
             correct: false,
             color: 1,
             explanation: [
@@ -1655,7 +1659,7 @@ const themes = [
 
           {
             answer: ["Non", "No", "لا"],
-            //image: require("noimage is required here"),
+            image: null,
             correct: true,
             color: 0,
             explanation: [
@@ -1663,6 +1667,326 @@ const themes = [
               "drinking water during the meal will dilute the digestive juices being released to digest your food, thereby hindering them from breaking down food.",
               "شرب الماء أثناء الوجبة سيخفف من إفراز العصارة الهضمية لهضم طعامك ، وبالتالي يمنعهم من تكسير الطعام. ",
             ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: ["Avec mes amis", "With my friends", "مع أصدقائي"],
+    intro: [
+      "Il est maintenant temps de partager ce que t'as appris tout au long de ton voyage avec Zineb et Ahmed tes camarades de classe. Hâte de commencer n'est ce pas ? Que l'aventure continue!",
+      "Now is the time to share what you have learned along your journey with Zineb and Ahmed, two of your classmates. Can't wait to start, right? Let the adventure continue!",
+      "! حان الوقت الآن لمشاركة ما تعلمته خلال رحلتك مع زينب وأحمد زملائك في الفصل. لا تستطيع الانتظار للبدء ، أليس كذلك؟ دع المغامرة تستمر",
+    ],
+    skills: [
+      "Développer les capacités de mémorisation et d'attention de l'enfant.",
+      "Develop the child's memory and attention skills.",
+      ".تنمية مهارات الذاكرة والانتباه لدى الطفل",
+    ],
+
+    background: require("../../assets/background/ecole.png"),
+    backgroundGame: require("../../assets/background/ecolebg.png"),
+    questions: [
+      {
+        question: [
+          "Au déjeuner, t'as remarqué que Zineb boit beaucoup d'eau. Qu'en penses-tu ?",
+          "At lunch, you noticed that Zineb drinks a lot of water. What do you think ?",
+          "في الغذاء لاحظت أن زينب تشرب الكثير من الماء. ما رأيك ؟",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Boire de l'eau pendant les repas empêche une bonne digestion des aliments",
+              "Drinking water during meals prevents proper digestion of food",
+              "شرب الماء أثناء الوجبات يمنع الهضم السليم للطعام",
+            ],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: [
+              "C'est une bonne pratique.",
+              "It is a good practice.",
+              ".إنها ممارسة جيدة",
+            ],
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
+          "Tu viens de savoir qu'Ahmed rate souvent son petit-déjeuner.",
+          "You just learned that Ahmed often misses his breakfast.",
+          "لقد علمت للتو أن أحمد غالبًا ما يفوت وجبة الإفطار",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Tu lui expliques que le petit-déjeuner apporte à son corps le quart de ses besoins énergétiques de la journée, c'est pourquoi il ne faut pas le rater",
+              "You explain to him that breakfast provides his body with a quarter of his energy needs for the day, which is why he should not miss it",
+              "تشرح له أن فطور الصباح يمد جسده بربع حاجاته اليومية من الطاقة ، لذلك يجب ألا يفوته.",
+            ],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: [
+              "Tu n'interviens pas car de toute façon le petit déjeuner n'est pas important. ",
+              "You don't intervene because breakfast isn't important anyway.",
+              "لا تتدخل لأن الإفطار ليس مهما على أي حال.",
+            ],
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
+          "T'as remarqué que tes amis remplissent leur gourde avec du soda à la place de l'eau ",
+          "you noticed that your friends fill their water bottles with soda instead of water",
+          " لاحظت أن أصدقائك يملأون زجاجات المياه الخاصة بهم بالصودا بدلاً من الماء؟",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Tu valides cette pratique et tu fais comme eux.",
+              "You validate this practice and you do like them.",
+              ".تؤيد هذه الممارسة وتفعل مثلهم",
+            ],
+            correct: false,
+            color: 3,
+          },
+          {
+            answer: [
+              "Tu leur expliques que boire du soda est mauvais pour la santé c'est pourquoi il faut arrêter de le faire. ",
+              "You explain to them that drinking soda is bad for health, that's why they have to stop doing it.",
+              " .تشرح لهم أن شرب الصودا مضر بالصحة ، ولهذا السبب عليهم التوقف عن فعل ذلك",
+            ],
+            correct: true,
+            color: 0,
+          },
+        ],
+      },
+      {
+        question: [
+          "T'as remarqué que Zineb mange beaucoup d'oranges en hiver. ",
+          "You noticed that Zineb eats a lot of oranges in winter",
+          "لاحظت أن زينب تأكل الكثير من البرتقال في الشتاء",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Il faut faire pareil car les oranges sont riches en vitamine C, reconnue pour ses bienfaits sur l'immunité.",
+              "You have to do the same because oranges are rich in vitamin C, known for its benefits on immunity.",
+              "القيام بنفس الشيء لأن البرتقال غني بفيتامين سي المعروف بفوائده على المناعة.",
+            ],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: [
+              "Manger des oranges n'est pas important pour la santé. ",
+              "Eating oranges is not important for health.",
+              ".تناول البرتقال ليس مهما للصحة",
+            ],
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
+          "Ahmed veille à bien se laver les mains avant de manger. ",
+          "Ahmed makes sure to wash his hands well before eating.",
+          "يحرص أحمد على غسل يديه جيداً قبل الأكل.",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Il s'agit d'une bonne pratique qu'il faut absolument adopter. ",
+              "This is a good practice that should absolutely be adopted.",
+              "هذه ممارسة جيدة يجب اعتمادها بشكل مطلق.",
+            ],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: [
+              "Se laver les mains avant de manger reste occasionnel car ce n'est pas très important.",
+              "Washing hands before eating remains occasional because it is not very important.",
+              ".يظل غسل اليدين قبل الأكل عرضيًا لأنه ليس مهمًا جدًا",
+            ],
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
+          "Zineb sèche souvent la séance de sport.",
+          "Zineb often skips the sports session.",
+          ".غالبًا ما تتخطى زينب الجلسة الرياضية",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Zineb a raison, faire du sport n'est rien de plus qu'une perte de temps.",
+              "Zineb is right, playing sports is nothing more than a waste of time.",
+              ".زينب محقة. ممارسة الرياضة ما هي إلا مضيعة للوقت",
+            ],
+            correct: false,
+            color: 3,
+          },
+          {
+            answer: [
+              "Il ne faut pas faire comme Zineb car l'activité physique permet de se sentir bien dans son corps et dans sa tête.",
+              "You should not do like Zineb           because physical activity makes you feel good in your body and in your mind.",
+              " .النشاط البدني يجعلك تشعر بالراحة في جسدك وفي عقلك لذلك يجب عدم تفويت حصص الرياضة كزينب",
+            ],
+            correct: true,
+            color: 0,
+          },
+        ],
+      },
+      {
+        question: [
+          "Avant de commencer les cours, Ahmed t'offre un petit bout de chocolat. ",
+          "Before starting classes, Ahmed offers you a small piece of chocolate.",
+          ".قبل بدء الدراسة ، يقدم لك أحمد قطعة صغيرة من الشوكولاتة",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Je le prends mais je sais qu'il faut consommer le chocolat avec modération.",
+              "I take it but I know that chocolate should be consumed in moderation.",
+              ".آخذه لكني أعلم أنه يجب عدم الإفراط في تناول الشوكولاتة",
+            ],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: [
+              "Je ne le prends pas car manger du chocolat est mauvais pour la santé.",
+              "I don't take it because eating chocolate is not good for health.",
+              ".أنا لا آخذه لأن تناول الشوكولاتة مضر بالصحة",
+            ],
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
+          "Ton professeur de science te demande si le manque de fer peut causer des ennuis de santé",
+          "Your science teacher asks you if lack of iron can cause health problems",
+          "يسألك مدرس العلوم إذا كان نقص الحديد يمكن أن يسبب مشاكل صحية",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Le manque de fer peut être l'origine de plusieurs maladies dont l'anémie.",
+              "Lack of iron can be the cause of several diseases including anemia.",
+              ".يمكن أن يكون نقص الحديد سببًا للعديد من الأمراض بما في ذلك فقر الدم",
+            ],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: [
+              "Le manque de fer n'a pas de conséquence sur la santé.",
+              "Lack of iron does not affect health.",
+              ".نقص الحديد لا يؤثر على الصحة",
+            ],
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
+          "Souvent à la sortie des cours, Zineb achète du fast food",
+          "Often after school, Zineb buys fast food.",
+          ".في كثير من الأحيان بعد المدرسة تشتري زينب الوجبات السريعة",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Pour être en bonne santé il faut mager sain et éviter d'acheter du fast-food.",
+              "To be healthy you need to eat healthy food and avoid buying fast food",
+              "لكي تكون بصحة جيدة ، عليك أن تأكل طعامًا صحيًا وتتجنب شراء الوجبات السريعة.",
+            ],
+            correct: true,
+            color: 0,
+          },
+          {
+            answer: [
+              "Manger souvent du fast-food comme Zineb n'a pas d'influence sur ma santé.",
+              "Eating fast food often like Zineb has no influence on my health.",
+              ".إن تناول الوجبات السريعة في كثير من الأحيان مثل زينب ليس له أي تأثير على صحتي",
+            ],
+            correct: false,
+            color: 3,
+          },
+        ],
+      },
+      {
+        question: [
+          "A midi, tes amis prennent très souvent une salade comme entrée",
+          "At noon, your friends very often have a salad as a starter.",
+          "في الظهيرة ، غالبًا ما يتناول أصدقاؤك السلطة كمقبلات",
+        ],
+        type: 0,
+        answers: [
+          {
+            answer: [
+              "Il vaut mieux éviter de prendre de la salade car elle ne sert à rien.",
+              "It is better to avoid taking salad because it is useless.",
+              "الأفضل تجنب تناول السلطة لأنها غير مجدية.",
+            ],
+            correct: false,
+            color: 3,
+          },
+          {
+            answer: [
+              "Prendre de la salade comme eux est bon pour ma santé car elle m'apporte des nutriments vitaux, des fibres et de bonnes graisses",
+              "Eating salad like them is good for my health as it gives me vital nutrients, fiber and good fats.",
+              ".إن تناول السلطة مثلهم مفيد لصحتي لأنها تعطيني العناصر الغذائية الحيوية والألياف والدهون الجيدة",
+            ],
+            correct: true,
+            color: 0,
+          },
+        ],
+      },
+      {
+        question: [
+          "Au cours de science le prof te demande de citer une source de calcium",
+          "In science class the teacher asks you to name a source of calcium",
+          "في فصل العلوم ، يطلب منك المعلم تسمية مصدر للكالسيوم",
+        ],
+        type: 1,
+        answers: [
+          {
+            answer: ["La viande", "Meat", "اللحم"],
+            image: null,
+            correct: false,
+            color: 1,
+          },
+          {
+            answer: ["Le lait", "Milk", "حليب"],
+            image: null,
+            correct: true,
+            color: 0,
           },
         ],
       },

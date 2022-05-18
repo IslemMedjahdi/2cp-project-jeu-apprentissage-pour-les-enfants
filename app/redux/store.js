@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import musicSlice from "./musicSlice";
 import profilesSlice from "./profilesSlice";
 import selectedProfileSlice from "./selectedProfileSlice";

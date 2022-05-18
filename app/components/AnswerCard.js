@@ -58,6 +58,7 @@ export default function AnswerCard({
               textAlign: "center",
             }}
           >
+            {type === 1 && <Text>img: </Text>}
             {answer}
           </Text>
         )}

@@ -110,7 +110,7 @@ const themes = [
       {
         question: [
           "Quels sont les repas à prendre au cours de la journée ?",
-          "What are the meals to eat during the day?",
+          "What are the meals to eat during the day ?",
           " ما هي الوجبات التي يجب تناولها في اليوم ؟",
         ],
         type: 0,

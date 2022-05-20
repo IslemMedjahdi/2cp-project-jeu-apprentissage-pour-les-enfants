@@ -33,17 +33,14 @@ const themes = [
           "It is important that children eat well to grow and become stronger.",
           "من المهم أن يأكل الأطفال مثلك جيدًا لينموا و ويصبحوا أقوى ؟",
         ],
+        explanation: ["Se nourrir est un acte essentiel afin d'apporter à notre corps les aliments dont on a besoin pour bien fonctionner", "Eating is an essential act in order to provide our body with the food we need to function well.", ".الأكل هو عمل أساسي لتزويد أجسامنا بالطعام الذي نحتاجه ليعمل بشكل جيد"],
         type: 0,
         answers: [
           {
             answer: ["Vrai", "True", "صحيح"],
             correct: true,
             color: 0,
-            explanation: [
-              "Se nourrir est un acte essentiel afin d'apporter à notre corps les aliments dont on a besoin pour bien fonctionner",
-              "in english",
-              "in arabic",
-            ],
+           
           },
           {
             answer: ["Faux", "False", "خطأ"],
@@ -58,6 +55,7 @@ const themes = [
           "Eating healthy means choosing a varied, balanced diet in the right quantity..",
           "الأكل الصحي يعني اختيار نظام غذائي متنوع ومتوازن و بالكمية المناسبة. ؟",
         ],
+        explanation:[null],
         type: 0,
         answers: [
           {
@@ -78,6 +76,7 @@ const themes = [
           "How many meals should a child eat per day ?",
           "كم عدد الوجبات التي يجب أن يتناولها الطفل في اليوم ؟",
         ],
+        explanation: ["L'apport énergétique doit être réparti dans la journée au cours des quatre repas pour couvrir les dépenses du corps humain", "Eating four meals a day improves your energy levels and keeps your metabolism working", "يجب توزيع مدخول الطاقة على مدار اليوم على أربع وجبات لتغطية نفقات الجسم"],
         type: 0,
         answers: [
           {
@@ -99,11 +98,7 @@ const themes = [
             answer: ["Quatre repas", "Four meals", "أربع وجبات"],
             correct: true,
             color: 0,
-            explanation: [
-              "L'apport énergétique doit être réparti dans la journée au cours des quatre repas pour couvrir les dépenses du corps humain",
-              "Eating four meals a day improves your energy levels and keeps your metabolism working",
-              "يجب توزيع مدخول الطاقة على مدار اليوم على أربع وجبات لتغطية نفقات الجسم",
-            ],
+           
           },
         ],
       },
@@ -113,6 +108,7 @@ const themes = [
           "What are the meals to eat during the day?",
           " ما هي الوجبات التي يجب تناولها في اليوم ؟",
         ],
+        explanation:[null],
         type: 0,
         answers: [
           {
@@ -156,6 +152,7 @@ const themes = [
           "ما هي اهم وجبة في اليوم ؟",
         ],
         type: 0,
+        explanation: ["Le petit-déjeuner est le repas le plus important de la journée, il apporte à ton corps le quart de ses besoins énergétiques nécessaires pour la journée", "Breakfast is the most important meal of the day, it provides your body with a quarter of the energy needs necessary for the day", ".الفطور هو أهم وجبة في اليوم ، فهو يمد جسم الإنسان بربع الطاقة التي يحتاجها في اليوم"],
         answers: [
           {
             answer: ["Le dîner", "dinner", " العشاء"],
@@ -166,11 +163,6 @@ const themes = [
             answer: ["Le petit déjeuner", "Breakfast", "فطور الصباح"],
             correct: true,
             color: 0,
-            explanation: [
-              "Le petit-déjeuner est le repas le plus important de la journée, il apporte à ton corps le quart de ses besoins énergétiques nécessaires pour la journée",
-              "Breakfast is the most important meal of the day, it provides your body with a quarter of the energy needs necessary for the day",
-              ".الفطور هو أهم وجبة في اليوم ، فهو يمد جسم الإنسان بربع الطاقة التي يحتاجها في اليوم",
-            ],
           },
           {
             answer: ["Le goûter du soir", "Evening snack", "وجبة المساء"],
@@ -191,16 +183,13 @@ const themes = [
           "ما هي الوجبة التي لا ينبغي تفويتها ؟",
         ],
         type: 0,
+        explanation: ["Le petit déjeuner est essentiel pour toi, il permet de recharger tes batteries après le long jeûne de la nuit et t'apporte les nutriments nécessaires à ta concentration.", "Breakfast is essential for you, it allows to recharge your batteries after the long night's fast and provides you with the nutrients necessary for your concentration.", "فطور الصباح  ضروري بالنسبة لك ، فهو يسمح بإعادة شحن بطارياتك بعد صيام الليل الطويل ويوفر لك العناصر الغذائية اللازمة لتركيزك"],
         answers: [
           {
             answer: ["Le petit déjeuner", "Breakfast", "فطور الصباح"],
             correct: true,
             color: 0,
-            explanation: [
-              "Le petit déjeuner est essentiel pour toi, il permet de recharger tes batteries après le long jeûne de la nuit et t'apporte les nutriments nécessaires à ta concentration.",
-              "Breakfast is essential for you, it allows to recharge your batteries after the long night's fast and provides you with the nutrients necessary for your concentration.",
-              "فطور الصباح  ضروري بالنسبة لك ، فهو يسمح بإعادة شحن بطارياتك بعد صيام الليل الطويل ويوفر لك العناصر الغذائية اللازمة لتركيزك",
-            ],
+           
           },
           {
             answer: ["Le dîner", "dinner", " العشاء"],
@@ -226,6 +215,7 @@ const themes = [
           "من ماذا تتكون وجبة متوازنة ؟ ",
         ],
         type: 1,
+        explanation: ["Un repas équilibré doit être composé d'aliments des trois groupes alimentaires voire les légumes et les fruits, les produits de grains entiers et les aliments protéinés. ?", "A balanced meal should include foods from all three food groups including vegetables and fruits, whole grain products and protein foods ?", "يجب أن تشمل الوجبة المتوازنة أطعمة من المجموعات الغذائية الثلاث بما في ذلك الخضار والفواكه ومنتجات الحبوب الكاملة والأطعمة البروتينية"],
         answers: [
           {
             answer: ["Des légumes", "Vegetables", "خضروات"],
@@ -252,11 +242,7 @@ const themes = [
             image: null,
             correct: true,
             color: 0,
-            explanation: [
-              "Un repas équilibré doit être composé d'aliments des trois groupes alimentaires voire les légumes et les fruits, les produits de grains entiers et les aliments protéinés. ?",
-              "A balanced meal should include foods from all three food groups including vegetables and fruits, whole grain products and protein foods ?",
-              "يجب أن تشمل الوجبة المتوازنة أطعمة من المجموعات الغذائية الثلاث بما في ذلك الخضار والفواكه ومنتجات الحبوب الكاملة والأطعمة البروتينية",
-            ],
+           
           },
           {
             answer: [
@@ -277,16 +263,13 @@ const themes = [
           "هل من الجيد شرب الكثير من الماء خلال اليوم ؟",
         ],
         type: 0,
+        explanation: ["L'eau représente 65% du corps humain. C'est un besoin vital pour assurer notre survie de même que l'oxygène ou la nourriture.", "Water represents 65% of the human body. It is a vital need to ensure our survival as well as oxygen or food", "يمثل الماء 65٪ من جسم الإنسان. إنها حاجة حيوية لضمان بقائنا كالأكسجين أو الطعام."],
         answers: [
           {
             answer: ["Vrai", "True", "صحيح"],
             correct: true,
             color: 0,
-            explanation: [
-              "L'eau représente 65% du corps humain. C'est un besoin vital pour assurer notre survie de même que l'oxygène ou la nourriture.",
-              "Water represents 65% of the human body. It is a vital need to ensure our survival as well as oxygen or food",
-              "يمثل الماء 65٪ من جسم الإنسان. إنها حاجة حيوية لضمان بقائنا كالأكسجين أو الطعام.",
-            ],
+           
           },
           {
             answer: ["Faux", "False", "خطأ"],
@@ -302,6 +285,7 @@ const themes = [
           "ماذا يجب أن آخذ عندما أجوع بين الوجبات ؟",
         ],
         type: 1,
+        explanation: ["Les fruits sont riches en vitamines, en minéraux et en fibres. C'est pourquoi il est recommandé d'en manger", "Fruits are rich in vitamins, minerals and fiber. That is why it is recommended to eat it", "الفواكه غنية بالفيتامينات والمعادن والألياف. لهذا السبب ينصح بتناولها"],
         answers: [
           {
             answer: [" Des chips", "Chips", "رقائق البطاطس"],
@@ -314,11 +298,7 @@ const themes = [
             image: null,
             correct: true,
             color: 0,
-            explanation: [
-              "Les fruits sont riches en vitamines, en minéraux et en fibres. C'est pourquoi il est recommandé d'en manger",
-              "Fruits are rich in vitamins, minerals and fiber. That is why it is recommended to eat it",
-              "الفواكه غنية بالفيتامينات والمعادن والألياف. لهذا السبب ينصح بتناولها",
-            ],
+            
           },
           {
             answer: ["Du chocolat", "Chocolate", "شوكولاتة"],
@@ -342,6 +322,7 @@ const themes = [
           "ما هو الطعام الذي يجب أن يتواجد من حين لآخر فقط  لوجبة فطور صحية ؟",
         ],
         type: 1,
+        explanation: ["La consommation excessive de chocolat peut conduire à une prise de poids ou même à des maladies plus graves, c'est pourquoi il faut le consommer avec modération ", "Eating a lot of chocolate can lead to weight gain or even more serious health issues,which is why it should be consumed with moderation", "يمكن أن يؤدي الاستهلاك الزائد للشوكولاتة إلى زيادة الوزن أو حتى الإصابة بأمراض أكثر خطورة ، ولهذا يجب تناولها باعتدال"],
         answers: [
           {
             answer: ["Le lait", "Milk", "حليب"],
@@ -360,11 +341,7 @@ const themes = [
             image: null,
             correct: true,
             color: 0,
-            explanation: [
-              "La consommation excessive de chocolat peut conduire à une prise de poids ou même à des maladies plus graves, c'est pourquoi il faut le consommer avec modération ",
-              "Eating a lot of chocolate can lead to weight gain or even more serious health issues,which is why it should be consumed with moderation",
-              "يمكن أن يؤدي الاستهلاك الزائد للشوكولاتة إلى زيادة الوزن أو حتى الإصابة بأمراض أكثر خطورة ، ولهذا يجب تناولها باعتدال",
-            ],
+           
           },
           {
             answer: ["Le pain", "Bread", "الخبز"],
@@ -381,6 +358,7 @@ const themes = [
           "ابحث عن الدخيل. إذا لم يكن لدي وقت لتناول فطورالصباح ، فأنا آخذ معي:",
         ],
         type: 0,
+        explanation: ["Le petit déjeuner est très important pour les enfants comme toi", "Breakfast is so important especially for kids like you", "فطور الصباح هو أهم طبق في اليوم بالنسبة للصغار مثلك"],
         answers: [
           {
             answer: [
@@ -414,6 +392,7 @@ const themes = [
           "أي من الأطعمة التالية ليس جزءًا من عائلة النشويات ؟",
         ],
         type: 1,
+        explanation: ["La famille des féculents réunit les nutriments d'origine végétale, tandis que la viande est d'origine animale. Elle appartient à la famille des protéines", "The family of starches brings together nutrients of plant origin, while meat is of animal origin. It belongs to the protein family", "تجمع عائلة النشويات بين العناصر الغذائية من أصل نباتي ، في حين أن اللحوم من أصل حيواني. فهي تنتمي إلى عائلة البروتينات"],
         answers: [
           {
             answer: ["Le pain", "Bread", "الخبز"],
@@ -432,11 +411,7 @@ const themes = [
             image: null,
             correct: true,
             color: 0,
-            explanation: [
-              "La famille des féculents réunit les nutriments d'origine végétale, tandis que la viande est d'origine animale. Elle appartient à la famille des protéines",
-              "The family of starches brings together nutrients of plant origin, while meat is of animal origin. It belongs to the protein family",
-              "تجمع عائلة النشويات بين العناصر الغذائية من أصل نباتي ، في حين أن اللحوم من أصل حيواني. فهي تنتمي إلى عائلة البروتينات",
-            ],
+           
           },
           {
             answer: ["Les céréales", "Cereals", "الحبوب"],
@@ -453,6 +428,7 @@ const themes = [
           "أنا من عائلة اللحوم ومشتقاتها, جئت  من الدجاجة , يجب أن أتحرك بعناية وإلا أنكسر. من أنا ؟",
         ],
         type: 1,
+        explanation:[null],
         answers: [
           {
             answer: ["Un oeuf", "An egg", "بيضة"],
@@ -475,6 +451,7 @@ const themes = [
           ".مصدري هو البقرة. أنا سائل وأبيض اللون",
         ],
         type: 1,
+        explanation:[null],
         answers: [
           {
             answer: ["L'eau", "Water", "الماء"],
@@ -519,8 +496,10 @@ const themes = [
         "القدرة على التعرف على أفضل جودة للمنتج الواحد",
       ],
     ],
+    
     questions: [
       {
+        explanation : ["Les oranges sont riches en vitamine C; par conséquent, manger des oranges en hiver peut prévenir le rhume.", "Oranges are rich in vitamin C; therefore, eating oranges in winter can prevent colds a flu.", "البرتقال غني بفيتامين سي. لذلك ، فإن تناول البرتقال في الشتاء يمكن أن يجنبنا نزلات البرد."],
         question: [
           "En hiver, le fruit que tu devrais acheter est :",
           "In winter, the fruit you should buy is:",
@@ -534,7 +513,7 @@ const themes = [
             correct: true,
             color: 0,
           },
-
+  
           {
             answer: ["Banane", "", "   "],
             image: null,
@@ -555,8 +534,9 @@ const themes = [
           },
         ],
       },
-
+  
       {
+        explanation : ["Le ketchup n'a pas vraiment de valeur nutritive bien qu'il soit fait à partir de tomates", "ketchup doesn't really have any nutritional value despite being made from tomatoes", "الكاتشب ليس له أي قيمة غذائية على الرغم من أنه مصنوع من الطماطم"],
         question: [
           "Lequel des aliments suivants tu ne dois pas mettre dans ton panier ?",
           "Which of the following foods you should not put in your basket?",
@@ -591,6 +571,7 @@ const themes = [
         ],
       },
       {
+        explanation : ["Le soda n'est pas bon pour la santé car il contient beaucoup de sucre. En consommer trop peut entraîner une prise de poids, du diabète et des maladies cardiovasculaires", "Soda is not good for health because it contains lots of sugar. Consuming it too much may lead to weight gain, diabetes, and cardiovascular conditions.", "الصودا ليست جيدة للصحة لأنها تحتوي على الكثير من السكر. قد يؤدي الإفراط منها إلى زيادة الوزن ومرض السكري وأمراض القلب والأوعية الدموية."],
         question: [
           "Que dois-tu ne pas acheter pour ton petit déjeuner ?",
           "What shouldn't you buy for breakfast?",
@@ -624,8 +605,9 @@ const themes = [
           },
         ],
       },
-
+  
       {
+        explanation : ["Les nouilles instantanées augmentent le risque de développer des maladies cardiaques, le diabète et d'accident vasculaire cérébral.", "Instant noodles  increase one's risk  for heart disease, diabetes, and stroke.", "تزيد المعكرونة الفورية من خطر الإصابة بأمراض القلب والسكري والسكتة الدماغية."],
         question: [
           "Pour le diner, tu dois éviter de prendre ",
           "For dinner, you must avoid taking",
@@ -659,8 +641,9 @@ const themes = [
           },
         ],
       },
-
+  
       {
+        explanation : ["La mise en conserve tue un grand nombre de nutriments, vaut mieux opter pour les aliments frais", "Canning kills a lot of nutrients, better go for fresh food", "التعليب يقتل الكثير من العناصر الغذائية ، لذلك من الأفضل تناول طعام طازج"],
         question: [
           "pour la sauce des pates, tu dois acheter des",
           "for pasta sauce, you have to buy some",
@@ -686,55 +669,18 @@ const themes = [
           },
         ],
       },
-
+  
+     
+  
       {
-        question: [
-          "Quelle boite de sucre devrais-tu prendre?",
-          "What kind of sugar should you take?",
-          "أي علبة سكر يجب أن تأخذها؟",
-        ],
-        type: 1,
-        answers: [
-          {
-            answer: ["Sucre de canne complet", "raw sugar", "السكر الخام"],
-            image: null,
-            correct: false,
-            color: 1,
-          },
-
-          {
-            answer: ["Le sucre brun", "brown sugar", "سكر بني    "],
-            image: null,
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["Le sucre normal", "normal sugar", "   "],
-            image: null,
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: [
-              "Presque les memes",
-              "they are about the same",
-              "تقريبا نفس الشيء",
-            ],
-            image: null,
-            correct: true,
-            color: 0,
-          },
-        ],
-      },
-
-      {
+        explanation : ["manger de la mayonnaise tous les jours peut être malsain, car la mayonnaise achetée en magasin contient souvent beaucoup de graisses saturées.", "eating mayonnaise everyday could be unhealthy, as store-bought mayonnaise often has lots of saturated fat.", "قد يكون تناول المايونيز كل يوم غير صحي ، حيث يحتوي المايونيز الذي يتم شراؤه من المتجر على الكثير من الدهون المشبعة."],
         question: [
           "Barres l'intrus: Pour ta salade, tu ne dois pas acheter de ",
           "find the odd one out: For your salad, you must avoid buying",
           "انقر فوق الدخيل: للحصول على سلطتك ، يجب تجنب الشراء",
         ],
         type: 1,
-
+  
         answers: [
           {
             answer: ["La laitue", "", ""],
@@ -742,7 +688,7 @@ const themes = [
             correct: false,
             color: 2,
           },
-
+  
           {
             answer: [
               "Olives",
@@ -768,6 +714,7 @@ const themes = [
         ],
       },
       {
+        explanation : ["la congélation de la viande nécessite une hygiène et une fraîcheur irréprochables, car le risque de développement de microbes est plus élevé, il vaut mieux l'évite", "freezing meat requires impeccable hygiene and freshness, because the risk of development of microbes is higher, it is better to avoid it ", "يتطلب تجميد اللحوم نظافة ونضارة لا تشوبهما شائبة ، لأن خطر تطور الميكروبات أعلى ، فمن الأفضل تجنبها."],
         question: [
           "Quelle viande tu dois éviter?",
           "What type of meat you should  avoid? ",
@@ -802,6 +749,7 @@ const themes = [
         ],
       },
       {
+        explanation : ["la margarine contient une combinaison malsaine de gras saturés et trans", " margarine contains an unhealthy combination of saturated and trans fats", "يحتوي المارجرين على مزيج غير صحي من الدهون المشبعة والمتحولة"],
         question: [
           "pour ta tartine du petit déjeuner, tu dois acheter",
           "for your breakfast toast, you have to buy",
@@ -824,6 +772,7 @@ const themes = [
         ],
       },
       {
+        explanation : ["les fruits et légumes de saison ils sont récoltés à maturité. Plus ils sont consommés rapidement et plus ils gardent leur teneur en vitamines et minéraux", "seasonal fruits and vegetables are harvested when ripe. The faster they are consumed, the more they retain their vitamin and mineral content.", "يتم حصاد الفواكه والخضروات الموسمية عندما تنضج. كلما تم استهلاكها بشكل أسرع ، كلما احتفظت بمحتواها من الفيتامينات والمعادن."],
         question: [
           "Est-il conseillé d'acheter des fruits et légumes d'hors saison? ",
           "Is it advisable to buy fruits and vegetables out of their season?",
@@ -837,7 +786,7 @@ const themes = [
             correct: false,
             color: 1,
           },
-
+  
           {
             answer: ["Non", "No", "لا"],
             image: null,
@@ -1351,6 +1300,8 @@ const themes = [
     ],
     questions: [
       {
+        explanation: ["Manger des salades est sain car vous obtenez des nutriments vitaux, des fibres et de bonnes graisses", "Eating a salads is healthy because you get vital nutrients, fiber, and good fats.", "يعتبر تناول السلطات أمرًا صحيًا لأنك تحصل على العناصر الغذائية الحيوية والألياف والدهون الجيدة."],
+
         question: [
           "Qu'est ce que tu vas choisir comme entrée ?",
           "what will you choose as an appetizer ?",
@@ -1405,6 +1356,8 @@ const themes = [
         ],
       },
       {
+        explanation: ["c'est un excellent repas sain, il contient des protéines, des glucides et une bonne portion de légumes et il est faible en gras et en sucre", "it is a great healthy meal, It contains protein, carbs and a good helping of vegetables and it is low in fat and sugar", "إنها وجبة صحية رائعة ، فهي تحتوي على البروتينات والكربوهيدرات و الخضروات وقليلة الدهون والسكر"],
+
         question: [
           "Qu'est ce que tu vas choisir comme plat principal ?",
           "what will you choose as a main dish ?",
@@ -1460,6 +1413,8 @@ const themes = [
         ],
       },
       {
+        explanation: ["Consommer de la salade de fruits aide à digérer facilement nos aliments. La salade de fruits améliore également la santé de notre système digestif. Ceci est attribué à la teneur élevée en fibres et en potassium ainsi qu'à la faible teneur en fructose.", "Consuming fruit salad helps to easily digest our food. Fruit salad also improves the health of our digestive system. This is attributed to the high fiber and potassium content and also because of the low fructose content.", "يساعد تناول سلطة الفاكهة على هضم طعامنا بسهولة. تعمل سلطة الفاكهة أيضًا على تحسين صحة الجهاز الهضمي. ويعزى ذلك إلى المحتوى العالي من الألياف والبوتاسيوم وأيضًا بسبب محتوى الفركتوز المنخفض."],
+
         question: [
           "Qu'est ce que tu vas choisir comme dessert ?",
           "what will you choose as a dessert ?",
@@ -1515,6 +1470,8 @@ const themes = [
         ],
       },
       {
+        explanation: ["ce n'est pas bon pour la santé parce qu'il contient beaucoup de sucre. Consommer trop de soda peut entraîner une prise de poids, du diabète et des problèmes cardiovasculaires.", "Soda is not good for a person's health because it contains lots of sugar. Consuming too much soda may lead to weight gain, diabetes, and cardiovascular conditions.", "الصودا ليست جيدة لصحة الإنسان لأنها تحتوي على الكثير من السكر. قد يؤدي استهلاك الكثير من الصودا إلى زيادة الوزن ومرض السكري وأمراض القلب والأوعية الدموية."],
+
         question: [
           "Quelle boisson tu ne devrais pas choisir?",
           "What shouldn't you choose for a drink?",
@@ -1570,6 +1527,8 @@ const themes = [
         ],
       },
       {
+        explanation: ["Le pain brun est clairement l'option la plus saine du point de vue santé en raison de la teneur en fibres ainsi que des nutriments naturels présents et la faible teneur en calories est un avantage supplémentaire.", "Brown bread is clearly the healthier option from a health perspective due to the fiber content along with natural nutrients present in with and low calories is an additional benefit", "من الواضح أن الخبز البني هو الخيار الأكثر صحة من منظور صحي نظرًا لاحتوائه على الألياف إلى جانب العناصر الغذائية الطبيعية الموجودة فيه ، كما أن انخفاض السعرات الحرارية يعد ميزة إضافية"],
+
         question: [
           "Que vas-tu choisir comme pain ?",
           "what will you choose as bread ?",
@@ -1637,6 +1596,8 @@ const themes = [
         ],
       },
       {
+        explanation: ["boire de l'eau pendant le repas diluera les sucs digestifs libérés pour digérer vos aliments, les empêchant ainsi de décomposer les aliments","drinking water during the meal will dilute the digestive juices being released to digest your food, thereby hindering them from breaking down food.","شرب الماء أثناء الوجبة سيخفف من إفراز العصارة الهضمية لهضم طعامك ، وبالتالي يمنعهم من تكسير الطعام. "],
+
         question: [
           "Est ce que tu dois boire de l'eau pendant le repas ?",
           "will you drink water during the meal ?",
@@ -1695,6 +1656,7 @@ const themes = [
           "في الغذاء لاحظت أن زينب تشرب الكثير من الماء. ما رأيك ؟",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1723,6 +1685,7 @@ const themes = [
           "لقد علمت للتو أن أحمد غالبًا ما يفوت وجبة الإفطار",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1751,6 +1714,7 @@ const themes = [
           " لاحظت أن أصدقائك يملأون زجاجات المياه الخاصة بهم بالصودا بدلاً من الماء؟",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1779,6 +1743,7 @@ const themes = [
           "لاحظت أن زينب تأكل الكثير من البرتقال في الشتاء",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1807,6 +1772,7 @@ const themes = [
           "يحرص أحمد على غسل يديه جيداً قبل الأكل.",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1835,6 +1801,7 @@ const themes = [
           ".غالبًا ما تتخطى زينب الجلسة الرياضية",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1863,6 +1830,7 @@ const themes = [
           ".قبل بدء الدراسة ، يقدم لك أحمد قطعة صغيرة من الشوكولاتة",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1891,6 +1859,7 @@ const themes = [
           "يسألك مدرس العلوم إذا كان نقص الحديد يمكن أن يسبب مشاكل صحية",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1919,6 +1888,7 @@ const themes = [
           ".في كثير من الأحيان بعد المدرسة تشتري زينب الوجبات السريعة",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1947,6 +1917,7 @@ const themes = [
           "في الظهيرة ، غالبًا ما يتناول أصدقاؤك السلطة كمقبلات",
         ],
         type: 0,
+        explanation:[null],
         answers: [
           {
             answer: [
@@ -1975,6 +1946,7 @@ const themes = [
           "في فصل العلوم ، يطلب منك المعلم تسمية مصدر للكالسيوم",
         ],
         type: 1,
+        explanation:[null],
         answers: [
           {
             answer: ["La viande", "Meat", "اللحم"],

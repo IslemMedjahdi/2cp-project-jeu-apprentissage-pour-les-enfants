@@ -927,7 +927,7 @@ const themes = [
         ],
       },
       {
-        type: 1,
+        type: 0,
         question: [
           "Que faut-il faire quand on est grippé ? ",
           "What should you do when you have the flu?",
@@ -990,6 +990,7 @@ const themes = [
         answers: [
           {
             answer: ["le lait", "Milk", "حليب"],
+            image: require("../../assets/images/berbere.jpg"),
             correct: false,
             color: 1,
           },
@@ -999,6 +1000,7 @@ const themes = [
               "chocolate and other sweets",
               "الشوكولاته والحلويات الأخرى",
             ],
+            image: require("../../assets/images/choco.jpg"),
             correct: true,
             color: 0,
           },
@@ -1008,11 +1010,13 @@ const themes = [
               "the green vegetables",
               "الخضار الخضراء",
             ],
+            image: require("../../assets/images/légumesvert.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["le poisson", "Fish", "سمك"],
+            image: require("../../assets/images/fish1.jpg"),
             correct: false,
             color: 3,
           },
@@ -1053,22 +1057,26 @@ const themes = [
               "carbonated drinks",
               "المشروبات الغازية",
             ],
+            image: require("../../assets/images/soda3.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["du sucre ", "sugar", "سكر"],
+            image: require("../../assets/images/sugar.jpg"),
             correct: false,
             color: 3,
           },
           {
             answer: [" des chips   ", "chips", "رقائق البطاطا"],
+            image: require("../../assets/images/chips.jpg"),
             correct: false,
             color: 2,
           },
 
           {
             answer: ["des protéines", "proteins", "البروتينات"],
+            image: require("../../assets/images/protéine.jpg"),
             correct: true,
             color: 0,
           },
@@ -1130,22 +1138,26 @@ const themes = [
               "carbonated drinks",
               "المشروبات الغازية",
             ],
+            image: require("../../assets/images/soda3.jpg"),
             correct: false,
             color: 3,
           },
           {
             answer: ["Lait ", "Milk", "حليب"],
+            image: require("../../assets/images/milk.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: [" jus   ", "juice", " عصير "],
+            image: require("../../assets/images/jus.png"),
             correct: false,
             color: 1,
           },
 
           {
             answer: ["Eau", "water", "ماء"],
+            image: require("../../assets/images/water2.jpg"),
             correct: true,
             color: 0,
           },
@@ -1974,13 +1986,13 @@ const themes = [
         answers: [
           {
             answer: ["La viande", "Meat", "اللحم"],
-            image: null,
+            image: require("../../assets/images/meat.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["Le lait", "Milk", "حليب"],
-            image: null,
+            image: require("../../assets/images/milk.jpg"),
             correct: true,
             color: 0,
           },

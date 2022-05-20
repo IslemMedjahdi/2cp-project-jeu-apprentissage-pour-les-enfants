@@ -55,7 +55,7 @@ const themes = [
           "Eating healthy means choosing a varied, balanced diet in the right quantity..",
           "الأكل الصحي يعني اختيار نظام غذائي متنوع ومتوازن و بالكمية المناسبة. ؟",
         ],
-        explanation:[null],
+        explanation: null,
         type: 0,
         answers: [
           {
@@ -108,7 +108,7 @@ const themes = [
           "What are the meals to eat during the day?",
           " ما هي الوجبات التي يجب تناولها في اليوم ؟",
         ],
-        explanation:[null],
+        explanation:null,
         type: 0,
         answers: [
           {
@@ -428,7 +428,7 @@ const themes = [
           "أنا من عائلة اللحوم ومشتقاتها, جئت  من الدجاجة , يجب أن أتحرك بعناية وإلا أنكسر. من أنا ؟",
         ],
         type: 1,
-        explanation:[null],
+        explanation:null,
         answers: [
           {
             answer: ["Un oeuf", "An egg", "بيضة"],
@@ -451,7 +451,7 @@ const themes = [
           ".مصدري هو البقرة. أنا سائل وأبيض اللون",
         ],
         type: 1,
-        explanation:[null],
+        explanation:null,
         answers: [
           {
             answer: ["L'eau", "Water", "الماء"],
@@ -825,456 +825,348 @@ const themes = [
       ],
     ],
     questions: [
-      {
-        type: 0,
-        question: [
-          "Les nutriments sont toutes les substances alimentaires que ton corps absorbe et utilise pour fonctionner",
-          "Nutrients are all the food substances that your body absorbs and uses to function",
-          "المغذيات هي جميع المواد الغذائية التي يمتصها جسمك ويستخدمها ليعمل",
-        ],
-        answers: [
-          {
-            answer: ["vrai", "true", "صحيح"],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: ["faux", "false", "خطأ"],
-            correct: false,
-            color: 1,
-          },
-        ],
-      },
-      {
-        type: 0,
-        question: [
-          " combien de catégories de nutriments y’a t -ils ?",
-          "how many categories of nutrients are there?",
-          "كم عدد فئات المغذيات الموجودة؟",
-        ],
-        answers: [
-          {
-            answer: ["un nutriment", "one nutriment", "مغذ"],
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: ["trois nutriments", "three nutrients", "ثلاثة مغذيات"],
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["septs nutriments", "seven nutrients ", "سبعة مغذيات"],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: [
-              "quinze nutriments",
-              "fifteen nutrients",
-              "خمسة عشر مادة مغذية",
-            ],
-            correct: false,
-            color: 1,
-          },
-        ],
-      },
-      {
-        type: 1,
-        question: [
-          "Que faut-il faire quand on est grippé ? ",
-          "What should you do when you have the flu?",
-          "ماذا يجب ان تفعل عندما تكون مصابا بالأنفلونزا؟",
-        ],
-        answers: [
-          {
-            answer: ["manger des oranges ", "eat oranges", "أكل البرتقال"],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: [
-              "manger des bonbons",
-              "Eat some candies",
-              "تناول بعض الحلوى",
-            ],
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: ["manger une carotte ", "eat a carrot", "أكل جزرة"],
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["boire de l’eau ", "drink water", "اشرب ماء"],
-            correct: false,
-            color: 1,
-          },
-        ],
-      },
-      {
-        type: 0,
-        question: [
-          "laver les fruits et legumes avant de les manger n'est pas important ",
+      { type :0 ,
+          question: ["laver les fruits et légumes avant de les manger n'est pas important " , 
           "washing fruits and vegetables before eating them is not important",
-          "ليس من المهم غسل الفواكه والخضروات قبل تناولها",
-        ],
-        answers: [
-          {
-            answer: ["vrai", "true", "صحيح"],
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: ["faux", "false", "خطأ"],
-            correct: true,
-            color: 0,
-          },
-        ],
-      },
-      {
-        type: 1,
-        question: [
-          "Pour avoir de l'énergie tu dois consommer des glucides que tu trouveras dans :",
-          "To have energy you must consume carbohydrates that you will find in:",
-          "للحصول على الطاقة ، يجب أن تستهلك الكربوهيدرات التي ستجدها في:",
-        ],
-        answers: [
-          {
-            answer: ["le lait", "Milk", "حليب"],
-            correct: false,
-            color: 1,
-          },
-          {
-            answer: [
-              "le chocolat et autres sucreries",
-              "chocolate and other sweets",
-              "الشوكولاته والحلويات الأخرى",
-            ],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: [
-              "les légumes verts ",
-              "the green vegetables",
-              "الخضار الخضراء",
-            ],
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["le poisson", "Fish", "سمك"],
-            correct: false,
-            color: 3,
-          },
-        ],
-      },
-
-      {
-        type: 0,
-        question: [
-          "Certains fruits, comme le citron, nous apportent beaucoup de vitamines C",
+          "ليس من المهم غسل الفواكه والخضروات قبل تناولها"],
+          answers: [
+            
+            {
+              answer: ["vrai", "true", "صحيح"],
+              correct: false,
+              color: 3,
+            },
+            {
+              answer: ["faux", "false", "خطأ"],
+              correct: true,
+              color: 0,
+            },
+           
+          ],
+          explanation:null,
+        },
+      {  type :0 ,
+          question: ["Certains fruits, comme le citron, nous apportent beaucoup de vitamines C", 
           "Some fruits, such as lemon, provide us with a lot of vitamin C",
-          "تزودنا بعض الفواكه ، مثل الليمون ، بالكثير من فيتامين سي",
-        ],
-        answers: [
-          {
-            answer: ["vrai", "true", "صحيح"],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: ["faux", "false", "خطأ"],
-            correct: false,
-            color: 1,
-          },
-        ],
+          "تزودنا بعض الفواكه ، مثل الليمون ، بالكثير من فيتامين سي"],
+          answers: [
+            
+            {
+              answer: ["vrai", "true", "صحيح"],
+              correct: true,
+              color: 0,
+            },
+            {
+              answer: ["faux", "false", "خطأ"],
+              correct: false,
+              color: 1,
+            },
+           
+          ],
+           explanation:null ,
+        },
+      { type : 1 ,
+          question: ["Que faut-il faire quand on est grippé ? ", 
+          "What should you do when you have the flu?", "ماذا يجب ان تفعل عندما تكون مصابا بالأنفلونزا؟"],
+          answers: [
+            
+            {
+              answer: ["manger des oranges ", "eat oranges", "أكل البرتقال"],
+              correct: true,
+              color: 0,
+            },
+            {
+              answer: ["manger des bonbons", "Eat some candies", "تناول بعض الحلوى"],
+              correct: false,
+              color: 3,
+            },
+            {
+              answer: ["manger une carotte ", "eat a carrot", "أكل جزرة"],
+              correct: false,
+              color: 2,
+            },
+            {
+              answer: ["boire de l’eau ", "drink water", "اشرب ماء"],
+              correct: false,
+              color: 1,
+            },
+          
+          ],
+          explanation:["L'orange est riche en vitamine C qui protège notre système immunitaire","Orange is rich in vitamin C which protects our immune system","البرتقال غني بفيتامين سي الذي يحمي جهاز المناعة"] ,
+        },
+        {  type :1 ,
+          question: ["Pour hydrater ton corps tu dois boire :",
+           "To hydrate your body you must drink:",
+            "لترطيب جسمك يجب أن تشرب:"],
+          answers: [
+            
+            
+            {
+              answer: ["des boissons gazeuses ", "carbonated drinks", "المشروبات الغازية"],
+              correct: false,
+              color: 3,
+            },
+            {
+              answer: ["Lait ", "Milk", "حليب"],
+              correct: false,
+              color: 2,
+            },          
+            {
+              answer: [" jus   ", "juice","رعصير "],
+              correct: false,
+              color: 1,
+            },
+  
+  
+            {
+              answer: ["Eau", "water", "ماء"],
+              correct: true,
+              color: 0,
+            },
+          
+          ],
+          explanation:["On s'hydrate avec de l'eau pour éliminer les toxines du corps et la chaleur superflu ","We hydrate with water to eliminate toxins from the body and superfluous heat.","نقوم بترطيب أنفسنا بالماء لإزالة السموم من الجسم والحرارة الزائدة."] ,
+        },
+        { type :0 ,
+          question: [" Pour éviter de devenir obèse , tu dois  : ",
+           "To avoid becoming obese, you must:", "لتجنب الإصابة بالسمنة ، يجب عليك"],
+          answers: [
+            {
+              answer: ["Eviter de pratiquer du sport  ", "Avoid playing sports", 
+              "تجنب ممارسة الرياضة"],
+              correct: false,
+              color: 2,
+            },
+           
+            {
+              answer: ["Augmenter la consommation du  sel", "Increase salt intake", 
+              " تناول الملح بزيادة"],
+              correct: false,
+              color: 1,
+            },
+           
+            {
+              answer: [" Consommer des fruits et des légumes quotidiennement ", "Consume fruits and vegetables daily", 
+              "استهلك الفاكهة والخضروات يوميًا"],
+              correct: true,
+              color: 0,
+            },
+            {
+              answer: [" Augmenter la consommation du sucre  ", "Increase sugar consumption", "زيادة استهلاك السكريات"],
+              correct: false,
+              color: 3,
+            },
+          
+          ],
+          explanation:["Pour éviter l'obésité,  il faut limiter sa consommation de sucre et de sel et consommer des fruits et des légumes quotidiennement ","To avoid obesity, it is necessary to limit its consumption of sugar and salt and to consume fruits and vegetables daily","لتجنب السمنة لا بد من الحد من تناول السكر والملح وضرورة تناول الفاكهة والخضروات يوميا"] ,
+        },
+     
+        { type :0 ,
+          question: ["Pourquoi faut-il se laver les mains avant de manger ? ", 
+          "Why should you wash your hands before eating ? ", "لماذا يجب أن تغسل يديك قبل الأكل؟"],
+          answers: [
+            
+            {
+              answer: [" car c’est amusant ", "because it's fun", "لأنه ممتع"],
+              correct: false,
+              color: 3,
+            },
+            {
+              answer: ["pour se rafraîchir les mains ", "to refresh your hands", "لانعاش يديك"],
+              correct: false,
+              color: 1,
+            },
+            {
+              answer: ["pour empêcher toutes bactéries de s’infiltrer dans notre corps ", 
+             "to prevent any bacteria from infiltrating our body", "لمنع أي بكتيريا من التسلل إلى أجسامنا"],
+              correct: true,
+              color: 0,
+            },
+            {
+              answer: ["pour jouer avec les bulles du savon", "to play with soap bubbles",
+               "للعب بفقاعات الصابون"],
+              correct: false,
+              color: 2,
+            },
+          
+          ],
+          explanation:["Se laver les mains limite le développement des méchantes bactéries qui deviennent par la suite des nids à microbes.","Washing your hands limits the development of nasty bacteria which then become breeding grounds for germs.","غسل اليدين يحد من تطور البكتيريا التي تصبح فيما بعد أعشاشًا مليئة بالميكروبات."] ,
+        },
+        { type :0 ,
+          question: [" Trouve l'intrus . Faire de l'activité physique : ",
+           "Find the intruder . Physical activity:", "ابحث عن الدخيل. القيام بنشاط بدني:"],
+          answers: [
+            {
+              answer: ["c'est bon poour ma croissance  ", "it's good for my growth", 
+              "إنه جيد لنموي"],
+              correct: false,
+              color: 2,
+            },
+           
+            {
+              answer: ["c'est bon pour le developpement de mon corps ", "It's good for the development of my body", 
+              "إنه جيد لنمو جسدي"],
+              correct: false,
+              color: 1,
+            },
+           
+            {
+              answer: ["ça ne sert à rien ça fatigue ", "it's useless it's tiring", 
+              "إنه غير مجدي إنه متعب"],
+              correct: true,
+              color: 0,
+            },
+            {
+              answer: ["ça me permet de relaxer ", "it allows me to relax", "يسمح لي بالاسترخاء"],
+              correct: false,
+              color: 3,
+            },
+          
+          ],
+          explanation:["L'activité physique favorise la croissance et le développement de ton corps et diminue le risque de tomber malade ","Physical activity helps your body grow and develop and lowers your risk of getting sick","يساعد النشاط البدني جسمك على النمو والتطور ويقلل من خطر إصابتك بالمرض"] ,
+        },
+     
+    {
+    type :1 ,
+      question: ["Pour avoir de l'énergie tu dois consommer des glucides que tu trouveras dans :", 
+      "To have energy you must consume carbohydrates that you will find in:", 
+      "للحصول على الطاقة ، يجب أن تستهلك الكربوهيدرات التي ستجدها في:"],
+      answers: [
+        {
+          answer: ["le lait", "Milk", "حليب"],
+          correct: false,
+          color: 1,
+        },
+        {
+          answer: ["le chocolat et autres sucreries", "chocolate and other sweets", "الشوكولاته والحلويات الأخرى"],
+          correct: true,
+          color: 0,
+        },
+        {
+          answer: ["les légumes verts ", "the green vegetables", "الخضار الخضراء"],
+          correct: false,
+          color: 2,
+        },
+        {
+          answer: ["le poisson", "Fish", "سمك"],
+          correct: false,
+          color: 3,
+        },
+      ],
+      explanation:null ,
+    },
+  
+     
+    {  type :1 ,
+      question: ["pour une bonne croissance et santé des muscles , tu dois absolument consommer :",
+       "For good muscle growth and health, you absolutely must consume:",
+        "من أجل نمو العضلات وصحتها بشكل جيد ، يجب أن تستهلك:"],
+      answers: [
+        
+        
+        {
+          answer: ["des boissons gazeuses ", "carbonated drinks", "المشروبات الغازية"],
+          correct: false,
+          color: 1,
+        },
+        {
+          answer: ["du sucre ", "sugar", "سكر"],
+          correct: false,
+          color: 3,
+        },          
+        {
+          answer: [" des chips   ", "chips", "رقائق البطاطا"],
+          correct: false,
+          color: 2,
+        },
+
+
+        {
+          answer: ["des protéines", "proteins", "البروتينات"],
+          correct: true,
+          color: 0,
+        },
+      
+      ],
+      explanation:["Les protéines sont nécessaires pour la croissance et le maintien des cellules et tissus de notre corps","Protein is necessary for the growth and maintenance of cells and tissues in our body.","البروتين ضروري لنمو الخلايا والأنسجة في الجسم والحفاظ عليها"] ,
+    },
+    { type :0 ,
+      question: ["Les nutriments sont toutes les substances alimentaires que ton corps absorbe et utilise pour fonctionner" , 
+      "Nutrients are all the food substances that your body absorbs and uses to function", "المغذيات هي جميع المواد الغذائية التي يمتصها جسمك ويستخدمها"],
+      answers: [
+        
+        {
+          answer: ["vrai", "true", "صحيح"],
+          correct: true,
+          color: 0,
+        },
+        {
+          answer: ["faux", "false", "خطأ"],
+          correct: false,
+          color: 1,
+        },
+       
+      ],
+      explanation:null ,
+    },
+    {
+      type :0 ,
+    question: [" combien de catégories de nutriments y’a t -ils ?", "how many categories of nutrients are there?", "كم عدد فئات المغذيات الموجودة؟"],
+    answers: [
+      {
+        answer: ["un nutriment", "one nutriment", "  مغذ واحد"],
+        correct: false,
+        color: 3,
       },
       {
-        type: 1,
-        question: [
-          "pour une bonne croissance et santé des muscles , tu dois absolument consommer :",
-          "For good muscle growth and health, you absolutely must consume:",
-          "من أجل نمو العضلات وصحتها بشكل جيد ، يجب أن تستهلك بالتأكيد:",
-        ],
-        answers: [
-          {
-            answer: [
-              "des boissons gazeuses ",
-              "carbonated drinks",
-              "المشروبات الغازية",
-            ],
-            correct: false,
-            color: 1,
-          },
-          {
-            answer: ["du sucre ", "sugar", "سكر"],
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: [" des chips   ", "chips", "رقائق البطاطا"],
-            correct: false,
-            color: 2,
-          },
-
-          {
-            answer: ["des protéines", "proteins", "البروتينات"],
-            correct: true,
-            color: 0,
-          },
-        ],
+        answer: ["trois nutriments", "three nutrients", "ثلاثة مغذيات"],
+        correct: false,
+        color:2 ,
       },
       {
-        type: 0,
-        question: [
-          "Pourquoi faut-il se laver les mains avant de manger ? ",
-          "Why should you wash your hands before eating ? ",
-          "لماذا يجب أن تغسل يديك قبل الأكل؟",
-        ],
-        answers: [
-          {
-            answer: [" car c’est amusant ", "because it's fun", "لأنه ممتع"],
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: [
-              "pour se rafraîchir les mains ",
-              "to refresh your hands",
-              "لتحديث يديك",
-            ],
-            correct: false,
-            color: 1,
-          },
-          {
-            answer: [
-              "pour empêcher toutes bactéries de s’infiltrer dans notre corps ",
-              "to prevent any bacteria from infiltrating our body",
-              "لمنع أي بكتيريا من التسلل إلى أجسامنا",
-            ],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: [
-              "pour jouer avec les bulles du savon",
-              "to play with soap bubbles",
-              "للعب مع فقاعات الصابون",
-            ],
-            correct: false,
-            color: 2,
-          },
-        ],
+        answer: ["septs nutriments", "seven nutrients ", "سبعة مغذيات"],
+        correct: true ,
+        color: 0,
       },
       {
-        type: 1,
-        question: [
-          "Pour hydrater ton corps tu dois boire :",
-          "To hydrate your body you must drink:",
-          "لترطيب جسمك يجب أن تشرب:",
-        ],
-        answers: [
-          {
-            answer: [
-              "des boissons gazeuses ",
-              "carbonated drinks",
-              "المشروبات الغازية",
-            ],
-            correct: false,
-            color: 3,
-          },
-          {
-            answer: ["Lait ", "Milk", "حليب"],
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: [" jus   ", "juice", "رعصير "],
-            correct: false,
-            color: 1,
-          },
-
-          {
-            answer: ["Eau", "water", "ماء"],
-            correct: true,
-            color: 0,
-          },
-        ],
-      },
-      {
-        type: 1,
-        question: [
-          "Pour avoir des os solides tu dois consommer un sel minéral qui est :",
-          "To have strong bones you must consume a mineral salt which is:",
-          "للحصول على عظام قوية يجب تناول ملح معدني وهو:",
-        ],
-        answers: [
-          {
-            answer: ["le calcium", "calcium", "الكالسيوم"],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: ["le fer", "the iron", "الحديد"],
-            correct: false,
-            color: 1,
-          },
-          {
-            answer: ["le phosphore ", "phosphorus", "الفوسفور"],
-            correct: false,
-            color: 2,
-          },
-          {
-            answer: ["le potassium", "potassium", "البوتاسيوم"],
-            correct: false,
-            color: 3,
-          },
-        ],
-      },
-
-      {
-        type: 0,
-        question: [
-          " Pour éviter de devenir obèse , tu dois  : ",
-          "To avoid becoming obese, you must:",
-          "لتجنب الإصابة بالسمنة ، يجب عليك",
-        ],
-        answers: [
-          {
-            answer: [
-              "Eviter de pratiquer du sport  ",
-              "Avoid playing sports",
-              "تجنب ممارسة الرياضة",
-            ],
-            correct: false,
-            color: 2,
-          },
-
-          {
-            answer: [
-              "Augmenter la consommation du  sel",
-              "Increase salt intake",
-              "زيادة تناول الملح",
-            ],
-            correct: false,
-            color: 1,
-          },
-
-          {
-            answer: [
-              " Consommer des fruits et des légumes quotidiennement ",
-              "Consume fruits and vegetables daily",
-              "استهلك الفاكهة والخضروات يوميًا",
-            ],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: [
-              " Augmenter la consommation du sucre  ",
-              "Increase sugar consumption",
-              "زيادة استهلاك السكر",
-            ],
-            correct: false,
-            color: 3,
-          },
-        ],
-      },
-      {
-        type: 0,
-        question: [
-          " Trouve l'intrus . Faire de l'activité physique : ",
-          "Find the intruder . Physical activity:",
-          "ابحث عن الدخيل. قم بنشاط بدني:",
-        ],
-        answers: [
-          {
-            answer: [
-              "c'est bon poour ma croissance  ",
-              "it's good for my growth",
-              "إنه جيد لنموي",
-            ],
-            correct: false,
-            color: 2,
-          },
-
-          {
-            answer: [
-              "c'est bon pour le developpement de mon corps ",
-              "It's good for the development of my body",
-              "إنه جيد لنمو جسدي",
-            ],
-            correct: false,
-            color: 1,
-          },
-
-          {
-            answer: [
-              "ça ne sert à rien ça fatigue ",
-              "it's useless it's tiring",
-              "إنه غير مجدي إنه متعب",
-            ],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: [
-              "ça me permet de relaxer ",
-              "it allows me to relax",
-              "يسمح لي بالاسترخاء",
-            ],
-            correct: false,
-            color: 3,
-          },
-        ],
-      },
-      {
-        type: 0,
-        question: [
-          "L’anémie s’explique le plus souvent par :  ",
-          "Anemia is most often caused by:",
-          " : غالبًا ما ينتج فقر الدم عن ",
-        ],
-        answers: [
-          {
-            answer: [
-              "l'excès de vitamines ",
-              "excess vitamins",
-              "فيتامينات زائدة",
-            ],
-            correct: false,
-            color: 3,
-          },
-
-          {
-            answer: [
-              "le manque de calcium ",
-              "lack of calcium",
-              "نقص الكالسيوم",
-            ],
-            correct: false,
-            color: 1,
-          },
-          {
-            answer: ["le manque de fer ", "lack of iron", "نقص الحديد"],
-            correct: true,
-            color: 0,
-          },
-          {
-            answer: [
-              "l'excès de glucide ",
-              "excess carbohydrate",
-              " الكربوهيدرات الزائدة ",
-            ],
-            correct: false,
-            color: 2,
-          },
-        ],
+        answer: ["quinze nutriments", "fifteen nutrients", "خمسة عشر مادة مغذية"],
+        correct: false,
+        color: 1,
       },
     ],
+    explanation:["Les sept catégories sont : les  protéines , les lipides ,les  glucides ,les fibres , les vitamines , les sels minéraux et l’eau .","The seven categories are: proteins, lipids, carbohydrates, fibers, vitamins, mineral salts and water.","الفئات السبع هي: البروتينات والدهون والكربوهيدرات والألياف والفيتامينات والأملاح المعدنية والمياه."] ,
+   },
+   {
+      type :0 ,
+      question: ["L’anémie s’explique le plus souvent par :  ", 
+      "Anemia is most often caused by:", " : غالبًا ما ينتج فقر الدم عن "],
+      answers: [
+        
+        {
+          answer: ["l'excès de vitamines ", "excess vitamins", "فيتامينات زائدة"],
+          correct: false,
+          color: 3,
+        },
+
+        {
+          answer: ["le manque de calcium ", "lack of calcium", "نقص الكالسيوم"],
+          correct: false,
+          color: 1,
+        },
+        {
+          answer: ["le manque de fer ", "lack of iron", "نقص الحديد"],
+          correct: true,
+          color: 0,
+        },
+        {
+          answer: ["l'excès de glucide ", "excess carbohydrate", " الكربوهيدرات الزائدة "],
+          correct: false,
+          color: 2,
+        },
+      ],
+      explanation:["Le manque de fer provoque le manque de globules rouges qui par la suite cause l’anémie .","Lack of iron causes lack of red blood cells which subsequently causes anemia.","يؤدي نقص الحديد إلى نقص خلايا الدم الحمراء مما يؤدي بالتالي إلى فقر الدم"] ,
+    },  
+  ],
   },
   {
     name: ["Au restaurant", "At the restaurant", "في المطعم"],
@@ -1656,7 +1548,7 @@ const themes = [
           "في الغذاء لاحظت أن زينب تشرب الكثير من الماء. ما رأيك ؟",
         ],
         type: 0,
-        explanation:[null],
+        explanation:null,
         answers: [
           {
             answer: [
@@ -1685,7 +1577,7 @@ const themes = [
           "لقد علمت للتو أن أحمد غالبًا ما يفوت وجبة الإفطار",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1714,7 +1606,7 @@ const themes = [
           " لاحظت أن أصدقائك يملأون زجاجات المياه الخاصة بهم بالصودا بدلاً من الماء؟",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1743,7 +1635,7 @@ const themes = [
           "لاحظت أن زينب تأكل الكثير من البرتقال في الشتاء",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1772,7 +1664,7 @@ const themes = [
           "يحرص أحمد على غسل يديه جيداً قبل الأكل.",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1801,7 +1693,7 @@ const themes = [
           ".غالبًا ما تتخطى زينب الجلسة الرياضية",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1830,7 +1722,7 @@ const themes = [
           ".قبل بدء الدراسة ، يقدم لك أحمد قطعة صغيرة من الشوكولاتة",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1859,7 +1751,7 @@ const themes = [
           "يسألك مدرس العلوم إذا كان نقص الحديد يمكن أن يسبب مشاكل صحية",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1888,7 +1780,7 @@ const themes = [
           ".في كثير من الأحيان بعد المدرسة تشتري زينب الوجبات السريعة",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1917,7 +1809,7 @@ const themes = [
           "في الظهيرة ، غالبًا ما يتناول أصدقاؤك السلطة كمقبلات",
         ],
         type: 0,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: [
@@ -1946,7 +1838,7 @@ const themes = [
           "في فصل العلوم ، يطلب منك المعلم تسمية مصدر للكالسيوم",
         ],
         type: 1,
-        explanation:[null],
+        explanation: null,
         answers: [
           {
             answer: ["La viande", "Meat", "اللحم"],

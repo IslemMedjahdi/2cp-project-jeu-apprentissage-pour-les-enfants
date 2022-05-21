@@ -17,7 +17,7 @@ import * as Animatable from "react-native-animatable";
 import { useEffect, useState } from "react";
 import SettingsGame from "../components/SettingsGame";
 import AnswerCard from "../components/AnswerCard";
-import { Center, Modal } from "native-base";
+import { Modal } from "native-base";
 
 export default function QuizzTest({ navigation, route }) {
   const { index } = route.params;
@@ -36,7 +36,7 @@ export default function QuizzTest({ navigation, route }) {
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
   const dispatch = useDispatch();
-  const [indexQuestion, setIndexQuestion] = useState(0);
+  const [indexQuestion, setIndexQuestion] = useState(8);
   const [soundQuestionOn, setSoundQuestionOn] = useState(true);
   const [answersColors, setAnswersColors] = useState([
     "white",
@@ -126,7 +126,6 @@ export default function QuizzTest({ navigation, route }) {
         : "#FF4A4A";
     setAnswersColors(newAnswersColors);
     if (correct) {
-      setIsOpen(true);
       setDisabled(true);
       setImg(require("../../assets/hero/mystick6.png"));
       const nbWhite = newAnswersColors.filter((x) => x == "white").length;
@@ -140,17 +139,26 @@ export default function QuizzTest({ navigation, route }) {
       } else {
         newScore = score + nbWhite * 10;
       }
-
-      setTimeout(() => {
-        setScore(newScore);
-        setAnswersColors(["white", "white", "white", "white"]);
-        indexQuestion === themes[index].questions.length - 1
-          ? navigation.replace("Results", { index: index, score: newScore })
-          : setIndexQuestion(indexQuestion + 1);
-        setDisabled(false);
-        setImg(require("../../assets/hero/mytick4.png"));
-        setSoundQuestionOn(true);
-      }, 1000);
+      setScore(newScore);
+      if (
+        profiles[selectedProfile].levels[index].stars < 2 &&
+        themes[index].questions[indexQuestion].explanation.length !== 0
+      )
+        setIsOpen(true);
+      else {
+        setTimeout(() => {
+          setAnswersColors(["white", "white", "white", "white"]);
+          setDisabled(false);
+          setImg(require("../../assets/hero/mytick4.png"));
+          setSoundQuestionOn(true);
+          indexQuestion === themes[index].questions.length - 1
+            ? navigation.replace("Results", {
+                index: index,
+                score: newScore,
+              })
+            : setIndexQuestion(indexQuestion + 1);
+        }, 1500);
+      }
     } else {
       switch (newAnswersColors.filter((x) => x == "white").length) {
         case 1:
@@ -406,57 +414,64 @@ export default function QuizzTest({ navigation, route }) {
             )}
           </View>
         </View>
-        <Center>
-          <Modal
-            isOpen={isOpen}
+        <Modal
+          isOpen={isOpen}
+          style={{
+            height: (60 * Dimensions.get("window").height) / 100,
+            width: "90%",
+            borderWidth: 5,
+            borderRadius: 39,
+            backgroundColor: colors.MAIN,
+            borderColor: "white",
+            alignSelf: "center",
+            position: "absolute",
+            top: (20 * Dimensions.get("window").height) / 100,
+          }}
+        >
+          <Text
             style={{
-              height: (60 * Dimensions.get("window").height) / 100,
-              width: "90%",
-              borderWidth: 5,
-              borderRadius: 39,
-              backgroundColor: colors.MAIN,
-              borderColor: "white",
-              alignSelf : "center",
-              justifyContent : "space-evenly",
-              position : "absolute",
-              top : (20 * Dimensions.get("window").height) / 100,
+              color: "white",
+              fontSize: language === 2 ? 28 : 25,
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              textAlign: "center",
+              padding: 20,
+              height: (45 * Dimensions.get("window").height) / 100,
             }}
           >
-            <Text
-              style={{
-                color: "white",
-                fontSize: 25,
-                fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-                textAlign : "center",
-                padding : 20,
-                height : (40 * Dimensions.get("window").height) / 100,
-              }}
-            >
-              {themes[index].questions[indexQuestion].explanation[language]}
-            </Text>
+            {themes[index].questions[indexQuestion].explanation[language]}
+          </Text>
+          <Image
+            source={require("../../assets/hero/mystick10.png")}
+            style={{
+              height: 150,
+              width: 150,
+              transform: [{ rotateY: "180deg" }],
+              bottom: 20,
+              position: "absolute",
+              left: 10,
+            }}
+            resizeMode="contain"
+          />
+          <Pressable
+            onPress={() => {
+              setIsOpen(false);
+              setAnswersColors(["white", "white", "white", "white"]);
+              setDisabled(false);
+              setImg(require("../../assets/hero/mytick4.png"));
+              setSoundQuestionOn(true);
+              setIndexQuestion(indexQuestion + 1);
+            }}
+            style={{ bottom: 40, position: "absolute", right: 40 }}
+          >
             <Image
-              source={require("../../assets/hero/mystick10.png")}
+              source={require("../../assets/icons/continuer2.png")}
               style={{
-                height: 150,
-                width: 150,
-                transform: [{ rotateY: "180deg" }],
-                bottom: 20,
-                position: "absolute",
-                left: 10,
+                height: 60,
+                width: 60,
               }}
-              resizeMode="contain"
             />
-            <Pressable onPress={()=>{setIsOpen(false)}} style={{ bottom: 40, position: "absolute", right: 40 }}>
-              <Image
-                source={require("../../assets/icons/whiteArrowright.png")}
-                style={{
-                  height: 60,
-                  width: 60,
-                }}
-              />
-            </Pressable>
-          </Modal>
-        </Center>
+          </Pressable>
+        </Modal>
       </ImageBackground>
     </View>
   );

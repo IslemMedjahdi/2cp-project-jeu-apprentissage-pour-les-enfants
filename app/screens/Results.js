@@ -14,6 +14,7 @@ export default function Results({ navigation, route }) {
   const [stars, setStars] = useState(null);
   const [levels, setLevels] = useState(profile.levels);
   const [sound, setSound] = useState(null);
+  var newScore;
   // music Setup
   const setup = async () => {
     try {
@@ -29,16 +30,19 @@ export default function Results({ navigation, route }) {
       throw e;
     }
   };
+
   useEffect(() => {
     if (stars != null) {
       if (profiles[selectedProfile].music) setup();
     }
   }, [stars]);
+
   useEffect(() => {
     return () => {
       sound && sound.unloadAsync();
     };
   });
+
   useEffect(() => {
     if (
       score >=
@@ -62,6 +66,7 @@ export default function Results({ navigation, route }) {
     )
       setStars(1);
     else setStars(0);
+    newScore=profile.score+score
   }, []);
 
   useEffect(() => {
@@ -85,7 +90,7 @@ export default function Results({ navigation, route }) {
   }, [stars]);
 
   useEffect(() => {
-    setProfile({ ...profile, levels: levels, score: profile.score + score });
+    setProfile({ ...profile, levels: levels, score: newScore });
   }, [...levels]);
 
   return (

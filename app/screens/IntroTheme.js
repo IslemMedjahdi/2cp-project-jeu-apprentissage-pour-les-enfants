@@ -53,7 +53,8 @@ export default function IntroTheme({ navigation, route }) {
             backgroundColor: "#FFFFFFDD",
             padding: 5,
             borderRadius: 20,
-            height: (50 * Dimensions.get("window").height) / 100,
+             
+            height: (60 * Dimensions.get("window").height) / 100,
           }}
         >
           <View
@@ -66,7 +67,10 @@ export default function IntroTheme({ navigation, route }) {
               delay={500}
               duration={1000}
               animation={"fadeInLeft"}
-              style={{ height: (40 * Dimensions.get("window").height) / 100 }}
+              style={{
+                 
+                height: (45 * Dimensions.get("window").height) / 100,
+              }}
             >
               <Text
                 style={{
@@ -81,9 +85,10 @@ export default function IntroTheme({ navigation, route }) {
           <View
             style={{
               flexDirection: "row",
-              justifyContent : "center",
-              width : "100%",
-              height: (10 * Dimensions.get("window").height) / 100,
+              justifyContent: "space-evenly",
+              width: "100%",
+               
+              height: (15 * Dimensions.get("window").height) / 100,
             }}
           >
             <Pressable
@@ -98,6 +103,7 @@ export default function IntroTheme({ navigation, route }) {
                     fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
                     fontSize: user.language === 2 ? 28 : 25,
                     textAlign: "center",
+                     
                   }}
                 >
                   {user.language === 0
@@ -108,15 +114,11 @@ export default function IntroTheme({ navigation, route }) {
                 </Text>
               )}
             </Pressable>
-            <Animatable.View
-              animation={"swing"}
-              duration={2000}
-              iterationCount="infinite"
+            <View
               style={{
                 width: 120,
-                position : "relative",
-                bottom : 80,
-                left : 80
+                 
+                bottom : 50
               }}
             >
               <Image
@@ -126,10 +128,11 @@ export default function IntroTheme({ navigation, route }) {
                     { rotateY: user.language === 2 ? "0deg" : "180deg" },
                   ],
                   width: "100%",
+                  borderWidth : 1,
                 }}
                 source={require("../../assets/hero/mystick0.png")}
               />
-            </Animatable.View>
+            </View>
           </View>
         </Animatable.View>
       </ImageBackground>

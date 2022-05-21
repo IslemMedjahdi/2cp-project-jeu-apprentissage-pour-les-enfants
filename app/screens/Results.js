@@ -1,4 +1,11 @@
-import { Text, View, ImageBackground, Pressable, Image } from "react-native";
+import {
+  Text,
+  View,
+  ImageBackground,
+  Pressable,
+  Image,
+  Dimensions,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import colors from "../data/colors";
 import themes from "../data/themes";
@@ -8,6 +15,7 @@ import { Audio } from "expo-av";
 
 export default function Results({ navigation, route }) {
   const { index, score } = route.params;
+  const user = useSelector((state) => state.user.value);
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const [profile, setProfile] = useState(profiles[selectedProfile]);
@@ -104,7 +112,7 @@ export default function Results({ navigation, route }) {
         style={{
           backgroundColor: "white",
           width: "85%",
-          height: "40%",
+          height: (50 * Dimensions.get("window").height) / 100,
           borderRadius: 40,
           alignItems: "center",
           borderWidth: 4,
@@ -118,6 +126,7 @@ export default function Results({ navigation, route }) {
             borderRadius: 10,
             paddingVertical: 2,
             paddingHorizontal: 7,
+            height: (10 * Dimensions.get("window").height) / 100,
           }}
         >
           {Array.from(Array(stars).keys()).map((item, index) => (
@@ -141,44 +150,55 @@ export default function Results({ navigation, route }) {
             />
           ))}
         </View>
-        {stars === 3 && (
-          <Image
-            resizeMode="contain"
-            style={{ height: 150, width: 150 }}
-            source={require("../../assets/hero/mystick3.png")}
-          />
-        )}
-        {stars === 0 && (
-          <Image
-            resizeMode="contain"
-            style={{ height: 150, width: 150 }}
-            source={require("../../assets/hero/mystick5.png")}
-          />
-        )}
-        {stars === 2 && ( //hedi l'image tetbadel
-          <Image
-            resizeMode="contain"
-            style={{ height: 150, width: 150 }}
-            source={require("../../assets/hero/mytick4.png")}
-          />
-        )}
-        {stars === 1 && ( //hedi l'image tetbadel
-          <Image
-            resizeMode="contain"
-            style={{ height: 150, width: 150 }}
-            source={require("../../assets/hero/mystick9.png")}
-          />
-        )}
-
-        <Text
+        <View
           style={{
-            fontSize: 25,
-            fontFamily: "RowdiesBold",
+            height: (20 * Dimensions.get("window").height) / 100,
           }}
         >
-          {" "}
-          Score : {score}
-        </Text>
+          {stars === 3 && (
+            <Image
+              resizeMode="contain"
+              style={{ height: 150, width: 150 }}
+              source={require("../../assets/hero/mystick3.png")}
+            />
+          )}
+          {stars === 0 && (
+            <Image
+              resizeMode="contain"
+              style={{ height: 150, width: 150 }}
+              source={require("../../assets/hero/mystick5.png")}
+            />
+          )}
+          {stars === 2 && ( //hedi l'image tetbadel
+            <Image
+              resizeMode="contain"
+              style={{ height: 150, width: 150 }}
+              source={require("../../assets/hero/mytick4.png")}
+            />
+          )}
+          {stars === 1 && ( //hedi l'image tetbadel
+            <Image
+              resizeMode="contain"
+              style={{ height: 150, width: 150 }}
+              source={require("../../assets/hero/mystick9.png")}
+            />
+          )}
+        </View>
+        <View style={{ height: (8 * Dimensions.get("window").height) / 100 }}>
+          <Text
+            style={{
+              fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
+              fontSize: user.language === 2 ? 28 : 25,
+            }}
+          >
+            {user.language === 0
+              ? "Score"
+              : user.language === 1
+              ? "Score"
+              : "مجموع النقاط"}{" : "}
+            {score}
+          </Text>
+        </View>
 
         <View
           style={{
@@ -186,9 +206,10 @@ export default function Results({ navigation, route }) {
             alignItems: "center",
             justifyContent: "space-evenly",
             width: "100%",
+            height: (8 * Dimensions.get("window").height) / 100,
           }}
         >
-          <View style={{ borderRadius: 15, width: "40%", overflow: "hidden" }}>
+          <View style={{ borderRadius: 15, width: "45%", overflow: "hidden" }}>
             <Pressable
               android_ripple={{ color: "#FFFFFF20" }}
               onPress={() => {
@@ -204,17 +225,21 @@ export default function Results({ navigation, route }) {
             >
               <Text
                 style={{
-                  fontFamily: "RowdiesBold",
-                  fontSize: 18,
+                  fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: user.language === 2 ? 20 : 18,
                   color: "white",
                   textAlign: "center",
                 }}
               >
-                Home
+                {user.language === 0
+                  ? "Accueil"
+                  : user.language === 1
+                  ? "Home"
+                  : "الصفحة الرئيسية"}
               </Text>
             </Pressable>
           </View>
-          <View style={{ borderRadius: 15, width: "40%", overflow: "hidden" }}>
+          <View style={{ borderRadius: 15, width: "45%", overflow: "hidden" }}>
             <Pressable
               android_ripple={{ color: "#FFFFFF20" }}
               onPress={() =>
@@ -230,13 +255,17 @@ export default function Results({ navigation, route }) {
             >
               <Text
                 style={{
-                  fontFamily: "RowdiesBold",
-                  fontSize: 18,
+                  fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
+                  fontSize: user.language === 2 ? 20 : 18,
                   color: "white",
                   textAlign: "center",
                 }}
               >
-                Story Mode
+                {user.language === 0
+                  ? "Mode histoire"
+                  : user.language === 1
+                  ? "Story mode"
+                  : "وضع القصة"}
               </Text>
             </Pressable>
           </View>

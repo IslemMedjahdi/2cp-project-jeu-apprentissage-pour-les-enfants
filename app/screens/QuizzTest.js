@@ -19,6 +19,11 @@ import SettingsGame from "../components/SettingsGame";
 import AnswerCard from "../components/AnswerCard";
 import { Modal } from "native-base";
 
+/* question a revoir : 
+chez medecin : 6
+restau : 3,5,6
+mes amis : 7,8,9,10
+*/
 export default function QuizzTest({ navigation, route }) {
   const { index } = route.params;
   const [isOpen, setIsOpen] = useState(false);

@@ -96,7 +96,7 @@ export default function IntroTheme({ navigation, route }) {
                   style={{
                     color: pressed ? colors.MAIN + "80" : colors.MAIN,
                     fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
-                    fontSize: user.language === 2 ? 22 : 20,
+                    fontSize: user.language === 2 ? 28 : 25,
                     textAlign: "center",
                   }}
                 >
@@ -113,10 +113,10 @@ export default function IntroTheme({ navigation, route }) {
               duration={2000}
               iterationCount="infinite"
               style={{
-                width: 130,
+                width: 120,
                 position : "relative",
-                bottom : 100,
-                left : 50
+                bottom : 80,
+                left : 80
               }}
             >
               <Image

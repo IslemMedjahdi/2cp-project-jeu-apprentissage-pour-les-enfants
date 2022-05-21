@@ -11,7 +11,7 @@ export default function Results({ navigation, route }) {
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const [profile, setProfile] = useState(profiles[selectedProfile]);
-  const [stars, setStars] = useState(0);
+  const [stars, setStars] = useState(null);
   const [levels, setLevels] = useState(profile.levels);
   const [sound, setSound] = useState(null);
   // music Setup
@@ -57,14 +57,8 @@ export default function Results({ navigation, route }) {
         ((10 * themes[index].questions.length) / 100) * 10
     )
       setStars(2);
-    else if (
-      score >=
-      ((50 * themes[index].questions.length) / 100) * 30 +
-        ((10 * themes[index].questions.length) / 100) * 20 +
-        ((5 * themes[index].questions.length) / 100) * 10
-    )
-      setStars(1);
-    else setStars(0);
+    else if (score === 0) setStars(0);
+    else setStars(1);
   }, []);
 
   useEffect(() => {
@@ -88,14 +82,12 @@ export default function Results({ navigation, route }) {
   }, [stars]);
 
   useEffect(() => {
-    setProfile({ ...profile, levels: levels});
+    setProfile({ ...profile, levels: levels });
   }, [...levels]);
 
   useEffect(() => {
-    setProfile({ ...profile, score: profile.score+score});
-  },[]);
-
-
+    setProfile({ ...profile, score: profile.score + score });
+  }, []);
 
   return (
     <ImageBackground

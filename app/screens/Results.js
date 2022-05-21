@@ -11,10 +11,9 @@ export default function Results({ navigation, route }) {
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const [profile, setProfile] = useState(profiles[selectedProfile]);
-  const [stars, setStars] = useState(null);
+  const [stars, setStars] = useState(0);
   const [levels, setLevels] = useState(profile.levels);
   const [sound, setSound] = useState(null);
-  var newScore;
   // music Setup
   const setup = async () => {
     try {
@@ -66,7 +65,6 @@ export default function Results({ navigation, route }) {
     )
       setStars(1);
     else setStars(0);
-    newScore=profile.score+score
   }, []);
 
   useEffect(() => {
@@ -90,8 +88,14 @@ export default function Results({ navigation, route }) {
   }, [stars]);
 
   useEffect(() => {
-    setProfile({ ...profile, levels: levels, score: newScore });
+    setProfile({ ...profile, levels: levels});
   }, [...levels]);
+
+  useEffect(() => {
+    setProfile({ ...profile, score: profile.score+score});
+  },[]);
+
+
 
   return (
     <ImageBackground

@@ -36,7 +36,7 @@ export default function QuizzTest({ navigation, route }) {
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
   const dispatch = useDispatch();
-  const [indexQuestion, setIndexQuestion] = useState(8);
+  const [indexQuestion, setIndexQuestion] = useState(0);
   const [soundQuestionOn, setSoundQuestionOn] = useState(true);
   const [answersColors, setAnswersColors] = useState([
     "white",
@@ -143,8 +143,10 @@ export default function QuizzTest({ navigation, route }) {
       if (
         profiles[selectedProfile].levels[index].stars < 2 &&
         themes[index].questions[indexQuestion].explanation.length !== 0
-      )
+      ){
+
         setIsOpen(true);
+      }
       else {
         setTimeout(() => {
           setAnswersColors(["white", "white", "white", "white"]);

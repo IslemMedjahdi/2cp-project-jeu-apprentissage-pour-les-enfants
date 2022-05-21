@@ -235,7 +235,7 @@ const themes = [
         answers: [
           {
             answer: ["Des légumes", "Vegetables", "خضروات"],
-            image: null,
+            image: require("../../assets/images/légumes.jpg"),
             correct: false,
             color: 2,
           },
@@ -245,7 +245,7 @@ const themes = [
               "Carbohydrates (rice, pasta, bread)",
               "الكربوهيدرات (الأرز والمعكرونة والخبز)",
             ],
-            image: null,
+            image: require("../../assets/images/carbs1.jpg"),
             correct: false,
             color: 1,
           },
@@ -255,7 +255,7 @@ const themes = [
               "Carbohydrates, vegetables and proteins",
               " خضروات ,الكربوهيدرات والبروتينات",
             ],
-            image: null,
+            image: require("../../assets/images/mélange1.png"),
             correct: true,
             color: 0,
           },
@@ -265,7 +265,7 @@ const themes = [
               "Proteins (meat, chicken, fish)",
               "البروتينات (اللحوم والدجاج والأسماك)",
             ],
-            image: null,
+            image: require("../../assets/images/protéine.jpg"),
             correct: false,
             color: 3,
           },
@@ -311,25 +311,25 @@ const themes = [
         answers: [
           {
             answer: [" Des chips", "Chips", "رقائق البطاطس"],
-            image: null,
+            image: require("../../assets/images/chips.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["Un fruit", "A fruit", "فاكهة"],
-            image: null,
+            image: require("../../assets/images/fruit.jpg"),
             correct: true,
             color: 0,
           },
           {
             answer: ["Du chocolat", "Chocolate", "شوكولاتة"],
-            image: null,
+            image: require("../../assets/images/choco.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["Des bonbons", "Candy", "حلوى"],
-            image: null,
+            image: require("../../assets/images/bonbon1.png"),
             correct: false,
             color: 3,
           },
@@ -351,25 +351,25 @@ const themes = [
         answers: [
           {
             answer: ["Le lait", "Milk", "حليب"],
-            image: null,
+            image: require("../../assets/images/milk.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["Les fruits", "Fruits", "الفواكه"],
-            image: null,
+            image: require("../../assets/images/fruit.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["Le chocolat", "Chocolate", "الشوكولاطة"],
-            image: null,
+            image: require("../../assets/images/choco.jpg"),
             correct: true,
             color: 0,
           },
           {
             answer: ["Le pain", "Bread", "الخبز"],
-            image: null,
+            image: require("../../assets/images/bread.jpg"),
             correct: false,
             color: 1,
           },
@@ -423,25 +423,25 @@ const themes = [
         answers: [
           {
             answer: ["Le pain", "Bread", "الخبز"],
-            image: null,
+            image: require("../../assets/images/bread.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["Les pâtes", "Pasta", "المعجنات"],
-            image: null,
+            image: require("../../assets/images/pasta.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["La viande", "Meats", "اللحوم"],
-            image: null,
+            image: require("../../assets/images/meat.jpg"),
             correct: true,
             color: 0,
           },
           {
             answer: ["Les céréales", "Cereals", "الحبوب"],
-            image: null,
+            image: require("../../assets/images/cereale.jpg"),
             correct: false,
             color: 3,
           },
@@ -458,13 +458,13 @@ const themes = [
         answers: [
           {
             answer: ["Un oeuf", "An egg", "بيضة"],
-            image: null,
+            image: require("../../assets/images/ouef1.jpg"),
             correct: true,
             color: 0,
           },
           {
             answer: ["Une poule", "A chiken", "دجاجة"],
-            image: null,
+            image: require("../../assets/images/chiken.jpg"),
             correct: false,
             color: 3,
           },
@@ -481,13 +481,13 @@ const themes = [
         answers: [
           {
             answer: ["L'eau", "Water", "الماء"],
-            image: null,
+            image: require("../../assets/images/water2.jpg"),
             correct: false,
             color: 3,
           },
           {
             answer: ["Le lait", "Milk", "حليب"],
-            image: null,
+            image: require("../../assets/images/milk.jpg"),
             correct: true,
             color: 0,
           },
@@ -500,7 +500,7 @@ const themes = [
     background: require("../../assets/background/march.png"),
     backgroundGame: require("../../assets/background/marche.png"),
     intro: [
-      "Oups! je crois qu’il nous manque des ingrédients pour préparer le dîner. Allons faire les courses! Je te tiendrai compagnie pour faire les bons choix car pas tout ce qui se vend est sain et bon pour la santé",
+      "Oups! je crois qu’il nous manque des ingrédients pour préparer le dîner. Allons faire les courses! Je te tiendrai compagnie pour faire les bons choix car pas tout ce qui se vend est sain et bon pour la santé"
       ,
       "Oops! I think we are missing ingredients to prepare dinner. Let's go shopping! I will be with you to make the right choices because not everything that is sold is healthy ",
       "عفوًا! أعتقد أننا نفتقد بعض المكونات لتحضير العشاء. دعنا نذهب للتسوق! سأصاحبك لاتخاذ الخيارات الصحيحة لأنه ليس كل ما يباع يعد جيدًا لصحتك",
@@ -539,26 +539,26 @@ const themes = [
         answers: [
           {
             answer: ["Orange", "Oranges", ""],
-            image: null,
+            image: require("../../assets/images/orange.jpg"),
             correct: true,
             color: 0,
           },
 
           {
             answer: ["Banane", "", "   "],
-            image: null,
+            image: require("../../assets/images/banane.png"),
             correct: false,
             color: 1,
           },
           {
             answer: ["Ananas", "", "  "],
-            image: null,
+            image: require("../../assets/images/ananas.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["Kiwi", "", ""],
-            image: null,
+            image: require("../../assets/images/kawkaw.jpg"),
             correct: false,
             color: 3,
           },
@@ -580,25 +580,25 @@ const themes = [
         answers: [
           {
             answer: ["La viande", "meat", "لحم"],
-            image: null,
+            image: require("../../assets/images/meat.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["Ketchup", "Ketchup", ""],
-            image: null,
+            image: require("../../assets/images/ketchup.jpg"),
             correct: true,
             color: 0,
           },
           {
             answer: ["Le pain", "bread", "خبز"],
-            image: null,
+            image: require("../../assets/images/bread.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["La salade", "Salad", "سلطة"],
-            image: null,
+            image: require("../../assets/images/salade.jpg"),
             correct: false,
             color: 3,
           },
@@ -619,25 +619,25 @@ const themes = [
         answers: [
           {
             answer: ["Soda", "", ""],
-            image: null,
+            image: require("../../assets/images/soda3.jpg"),
             correct: true,
             color: 0,
           },
           {
             answer: ["Boite de céreales ", "", ""],
-            image: null,
+            image: require("../../assets/images/céréales2.jpg"),
             correct: false,
             color: 3,
           },
           {
             answer: ["Du biscuit ", "", ""],
-            image: null,
+            image: require("../../assets/images/biscuit.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["De la confiture", "", ""],
-            image: null,
+            image: require("../../assets/images/conféture.jpg"),
             correct: false,
             color: 1,
           },
@@ -659,25 +659,25 @@ const themes = [
         answers: [
           {
             answer: ["Riz brun", "brown rice", "أرز اسمر "],
-            image: null,
+            image: require("../../assets/images/riznoire.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["La pomme de terre", "baked potatoe", "بطاطس مشوية "],
-            image: null,
+            image: require("../../assets/images/batata.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["Nouilles instantanées", "Instant noodle", " "],
-            image: null,
+            image: require("../../assets/images/Nouilles.jpeg"),
             correct: true,
             color: 0,
           },
           {
             answer: ["Des aubergines", " ", " "],
-            image: null,
+            image: require("../../assets/images/danjel.jpg"),
             correct: false,
             color: 3,
           },
@@ -699,7 +699,7 @@ const themes = [
         answers: [
           {
             answer: ["tomates fraîches ", "fresh tomatoes", "طماطم طازجة "],
-            image: null,
+            image: require("../../assets/images/tomate2.png"),
             correct: true,
             color: 0,
           },
@@ -709,7 +709,7 @@ const themes = [
               "canned tomatoes",
               "الطماطم المعلبة   ",
             ],
-            image: null,
+            image: require("../../assets/images/tomate1.jpg"),
             correct: false,
             color: 3,
           },
@@ -732,7 +732,7 @@ const themes = [
         answers: [
           {
             answer: ["La laitue", "", ""],
-            image: null,
+            image: require("../../assets/images/laitue.jpg"),
             correct: false,
             color: 2,
           },
@@ -743,19 +743,19 @@ const themes = [
               "TRADUCTION NO NEED, CUZ WE WILL PUT IMAGES ",
               "   ",
             ],
-            image: null,
+            image: require("../../assets/images/olive.png"),
             correct: false,
             color: 1,
           },
           {
             answer: ["Tomates", "", "  "],
-            image: null,
+            image: require("../../assets/images/tomate2.png"),
             correct: false,
             color: 2,
           },
           {
             answer: ["La mayonnaise", "", ""],
-            image: null,
+            image: require("../../assets/images/mayonnaise.jpg"),
             correct: true,
             color: 0,
           },
@@ -776,25 +776,25 @@ const themes = [
         answers: [
           {
             answer: ["Le blanc de poulet", "chicken breast", "صدر دجاج"],
-            image: null,
+            image: require("../../assets/images/sdar.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["La viande surgelée", "", ""],
-            image: null,
+            image: require("../../assets/images/viandesurg.jpg"),
             correct: true,
             color: 0,
           },
           {
             answer: ["Poisson ", "", ""],
-            image: null,
+            image: require("../../assets/images/fish.jpg"),
             correct: false,
             color: 3,
           },
           {
             answer: ["La viande hachée", "", ""],
-            image: null,
+            image: require("../../assets/images/kafta.jpg"),
             correct: false,
             color: 1,
           },
@@ -815,13 +815,13 @@ const themes = [
         answers: [
           {
             answer: ["La margarine", "margarine", "المرغرين"],
-            image: null,
+            image: require("../../assets/images/margarine4.png"),
             correct: false,
             color: 3,
           },
           {
             answer: ["Le beurre", "butter", "الزبدة"],
-            image: null,
+            image: require("../../assets/images/berbere.jpg"),
             correct: true,
             color: 0,
           },
@@ -938,6 +938,7 @@ const themes = [
         answers: [
           {
             answer: ["manger des oranges ", "eat oranges", "أكل البرتقال"],
+            image: require("../../assets/images/orange.jpg"),
             correct: true,
             color: 0,
           },
@@ -947,16 +948,20 @@ const themes = [
               "Eat some candies",
               "تناول بعض الحلوى",
             ],
+            image: require("../../assets/images/bonbon1.png"),
+
             correct: false,
             color: 3,
           },
           {
             answer: ["manger une carotte ", "eat a carrot", "أكل جزرة"],
+            image: require("../../assets/images/carotte.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["boire de l’eau ", "drink water", "اشرب ماء"],
+            image: require("../../assets/images/water2.jpg"),
             correct: false,
             color: 1,
           },
@@ -981,22 +986,26 @@ const themes = [
               "carbonated drinks",
               "المشروبات الغازية",
             ],
+            image: require("../../assets/images/soda3.jpg"),
             correct: false,
             color: 3,
           },
           {
             answer: ["Lait ", "Milk", "حليب"],
+            image: require("../../assets/images/milk.jpg"),
             correct: false,
             color: 2,
           },
           {
-            answer: [" jus   ", "juice", "رعصير "],
+            answer: [" jus   ", "juice", "عصير "],
+            image: require("../../assets/images/jus.png"),
             correct: false,
             color: 1,
           },
 
           {
             answer: ["Eau", "water", "ماء"],
+            image: require("../../assets/images/water2.jpg"),
             correct: true,
             color: 0,
           },
@@ -1168,6 +1177,7 @@ const themes = [
         answers: [
           {
             answer: ["le lait", "Milk", "حليب"],
+            image: require("../../assets/images/milk.jpg"),
             correct: false,
             color: 1,
           },
@@ -1177,6 +1187,7 @@ const themes = [
               "chocolate and other sweets",
               "الشوكولاته والحلويات الأخرى",
             ],
+            image: require("../../assets/images/choco.jpg"),
             correct: true,
             color: 0,
           },
@@ -1186,11 +1197,13 @@ const themes = [
               "the green vegetables",
               "الخضار الخضراء",
             ],
+            image: require("../../assets/images/légumesvert.jpg"),
             correct: false,
             color: 2,
           },
           {
             answer: ["le poisson", "Fish", "سمك"],
+            image: require("../../assets/images/fish1.jpg"),
             correct: false,
             color: 3,
           },
@@ -1216,22 +1229,26 @@ const themes = [
               "carbonated drinks",
               "المشروبات الغازية",
             ],
+            image: require("../../assets/images/soda3.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["du sucre ", "sugar", "سكر"],
+            image: require("../../assets/images/sugar.jpg"),
             correct: false,
             color: 3,
           },
           {
             answer: [" des chips   ", "chips", "رقائق البطاطا"],
+            image: require("../../assets/images/chips.jpg"),
             correct: false,
             color: 2,
           },
 
           {
             answer: ["des protéines", "proteins", "البروتينات"],
+            image: require("../../assets/images/protéine.jpg"),
             correct: true,
             color: 0,
           },
@@ -1647,7 +1664,7 @@ const themes = [
             answer: [
               "C'est une bonne pratique.",
               "It is a good practice.",
-              ".إنها ممارسة جيدة",
+              "إنها ممارسة جيدة",
             ],
             correct: false,
             color: 3,
@@ -1676,7 +1693,7 @@ const themes = [
             answer: [
               "Tu n'interviens pas car de toute façon le petit déjeuner n'est pas important. ",
               "You don't intervene because breakfast isn't important anyway.",
-              "لا تتدخل لأن الإفطار ليس مهما على أي حال.",
+              "لا تتدخل لأن الإفطار ليس مهما على أي حال",
             ],
             correct: false,
             color: 3,
@@ -1926,13 +1943,13 @@ const themes = [
         answers: [
           {
             answer: ["La viande", "Meat", "اللحم"],
-            image: null,
+            image: require("../../assets/images/meat.jpg"),
             correct: false,
             color: 1,
           },
           {
             answer: ["Le lait", "Milk", "حليب"],
-            image: null,
+            image: require("../../assets/images/milk.jpg"),
             correct: true,
             color: 0,
           },

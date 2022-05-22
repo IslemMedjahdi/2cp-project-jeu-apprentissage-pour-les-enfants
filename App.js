@@ -23,6 +23,7 @@ import ShowProgress from "./app/screens/ShowProgress";
 import QuizzTest from "./app/screens/QuizzTest";
 import Results from "./app/screens/Results";
 import ShowProgressSelectedProfile from "./app/screens/ShowProgressSelectedProfile";
+import IntroTheme from "./app/screens/IntroTheme";
 
 //redux
 import { Provider } from "react-redux";
@@ -62,6 +63,7 @@ export default function App() {
             <Stack.Screen name="ShowProgress" component={ShowProgress} />
             <Stack.Screen name="StoryBook" component={StoryBook} />
             <Stack.Screen name="Story" component={Story} />
+            <Stack.Screen name="IntroTheme" component={IntroTheme} />
             <Stack.Screen name="ShowProgressSelectedProfile" component={ShowProgressSelectedProfile} />
           </Stack.Navigator>
         </NavigationContainer>

@@ -31,10 +31,11 @@ export default function ModifyAvatar({
             backgroundColor: "white",
             borderWidth: 3,
             borderRadius: 50,
-            width: 70,
+            width: 90,
+            height : 90,
             zindex: 1,
             transform: [
-              { translateY: (-11 * Dimensions.get("window").height) / 100 },
+              { translateY: (-14 * Dimensions.get("window").height) / 100 },
             ],
             //a modifier
           }}
@@ -43,8 +44,8 @@ export default function ModifyAvatar({
             animation={"zoomIn"}
             duration={700}
             style={{
-              height: 50,
-              width: 50,
+              height: 75,
+              width: 75,
               margin: 5,
             }}
             resizeMode="center"

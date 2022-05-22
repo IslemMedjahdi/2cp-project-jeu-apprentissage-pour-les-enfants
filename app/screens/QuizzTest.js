@@ -17,9 +17,16 @@ import * as Animatable from "react-native-animatable";
 import { useEffect, useState } from "react";
 import SettingsGame from "../components/SettingsGame";
 import AnswerCard from "../components/AnswerCard";
+import { Modal } from "native-base";
 
+/* question a revoir : 
+chez medecin : 6
+restau : 3,5,6
+mes amis : 7,8,9,10
+*/
 export default function QuizzTest({ navigation, route }) {
   const { index } = route.params;
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
@@ -34,7 +41,7 @@ export default function QuizzTest({ navigation, route }) {
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
   const dispatch = useDispatch();
-  const [indexQuestion, setIndexQuestion] = useState(0);
+  const [indexQuestion, setIndexQuestion] = useState(13);
   const [soundQuestionOn, setSoundQuestionOn] = useState(true);
   const [answersColors, setAnswersColors] = useState([
     "white",
@@ -137,17 +144,28 @@ export default function QuizzTest({ navigation, route }) {
       } else {
         newScore = score + nbWhite * 10;
       }
+      setScore(newScore);
+      if (
+        profiles[selectedProfile].levels[index].stars < 2 &&
+        themes[index].questions[indexQuestion].explanation.length !== 0
+      ){
 
-      setTimeout(() => {
-        setScore(newScore);
-        setAnswersColors(["white", "white", "white", "white"]);
-        indexQuestion === themes[index].questions.length - 1
-          ? navigation.replace("Results", { index: index, score: newScore })
-          : setIndexQuestion(indexQuestion + 1);
-        setDisabled(false);
-        setImg(require("../../assets/hero/mytick4.png"));
-        setSoundQuestionOn(true);
-      }, 1000);
+        setIsOpen(true);
+      }
+      else {
+        setTimeout(() => {
+          setAnswersColors(["white", "white", "white", "white"]);
+          setDisabled(false);
+          setImg(require("../../assets/hero/mytick4.png"));
+          setSoundQuestionOn(true);
+          indexQuestion === themes[index].questions.length - 1
+            ? navigation.replace("Results", {
+                index: index,
+                score: newScore,
+              })
+            : setIndexQuestion(indexQuestion + 1);
+        }, 1500);
+      }
     } else {
       switch (newAnswersColors.filter((x) => x == "white").length) {
         case 1:
@@ -260,14 +278,14 @@ export default function QuizzTest({ navigation, route }) {
             borderWidth: 3,
             backgroundColor: "white",
             marginTop: -3,
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
           }}
         >
           <Text
             style={{
               color: "black",
               fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-              fontSize: language === 2 ? 25 : 22,
+              fontSize: language === 2 ? 25 : 25,
               padding: 15,
               borderRadius: 15,
               textAlign: "center",
@@ -279,7 +297,6 @@ export default function QuizzTest({ navigation, route }) {
             onPress={onPressHandlerQuestion}
             style={{
               left: 20,
-              bottom: 20,
             }}
           >
             <Image
@@ -404,6 +421,64 @@ export default function QuizzTest({ navigation, route }) {
             )}
           </View>
         </View>
+        <Modal
+          isOpen={isOpen}
+          style={{
+            height: (60 * Dimensions.get("window").height) / 100,
+            width: "90%",
+            borderWidth: 5,
+            borderRadius: 39,
+            backgroundColor: colors.MAIN,
+            borderColor: "white",
+            alignSelf: "center",
+            position: "absolute",
+            top: (20 * Dimensions.get("window").height) / 100,
+          }}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontSize: language === 2 ? 28 : 25,
+              fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
+              textAlign: "center",
+              padding: 20,
+              height: (45 * Dimensions.get("window").height) / 100,
+            }}
+          >
+            {themes[index].questions[indexQuestion].explanation[language]}
+          </Text>
+          <Image
+            source={require("../../assets/hero/mystick10.png")}
+            style={{
+              height: 150,
+              width: 150,
+              transform: [{ rotateY: "180deg" }],
+              bottom: 20,
+              position: "absolute",
+              left: 10,
+            }}
+            resizeMode="contain"
+          />
+          <Pressable
+            onPress={() => {
+              setIsOpen(false);
+              setAnswersColors(["white", "white", "white", "white"]);
+              setDisabled(false);
+              setImg(require("../../assets/hero/mytick4.png"));
+              setSoundQuestionOn(true);
+              setIndexQuestion(indexQuestion + 1);
+            }}
+            style={{ bottom: 40, position: "absolute", right: 40 }}
+          >
+            <Image
+              source={require("../../assets/icons/continuer2.png")}
+              style={{
+                height: 60,
+                width: 60,
+              }}
+            />
+          </Pressable>
+        </Modal>
       </ImageBackground>
     </View>
   );

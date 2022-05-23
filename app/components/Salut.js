@@ -41,10 +41,10 @@ export default function Salut({ language, setPage }) {
             }}
           >
             {language === 0
-              ? "Commencez une aventure avec Mystick"
+              ? "Commencez une aventure avec Cathy"
               : language === 1
-              ? "Start an adventure with Mystick"
-              : "إبدأ مغامرتك مع ميستيك"}
+              ? "Start an adventure with Cathy"
+              : "إبدأ مغامرتك مع كاثي"}
           </Text>
         </Animatable.View>
         <Animatable.View

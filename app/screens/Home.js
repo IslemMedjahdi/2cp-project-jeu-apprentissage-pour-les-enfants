@@ -101,7 +101,7 @@ export default React.memo(function Home({ navigation }) {
             image={require("../../assets/hero/mystick2.png")}
             color={colors.MAIN}
             language={language}
-            pressHandler={() => navigation.navigate("SelectTheme")}
+           pressHandler={() => profiles[selectedProfile].levels[0].stars===0? navigation.navigate("StoryBook"):navigation.navigate("SelectTheme")}
           />
 
           <HomeCard

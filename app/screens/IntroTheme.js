@@ -54,7 +54,6 @@ export default function IntroTheme({ navigation, route }) {
             padding: 5,
             borderRadius: 20,
              
-            height: (60 * Dimensions.get("window").height) / 100,
           }}
         >
           <View
@@ -69,7 +68,6 @@ export default function IntroTheme({ navigation, route }) {
               animation={"fadeInLeft"}
               style={{
                  
-                height: (45 * Dimensions.get("window").height) / 100,
               }}
             >
               <Text
@@ -117,7 +115,6 @@ export default function IntroTheme({ navigation, route }) {
             <View
               style={{
                 width: 120,
-                 
                 bottom : 50
               }}
             >

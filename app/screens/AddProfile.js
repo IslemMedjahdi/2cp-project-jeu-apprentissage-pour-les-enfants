@@ -15,12 +15,7 @@ export default function AddProfile({ navigation }) {
     score: 100,
     music: true,
     sound: true,
-    badges: [
-      {
-        image: 0,
-        text: ["nouveau hero", "New Hero", "بطل جديد"],
-      },
-    ],
+    badges: [],
     levels: [
       { unLocked: true, stars: 0 },
       { unLocked: false, stars: 0 },

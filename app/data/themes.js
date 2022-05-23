@@ -3,6 +3,10 @@ const themes = [
     name: ["À la maison", "At home", "في المنزل"],
     background: require("../../assets/background/background1.png"),
     backgroundGame: require("../../assets/background/background0.jpg"),
+    badge : {
+      image : 0,
+      text : ["0","0","0"]
+    },
     intro: [
       " Notre aventure commence ici à la maison. Ensemble nous apprendrons les secrets d’une alimentation saine. Olé,que l’aventure commence !",
       "Our adventure begins here at home. Together we will learn the secrets of healthy eating. Olé, let the adventure begin!",
@@ -505,6 +509,10 @@ const themes = [
       "Oops! I think we are missing ingredients to prepare dinner. Let's go shopping! I will be with you to make the right choices because not everything that is sold is healthy ",
       "عفوًا! أعتقد أننا نفتقد بعض المكونات لتحضير العشاء. دعنا نذهب للتسوق! سأصاحبك لاتخاذ الخيارات الصحيحة لأنه ليس كل ما يباع يعد جيدًا لصحتك",
     ],
+    badge : {
+      image : 1,
+      text : ["1","1","1"]
+    },
     skills: [
       [
         "Se familiariser avec la notion d’aliments de saison ",
@@ -863,6 +871,10 @@ const themes = [
       "There is nothing better than taking the advice of an expert, that's why we go to the doctor to know more about the relationship between diet and our health!",
       "لا يوجد شيء أفضل من أخذ نصيحة خبير ، ولهذا السبب نذهب إلى الطبيب لمعرفة المزيد عن العلاقة بين النظام الغذائي وصحتنا!",
     ],
+    badge : {
+      image : 2,
+      text : ["2","2","2"]
+    },
     skills: [
       [
         "Comprendre ce qu’est la nutrition ainsi que ses catégories.",
@@ -1375,6 +1387,10 @@ const themes = [
       "Today we are going to eat at the restaurant, nice isn't it? But let’s not forget good eating habits. Let the adventure begin!",
       "!اليوم سوف نأكل في المطعم ، أليس كذلك؟ لكن دعونا لا ننسى عادات الأكل الجيدة. فلتبدأ المغامرة!",
     ],
+    badge : {
+      image : 3,
+      text : ["3","3","3"]
+    },
     skills: [
       [
         "Prendre conscience des bonnes habitudes en mangeant",
@@ -1633,6 +1649,10 @@ const themes = [
       "Now is the time to share what you have learned along your journey with Zineb and Ahmed, two of your classmates. Can't wait to start, right? Let the adventure continue!",
       "! حان الوقت الآن لمشاركة ما تعلمته خلال رحلتك مع زينب وأحمد زملائك في الفصل. لا تستطيع الانتظار للبدء ، أليس كذلك؟ دع المغامرة تستمر",
     ],
+    badge : {
+      image : 4,
+      text : ["4","4","4"]
+    },
     skills: [
       "Développer les capacités de mémorisation et d'attention de l'enfant.",
       "Develop the child's memory and attention skills.",

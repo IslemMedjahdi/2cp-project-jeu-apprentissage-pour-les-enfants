@@ -41,7 +41,7 @@ export default function QuizzTest({ navigation, route }) {
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
   const dispatch = useDispatch();
-  const [indexQuestion, setIndexQuestion] = useState(13);
+  const [indexQuestion, setIndexQuestion] = useState(8);
   const [soundQuestionOn, setSoundQuestionOn] = useState(true);
   const [answersColors, setAnswersColors] = useState([
     "white",
@@ -132,6 +132,7 @@ export default function QuizzTest({ navigation, route }) {
     setAnswersColors(newAnswersColors);
     if (correct) {
       setDisabled(true);
+      Speech.stop();
       setImg(require("../../assets/hero/mystick6.png"));
       const nbWhite = newAnswersColors.filter((x) => x == "white").length;
       let newScore = 0;

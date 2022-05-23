@@ -9,12 +9,14 @@ import {
 import React, { useEffect, useState } from "react";
 import colors from "../data/colors";
 import themes from "../data/themes";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as Animatable from "react-native-animatable";
 import { Audio } from "expo-av";
+import { addBadgeHandler } from "../redux/profilesSlice";
 
 export default function Results({ navigation, route }) {
   const { index, score } = route.params;
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   const profiles = useSelector((state) => state.profiles.value);
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
@@ -66,7 +68,7 @@ export default function Results({ navigation, route }) {
     )
       setStars(2);
     else if (score === 0) setStars(0);
-    else setStars(1);
+    else setStars(3);
   }, []);
 
   useEffect(() => {
@@ -96,6 +98,13 @@ export default function Results({ navigation, route }) {
   useEffect(() => {
     setProfile({ ...profile, score: profile.score + score });
   }, []);
+
+  useEffect(() => {
+    if (stars>=2){
+      console.log("badge");
+      dispatch(addBadgeHandler({selectedProfile,badge : themes[index].badge}));
+    }
+  }, [stars]);
 
   return (
     <ImageBackground

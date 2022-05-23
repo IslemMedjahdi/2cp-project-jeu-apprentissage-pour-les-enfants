@@ -500,8 +500,7 @@ const themes = [
     background: require("../../assets/background/march.png"),
     backgroundGame: require("../../assets/background/marche.png"),
     intro: [
-      "Oups! je crois qu’il nous manque des ingrédients pour préparer le dîner. Allons faire les courses! Je te tiendrai compagnie pour faire les bons choix car pas tout ce qui se vend est sain et bon pour la santé"
-      ,
+      "Oups! je crois qu’il nous manque des ingrédients pour préparer le dîner. Allons faire les courses! Je te tiendrai compagnie pour faire les bons choix car pas tout ce qui se vend est sain et bon pour la santé",
       "Oops! I think we are missing ingredients to prepare dinner. Let's go shopping! I will be with you to make the right choices because not everything that is sold is healthy ",
       "عفوًا! أعتقد أننا نفتقد بعض المكونات لتحضير العشاء. دعنا نذهب للتسوق! سأصاحبك لاتخاذ الخيارات الصحيحة لأنه ليس كل ما يباع يعد جيدًا لصحتك",
     ],

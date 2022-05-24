@@ -132,6 +132,7 @@ export default function QuizzTest({ navigation, route }) {
     setAnswersColors(newAnswersColors);
     if (correct) {
       setDisabled(true);
+      Speech.stop();
       setImg(require("../../assets/hero/mystick6.png"));
       const nbWhite = newAnswersColors.filter((x) => x == "white").length;
       let newScore = 0;

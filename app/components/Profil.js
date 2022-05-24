@@ -17,6 +17,19 @@ export default function Profil({ language }) {
   };
 
   const [page, setPage] = useState(0);
+  const badgesn=[{
+    image : 0,
+    text : ["0","0","0"]
+  },{
+    image : 0,
+    text : ["0","0","0"]
+  },{
+    image : 0,
+    text : ["0","0","0"]
+  },{
+    image : 0,
+    text : ["0","0","0"]
+  }]
 
   return (
     <Center>
@@ -330,10 +343,13 @@ export default function Profil({ language }) {
                       inverted={language === 2}
                       style={{
                         padding: 7,
+                        width : 300,
+
                       }}
                       horizontal
                       keyExtractor={(_, index) => index.toString()}
                       data={profiles[selectedProfile].badges}
+                      // data={badgesn}
                       renderItem={({ item, index }) => (
                         <View
                           style={{
@@ -346,14 +362,13 @@ export default function Profil({ language }) {
                             android_ripple={{ color: colors.SECOND }}
                             style={{
                               backgroundColor: colors.SECOND + "AA",
-                              padding: 20,
                               alignItems: "center",
                             }}
                           >
                             <Image
                               source={badges[item.image]}
                               resizeMode={"contain"}
-                              style={{ width: 50, height: 50 }}
+                              style={{ width: 100, height: 100 }}
                             />
                             <Text
                               style={{

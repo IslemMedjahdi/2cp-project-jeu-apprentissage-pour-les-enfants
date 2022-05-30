@@ -443,7 +443,7 @@ export default function ShowProgressSelectedProfile({ navigation, route }) {
         }}
       >
         <Image
-          style={{ height: "100%" }}
+          style={{ height: "100%", bottom: 30 }}
           resizeMode="contain"
           source={require("../../assets/icons/Undo.png")}
         />

@@ -53,7 +53,6 @@ export default function IntroTheme({ navigation, route }) {
             backgroundColor: "#FFFFFFDD",
             padding: 5,
             borderRadius: 20,
-             
           }}
         >
           <View
@@ -66,9 +65,7 @@ export default function IntroTheme({ navigation, route }) {
               delay={500}
               duration={1000}
               animation={"fadeInLeft"}
-              style={{
-                 
-              }}
+              style={{}}
             >
               <Text
                 style={{
@@ -84,9 +81,8 @@ export default function IntroTheme({ navigation, route }) {
             style={{
               flexDirection: "row",
               justifyContent: "space-evenly",
+              alignItems: "center",
               width: "100%",
-               
-              height: (15 * Dimensions.get("window").height) / 100,
             }}
           >
             <Pressable
@@ -101,7 +97,6 @@ export default function IntroTheme({ navigation, route }) {
                     fontFamily: user.language === 2 ? "ArbFont" : "RowdiesBold",
                     fontSize: user.language === 2 ? 28 : 25,
                     textAlign: "center",
-                     
                   }}
                 >
                   {user.language === 0
@@ -115,7 +110,6 @@ export default function IntroTheme({ navigation, route }) {
             <View
               style={{
                 width: 120,
-                bottom : 50
               }}
             >
               <Image
@@ -125,7 +119,7 @@ export default function IntroTheme({ navigation, route }) {
                     { rotateY: user.language === 2 ? "0deg" : "180deg" },
                   ],
                   width: "100%",
-                  borderWidth : 1,
+                  borderWidth: 1,
                 }}
                 source={require("../../assets/hero/mystick0.png")}
               />

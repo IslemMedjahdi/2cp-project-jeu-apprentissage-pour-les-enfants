@@ -44,27 +44,6 @@ export const profilesSlice = createSlice({
         (e) => console.warn(e)
       );
     },
-    addBadgeHandler : (state,action) => {
-      console.log(state.value[action.payload.selectedProfile]);
-      console.log("----------------");
-      console.log(state.value[action.payload.selectedProfile].badges);
-      console.log("----------------");
-      let find = false;
-      console.log(action.payload.badge);
-       state.value[action.payload.selectedProfile].badges.forEach(badge => {
-         if (!find){
-           find = (badge.image === action.payload.badge.image) ;
-         }
-      }) ;
-      if (!find) state.value[action.payload.selectedProfile].badges[state.value[action.payload.selectedProfile].badges.length] = (action.payload.badge);
-      console.log("find."+find)
-      console.log("----------------");
-      console.log(state.value[action.payload.selectedProfile].badges);
-      console.log("----------------");
-      AsyncStorageLib.setItem("profiles", JSON.stringify(state.value)).catch(
-        (e) => console.warn(e)
-      );
-    }
   },
 });
 
@@ -75,6 +54,6 @@ export const {
   loadProfiles,
   addProfileHandler,
   muteMusic,
-  addBadgeHandler
+  addBadgeHandler,
 } = profilesSlice.actions;
 export default profilesSlice.reducer;

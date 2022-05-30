@@ -295,6 +295,7 @@ export default function QuizzTest({ navigation, route }) {
           <Pressable
             onPress={onPressHandlerQuestion}
             style={{
+              bottom: 20,
               left: 20,
             }}
           >
@@ -423,7 +424,7 @@ export default function QuizzTest({ navigation, route }) {
         <Modal
           isOpen={isOpen}
           style={{
-            height: (60 * Dimensions.get("window").height) / 100,
+            height: (65 * Dimensions.get("window").height) / 100,
             width: "90%",
             borderWidth: 5,
             borderRadius: 39,
@@ -431,7 +432,7 @@ export default function QuizzTest({ navigation, route }) {
             borderColor: "white",
             alignSelf: "center",
             position: "absolute",
-            top: (20 * Dimensions.get("window").height) / 100,
+            top: (17.5 * Dimensions.get("window").height) / 100,
           }}
         >
           <Text
@@ -441,7 +442,7 @@ export default function QuizzTest({ navigation, route }) {
               fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
               textAlign: "center",
               padding: 20,
-              height: (45 * Dimensions.get("window").height) / 100,
+              height: (50 * Dimensions.get("window").height) / 100,
             }}
           >
             {themes[index].questions[indexQuestion].explanation[language]}

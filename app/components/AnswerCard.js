@@ -16,8 +16,13 @@ export default function AnswerCard({
       animation={"zoomIn"}
       duration={1000}
       style={{
+<<<<<<< HEAD
         height: (16 * Dimensions.get("window").height) / 100,
         width: themeIndex===4 && type==0 ? "100%" : "45%",
+=======
+        height: (15 * Dimensions.get("window").height) / 100,
+        width: "45%",
+>>>>>>> 10d53c0ad6b02077de07de5af26a54c92d5a6925
         margin: 5,
         justifyContent: "center",
         overflow: "hidden",
@@ -53,7 +58,7 @@ export default function AnswerCard({
             style={{
               color: "black",
               fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-              fontSize: language === 2 ? 22 : 20,
+              fontSize: language === 2 ? 22 : 18.9,
               padding: 5,
               borderRadius: 15,
               textAlign: "center",

@@ -79,8 +79,18 @@ export default function Results({ navigation, route }) {
         });
       });
       if (stars >= 2) {
+        let badges = [...profile.badges];
+        let find = false;
+        badges.forEach((badge) => {
+          if (!find) {
+            find = badge.image === themes[index].badge.image;
+          }
+        });
+        if (!find) {
+          badges.push(themes[index].badge);
+        }
         if (index !== profile.levels.length - 1) {
-          setProfile({ ...profile, level: profile.level + 1 });
+          setProfile({ ...profile, level: profile.level + 1, badges: badges });
           setLevels((existingItems) => {
             return existingItems.map((item, j) => {
               return j === index + 1 ? { ...item, unLocked: true } : item;
@@ -98,13 +108,6 @@ export default function Results({ navigation, route }) {
   useEffect(() => {
     setProfile({ ...profile, score: profile.score + score });
   }, []);
-
-  useEffect(() => {
-    if (stars>=2){
-      console.log("badge");
-      dispatch(addBadgeHandler({selectedProfile,badge : themes[index].badge}));
-    }
-  }, [stars]);
 
   return (
     <ImageBackground
@@ -204,7 +207,8 @@ export default function Results({ navigation, route }) {
               ? "Score"
               : user.language === 1
               ? "Score"
-              : "مجموع النقاط"}{" : "}
+              : "مجموع النقاط"}
+            {" : "}
             {score}
           </Text>
         </View>

@@ -9,6 +9,7 @@ export default function AnswerCard({
   language,
   type,
   image,
+  themeIndex,
 }) {
   return (
     <Animatable.View
@@ -16,7 +17,7 @@ export default function AnswerCard({
       duration={1000}
       style={{
         height: (16 * Dimensions.get("window").height) / 100,
-        width: "45%",
+        width: themeIndex===4 && type==0 ? "100%" : "45%",
         margin: 5,
         justifyContent: "center",
         overflow: "hidden",

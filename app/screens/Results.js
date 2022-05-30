@@ -68,7 +68,7 @@ export default function Results({ navigation, route }) {
     )
       setStars(2);
     else if (score === 0) setStars(0);
-    else setStars(3);
+    else setStars(1);
   }, []);
 
   useEffect(() => {

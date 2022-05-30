@@ -41,7 +41,7 @@ export default function QuizzTest({ navigation, route }) {
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
   const dispatch = useDispatch();
-  const [indexQuestion, setIndexQuestion] = useState(0);
+  const [indexQuestion, setIndexQuestion] = useState(1);
   const [soundQuestionOn, setSoundQuestionOn] = useState(true);
   const [answersColors, setAnswersColors] = useState([
     "white",
@@ -323,7 +323,7 @@ export default function QuizzTest({ navigation, route }) {
         >
           <View
             style={{
-              flexDirection: language === 2 ? "row-reverse" : "row",
+              flexDirection: index === 4 && themes[index].questions[indexQuestion].type==0  ? "column" : language === 2 ? "row-reverse" : "row",
               justifyContent: "space-between",
               alignItems: "center",
             }}
@@ -347,6 +347,7 @@ export default function QuizzTest({ navigation, route }) {
                     language
                   ]
                 }
+                themeIndex={index}
               />
             )}
             {themes[index].questions[indexQuestion].answers[1] && (
@@ -368,6 +369,7 @@ export default function QuizzTest({ navigation, route }) {
                     language
                   ]
                 }
+                themeIndex={index}
               />
             )}
           </View>
@@ -397,6 +399,7 @@ export default function QuizzTest({ navigation, route }) {
                     language
                   ]
                 }
+                themeIndex={index}
               />
             )}
             {themes[index].questions[indexQuestion].answers[3] && (
@@ -418,6 +421,7 @@ export default function QuizzTest({ navigation, route }) {
                     language
                   ]
                 }
+                themeIndex={index}
               />
             )}
           </View>

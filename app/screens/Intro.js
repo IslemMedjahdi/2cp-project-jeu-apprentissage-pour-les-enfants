@@ -87,7 +87,7 @@ export default function Intro({ navigation }) {
               {user.language === 0
                 ? "SALUT " +
                   profiles[selectedProfile].name +
-                  ", te revoilà pour une nouvelle aventure !"
+                  ", te revoilà pour une nouvelle aventure !Rien de mieux qu'apprendre tout en s'amusant"
                 : user.language === 1
                 ? "Welcome  " +
                   profiles[selectedProfile].name +
@@ -116,9 +116,9 @@ export default function Intro({ navigation }) {
                 }}
               >
                 {user.language === 0
-                  ? "rien de mieux qu'apprendre tout en s'amusant"
+                  ? ""
                   : user.language === 1
-                  ? "nothing better than learning while having fun"
+                  ? "Nothing better than learning while having fun"
                   : "لا شيئ أفضل من التعلم و الاستمتاع"}
               </Text>
 

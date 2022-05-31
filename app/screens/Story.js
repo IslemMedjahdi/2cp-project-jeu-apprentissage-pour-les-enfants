@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
+import { useSelector } from "react-redux";
 import { ImageBackground, Pressable, Text, View, Image } from "react-native";
 
 
 export default function Story({ navigation }) {
   const [page, setPage] = useState(0);
+  const language = useSelector((state) => state.user.value.language);
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -50,15 +51,37 @@ export default function Story({ navigation }) {
                 color: "#000000",
               }}
             >
-              {page === 4
+              {(page === 4 && language==0)
                 ? "Aujourd'hui je me sens en bonne santé et je suis là pour t'éviter de tomber dans le même piège ... "
-                : page === 3
+                :(page === 4 && language==1)
+                ?"Today I feel healthy and I'm here to prevent you from falling into the same trap..."
+                :(page === 4 && language==2)
+                ?"اليوم أنا بصحة جيدة وأنا هنا لمنعك من الوقوع في نفس الفخ..."
+                :(page === 3 && language==0)
                 ? "Mais le jour où j'ai commencé à me sentir mal dans ma peau, j'ai décidé de faire attention à mon alimentation ..."
-                : page === 2
+                :(page === 3 && language==1)
+                ?"But the day I started to feel bad about myself, I decided to pay attention to my diet..."
+                :(page === 3 && language==2)
+                ?"لكن في اليوم الذي بدأت فيه أشعر بالضيق تجاه نفسي ، قررت الانتباه إلى ما أتناوله ..."
+                :(page === 2 && language==0)
                 ? "Avec le temps j'ai commencé à grossir, de jour en jour je suis devenu obèse ..."
-                : page === 1
-                ? "Mon estomac me faisait souvent mal et je me retrouvais malade d'intoxication ..."
-                : "Auparavant je ne faisais pas attention à mon alimentation, je mangeais tout et n'importe quoi ..."}
+                :(page === 2 && language==1)
+                ?"Over time I started to put on weight, day by day I became obese..."
+                :(page === 2 && language==2)
+                ?"مع مرور الوقت بدأ وزني في الزيادة  ،يومًا بعد يوم  أصبحت أعاني من السمنة ..."
+                :(page === 1 && language==0)
+                ? "Mon estomac me faisait souvent mal et je tombais malade d'intoxication ..."
+                :(page === 1 && language==1)
+                ?"My stomach often hurt and I fell ill with intoxication ..."
+                :(page === 1 && language==2)
+                ?"كثيرا ما كانت تؤلمني معدتي وأصاب بالتسمم الغذائي..."
+                :(page === 0 && language==0)
+                ? "Auparavant je ne faisais pas attention à mon alimentation, je mangeais tout et n'importe quoi ..."
+                :(page === 0 && language==1)
+                ?"Previously I did not pay attention to my diet, I ate everything and anything..."
+                :"في السابق لم أكن أعير إهتماما لما أتناوله فقد كنت أتناول كل ما أجد أمامي ..." }
+                
+               
             </Text>
           </View>
           <View

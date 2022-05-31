@@ -5,7 +5,7 @@ const themes = [
     backgroundGame: require("../../assets/background/background0.jpg"),
     badge: {
       image: 0,
-      text: ["Mes repas", "0", "0"],
+      text: ["Mes repas", "My meals", "وجباتي"],
     },
     intro: [
       " Notre aventure commence ici à la maison. Ensemble nous apprendrons les secrets d’une alimentation saine. Olé,que l’aventure commence !",
@@ -511,7 +511,7 @@ const themes = [
     ],
     badge: {
       image: 1,
-      text: ["Mon panier", "1", "1"],
+      text: ["Mon panier", "My scuttle", "سلتي"],
     },
     skills: [
       [
@@ -546,26 +546,26 @@ const themes = [
         type: 1,
         answers: [
           {
-            answer: ["Orange", "Oranges", ""],
+            answer: ["Orange", "Oranges", "برتقال"],
             image: require("../../assets/images/orange.jpg"),
             correct: true,
             color: 0,
           },
 
           {
-            answer: ["Banane", "", "   "],
+            answer: ["Banane", "Banana", "موز"],
             image: require("../../assets/images/banane.png"),
             correct: false,
             color: 1,
           },
           {
-            answer: ["Ananas", "", "  "],
+            answer: ["Ananas", "Pineapple", "اناناس"],
             image: require("../../assets/images/ananas.jpg"),
             correct: false,
             color: 2,
           },
           {
-            answer: ["Kiwi", "", ""],
+            answer: ["Kiwi", "kiwi", "كيوي"],
             image: require("../../assets/images/kawkaw.jpg"),
             correct: false,
             color: 3,
@@ -626,25 +626,25 @@ const themes = [
         type: 1,
         answers: [
           {
-            answer: ["Soda", "", ""],
+            answer: ["Soda", "Soda", "صودا"],
             image: require("../../assets/images/soda3.jpg"),
             correct: true,
             color: 0,
           },
           {
-            answer: ["Boite de céreales ", "", ""],
+            answer: ["Boite de céreales", "cereal", "علبة الحبوب"],
             image: require("../../assets/images/céréales2.jpg"),
             correct: false,
             color: 3,
           },
           {
-            answer: ["Du biscuit ", "", ""],
+            answer: ["Du biscuit ", "cookie", "بسكويت"],
             image: require("../../assets/images/biscuit.jpg"),
             correct: false,
             color: 2,
           },
           {
-            answer: ["De la confiture", "", ""],
+            answer: ["De la confiture", "jam", "المعجون"],
             image: require("../../assets/images/conféture.jpg"),
             correct: false,
             color: 1,
@@ -678,13 +678,13 @@ const themes = [
             color: 1,
           },
           {
-            answer: ["Nouilles instantanées", "Instant noodle", " "],
+            answer: ["Nouilles instantanées", "Instant noodle", "المكرونة"],
             image: require("../../assets/images/Nouilles.jpeg"),
             correct: true,
             color: 0,
           },
           {
-            answer: ["Des aubergines", " ", " "],
+            answer: ["Des aubergines", "Eggplant", " باذنجان"],
             image: require("../../assets/images/danjel.jpg"),
             correct: false,
             color: 3,
@@ -739,7 +739,7 @@ const themes = [
 
         answers: [
           {
-            answer: ["La laitue", "", ""],
+            answer: ["La laitue", "The lettuce", "الخس"],
             image: require("../../assets/images/laitue.jpg"),
             correct: false,
             color: 2,
@@ -756,13 +756,13 @@ const themes = [
             color: 1,
           },
           {
-            answer: ["Tomates", "", "  "],
+            answer: ["Tomates", "Tomatoes", "الطماطم"],
             image: require("../../assets/images/tomate2.png"),
             correct: false,
             color: 2,
           },
           {
-            answer: ["La mayonnaise", "", ""],
+            answer: ["La mayonnaise", "The mayonnaise", "المايونيز"],
             image: require("../../assets/images/mayonnaise.jpg"),
             correct: true,
             color: 0,
@@ -789,19 +789,19 @@ const themes = [
             color: 2,
           },
           {
-            answer: ["La viande surgelée", "", ""],
+            answer: ["La viande surgelée", "frozen meat", "اللحم المجمد"],
             image: require("../../assets/images/viandesurg.jpg"),
             correct: true,
             color: 0,
           },
           {
-            answer: ["Poisson ", "", ""],
+            answer: ["Poisson", "fish", "سمك"],
             image: require("../../assets/images/fish.jpg"),
             correct: false,
             color: 3,
           },
           {
-            answer: ["La viande hachée", "", ""],
+            answer: ["La viande hachée", "Minced meat", "اللحم المفروم"],
             image: require("../../assets/images/kafta.jpg"),
             correct: false,
             color: 1,
@@ -848,7 +848,7 @@ const themes = [
             answer: ["Oui", "Yes", "نعم"],
             image: null,
             correct: false,
-            color: 1,
+            color: 3,
           },
 
           {
@@ -873,7 +873,7 @@ const themes = [
     ],
     badge: {
       image: 2,
-      text: ["Ma santé", "2", "2"],
+      text: ["Ma santé", "My health", "صحتي"],
     },
     skills: [
       [
@@ -931,7 +931,7 @@ const themes = [
           {
             answer: ["faux", "false", "خطأ"],
             correct: false,
-            color: 1,
+            color: 3,
           },
         ],
       },
@@ -1003,13 +1003,13 @@ const themes = [
             color: 3,
           },
           {
-            answer: ["Lait ", "Milk", "حليب"],
+            answer: ["Lait", "Milk", "حليب"],
             image: require("../../assets/images/milk.jpg"),
             correct: false,
             color: 2,
           },
           {
-            answer: [" jus   ", "juice", "عصير "],
+            answer: ["jus", "juice", "عصير "],
             image: require("../../assets/images/jus.png"),
             correct: false,
             color: 1,
@@ -1371,7 +1371,7 @@ const themes = [
           {
             answer: ["faux", "false", "خطأ"],
             correct: false,
-            color: 1,
+            color: 3,
           },
         ],
       },
@@ -1389,7 +1389,7 @@ const themes = [
     ],
     badge: {
       image: 3,
-      text: ["Mon menu", "3", "3"],
+      text: ["Mon menu", "My menu", "قائمتي"],
     },
     skills: [
       [
@@ -1469,7 +1469,7 @@ const themes = [
             color: 0,
           },
           {
-            answer: ["Croquette de poulet", "Chicken nuggets", " ناجتس الدجاج"],
+            answer: ["Croquette de poulet", "Chicken nuggets", "قطع الدجاج"],
             image: require("../../assets/images/chickenNuggets.png"),
             correct: false,
             color: 2,
@@ -1508,7 +1508,7 @@ const themes = [
             color: 0,
           },
           {
-            answer: ["Cake", "Cake", "كيك"],
+            answer: ["Cake", "Cake", "كعك"],
             image: require("../../assets/images/chocoCake.jpg"),
             correct: false,
             color: 2,
@@ -1535,7 +1535,7 @@ const themes = [
         ],
         answers: [
           {
-            answer: ["Milkshake", "Milkshake", "ميلك شايك"],
+            answer: ["Milkshake", "Milkshake", "مخفوق الحليب"],
             image: require("../../assets/images/milkShake.jpg"),
             correct: false,
             color: 3,
@@ -1577,7 +1577,7 @@ const themes = [
             answer: ["Le pain blanc", "White bread", "الخبز الابيض"],
             image: require("../../assets/images/whiteBread.jpg"),
             correct: false,
-            color: 1,
+            color: 3,
           },
 
           {
@@ -1605,7 +1605,7 @@ const themes = [
             answer: ["Oui", "Yes", "نعم"],
             image: null,
             correct: false,
-            color: 1,
+            color: 3,
           },
 
           {
@@ -1629,7 +1629,7 @@ const themes = [
             answer: ["Oui", "Yes", "نعم"],
             image: null,
             correct: false,
-            color: 1,
+            color: 3,
           },
 
           {
@@ -1651,7 +1651,7 @@ const themes = [
     ],
     badge: {
       image: 4,
-      text: ["super-héro", "4", "4"],
+      text: ["super-héro", "super hero", "بطل خارق"],
     },
     skills: [
       "Développer les capacités de mémorisation et d'attention de l'enfant.",
@@ -1965,7 +1965,7 @@ const themes = [
             answer: ["La viande", "Meat", "اللحم"],
             image: require("../../assets/images/meat.jpg"),
             correct: false,
-            color: 1,
+            color: 3,
           },
           {
             answer: ["Le lait", "Milk", "حليب"],

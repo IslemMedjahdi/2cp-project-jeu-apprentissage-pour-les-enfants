@@ -93,7 +93,7 @@ export default React.memo(function Home({ navigation }) {
             }
             desc={
               language === 0
-                ? "commence ta propre histoire"
+                ? "Commence ta propre histoire"
                 : language === 1
                 ? "Start your own story"
                 : "ابدأ قصتك الخاصة"
@@ -117,7 +117,7 @@ export default React.memo(function Home({ navigation }) {
               language === 0
                 ? "débloque plus de challenges"
                 : language === 1
-                ? "unlock more challenges"
+                ? "Unlock more challenges"
                 : "افتح تحديات أكثر"
             }
             image={require("../../assets/hero/mystick3.png")}

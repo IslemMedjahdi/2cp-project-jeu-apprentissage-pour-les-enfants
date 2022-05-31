@@ -500,7 +500,7 @@ const themes = [
     ],
   },
   {
-    name: ["au marché", "at the market ", "في السوق"],
+    name: ["Au marché", "At the market ", "في السوق"],
     background: require("../../assets/background/march.png"),
     backgroundGame: require("../../assets/background/marche.png"),
     intro: [
@@ -862,7 +862,7 @@ const themes = [
   },
 
   {
-    name: ["chez le medecin ", "at the doctor", "عند الطبيب"],
+    name: ["Chez le medecin ", "At the doctor", "عند الطبيب"],
     background: require("../../assets/background/hopital.png"),
     backgroundGame: require("../../assets/background/cabinet.jpg"),
     intro: [
@@ -896,18 +896,18 @@ const themes = [
         type: 0,
         explanation: [],
         question: [
-          "laver les fruits et légumes avant de les manger n'est pas important ",
-          "washing fruits and vegetables before eating them is not important",
+          "Laver les fruits et légumes avant de les manger n'est pas important ",
+          "Washing fruits and vegetables before eating them is not important",
           "ليس من المهم غسل الفواكه والخضروات قبل تناولها",
         ],
         answers: [
           {
-            answer: ["vrai", "true", "صحيح"],
+            answer: ["Vrai", "True", "صحيح"],
             correct: false,
             color: 3,
           },
           {
-            answer: ["faux", "false", "خطأ"],
+            answer: ["Faux", "False", "خطأ"],
             correct: true,
             color: 0,
           },
@@ -923,12 +923,12 @@ const themes = [
         ],
         answers: [
           {
-            answer: ["vrai", "true", "صحيح"],
+            answer: ["Vrai", "True", "صحيح"],
             correct: true,
             color: 0,
           },
           {
-            answer: ["faux", "false", "خطأ"],
+            answer: ["Faux", "False", "خطأ"],
             correct: false,
             color: 1,
           },
@@ -1090,14 +1090,14 @@ const themes = [
         ],
         answers: [
           {
-            answer: [" car c’est amusant ", "because it's fun", "لأنه ممتع"],
+            answer: [" Car c’est amusant ", "because it's fun", "لأنه ممتع"],
             correct: false,
             color: 3,
           },
           {
             answer: [
-              "pour se rafraîchir les mains ",
-              "to refresh your hands",
+              "Pour se rafraîchir les mains ",
+              "To refresh your hands",
               "لانعاش يديك",
             ],
             correct: false,
@@ -1105,8 +1105,8 @@ const themes = [
           },
           {
             answer: [
-              "pour empêcher toutes bactéries de s’infiltrer dans notre corps ",
-              "to prevent any bacteria from infiltrating our body",
+              "Pour empêcher toutes bactéries de s’infiltrer dans notre corps ",
+              "To prevent any bacteria from infiltrating our body",
               "لمنع أي بكتيريا من التسلل إلى أجسامنا",
             ],
             correct: true,
@@ -1114,8 +1114,8 @@ const themes = [
           },
           {
             answer: [
-              "pour jouer avec les bulles du savon",
-              "to play with soap bubbles",
+              "Pour jouer avec les bulles du savon",
+              "To play with soap bubbles",
               "للعب بفقاعات الصابون",
             ],
             correct: false,
@@ -1139,7 +1139,7 @@ const themes = [
           {
             answer: [
               "c'est bon poour ma croissance  ",
-              "it's good for my growth",
+              "It's good for my growth",
               "إنه جيد لنموي",
             ],
             correct: false,
@@ -1148,7 +1148,7 @@ const themes = [
 
           {
             answer: [
-              "c'est bon pour le developpement de mon corps ",
+              "C'est bon pour le developpement de mon corps ",
               "It's good for the development of my body",
               "إنه جيد لنمو جسدي",
             ],
@@ -1159,7 +1159,7 @@ const themes = [
           {
             answer: [
               "ça ne sert à rien ça fatigue ",
-              "it's useless it's tiring",
+              "It's useless it's tiring",
               "إنه غير مجدي إنه متعب",
             ],
             correct: true,
@@ -1168,7 +1168,7 @@ const themes = [
           {
             answer: [
               "ça me permet de relaxer ",
-              "it allows me to relax",
+              "It allows me to relax",
               "يسمح لي بالاسترخاء",
             ],
             correct: false,
@@ -1229,7 +1229,7 @@ const themes = [
           "البروتين ضروري لنمو الخلايا والأنسجة في الجسم والحفاظ عليها",
         ],
         question: [
-          "pour une bonne croissance et santé des muscles , tu dois absolument consommer :",
+          "Pour une bonne croissance et santé des muscles , tu dois absolument consommer :",
           "For good muscle growth and health, you absolutely must consume:",
           "من أجل نمو العضلات وصحتها بشكل جيد ، يجب أن تستهلك:",
         ],
@@ -1274,30 +1274,30 @@ const themes = [
           "الفئات السبع هي: البروتينات والدهون والكربوهيدرات والألياف والفيتامينات والأملاح المعدنية والمياه.",
         ],
         question: [
-          " combien de catégories de nutriments y’a t -ils ?",
-          "how many categories of nutrients are there?",
+          " Combien de catégories de nutriments y’a t -ils ?",
+          "How many categories of nutrients are there?",
           "كم عدد فئات المغذيات الموجودة؟",
         ],
         answers: [
           {
-            answer: ["un nutriment", "one nutriment", "  مغذ واحد"],
+            answer: ["Un nutriment", "One nutriment", "  مغذ واحد"],
             correct: false,
             color: 3,
           },
           {
-            answer: ["trois nutriments", "three nutrients", "ثلاثة مغذيات"],
+            answer: ["Trois nutriments", "Three nutrients", "ثلاثة مغذيات"],
             correct: false,
             color: 2,
           },
           {
-            answer: ["septs nutriments", "seven nutrients ", "سبعة مغذيات"],
+            answer: ["Septs nutriments", "Seven nutrients ", "سبعة مغذيات"],
             correct: true,
             color: 0,
           },
           {
             answer: [
-              "quinze nutriments",
-              "fifteen nutrients",
+              "Quinze nutriments",
+              "Fifteen nutrients",
               "خمسة عشر مادة مغذية",
             ],
             correct: false,
@@ -1320,8 +1320,8 @@ const themes = [
         answers: [
           {
             answer: [
-              "l'excès de vitamines ",
-              "excess vitamins",
+              "L'excès de vitamines ",
+              "Excess vitamins",
               "فيتامينات زائدة",
             ],
             correct: false,
@@ -1330,22 +1330,22 @@ const themes = [
 
           {
             answer: [
-              "le manque de calcium ",
-              "lack of calcium",
+              "Le manque de calcium ",
+              "Lack of calcium",
               "نقص الكالسيوم",
             ],
             correct: false,
             color: 1,
           },
           {
-            answer: ["le manque de fer ", "lack of iron", "نقص الحديد"],
+            answer: ["Le manque de fer ", "Lack of iron", "نقص الحديد"],
             correct: true,
             color: 0,
           },
           {
             answer: [
-              "l'excès de glucide ",
-              "excess carbohydrate",
+              "L'excès de glucide ",
+              "Excess carbohydrate",
               " الكربوهيدرات الزائدة ",
             ],
             correct: false,
@@ -1363,12 +1363,12 @@ const themes = [
         ],
         answers: [
           {
-            answer: ["vrai", "true", "صحيح"],
+            answer: ["Vrai", "True", "صحيح"],
             correct: true,
             color: 0,
           },
           {
-            answer: ["faux", "false", "خطأ"],
+            answer: ["Faux", "False", "خطأ"],
             correct: false,
             color: 1,
           },
@@ -1450,8 +1450,8 @@ const themes = [
         ],
         type: 1,
         explanation: [
-          "c'est un excellent repas sain, il contient des protéines, des glucides et une bonne portion de légumes et il est faible en gras et en sucre",
-          "it is a great healthy meal, It contains protein, carbs and a good helping of vegetables and it is low in fat and sugar",
+          "C'est un excellent repas sain, il contient des protéines, des glucides et une bonne portion de légumes et il est faible en gras et en sucre",
+          "It is a great healthy meal, It contains protein, carbs and a good helping of vegetables and it is low in fat and sugar",
           "إنها وجبة صحية رائعة ، فهي تحتوي على البروتينات والكربوهيدرات و الخضروات وقليلة الدهون والسكر",
         ],
         answers: [
@@ -1501,7 +1501,7 @@ const themes = [
             color: 1,
           },
           {
-            answer: ["Salade de fruits", "fruit salad", "سلطة فواكه"],
+            answer: ["Salade de fruits", "Fruit salad", "سلطة فواكه"],
             image: require("../../assets/images/fruits.jpg"),
             correct: true,
             color: 0,
@@ -1528,7 +1528,7 @@ const themes = [
         ],
         type: 1,
         explanation: [
-          "ce n'est pas bon pour la santé parce qu'il contient beaucoup de sucre. Consommer trop de soda peut entraîner une prise de poids, du diabète et des problèmes cardiovasculaires.",
+          "Ce n'est pas bon pour la santé parce qu'il contient beaucoup de sucre. Consommer trop de soda peut entraîner une prise de poids, du diabète et des problèmes cardiovasculaires.",
           "Soda is not good for a person's health because it contains lots of sugar. Consuming too much soda may lead to weight gain, diabetes, and cardiovascular conditions.",
           "الصودا ليست جيدة لصحة الإنسان لأنها تحتوي على الكثير من السكر. قد يؤدي استهلاك الكثير من الصودا إلى زيادة الوزن ومرض السكري وأمراض القلب والأوعية الدموية.",
         ],
@@ -1618,7 +1618,7 @@ const themes = [
       {
         question: [
           "Est ce que tu dois boire de l'eau pendant le repas ?",
-          "will you drink water during the meal ?",
+          "Will you drink water during the meal ?",
           "هل تشرب الماء أثناء الوجبة؟",
         ],
         type: 0,

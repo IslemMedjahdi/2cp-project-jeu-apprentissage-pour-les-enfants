@@ -19,11 +19,6 @@ import SettingsGame from "../components/SettingsGame";
 import AnswerCard from "../components/AnswerCard";
 import { Modal } from "native-base";
 
-/* question a revoir : 
-chez medecin : 6
-restau : 3,5,6
-mes amis : 7,8,9,10
-*/
 export default function QuizzTest({ navigation, route }) {
   const { index } = route.params;
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +36,7 @@ export default function QuizzTest({ navigation, route }) {
   const selectedProfile = useSelector((state) => state.selectedProfile.value);
   const language = useSelector((state) => state.user.value.language);
   const dispatch = useDispatch();
-  const [indexQuestion, setIndexQuestion] = useState(1);
+  const [indexQuestion, setIndexQuestion] = useState(0);
   const [soundQuestionOn, setSoundQuestionOn] = useState(true);
   const [answersColors, setAnswersColors] = useState([
     "white",
@@ -173,7 +168,6 @@ export default function QuizzTest({ navigation, route }) {
         case 2:
           setImg(require("../../assets/hero/mystick5.png"));
           break;
-
         case 3:
           setImg(require("../../assets/hero/mystick9.png"));
           break;
@@ -295,7 +289,6 @@ export default function QuizzTest({ navigation, route }) {
           <Pressable
             onPress={onPressHandlerQuestion}
             style={{
-              bottom: 20,
               left: 20,
             }}
           >
@@ -322,7 +315,12 @@ export default function QuizzTest({ navigation, route }) {
         >
           <View
             style={{
-              flexDirection: index === 4 && themes[index].questions[indexQuestion].type==0  ? "column" : language === 2 ? "row-reverse" : "row",
+              flexDirection:
+                index === 4 && themes[index].questions[indexQuestion].type == 0
+                  ? "column"
+                  : language === 2
+                  ? "row-reverse"
+                  : "row",
               justifyContent: "space-between",
               alignItems: "center",
             }}
@@ -428,7 +426,7 @@ export default function QuizzTest({ navigation, route }) {
         <Modal
           isOpen={isOpen}
           style={{
-            height: (65 * Dimensions.get("window").height) / 100,
+            height: (60 * Dimensions.get("window").height) / 100,
             width: "90%",
             borderWidth: 5,
             borderRadius: 39,
@@ -436,7 +434,7 @@ export default function QuizzTest({ navigation, route }) {
             borderColor: "white",
             alignSelf: "center",
             position: "absolute",
-            top: (17.5 * Dimensions.get("window").height) / 100,
+            top: (20 * Dimensions.get("window").height) / 100,
           }}
         >
           <Text
@@ -446,7 +444,7 @@ export default function QuizzTest({ navigation, route }) {
               fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
               textAlign: "center",
               padding: 20,
-              height: (50 * Dimensions.get("window").height) / 100,
+              height: (45 * Dimensions.get("window").height) / 100,
             }}
           >
             {themes[index].questions[indexQuestion].explanation[language]}

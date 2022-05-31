@@ -165,7 +165,7 @@ export default function Settings({
               </View>
               <Pressable
                 onPress={() =>
-                  Linking.openURL("https://github.com/IslemMedjahdi")
+                  Linking.openURL("https://fooducathy.vercel.app/#help")
                 }
                 style={{
                   flexDirection: language === 2 ? "row-reverse" : "row",
@@ -195,7 +195,7 @@ export default function Settings({
               </Pressable>
               <Pressable
                 onPress={() =>
-                  Linking.openURL("https://github.com/IslemMedjahdi")
+                  Linking.openURL("https://fooducathy.vercel.app/#help")
                 }
                 style={{
                   flexDirection: language === 2 ? "row-reverse" : "row",

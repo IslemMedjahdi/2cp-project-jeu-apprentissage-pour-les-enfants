@@ -9,14 +9,15 @@ export default function AnswerCard({
   language,
   type,
   image,
+  themeIndex,
 }) {
   return (
     <Animatable.View
       animation={"zoomIn"}
       duration={1000}
       style={{
-        height: (15 * Dimensions.get("window").height) / 100,
-        width: "45%",
+        height: (16 * Dimensions.get("window").height) / 100,
+        width: themeIndex===4 && type===0 ? "100%" : "45%",
         margin: 5,
         justifyContent: "center",
         overflow: "hidden",
@@ -52,7 +53,7 @@ export default function AnswerCard({
             style={{
               color: "black",
               fontFamily: language === 2 ? "ArbFont" : "RowdiesBold",
-              fontSize: language === 2 ? 22 : 18.9,
+              fontSize: language === 2 ? 22 : 18,
               padding: 5,
               borderRadius: 15,
               textAlign: "center",

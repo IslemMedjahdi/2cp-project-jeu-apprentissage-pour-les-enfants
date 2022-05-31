@@ -89,8 +89,8 @@ export default function Results({ navigation, route }) {
         if (!find) {
           badges.push(themes[index].badge);
         }
-        if (index !== profile.levels.length - 1) {
-          setProfile({ ...profile, level: profile.level + 1, badges: badges });
+        setProfile({ ...profile, level: index !== profile.levels.length -1 ? profile.level + 1 : profile.level,badges : badges });
+        if (index !== profile.levels.length -1) {
           setLevels((existingItems) => {
             return existingItems.map((item, j) => {
               return j === index + 1 ? { ...item, unLocked: true } : item;

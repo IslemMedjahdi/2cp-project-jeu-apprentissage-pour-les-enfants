@@ -5,7 +5,7 @@ const themes = [
     backgroundGame: require("../../assets/background/background0.jpg"),
     badge: {
       image: 0,
-      text: ["Mes repas", "0", "0"],
+      text: ["0", "0", "0"],
     },
     intro: [
       " Notre aventure commence ici à la maison. Ensemble nous apprendrons les secrets d’une alimentation saine. Olé,que l’aventure commence !",
@@ -230,8 +230,7 @@ const themes = [
           "What are the components of a balanced meal ?",
           "من ماذا تتكون وجبة متوازنة ؟ ",
         ],
-        type: 0,
-        // type : 1,
+        type: 1,
         explanation: [
           "Un repas équilibré doit être composé d'aliments des trois groupes alimentaires voire les légumes et les fruits, les produits de grains entiers et les aliments protéinés. ?",
           "A balanced meal should include foods from all three food groups including vegetables and fruits, whole grain products and protein foods ?",
@@ -511,7 +510,7 @@ const themes = [
     ],
     badge: {
       image: 1,
-      text: ["Mon panier", "1", "1"],
+      text: ["1", "1", "1"],
     },
     skills: [
       [
@@ -559,7 +558,7 @@ const themes = [
             color: 1,
           },
           {
-            answer: ["Ananas", "", "  "],
+            answer: ["Ananas", "", ""],
             image: require("../../assets/images/ananas.jpg"),
             correct: false,
             color: 2,
@@ -873,7 +872,7 @@ const themes = [
     ],
     badge: {
       image: 2,
-      text: ["Ma santé", "2", "2"],
+      text: ["2", "2", "2"],
     },
     skills: [
       [
@@ -1389,7 +1388,7 @@ const themes = [
     ],
     badge: {
       image: 3,
-      text: ["Mon menu", "3", "3"],
+      text: ["3", "3", "3"],
     },
     skills: [
       [
@@ -1651,14 +1650,15 @@ const themes = [
     ],
     badge: {
       image: 4,
-      text: ["super-héro", "4", "4"],
+      text: ["4", "4", "4"],
     },
     skills: [
-      "Développer les capacités de mémorisation et d'attention de l'enfant.",
-      "Develop the child's memory and attention skills.",
-      ".تنمية مهارات الذاكرة والانتباه لدى الطفل",
+      [
+        "Développer les capacités de mémorisation et d'attention de l'enfant.",
+        "Develop the child's memory and attention skills.",
+        ".تنمية مهارات الذاكرة والانتباه لدى الطفل",
+      ]
     ],
-
     background: require("../../assets/background/ecole.png"),
     backgroundGame: require("../../assets/background/ecolebg.png"),
     questions: [
